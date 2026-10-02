@@ -62,6 +62,10 @@ registration, not a preregistration, and it is the first and only registration o
 earlier versions or updates). It records the methods as applied so that readers can check the
 published review against them.
 
+**Start date**
+2026-06-01 (approximate: the review started in June 2026; the exact day was not recorded).
+End of search: October 2026.
+
 **Type of review**
 Dropdown: Systematic review (not meta-analysis, not scoping, not rapid, not umbrella).
 Free-text version: Systematic review with narrative synthesis (no meta-analysis), reported following
