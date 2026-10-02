@@ -190,7 +190,7 @@ Of the \fillin{n} records identified, \fillin{n} remained after de-duplication; 
 
 
 \subsection{Data Extraction and Quality Assessment}\label{sec:extraction}
-For each primary study we extracted the bibliographic data, robotic task, quantum method, quantum type, hardware or simulator, experimental setup and baselines, key quantitative results, and stated and unstated limitations. Robotics application studies were additionally appraised against seven quality criteria (problem formulation, strength of the classical baseline, experimental realism, reporting of hardware and noise, performance metrics, reproducibility, and critical discussion of limitations), each judged as not met, partly met, or met. We chose not to add the judgments into a total score. A total hides which criterion a study fails, and the studies differ too much for totals to be compared. Instead we report the unmet criteria as the study's principal limitation, in the evidence table and in the text of Sections \ref{sec:opt} to \ref{sec:emerging}, and they feed the assessment at the end of each section. The per-study judgments are given in the supplementary material. Two criteria fail most often: only 12 of the 59 appraised studies compared against a state-of-the-art, tuned classical baseline, 19 used no classical baseline at all, and only 6 were tested on a physical robot or in a realistic field setting. \fillin{who extracted and appraised the data, and how disagreements were resolved}.
+For each primary study we extracted the bibliographic data, robotic task, quantum method, quantum type, hardware or simulator, experimental setup and baselines, key quantitative results, and stated and unstated limitations. Robotics application studies were additionally appraised against seven quality criteria (problem formulation, strength of the classical baseline, experimental realism, reporting of hardware and noise, performance metrics, reproducibility, and critical discussion of limitations), each judged as not met, partly met, or met. We chose not to add the judgments into a total score. A total hides which criterion a study fails, and the studies differ too much for totals to be compared. Instead we report the unmet criteria as the study's principal limitation, in the evidence table and in the text of Sections \ref{sec:opt} to \ref{sec:emerging}, and they feed the assessment at the end of each section. The per-study judgments are given in the supplementary material. Two criteria fail most often: only 12 of the 59 appraised studies compared against a state-of-the-art, tuned classical baseline, 19 used no classical baseline at all, and only 6 were tested on a physical robot or in a realistic field setting. Reproducibility is the third weak point: of the 43 studies whose full texts we could check, only 13 released their code or data. \fillin{who extracted and appraised the data, and how disagreements were resolved}.
 
 
 \subsection{Classification Scheme}\label{sec:classification}
@@ -545,11 +545,11 @@ Total & 6 & 27 & 22 & 7 & 3 & 65 \\
 \citet{Salloum2026} & D-Wave Pegasus, Zephyr & Two-link planar IK & Classical QUBO solvers & Lower time-to-solution on larger instances; not better than continuous IK \\
 \citet{Otani2025} & RIKEN/Fujitsu 64-qubit & 2 qubits & -- & Entanglement helps vs.\ no-entanglement circuit \\
 \citet{Goncalves2018} & IBM 5-qubit & A few qubits & -- & Feasibility only \\
-\citet{Gerlach2025} & Gate-based QPU & Small QUBO subproblems in BCP & BCP, EECBS, LaCAM*, LNS2 & Competitive with state of the art \\
+\citet{Gerlach2025} & D-Wave Advantage & Small QUBO subproblems in BCP & BCP, EECBS, LaCAM*, LNS2 & Competitive with state of the art \\
 \citet{Innan2025} & IBM ibm\_kyiv & Small flight graphs & -- & Feasible paths despite noise \\
 \citet{OsabaDrone2025} & D-Wave & 3 drone-routing cases & -- & Feasible routes \\
-\citet{Antero2025} & Cloud QPU & Small 2D grid maps & MCL (analytical) & Accuracy falls as maps grow \\
-\citet{Altrabulsi2026} & IBM & Trained 8-qubit policy & Tabular Q, MLP, SNN (sim.) & Hardware run as feasibility check \\
+\citet{Antero2025} & IBM Brisbane (127-qubit); IonQ noise model & Small 2D grid maps & MCL (analytical) & Accuracy falls as maps grow \\
+\citet{Altrabulsi2026} & IBM ibm\_fez & Trained 8-qubit policy & Tabular Q, MLP, SNN (sim.) & Hardware run as feasibility check \\
 \citet{Ngo2026} & VTT Q5 & 1-qubit agent & -- & $>$10$\times$ faster execution, below control rate \\
 \citet{Widdows2023} & IonQ 11-qubit & 1 to a few qubits & n/a & Reproduces judgment patterns \\
 \citet{Mannone2022} & IBM & 4-qubit swarm model & -- & Toy model \\
