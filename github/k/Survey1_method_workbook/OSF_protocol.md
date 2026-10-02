@@ -106,17 +106,30 @@ and records whether its quantum component ran on hardware, a simulator, or class
 latency and hardware budgets of real robots, and (5) proposes a research agenda and a reporting
 checklist for quantum-robotics experiments.
 
-**Research questions**
+**Primary research question(s)** (wording identical to Section 3.1 of the manuscript)
 - RQ1. Which quantum methods have been applied to which robotic functions (optimization and planning;
   learning, including quantum machine learning and reinforcement learning; sensing and communication;
   and decision-making and reasoning)?
-- RQ2. What level of evidence supports each application, from theoretical analysis to end-to-end
-  deployment on physical robots?
+- RQ2. What level of evidence supports each application, from theory to end-to-end deployment?
 - RQ3. Which reported benefits are genuinely quantum, and which come from quantum-inspired classical
   algorithms or are removed by dequantization?
 - RQ4. Which hardware and deployment constraints (qubit counts, noise, latency, quantum-classical
-  communication, size, weight, power, and cooling) limit quantum computing in robotics today?
+  communication, and size, weight, power, and cooling) limit quantum computing in robotics today?
 - RQ5. Which directions offer realistic benefit by 2030, and what is needed beyond?
+
+PICOS framing (adapted to a computing review):
+- Population: autonomous robots and robotic systems (mobile robots, manipulators, swarms, UAVs, AGVs,
+  autonomous vehicles) and their functions.
+- Intervention: quantum or quantum-inspired methods (quantum computation, quantum sensing, quantum
+  communication, quantum-probability models).
+- Comparison: classical robotics methods and solvers, where the study reports them.
+- Outcomes: evidence level (L1-L6), execution venue (none / simulated / QPU / quantum sensor or link
+  hardware / classical), reported performance against baselines, and deployment constraints.
+- Study design: any primary study (theoretical, simulation, hardware experiment, field trial) and
+  reviews of the topic.
+
+**Secondary research question(s)**
+None; all five questions are primary and all are answered in the final report.
 
 **Information sources**
 IEEE Xplore, ACM Digital Library, Scopus, Web of Science, SpringerLink, ScienceDirect, arXiv
