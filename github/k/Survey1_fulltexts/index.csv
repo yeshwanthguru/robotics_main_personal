@@ -1,0 +1,185 @@
+﻿Citation key,Group,Year,Title,Source file in quantum_computing/ (or MISSING)
+Acuto2022,primary,2022,Variational Quantum Soft Actor-Critic for Robotic Arm Control,quantum_computing/Variational quantum soft actor-critic for robotic arm control.pdf
+Altrabulsi2026,primary,2026,Q-SpiRL: Quantum Spiking Reinforcement Learning for Adaptive Robot Navigation,quantum_computing/Q-SpiRLquantum spiking reinforcement learning for adaptive robot navigation.pdf
+Antero2025,primary,2025,Robot Localization Aided by Quantum Algorithms,quantum_computing/Robot localization aided by quantum algorithms.pdf
+AtchadeAdelomou2021,primary,2021,qRobot: A Quantum Computing Approach in Mobile Robot Order Picking and Batching Problem Solver Optimization,quantum_computing/qRobot a quantum computing approach in mobile robot order picking and batching problem solver optimization.pdf
+Benioff1998,primary,1998,Quantum robots and environments,quantum_computing/Survey2_Papers/Extra_relevant_not_in_list/Benioff_1998_Quantum_robots_and_environments.pdf
+Benioff2002,primary,2002,Space Searches with a Quantum Robot,quantum_computing/Manuscript_Papers/Space searches with a quantum robot.pdf
+Cheiney2018,primary,2018,Navigation-compatible hybrid quantum accelerometer using a Kalman filter,quantum_computing/Navigationcompatible hybrid quantum accelerometer using a Kalman filter.pdf
+Chella2022,primary,2022,A Quantum Planner for Robot Motion,quantum_computing/mathematics-10-02475-v2.pdf
+Chella2023,primary,2023,Quantum Planning for Swarm Robotics,quantum_computing/Quantum planning for swarm robotics.pdf
+Clark2019,primary,2019,Towards real time multi-robot routing using quantum computing technologies,quantum_computing/3293320.3293333.pdf
+Conrad2025,primary,2025,Drone- and Vehicle-Based Quantum Key Distribution,quantum_computing/Manuscript_Papers/Drone and vehiclebased quantum key distribution.pdf
+Daglarli2025,primary,2025,A Generative Neuro-Cognitive Architecture Using Quantum Algorithms for the Autonomous Behavior of a Smart Agent in a Simulation Environment,quantum_computing/TSP_CMC_65572.pdf
+DeCarolis2025,primary,2025,Quantum-Enhanced Social Robotics: The QUADRI Project,quantum_computing/Survey2_Papers/De_Carolis_2025_Quantum_enhanced_social_robotics_the_QUADRI_project.pdf
+Dong2006,primary,2006,"Quantum Robot: Structure, Algorithms and Applications",quantum_computing/Survey2_Papers/Dong_2006_Quantum_robot_structure_algorithms_and_applications.pdf
+Dong2012,primary,2012,Robust Quantum-Inspired Reinforcement Learning for Robot Navigation,quantum_computing/Survey2_Papers/Dong_2012_Robust_quantum_inspired_reinforcement_learning_for_robot_navigation.pdf
+Fazilat2025a,primary,2025,A Brief Review on Quantum-Based Control Strategies for Robotic Systems,quantum_computing/Manuscript_Papers/Fazilat_2025a_A brief review on quantum-based control strategies for robotic systems.pdf
+Fazilat2025b,primary,2025,Quantum Neural Network-Based Inverse Kinematics of a Six-Jointed Industrial Robotic Arm,quantum_computing/Manuscript_Papers/Quantum neural networkbased inverse kinematics of a sixjointed industrial robotic arm.pdf
+Gerlach2025,primary,2025,Hybrid Quantum-Classical Multi-Agent Pathfinding,quantum_computing/Manuscript_Papers/Hybrid quantum-classical multiagent pathfinding.pdf
+Goncalves2018,primary,2018,"Quantum Robotics, Neural Networks and the Quantum Force Interpretation",quantum_computing/content.pdf
+GonzalezVillasmil2026,primary,2026,Scalable Multi-Robot Path Planning via Quadratic Unconstrained Binary Optimization,quantum_computing/Manuscript_Papers/Scalable multirobot path planning via QUBO.pdf
+Haldorai2024,primary,2024,Advancements and Applications of Quantum Computing in Robotics,quantum_computing/Manuscript_Papers/Haldorai_2024_Advancements and applications of quantum computing in robotics.pdf
+Hohenfeld2024,primary,2024,Quantum Deep Reinforcement Learning for Robot Navigation Tasks,quantum_computing/Survey2_Papers/Hohenfeld_2024_Quantum_deep_reinforcement_learning_for_robot_navigation_tasks.pdf
+Humr2025,primary,2025,A Quantum Probability Approach to Improving Human--AI Decision Making,quantum_computing/Manuscript_Papers/entropy-27-00152.pdf
+Innan2025,primary,2025,QUAV: Quantum-Assisted Path Planning and Optimization for UAV Navigation with Obstacle Avoidance,quantum_computing/Manuscript_Papers/QUAV quantumassisted path planning and optimization for UAV navigation.pdf
+Khoshnoud2020,primary,2020,Quantum Cooperative Robotics and Autonomy,quantum_computing/Survey2_Papers/Extra_relevant_not_in_list/Khoshnoud_2020_Quantum_cooperative_robotics_and_autonomy.pdf
+Lawless2023,primary,2023,A Quantum-Like Model of Interdependence for Embodied Human--Machine Teams: Reviewing the Path to Autonomy Facing Complexity and Uncertainty,quantum_computing/Manuscript_Papers/A_Quantum-like_Model_of_Interdependence_for_Embodi.pdf
+Leib2023,primary,2023,An optimization case study for solving a transport robot scheduling problem on quantum-hybrid and quantum-inspired hardware,quantum_computing/Manuscript_Papers/An optimization case study for solving a transport robot scheduling problem on quantumhybrid and quantum-inspired hardware.pdf
+Lokossou2025,primary,2025,Quantum Deep Reinforcement Learning for Humanoid Robot Navigation Task,quantum_computing/Manuscript_Papers/Quantum deep reinforcement learning for humanoid robot navigation.pdf
+Mannone2022,primary,2022,"Categories, Quantum Computing, and Swarm Robotics: A Case Study",quantum_computing/mathematics-10-00372-v3.pdf
+Mannone2025b,primary,2026,Density Matrix-Based Dynamics for Quantum Robotic Swarms,quantum_computing/Modeling and designing a robotic swarm a quantum computing approach.pdf
+Muradoglu2025,primary,2025,Quantum-assured magnetic navigation achieves positioning accuracy better than a strategic-grade INS in airborne and ground-based field trials,quantum_computing/Quantumassured magnetic navigation achieves positioning accuracy better than a strategicgrade INS in airborne and ground-based field trials.pdf
+Nigatu2025,primary,2025,Quantum Machine Learning and Grover's Algorithm for Quantum Optimization of Robotic Manipulators,quantum_computing/Manuscript_Papers/Quantum machine learning and Grover's algorithm for quantum optimization of robotic manipulators.pdf
+Nigatu2026,primary,2026,"Quantum Machine Learning for Robotics: A Comprehensive Review of Algorithms, Applications, and Future Directions",quantum_computing/jius_2026_13.pdf
+Ohzeki2019,primary,2019,Control of Automated Guided Vehicles Without Collision by Quantum Annealer and Digital Devices,quantum_computing/Manuscript_Papers/Ohzeki_2019_Control of automated guided vehicles without collision by quantum anne.pdf
+Osaba2025,primary,2025,Quantum-Assisted Automatic Path-Planning for Robotic Quality Inspection in Industry 4.0,quantum_computing/Manuscript_Papers/Quantum-assisted automatic path-planning for robotic quality inspection.pdf
+Otani2025,primary,2025,Quantum computation for robot posture optimization,quantum_computing/s41598-025-12109-0.pdf
+Petschnigg2019,primary,2019,Quantum Computation in Robotic Science and Applications,quantum_computing/Survey2_Papers/Petschnigg_2019_Quantum_computation_in_robotic_science_and_applications.pdf
+Quang2025,primary,2025,Quantum annealing-based route optimization for commercial AGV operating systems in large-scale logistics warehouses,quantum_computing/Manuscript_Papers/s41598-025-28481-w.pdf
+Rao2024,primary,2024,A Quantum Computing Approach for Multi-robot Coverage Path Planning,quantum_computing/Towards real time multi-robot routing using quantum computing technologies.pdf
+Salloum2026,primary,2026,Quantum annealing for inverse kinematics in robotics,quantum_computing/Manuscript_Papers/Quantum annealing for inverse kinematics in robotics.pdf
+Sarkar2024,primary,2024,A Novel Hybrid Quantum Architecture for Path Planning in Quantum-Enabled Autonomous Mobile Robots,quantum_computing/Manuscript_Papers/Sarkar_2024_A novel hybrid quantum architecture for path planning in quantum-enabl.pdf
+Schuetz2022,primary,2022,Optimization of Robot-Trajectory Planning with Nature-Inspired and Hybrid Quantum Algorithms,quantum_computing/Manuscript_Papers/Optimization of robottrajectory planning with natureinspired and hybrid quantum algorithms.pdf
+Sinha2023,primary,2025,Nav-Q: Quantum Deep Reinforcement Learning for Collision-Free Navigation of Self-Driving Cars,quantum_computing/Survey2_Papers/Extra_relevant_not_in_list/Sinha_2023_Nav_Q_quantum_deep_reinforcement_learning_for_collision_free_navigatio.pdf
+Smierzchalski2024,primary,2024,Hybrid quantum-classical computation for automatic guided vehicles scheduling,quantum_computing/Manuscript_Papers/Quantum computing for several AGV scheduling models.pdf
+Taghavi2025,primary,2025,"Quantum Computing and Neuromorphic Computing for Safe, Reliable, and Explainable Multi-Agent Reinforcement Learning: Optimal Control in Autonomous Robotics",quantum_computing/Manuscript_Papers/Quantum and neuromorphic computing for multi-agent RL in autonomous robotics.pdf
+Tandon2017,primary,2017,Quantum Robotics: A Primer on Current Science and Future Perspectives,"quantum_computing/Prateek Tandon, Stanley Lam, Ben Shih, Tanay Mehta, Alex Mitev, - Quantum Robotics (2017, Morgan & Claypool) - libgen.li.pdf"
+Tian2023,primary,2024,Experimental Demonstration of Drone-Based Quantum Key Distribution,quantum_computing/Manuscript_Papers/Dronebased entanglement distribution towards mobile quantum networks.pdf
+Udekwe2025,primary,2025,"Quantum Computing in Robotics: A Review of Optimization, Search, and Machine Learning Approaches",quantum_computing/Manuscript_Papers/ssrn-7383818.pdf
+Wang2021,primary,2021,Enhancing inertial navigation performance via fusion of classical and quantum accelerometers,quantum_computing/Manuscript_Papers/Wang_2021_Enhancing inertial navigation performance via fusion of classical and.pdf
+Wang2023,primary,2023,Quantum Diamond Magnetometry for Navigation in GNSS Denied Environments,quantum_computing/Manuscript_Papers/NVcentre magnetometers for GPSdenied UAV control.pdf
+Wang2025,primary,2025,Quantum Machine Learning-Based Test Oracle for Autonomous Mobile Robots,quantum_computing/Quantum machine learning for robot perception.pdf
+Widdows2023,primary,2023,Quantum Circuit Components for Cognitive Decision-Making,quantum_computing/Survey2_Papers/Widdows_2023_Quantum_circuit_components_for_cognitive_decision_making.pdf
+Willmann2025,primary,2025,Application of quantum annealing for scalable robotic assembly line optimization: a case study,quantum_computing/Manuscript_Papers/Quantum annealing for robotic assembly line optimization.pdf
+Yan2021,primary,2021,Conceptual Framework for Quantum Affective Computing and Its Use in Fusion of Multi-Robot Emotions,quantum_computing/electronics-10-00100.pdf
+Yu2025,primary,2026,HQC-NBV: A Hybrid Quantum-Classical View Planning Approach,quantum_computing/Manuscript_Papers/A novel hybrid quantum architecture for path planning in quantumenabled autonomous mobile robots.pdf
+Zuo2018,primary,2018,A Robot SLAM Improved by Quantum-Behaved Particles Swarm Optimization,quantum_computing/Manuscript_Papers/Zuo_2018_A robot SLAM improved by quantum-behaved particles swarm optimization.pdf
+Bang2026,primary,2026,Optimality-Preserving Decomposition for Scalable QAOA in Natural-Language-Guided Multi-Drone Assignment,MISSING
+Dragan2025,primary,2025,Continuous Quantum Reinforcement Learning for Robot Navigation,MISSING
+Essalmi2026,primary,2026,"Multi-Player, Multi-Strategy Quantum Game Model for Interaction-Aware Decision-Making in Automated Driving",MISSING
+Lathrop2023,primary,2023,Quantum Search Approaches to Sampling-Based Motion Planning,MISSING
+Liu2021,primary,2021,Optical-Relayed Entanglement Distribution Using Drones as Mobile Nodes,MISSING
+Mannone2023,primary,2023,Modeling and Designing a Robotic Swarm: A Quantum Computing Approach,MISSING
+Mannone2025,primary,2025,Quantum Computing for Swarm Robotics: A Local-to-Global Approach,MISSING
+Ngo2026,primary,2026,Towards Real-time Control of a CartPole System on a Quantum Computer,MISSING
+OsabaDrone2025,primary,2025,Solving Drone Routing Problems with Quantum Computing: A Hybrid Approach Combining Quantum Annealing and Gate-Based Paradigms,MISSING
+Park2023,primary,2023,Quantum Multi-Agent Actor-Critic Networks for Cooperative Mobile Access in Multi-UAV Systems,MISSING
+Park2024,primary,2024,Quantum Multi-Agent Reinforcement Learning for Autonomous Mobility Cooperation,MISSING
+Roh2025,primary,2025,Fast Quantum Convolutional Neural Networks for Low-Complexity Object Detection in Autonomous Driving Applications,MISSING
+Sun2025,primary,2025,First Experience with Real-Time Control Using Simulated VQC-Based Quantum Policies,MISSING
+Templier2022,primary,2022,Tracking the vector acceleration with a hybrid quantum accelerometer triad,MISSING
+Windmann2023,primary,2023,Quantum computer-aided job scheduling for storage and retrieval systems,MISSING
+Yan2024,primary,2024,Quantum robotics: a review of emerging trends,MISSING
+Barkoutsos2020,references,2020,Improving Variational Quantum Optimization using CVaR,quantum_computing/Manuscript_Papers/Barkoutsos_2020_Improving variational quantum optimization using CVaR.pdf
+Bauer2020,references,2020,Quantum algorithms for quantum chemistry and quantum materials science,quantum_computing/Quantum algorithms for quantum chemistry and quantum materials science.pdf
+Brassard2002,references,2002,Quantum Amplitude Amplification and Estimation,quantum_computing/Quantum amplitude amplification.pdf
+Briegel2012,references,2012,Projective Simulation for Artificial Intelligence,quantum_computing/Survey2_Papers/Briegel_2012_Projective_simulation_for_artificial_intelligence.pdf
+Busemeyer2012,references,2012,Quantum Models of Cognition and Decision,quantum_computing/Manuscript_Papers/Busemeyer_2012_Quantum Models of Cognition and Decision.pdf
+Cai2023,references,2023,Quantum error mitigation,quantum_computing/Quantum error mitigation.pdf
+Cerezo2021a,references,2021,Variational quantum algorithms,quantum_computing/Variational quantum algorithms.pdf
+Cerezo2021b,references,2021,Cost function dependent barren plateaus in shallow parametrized quantum circuits,quantum_computing/Survey2_Papers/Cerezo_2021_Cost_function_dependent_barren_plateaus_in_shallow_parametrized_quantu.pdf
+Chen2020,references,2020,Variational Quantum Circuits for Deep Reinforcement Learning,quantum_computing/Variational quantum circuits for RL.pdf
+Chen2022,references,2022,Variational Quantum Reinforcement Learning via Evolutionary Optimization,quantum_computing/Variational quantum reinforcement learning via evolutionary optimization.pdf
+Chia2020,references,2020,Sampling-based sublinear low-rank matrix arithmetic framework for dequantizing quantum machine learning,quantum_computing/Samplingbased sublinear lowrank matrix arithmetic framework for dequantizing quantum machine learning.pdf
+Corcoles2021,references,2021,Exploiting dynamic quantum circuits in a quantum algorithm with superconducting qubits,quantum_computing/Manuscript_Papers/Córcoles_2021_Exploiting dynamic quantum circuits in a quantum algorithm with superc.pdf
+Degen2017,references,2017,Quantum Sensing,quantum_computing/Quantum sensing.pdf
+Dellaert1999,references,1999,Monte Carlo Localization for Mobile Robots,quantum_computing/dellaert_frank_1999_2.pdf
+Deutsch1985,references,1985,"Quantum theory, the Church--Turing principle and the universal quantum computer","quantum_computing/Quantum theory, the ChurchTuring principle and the universal quantum computer.pdf"
+Deutsch1992,references,1992,Rapid solution of problems by quantum computation,quantum_computing/Rapid_solution_of_problems_by_quantum_computation.pdf
+Endo2021,references,2021,Hybrid quantum-classical algorithms and quantum error mitigation,quantum_computing/Manuscript_Papers/Endo_2021_Hybrid quantum-classical algorithms and quantum error mitigation.pdf
+Farhi2014,references,2014,A Quantum Approximate Optimization Algorithm,quantum_computing/Manuscript_Papers/Farhi_2014_A Quantum Approximate Optimization Algorithm.pdf
+Farhi2018,references,2018,Classification with Quantum Neural Networks on Near Term Processors,quantum_computing/Manuscript_Papers/Farhi_2018_Classification with quantum neural networks on near-term processors.pdf
+Fowler2012,references,2012,Surface Codes: Towards Practical Large-Scale Quantum Computation,quantum_computing/Surface Codes Towards Practical LargeScale Quantum Computation.pdf
+GarciaPineda2026,references,2026,Integrating Artificial Intelligence and Quantum Computing: A Systematic Literature Review of Features and Applications,quantum_computing/Manuscript_Papers/1-s2.0-S266630742500035X-main.pdf
+Garrett2021,references,2021,Integrated Task and Motion Planning,quantum_computing/Manuscript_Papers/Garrett_2021_Integrated Task and Motion Planning (Review).pdf
+Gill2022,references,2022,"Quantum computing: A taxonomy, systematic review and future directions","quantum_computing/Quantum computing a taxonomy, systematic review and future directions.pdf"
+Goto2019,references,2019,Combinatorial optimization by simulating adiabatic bifurcations in nonlinear Hamiltonian systems,quantum_computing/Manuscript_Papers/Goto_2019_Combinatorial optimization by simulating adiabatic bifurcations in non.pdf
+Grover1996,references,1996,A fast quantum mechanical algorithm for database search,quantum_computing/Manuscript_Papers/Grover_1996_A fast quantum mechanical algorithm for database search.pdf
+Guerreschi2019,references,2019,QAOA for Max-Cut Requires Hundreds of Qubits for Quantum Speed-Up,quantum_computing/QAOA for MaxCut requires hundreds of qubits for quantum speedup.pdf
+Hadfield2019,references,2019,From the Quantum Approximate Optimization Algorithm to a Quantum Alternating Operator Ansatz,quantum_computing/From the Quantum Approximate Optimization Algorithm to a Quantum Alternating Operator Ansatz.pdf
+Han2002,references,2002,Quantum-inspired evolutionary algorithm for a class of combinatorial optimization,quantum_computing/TEVC2002_V6N6.pdf
+Havlicek2019,references,2019,Supervised learning with quantum-enhanced feature spaces,quantum_computing/Manuscript_Papers/Havlíček_2019_Supervised learning with quantum-enhanced feature spaces.pdf
+Henderson2020,references,2020,Quanvolutional neural networks: powering image recognition with quantum circuits,quantum_computing/Quanvolutional neural netwo.pdf
+Jerbi2021,references,2021,Parametrized Quantum Policies for Reinforcement Learning,quantum_computing/Survey2_Papers/Jerbi_2021_Parametrized_quantum_policies_for_reinforcement_learning.pdf
+Johnson2011,references,2011,Quantum annealing with manufactured spins,quantum_computing/Johnson_Nature11.pdf
+Kadowaki2025,references,2025,Quantum Computing and AI: Perspectives on Advanced Automation in Science and Engineering,quantum_computing/Quantum computation in robotic science and applications.pdf
+Kandala2019,references,2019,Error mitigation extends the computational reach of a noisy quantum processor,quantum_computing/Manuscript_Papers/Kandala_2019_Error mitigation extends the computational reach of a noisy quantum pr.pdf
+Karaman2011,references,2011,Sampling-Based Algorithms for Optimal Motion Planning,quantum_computing/Sampling-based Algorithms for Optimal Motion Planning.pdf
+Kim2022,references,2022,Fault-tolerant resource estimate for quantum chemical simulations: Case study on Li-ion battery electrolyte molecules,quantum_computing/Manuscript_Papers/Kim_2022_Fault-tolerant resource estimate for quantum chemical simulations case.pdf
+Kitchenham2007,references,2007,Guidelines for performing Systematic Literature Reviews in Software Engineering,quantum_computing/Manuscript_Papers/Kitchenham_2007_Guidelines for performing systematic literature reviews in software en.pdf
+Kjaergaard2020,references,2020,Superconducting Qubits: Current State of Play,quantum_computing/Superconducting qubits current state of play.pdf
+Kurniawati2022,references,2022,Partially Observable Markov Decision Processes and Robotics,quantum_computing/Partially observable Markov decision processes and robotics.pdf
+Larocca2025,references,2025,Barren plateaus in variational quantum computing,quantum_computing/Manuscript_Papers/Larocca_2025_Barren plateaus in variational quantum computing.pdf
+Lloyd2014,references,2013,Quantum algorithms for supervised and unsupervised machine learning,quantum_computing/Quantum algorithms for supervised and unsupervised machine learning.pdf
+Lucas2014,references,2014,Ising Formulations of Many NP Problems,quantum_computing/Manuscript_Papers/Lucas_2014_Ising formulations of many NP problems.pdf
+McArdle2020,references,2020,Quantum computational chemistry,quantum_computing/Quantum computational chemistry.pdf
+McClean2016,references,2016,The theory of variational hybrid quantum-classical algorithms,quantum_computing/The theory of variational hybrid quantumclassical algorithms.pdf
+McClean2018,references,2018,Barren plateaus in quantum neural network training landscapes,quantum_computing/Manuscript_Papers/McClean_2018_Barren plateaus in quantum neural network training landscapes.pdf
+Meyer2022,references,2022,A Survey on Quantum Reinforcement Learning,quantum_computing/Survey2_Papers/Meyer_2022_A_survey_on_quantum_reinforcement_learning.pdf
+Mitarai2018,references,2018,Quantum Circuit Learning,quantum_computing/Quantum circuit learning.pdf
+Montanaro2015,references,2015,Quantum speedup of Monte Carlo methods,quantum_computing/Quantum speedup of Monte Carlo methods.pdf
+Montanaro2016,references,2016,Quantum Algorithms: An Overview,quantum_computing/Quantum algorithms an overview.pdf
+Nielsen2010,references,2010,Quantum Computation and Quantum Information,quantum_computing/quantum-computation-and-quantum-information-nielsen-chuang.pdf
+Page2021,references,2021,The PRISMA 2020 statement: an updated guideline for reporting systematic reviews,quantum_computing/The_PRISMA_2020_statement_An_updated_guideline_for.pdf
+Paparo2014,references,2014,Quantum Speedup for Active Learning Agents,quantum_computing/Survey2_Papers/Paparo_2014_Quantum_speedup_for_active_learning_agents.pdf
+Peruzzo2014,references,2014,A variational eigenvalue solver on a photonic quantum processor,quantum_computing/Manuscript_Papers/Peruzzo_2014_A variational eigenvalue solver on a photonic quantum processor.pdf
+Preskill2018,references,2018,Quantum Computing in the NISQ era and beyond,quantum_computing/Survey2_Papers/Preskill_2018_Quantum_computing_in_the_NISQ_era_and_beyond.pdf
+Raghuvanshi2007,references,2007,Quantum Robots for Teenagers,quantum_computing/Quantum_Robots_for_Teenagers.pdf
+Ravi2021,references,2021,Quantum Computing in the Cloud: Analyzing Job and Machine Characteristics,quantum_computing/Quantum computing in the cloud analyzing job and machine characteristics.pdf
+Reiher2017,references,2017,Elucidating reaction mechanisms on quantum computers,quantum_computing/Manuscript_Papers/Reiher_2017_Elucidating reaction mechanisms on quantum computers.pdf
+Rice2021,references,2021,Quantum computation of dominant products in lithium--sulfur batteries,quantum_computing/Quantum computation of dominant products in lithiumsulfur batteries.pdf
+Schuld2019,references,2019,Quantum Machine Learning in Feature Hilbert Spaces,quantum_computing/Survey2_Papers/Schuld_2019_Quantum_machine_learning_in_feature_Hilbert_spaces.pdf
+Shor1997,references,1997,Polynomial-Time Algorithms for Prime Factorization and Discrete Logarithms on a Quantum Computer,quantum_computing/Polynomial-time algorithms for prime factorization and discrete logarithms on a quantum computer.pdf
+Siciliano2016,references,2016,Springer Handbook of Robotics,quantum_computing/Springer Handbook of Robotics (2nd ed.).pdf
+Skolik2022,references,2022,Quantum Agents in the Gym: A Variational Quantum Algorithm for Deep Q-Learning,quantum_computing/Survey2_Papers/Skolik_2022_Quantum_agents_in_the_Gym_a_variational_quantum_algorithm_for_deep_Q_l.pdf
+Sutton2018,references,2018,Reinforcement Learning: An Introduction,quantum_computing/Survey2_Papers/Sutton_2018_Reinforcement_Learning_An_Introduction_2nd_ed.pdf
+Tang2019,references,2019,A quantum-inspired classical algorithm for recommendation systems,quantum_computing/Survey2_Papers/Tang_2019_A_quantum_inspired_classical_algorithm_for_recommendation_systems.pdf
+Tang2021,references,2021,CutQC: Using Small Quantum Computers for Large Quantum Circuit Evaluations,quantum_computing/Manuscript_Papers/Tang_2021_CutQC using small quantum computers for large quantum circuit evaluati.pdf
+Temme2017,references,2017,Error mitigation for short-depth quantum circuits,quantum_computing/Manuscript_Papers/Temme_2017_Error mitigation for short-depth quantum circuits.pdf
+Terhal2015,references,2015,Quantum Error Correction for Quantum Memories,quantum_computing/Manuscript_Papers/Terhal_2015_Quantum error correction for quantum memories.pdf
+Thrun2005,references,2005,Probabilistic Robotics,quantum_computing/Survey2_Papers/Extra_relevant_not_in_list/Thrun_2005_Probabilistic_Robotics.pdf
+Wang2024,references,2024,A Comprehensive Review of Quantum Machine Learning: From NISQ to Fault Tolerance,quantum_computing/Manuscript_Papers/Quantum machine learning for robotics a comprehensive review.pdf
+Wiebe2015,references,2015,Quantum Algorithms for Nearest-Neighbor Methods for Supervised and Unsupervised Learning,quantum_computing/Quantum algorithms for nearest-neighbor methods.pdf
+Yun2022,references,2022,Quantum Multi-Agent Reinforcement Learning via Variational Quantum Circuit Design,quantum_computing/Survey2_Papers/Yun_2022_Quantum_multi_agent_reinforcement_learning_via_variational_quantum_cir.pdf
+Zhou2020,references,2020,"Quantum Approximate Optimization Algorithm: Performance, Mechanism, and Implementation on Near-Term Devices",quantum_computing/main.pdf
+Aaronson2015,references,2015,Read the Fine Print,MISSING
+Arute2019,references,2019,Quantum Supremacy Using a Programmable Superconducting Processor,MISSING
+Babbush2018,references,2018,Encoding Electronic Spectra in Quantum Circuits with Linear T Complexity,MISSING
+Babbush2021,references,2021,Focus beyond Quadratic Speedups for Error-Corrected Quantum Advantage,MISSING
+Benkner2021,references,2021,Q-Match: Iterative Shape Matching via Quantum Annealing,MISSING
+Bharti2022,references,2022,Noisy Intermediate-Scale Quantum Algorithms,MISSING
+Biamonte2017,references,2017,Quantum machine learning,MISSING
+Birdal2021,references,2021,Quantum Permutation Synchronization,MISSING
+Bluvstein2024,references,2024,Logical quantum processor based on reconfigurable atom arrays,MISSING
+Bongs2019,references,2019,Taking atom interferometric quantum sensors from the laboratory to real-world applications,MISSING
+Bravyi2024,references,2024,High-threshold and low-overhead fault-tolerant quantum memory,MISSING
+Busemeyer1993,references,1993,Decision Field Theory: A Dynamic-Cognitive Approach to Decision Making in an Uncertain Environment,MISSING
+Doan2022,references,2022,A Hybrid Quantum-Classical Algorithm for Robust Fitting,MISSING
+Dobler2025,references,2025,A Survey on Integrating Quantum Computers into High Performance Computing Systems,MISSING
+Dong2008,references,2008,Quantum Reinforcement Learning,MISSING
+Dunjko2018,references,2018,Machine Learning & Artificial Intelligence in the Quantum Domain: A Review of Recent Progress,MISSING
+Feynman1982,references,1982,Simulating physics with computers,MISSING
+Finzgar2022,references,2022,QUARK: A Framework for Quantum Computing Application Benchmarking,MISSING
+Geiger2011,references,2011,Detecting inertial effects with airborne matter-wave interferometry,MISSING
+Golyanik2020,references,2020,A Quantum Computational Approach to Correspondence Problems on Point Sets,MISSING
+GoogleQAI2025,references,2025,Quantum error correction below the surface code threshold,MISSING
+Harrow2009,references,2009,Quantum Algorithm for Linear Systems of Equations,MISSING
+Kaelbling1998,references,1998,Planning and Acting in Partially Observable Stochastic Domains,MISSING
+Kaldari2025,references,2025,Quantum Reinforcement Learning: Recent Advances and Future Directions,MISSING
+KimY2023,references,2023,Evidence for the utility of quantum computing before fault tolerance,MISSING
+King2025,references,2025,Beyond-classical computation in quantum simulation,MISSING
+Kober2013,references,2013,Reinforcement learning in robotics: A survey,MISSING
+Kruse2024,references,2024,Variational Quantum Circuit Design for Quantum Reinforcement Learning on Continuous Environments,MISSING
+LaValle1998,references,1998,Rapidly-Exploring Random Trees: A New Tool for Path Planning,MISSING
+Meli2022,references,2022,An Iterative Quantum Approach for Transformation Estimation from Point Sets,MISSING
+Neukart2017,references,2017,Traffic flow optimization using a quantum annealer,MISSING
+Pothos2013,references,2013,Can quantum probability provide a new direction for cognitive modeling?,MISSING
+Pothos2022,references,2022,Quantum Cognition,MISSING
+Rebentrost2014,references,2014,Quantum Support Vector Machine for Big Data Classification,MISSING
+Rieffel2015,references,2015,A case study in programming a quantum annealer for hard operational planning problems,MISSING
+RodriguezDiaz2025,references,2025,"A Survey of Quantum Machine Learning: Foundations, Algorithms, Frameworks, Data and Applications",MISSING
+Schuld2021,references,2021,Machine Learning with Quantum Computers,MISSING
+Yarkoni2022,references,2022,Quantum annealing for industry applications: introduction and review,MISSING
+Zaech2022,references,2022,Adiabatic Quantum Computing for Multi Object Tracking,MISSING
+Zhuang2024,references,2024,Quantum Computing in Intelligent Transportation Systems: A Survey,MISSING
