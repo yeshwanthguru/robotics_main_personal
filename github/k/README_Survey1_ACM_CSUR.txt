@@ -8,8 +8,11 @@ FILES
       main.tex                          Manuscript (\documentclass[acmsmall,screen,review]{acmart})
       supplement.tex                    Online supplementary material
       refs.bib                          182 verified BibTeX entries (full author names, DOIs)
-      figures/                          Figures 1-6 + PRISMA flow diagram (PNG); fig7_years.png is
-                                        generated from extraction_table.csv
+      figures/                          Figures 1-10 of the paper + PRISMA flow diagram (PNG); fig7_years.png
+                                        is generated from extraction_table.csv; fig8-fig11 are redrawn
+                                        "adapted from" schematics of methods in the cited studies (QUBO
+                                        fleet pipeline, Grover search, variational policy, order effect),
+                                        drawn in the paper's own style and credited in each caption
   Survey1_ACM_CSUR_Manuscript.docx      Word version generated from main.tex (tools/build_word.sh), with every
                                         citation as a Mendeley citation field and the reference list as a
                                         Mendeley bibliography field (see "WORD + MENDELEY" below)
@@ -23,7 +26,8 @@ FILES
   Survey1_data_package/                 Archive-ready dataset: extraction table, codebook, search
                                         strings and README for a Zenodo deposit (DOI goes in Data Availability)
 
-  tools/make_figures.py                 Regenerates Figs. 1, 2 and 5 and the PRISMA diagram (timeline milestones are listed in the script)
+  tools/make_figures.py                 Regenerates the data-driven figures (timeline, yearly counts, evidence) and the PRISMA diagram
+  tools/make_schematics.py              Redraws the schematic figures (taxonomy, architecture, latency, fig8-fig11)
 
 WORD + MENDELEY
   1. In Mendeley Reference Manager, import Survey1_CSUR_LaTeX_Overleaf/refs.bib
