@@ -142,6 +142,28 @@ moving, many studies are preprints, and advantage claims are often made in promo
 each claim was judged against its evidence level and baseline rather than its stated conclusion;
 (4) a single reviewer screened the records, which may bias inclusion decisions.
 
+**Dependent variable(s) / outcome(s) / main variables**
+This is a descriptive review, not a review of associations, so these are the main variables
+extracted from each primary study (defined in the codebook of the data package):
+1. Robotic function and task (optimization and planning; learning; sensing and communication;
+   decision-making and reasoning).
+2. Quantum method and technology type (e.g., quantum annealing, QAOA, Grover search, variational
+   circuits, quantum reinforcement learning, quantum sensing, quantum key distribution,
+   quantum-probability models; genuinely quantum vs. quantum-inspired).
+3. Evidence level, L1-L6 (L1 theoretical; L2 simulation; L3 run on quantum hardware; L4 closed loop
+   with a robot or high-fidelity robot simulator; L5 physical robot or vehicle; L6 end-to-end field
+   deployment with a measured advantage over a classical baseline).
+4. Quantum execution venue (none; simulated; QPU; quantum sensor or link hardware; classical).
+5. Publication status (journal, conference, book chapter, preprint).
+6. Setup and baselines (hardware or simulator, problem size, classical comparator).
+7. Key reported result, including performance against the classical baseline where reported.
+8. Principal limitation.
+9. Quality-appraisal judgments on seven criteria (problem formulation, classical baseline,
+   experimental realism, hardware and noise reporting, performance metrics, reproducibility,
+   critical discussion), each met / partly met / not met.
+Deployment constraints (qubit counts, noise, latency, quantum-classical communication, size,
+weight, power, and cooling) are recorded where studies report them.
+
 **Information sources**
 IEEE Xplore, ACM Digital Library, Scopus, Web of Science, SpringerLink, ScienceDirect, arXiv
 (quant-ph, cs.RO, cs.LG); backward and forward reference chasing from key papers and earlier
