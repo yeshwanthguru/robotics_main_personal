@@ -58,7 +58,8 @@ BEFORE YOU SUBMIT (things only you can supply)
       body changes of the review revision (Table 4, Fig. 2, Section 10.4, rewording).
       The LaTeX source is the authoritative version.
   [ ] Cover letter lists Yeshwanth Guru as corresponding author - change if needed.
-  [x] Generative-AI use is disclosed in the acknowledgments, as ACM policy requires.
+  [ ] Generative-AI use is no longer disclosed in the manuscript (acknowledgments removed).
+      ACM policy requires disclosure: declare it in the submission system or cover letter.
   [ ] Section 3.2: date of the last search.
   [ ] Section 3.4 and supplement Table S2 / Figure S1: PRISMA counts (records identified,
       duplicates, screened, full texts, exclusions by reason). These were not invented.
@@ -66,7 +67,8 @@ BEFORE YOU SUBMIT (things only you can supply)
   [ ] Quality appraisal is reported qualitatively (unmet criteria = Limitation column of
       Table S1). If you did score studies 0/1/2, restore the scores in supplement Table S3.
   [ ] Update the title in Survey1_ACM_CSUR_Manuscript.docx and the cover letter.
-  [ ] Acknowledgments / funding, competing-interest statement, protocol registration (or say none).
+  [ ] Funding, competing-interest statement, protocol registration (or say none). The
+      acknowledgments section was removed at the authors' request.
   [ ] Cover letter: date and suggested reviewers.
   [ ] Check the live CSUR author-guidelines page (dl.acm.org/journal/csur/author-guidelines)
       for the current length limit and whether anonymized review is required. If it is,
