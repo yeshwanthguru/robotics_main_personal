@@ -69,7 +69,7 @@ This supplement contains the evidence table for the 72 primary studies (Table~\r
 \citet{Ngo2026}$^\dagger$ (L3) & Cart-pole balancing (control benchmark); \emph{Quantum (single-qubit VQC on the VTT Q5 superconducting QPU)} & Actor-critic policy gradient with a five-gate single-qubit variational circuit; readout electronics programmed directly through command tables & CartPole benchmark; VTT Q5 five-qubit processor with Zurich Instruments control electronics & Bypassing the standard software stack made circuit execution more than ten times faster; the single-qubit agent learned in fewer episodes than the classical baseline & Throughput still below the tens of hertz needed for closed-loop control; one-qubit agent on a benchmark task \\
 \citet{Chella2022} (L2) & Single-robot motion/path planning; \emph{Quantum (gate-based, simulated)} & Robot behavior encoded as a production system; plans found by Grover search over the action tree using a reversible Boolean oracle; qubit-reuse technique for simulation & Grid map with fixed obstacles; Qiskit Aer noiseless simulator on a 16 GB laptop ($\approx$27-qubit limit) & Correct plans found with high success probability; quadratic reduction in search queries $O(\sqrt{N})$ versus exhaustive tree search & Noise-free simulation only; qubits grow with plan depth; oracle construction assumes a known map; no comparison with classical planners such as A* or RRT \\
 \citet{Chella2023} (L2) & Swarm path planning (search and rescue); \emph{Quantum (gate-based, simulated)} & Quantised position/reward information; pairwise information exchange as a quantum logic gate; per-robot Grover-based path planning (extends Chella et al., 2022) & Ant-foraging search-and-rescue scenario; Qiskit simulation; compared with NetLogo and Java ant-colony simulations & Faster convergence of the swarm to the target than both classical ant-behavior simulations & Simulation only; small swarms; classical baselines are generic ant simulations rather than optimized swarm planners \\
-\citet{Lathrop2023} (L2) & Sampling-based motion planning; \emph{Quantum (Grover-type search; simulated)} & Sampling-based planners recast as database-oracle structures solved by quantum search, including quantum full path search (q-FPS) & Simulated planning problems; query-complexity analysis against classical sampling-based search & Grover-type quadratic reduction in oracle queries for path search & Speed-up counted in queries and needs fault-tolerant hardware; no wall-clock comparison \\
+\citet{Lathrop2023} (L2) & Sampling-based motion planning; \emph{Quantum (Grover-type search; simulated)} & Sampling-based planners recast as database-oracle structures solved by quantum search, including quantum full path search (q-FPS) and quantum RRT (q-RRT) & Simulated planning problems (2D random lattices); q-RRT compared with classical RRT in classical simulation & Quadratic speed-up of q-RRT over RRT confirmed in simulation & Speed-up shown only in classical simulation of the quantum algorithm; a real advantage needs fault-tolerant hardware \\
 \citet{Nigatu2025} (L2) & Manipulator kinematic optimization; \emph{Quantum (PQC + Grover; simulated)} & Parameterized circuit trained to approximate forward kinematics, then used as a Grover oracle to search for optimal configurations & Simulated 1-DoF, 2-DoF and dual-arm manipulator tasks; Nelder-Mead and other classical optimizers as baselines & Quadratic reduction in search complexity; up to 93$\times$ speed-up over Nelder-Mead as dimensionality grew (simulated) & Simulation only; speed-up counted in model evaluations/oracle queries rather than wall-clock time on hardware \\
 \citet{Sarkar2024} (L2) & Mobile-robot multi-target path planning (TSP); \emph{Hybrid quantum ant-colony optimization (Qiskit simulation / Amazon Braket)} & Hybrid Quantum Ant Colony Optimization (HQACO): quantum circuits generate ant tours automatically from classical data, running ants in parallel on a hybrid architecture & TSPLIB instances and 50 random 16-node graphs; Qiskit simulator, Amazon Braket for larger circuits; OR-Tools optimum as reference & Optimal or near-optimal tours, with average error of about 7\% from the optimum & Simulated circuits; error grows with qubit count; no runtime advantage shown \\
 \citet{Gerlach2025} (L3) & Optimal multi-agent pathfinding (MAPF); \emph{Quantum (QUBO subproblems; real quantum hardware + classical)} & Branch-and-cut-and-price MAPF in which conflict-resolution subproblems are solved as QUBOs over conflict graphs (QUBO-and-Price, QUBO-Cut-and-Price) & Standard MAPF benchmarks; experiments on real quantum hardware; compared with BCP, EECBS, LaCAM* and LNS2 & First optimal hybrid quantum--classical MAPF algorithms; outperformed earlier QUBO formulations and, on the reported benchmarks, state-of-the-art MAPF solvers & Advantage depends on problem structure and small QUBO sizes; hardware results limited to small instances \\
@@ -87,7 +87,7 @@ This supplement contains the evidence table for the 72 primary studies (Table~\r
 \citet{Muradoglu2025}$^\dagger$ (L6) & GNSS-denied navigation (aircraft, drones, ground vehicles); \emph{Quantum sensing (field-deployed hardware)} & Magnetic-anomaly navigation using proprietary quantum magnetometers plus denoising and map-matching algorithms that learn platform parameters online & Flight trials from ground level to ~19,000 ft with onboard/outboard sensors; ground-vehicle trial with public anomaly maps; strategic-grade INS as comparator & Up to ~46$\times$ lower positioning error than a velocity-aided strategic-grade INS (best final error 22 m, 0.006\% of distance); $\geq$11$\times$ better across airborne trials; ~7$\times$ better in the ground vehicle & Company-led preprint (Q-CTRL); depends on quality of magnetic-anomaly maps; periodic fixes rather than continuous high-rate positioning \\
 \citet{Khoshnoud2020}$^\dagger$ (L5 (lab)) & Cooperative multi-robot autonomy (aerial and ground); \emph{Quantum communication hardware on robots (laboratory)} & Photon-based quantum capabilities (SPDC single photons, polarisation, single-photon detection, entanglement and cryptography concepts) integrated into networks of classical aerial and ground robots & Laboratory demonstrations on classical aerial and ground robotic platforms & Shows the feasibility of carrying quantum-optical communication hardware on cooperating robots & Conceptual/\allowbreak laboratory scale; no quantitative performance comparison \\
 \citet{Tian2023} (L5) & Secure communication for aerial robots; \emph{Quantum communication (field experiment on a drone)} & Compact polarisation-encoded decoy-state BB84 QKD transmitter on an octocopter & Drone ($\leq$30 kg take-off weight) to ground over 200 m & Real-time QKD with an average secret-key rate of 8.48 kHz & Short range; single drone; focus on communication rather than autonomy \\
-\citet{Liu2021} (L5) & Mobile entanglement distribution between drones; \emph{Quantum communication (field experiment on drones)} & Entangled-photon source on one drone and an optical relay on a second drone & Drone-to-drone and drone-to-ground links over 1 km, including daytime and rainy-night operation & Entanglement distribution with a CHSH parameter above the classical bound at 1 km & Short range; no robotic task built on the link \\
+\citet{Liu2021} (L5) & Mobile entanglement distribution between drones; \emph{Quantum communication (field experiment on drones)} & Entangled-photon source on one drone and an optical relay on a second drone & Drone-to-drone relayed link over 1 km & Entanglement distribution at 1 km with CHSH $S=2.59\pm0.11$, above the classical bound & Short range; no robotic task built on the link \\
 \citet{Conrad2025}$^\dagger$ (L5) & Secure communication between drones and ground vehicles; \emph{Quantum communication (field deployment on moving platforms)} & Modular, platform-agnostic, reduced-SWaP QKD transmitter and receiver with device models for mobile non-idealities & Drone-to-drone, drone-to-vehicle and vehicle-to-vehicle links & Finite-key secure key rates of 1.6--20 kbps between moving platforms & Communication only; ranges and conditions limited \\
 \citet{Widdows2023} (L3) & Cognitive decision-making (order effects, uncertainty); \emph{Quantum cognition model on quantum hardware} & Quantum-probability cognitive models (question-order effects, decisions under uncertainty) implemented as small qubit circuits with gates and measurements & Circuits run on an 11-qubit IonQ trapped-ion computer and simulators & Very small circuits (some a single qubit) reproduce human order effects and non-classical decision patterns & Models are small enough to simulate classically, so no computational advantage is claimed; not applied to robots \\
 \citet{Yan2021} (L2) & Robot emotion modeling / multi-robot emotion fusion; \emph{Quantum-formalism model (simulated)} & Emotions encoded as qubit superposition states in an emotion space; unitary operators model emotion transitions; entanglement fuses the emotions of multiple robots & Mathematical framework with small simulation-based demonstrations & Entanglement-based fusion reduces the qubits and gates needed to represent and update the joint emotional state of a robot group & Conceptual; no psychological validation, no physical robots, no comparison with classical affective models \\
@@ -188,7 +188,7 @@ Q7 Critical discussion & Absent & Brief & Explicit limitations and threats to va
 
 {\footnotesize
 \begin{longtable}{@{}>{\raggedright\arraybackslash}p{0.300\dimexpr\linewidth-14\tabcolsep\relax}>{\centering\arraybackslash}p{0.100\dimexpr\linewidth-14\tabcolsep\relax}>{\centering\arraybackslash}p{0.100\dimexpr\linewidth-14\tabcolsep\relax}>{\centering\arraybackslash}p{0.100\dimexpr\linewidth-14\tabcolsep\relax}>{\centering\arraybackslash}p{0.100\dimexpr\linewidth-14\tabcolsep\relax}>{\centering\arraybackslash}p{0.100\dimexpr\linewidth-14\tabcolsep\relax}>{\centering\arraybackslash}p{0.100\dimexpr\linewidth-14\tabcolsep\relax}>{\centering\arraybackslash}p{0.100\dimexpr\linewidth-14\tabcolsep\relax}@{}}
-\caption{Quality appraisal of the 59 graded application studies (the six purely theoretical L1 studies and the seven reviews are not appraised) against the criteria of Table~\ref{tab:rubric}. M = met, P = partly met, N = not met; n/a = not applicable (quantum-inspired algorithms on classical hardware). \fillin{Q4 and Q6 for the 16 studies marked [ ] to be completed once their full texts are obtained}.}\label{tab:appraisal}\\
+\caption{Quality appraisal of the 59 graded application studies (the six purely theoretical L1 studies and the seven reviews are not appraised) against the criteria of Table~\ref{tab:rubric}. M = met, P = partly met, N = not met; n/a = not applicable (quantum-inspired algorithms on classical hardware). \fillin{Q4 and Q6 for the 3 studies marked [ ] to be completed once their full texts are obtained}.}\label{tab:appraisal}\\
 \toprule
 \textbf{Study} & \textbf{Q1} & \textbf{Q2} & \textbf{Q3} & \textbf{Q4} & \textbf{Q5} & \textbf{Q6} & \textbf{Q7} \\ \midrule
 \endfirsthead
@@ -207,48 +207,48 @@ Q7 Critical discussion & Absent & Brief & Explicit limitations and threats to va
 \citet{Willmann2025} & M & M & P & P & M & P & M \\
 \citet{Osaba2025} & M & M & P & P & P & M & P \\
 \citet{Otani2025} & M & N & P & P & P & P & P \\
-\citet{Salloum2026} & M & P & P & \fillin{} & M & \fillin{} & M \\
+\citet{Salloum2026} & M & P & P & M & M & P & M \\
 \citet{Wang2025} & M & P & P & P & P & M & P \\
-\citet{Roh2025} & M & P & P & \fillin{} & P & \fillin{} & P \\
+\citet{Roh2025} & M & P & P & P & P & P & P \\
 \citet{Goncalves2018} & P & N & N & M & P & P & P \\
 \citet{Dong2012} & M & P & M & n/a & P & P & P \\
 \citet{Hohenfeld2024} & M & M & P & P & P & M & M \\
-\citet{Dragan2025} & M & M & P & \fillin{} & P & \fillin{} & M \\
+\citet{Dragan2025} & M & M & P & P & P & P & M \\
 \citet{Sinha2023} & M & P & P & M & P & M & P \\
 \citet{Acuto2022} & M & M & P & P & P & P & P \\
 \citet{Lokossou2025} & M & P & P & P & P & P & P \\
 \citet{Altrabulsi2026} & M & P & P & M & P & M & P \\
 \citet{Taghavi2025} & P & P & P & P & P & M & P \\
-\citet{Park2023} & M & P & P & \fillin{} & P & \fillin{} & P \\
-\citet{Park2024} & P & P & P & \fillin{} & P & \fillin{} & P \\
-\citet{Sun2025} & M & N & M & \fillin{} & M & \fillin{} & M \\
-\citet{Ngo2026} & M & N & P & \fillin{} & M & \fillin{} & M \\
+\citet{Park2023} & M & P & P & P & P & P & P \\
+\citet{Park2024} & P & P & P & P & P & P & P \\
+\citet{Sun2025} & M & N & M & P & M & P & M \\
+\citet{Ngo2026} & M & N & P & M & M & P & M \\
 \citet{Chella2022} & M & N & P & P & P & P & P \\
 \citet{Chella2023} & M & P & P & P & P & M & P \\
-\citet{Lathrop2023} & M & P & P & \fillin{} & P & \fillin{} & P \\
+\citet{Lathrop2023} & M & P & P & P & P & M & P \\
 \citet{Nigatu2025} & M & P & P & M & P & P & P \\
 \citet{Sarkar2024} & M & M & P & P & P & P & P \\
 \citet{Gerlach2025} & M & M & P & P & M & P & M \\
 \citet{Innan2025} & M & N & P & M & P & P & P \\
-\citet{OsabaDrone2025} & M & N & P & \fillin{} & P & \fillin{} & P \\
-\citet{Bang2026} & M & N & P & \fillin{} & P & \fillin{} & P \\
+\citet{OsabaDrone2025} & M & N & P & P & P & P & P \\
+\citet{Bang2026} & M & N & P & P & P & P & P \\
 \citet{Rao2024} & M & P & P & P & P & P & P \\
 \citet{GonzalezVillasmil2026} & M & P & P & P & M & M & M \\
 \citet{Yu2025} & M & P & P & P & P & P & P \\
 \citet{Antero2025} & M & P & P & M & P & P & P \\
 \citet{Cheiney2018} & M & P & P & M & M & P & P \\
-\citet{Templier2022} & M & P & P & \fillin{} & M & \fillin{} & P \\
+\citet{Templier2022} & M & P & P & M & M & P & P \\
 \citet{Wang2021} & M & P & P & P & P & P & P \\
 \citet{Wang2023} & M & P & P & P & P & P & P \\
 \citet{Muradoglu2025} & M & M & M & P & M & P & P \\
 \citet{Khoshnoud2020} & P & N & P & N & N & N & P \\
 \citet{Tian2023} & M & N & M & P & M & P & P \\
-\citet{Liu2021} & M & N & M & \fillin{} & M & \fillin{} & P \\
+\citet{Liu2021} & M & N & M & M & M & P & P \\
 \citet{Conrad2025} & M & N & M & M & M & M & M \\
 \citet{Widdows2023} & M & N & P & P & P & P & M \\
 \citet{Yan2021} & P & N & P & N & P & N & P \\
 \citet{Daglarli2025} & P & P & P & P & P & P & P \\
-\citet{Essalmi2026} & M & P & P & \fillin{} & P & \fillin{} & P \\
+\citet{Essalmi2026} & M & P & P & P & P & P & P \\
 \citet{Zuo2018} & M & P & P & n/a & P & P & P \\
 \citet{Fazilat2025b} & M & P & P & n/a & P & M & P \\
 \citet{Mannone2022} & P & N & N & P & N & M & P \\

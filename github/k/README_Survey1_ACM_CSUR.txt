@@ -68,17 +68,12 @@ BEFORE YOU SUBMIT (things only you can supply)
       duplicates, screened, full texts, exclusions by reason). These were not invented.
   [ ] Section 3.5: who extracted/scored the data and how disagreements were resolved.
   [ ] Quality appraisal (supplement Table S5 and Survey1_data_package/quality_appraisal.csv):
-      Q4 and Q6 were judged from the full texts in quantum_computing/ for 43 studies. Q1, Q2,
-      Q3, Q5 and Q7 were drafted from the extraction table - check them against the full texts.
-      Section 3.5 quotes 12 / 19 / 6 of 59 (Q2, Q3) and 13 of 43 (Q6): update if any change.
-  [ ] Full texts still missing (16; their Q4/Q6 cells are red): Yan2024, Windmann2023, Roh2025,
-      Dragan2025, Park2023, Park2024, Sun2025, Ngo2026, Lathrop2023, OsabaDrone2025, Bang2026,
-      Templier2022, Liu2021, Essalmi2026, Mannone2023, Mannone2025. Salloum2026 is an image-only
-      "Print to PDF" with no text layer - download the publisher PDF instead.
-  [ ] Mislabeled files in quantum_computing/: "Continuous quantum RL for navigation.pdf" is the
-      Hohenfeld arXiv preprint (not Dragan2025); "Modeling and designing a robotic swarm a quantum
-      computing approach.pdf" is the Mannone micro-nano density-matrix paper (Mannone2025b),
-      not Mannone2023.
+      Q4 and Q6 judged from the full texts for 56 of the 59 studies; Q1, Q2, Q3, Q5 and Q7 were
+      drafted from the extraction table - check them. Section 3.5 quotes 12 / 19 / 6 of 59
+      (Q2, Q3) and 14 of 56 (Q6): update if any judgment changes.
+  [ ] Full texts still missing: Yan2024 (review), Windmann2023, Mannone2023, Mannone2025.
+      The last three have red Q4/Q6 cells in Table S5. See Survey1_fulltexts/index.csv for the
+      40 cited references that are also still missing.
   [ ] Inter-rater reliability: have the second author grade a random 15-20 studies blind
       (evidence level and Q1-Q7), report Cohen's kappa in Section 3.5, and say how
       disagreements were resolved.
