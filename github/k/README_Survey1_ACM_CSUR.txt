@@ -23,8 +23,8 @@ FILES
   Survey1_CSUR_Cover_Letter.docx        Cover letter to the Editor-in-Chief
 
   Survey1_method_workbook/              Search/screening workbook and targeted_search_record.md (provenance of the 12 targeted-search studies)
-  Survey1_data_package/                 Archive-ready dataset: extraction table, codebook, search
-                                        strings and README for a Zenodo deposit (DOI goes in Data Availability)
+  Survey1_data_package/                 Supplementary data: extraction table, quality appraisal, codebook, search
+                                        strings and README (upload with the submission; Zenodo optional)
 
   tools/make_figures.py                 Regenerates the data-driven figures (timeline, yearly counts, evidence) and the PRISMA diagram
   tools/make_schematics.py              Redraws the schematic figures (taxonomy, architecture, latency, fig8-fig11)
@@ -74,6 +74,7 @@ BEFORE YOU SUBMIT (things only you can supply)
   [ ] REMINDER: corresponding author not yet decided (cover letter currently lists Yeshwanth Guru).
   [ ] Generative-AI use is no longer disclosed in the manuscript (acknowledgments removed).
       ACM policy requires disclosure: declare it in the submission system or cover letter.
+  [x] PRISMA checklist complete in wording (items 6, 8, 16a/b, 20, 24a-c, 27 updated Oct 2026).
   [x] PRISMA reporting (Oct 2026): the per-stage record counts were never logged, so the paper
       now says so openly (Section 3.4, Section 3.7 "Selection and grading", Table S2, Figure S1)
       instead of leaving [n] blanks. Search window: 1982 to October 2026 (latest study August 2026).
@@ -103,7 +104,7 @@ BEFORE YOU SUBMIT (things only you can supply)
       authors' work at Amrita Vishwa Vidyapeetham, Chennai, India." (checklist item 25, cover letter). The
       acknowledgments section was removed at the authors' request.
   [ ] Cover letter: date and suggested reviewers.
-  [ ] Deposit Survey1_data_package on Zenodo and paste the DOI into Data Availability.
+  [x] Data availability: data provided as supplementary material (no DOI required; Zenodo optional).
   [x] Published versions checked (Oct 2026): Wang2021 now carries a note pointing to J. Navigation 76(1), 2023;
       Innan2025 is still arXiv-only.
   [ ] Check the live CSUR author-guidelines page (dl.acm.org/journal/csur/author-guidelines)

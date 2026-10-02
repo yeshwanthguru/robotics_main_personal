@@ -11,6 +11,5 @@ Authors: Yeshwanth Guru and Dev Kunwar Singh Chauhan, Amrita Vishwa Vidyapeetham
 
 Licence: CC BY 4.0 (suggested; confirm before deposit).
 
-To archive: create a new Zenodo upload, add these four files and this README, set the
-resource type to "Dataset", and paste the DOI Zenodo assigns into the Data Availability
-statement of the article (the red [dataset DOI] placeholder).
+These files are submitted as supplementary material with the article. Optionally, they can also be
+archived on Zenodo (resource type "Dataset") to obtain a permanent DOI.
