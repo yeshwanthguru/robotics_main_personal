@@ -22,8 +22,9 @@ Systematic review of the literature in computing and robotics, reported followin
 where it applies.
 
 **Research questions**
-- RQ1. Which quantum methods have been applied to which robotic functions (optimization, planning,
-  learning, sensing and communication, decision-making)?
+- RQ1. Which quantum methods have been applied to which robotic functions (optimization and planning;
+  learning, including quantum machine learning and reinforcement learning; sensing and communication;
+  and decision-making and reasoning)?
 - RQ2. What level of evidence supports each application, from theoretical analysis to end-to-end
   deployment on physical robots?
 - RQ3. Which reported benefits are genuinely quantum, and which come from quantum-inspired classical
