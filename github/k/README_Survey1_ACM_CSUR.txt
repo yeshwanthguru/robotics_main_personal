@@ -62,10 +62,11 @@ BEFORE YOU SUBMIT (things only you can supply)
   [ ] Before submitting, note from the CSUR author guidelines: a rejected paper cannot be resubmitted
       to CSUR for 12 months; ACM is fully open access since 2026, so check the APC or whether Amrita
       is covered by ACM Open; you may list preferred AND non-preferred reviewers.
-  [ ] *** PAGE LIMIT ***: CSUR author guidelines: long surveys "must not exceed 35 pages, including
-      references" (dl.acm.org/journal/csur/author-guidelines). main.pdf is 47 pages (text and tables
-      end on p. 37, references pp. 38-47). Either cut about 12 pages or move material to an
-      electronic supplement and mark which pages form the 35 published pages.
+  [x] PAGE LIMIT met (Oct 2026): main.pdf is 34 pages including references (CSUR limit 35).
+      Moved to the supplement (electronic supplement, published alongside): Emerging Directions
+      (short summary kept as Section 10), method schematics (Figs. S2-S5), synthesis table (S7),
+      reporting checklist (S8) and roadmap (S9). Text condensed; all 185 references still cited
+      (173 in the main article, the rest in the supplement).
   [x] Authors: Yeshwanth Guru (g_yeshwanth@ch.students.amrita.edu) and Dev Kunwar Singh Chauhan
       (c_devsingh@ch.amrita.edu), Amrita Vishwa Vidyapeetham, Chennai, India.
   [x] ORCIDs added: Yeshwanth 0009-0007-6353-4033, Dev 0000-0002-1466-4567.
