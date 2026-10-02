@@ -131,6 +131,17 @@ PICOS framing (adapted to a computing review):
 **Secondary research question(s)**
 None; all five questions are primary and all are answered in the final report.
 
+**Expectations / hypotheses**
+No formal hypotheses were specified before the review began. Because this registration is made
+after the review was completed, we do not state expectations here, to avoid presenting the findings
+as if they had been predicted.
+Context that may color interpretation: (1) the authors work in robotics (Department of Mechanical
+Engineering) and are users, not developers, of quantum hardware; (2) the authors receive no funding
+from, and have no ties to, quantum-hardware or software vendors; (3) the field is young and fast
+moving, many studies are preprints, and advantage claims are often made in promotional language, so
+each claim was judged against its evidence level and baseline rather than its stated conclusion;
+(4) a single reviewer screened the records, which may bias inclusion decisions.
+
 **Information sources**
 IEEE Xplore, ACM Digital Library, Scopus, Web of Science, SpringerLink, ScienceDirect, arXiv
 (quant-ph, cs.RO, cs.LG); backward and forward reference chasing from key papers and earlier
