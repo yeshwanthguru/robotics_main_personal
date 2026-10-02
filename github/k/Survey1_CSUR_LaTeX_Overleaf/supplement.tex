@@ -1,5 +1,5 @@
 %% Online supplementary material for:
-%% Quantum Computing for Autonomous Robotics: A Systematic Survey of Methods, Evidence, and Deployment Constraints
+%% Quantum Technologies for Autonomous Robotics: A Systematic Survey of Methods, Evidence, and Deployment Constraints
 \documentclass[acmsmall,screen,review]{acmart}
 \usepackage{array,booktabs,longtable,xcolor,pdflscape}
 \newcommand{\fillin}[1]{{\color{red}\bfseries [FILL: #1]}}
@@ -11,11 +11,11 @@
 \renewcommand\thetable{S\arabic{table}}
 \renewcommand\thefigure{S\arabic{figure}}
 \begin{document}
-\title{Online Supplementary Material for ``Quantum Computing for Autonomous Robotics: A Systematic Survey of Methods, Evidence, and Deployment Constraints''}
+\title{Online Supplementary Material for ``Quantum Technologies for Autonomous Robotics: A Systematic Survey of Methods, Evidence, and Deployment Constraints''}
 \author{Firstname Lastname}
 \affiliation{\institution{Institution}\city{City}\country{Country}}
 \maketitle
-This supplement contains the evidence table for the 58 primary studies (Table~\ref{tab:evidence}), the PRISMA 2020 flow of records (Table~\ref{tab:flow}) and checklist (Table~\ref{tab:prisma}), the quality-assessment rubric (Table~\ref{tab:rubric}), and the databases and search strings (Table~\ref{tab:search}). The evidence table is also provided as \texttt{extraction\_table.csv}. Citations refer to the reference list of the main article.
+This supplement contains the evidence table for the 58 primary studies (Table~\ref{tab:evidence}), the PRISMA 2020 flow of records (Table~\ref{tab:flow}) and checklist (Table~\ref{tab:prisma}), the quality-assessment rubric (Table~\ref{tab:rubric}), and the databases and search strings (Table~\ref{tab:search}). The evidence table is also provided as \texttt{extraction\_table.csv}, which additionally records each study's quantum-execution tag (none, simulated, QPU, sensor or link hardware, or classical; Section 3.6 and Table 4 of the main article). Citations refer to the reference list of the main article.
 
 {\scriptsize
 \begin{longtable}{@{}>{\raggedright\arraybackslash}p{0.120\dimexpr\linewidth-12\tabcolsep\relax}>{\raggedright\arraybackslash}p{0.140\dimexpr\linewidth-12\tabcolsep\relax}>{\raggedright\arraybackslash}p{0.180\dimexpr\linewidth-12\tabcolsep\relax}>{\raggedright\arraybackslash}p{0.170\dimexpr\linewidth-12\tabcolsep\relax}>{\raggedright\arraybackslash}p{0.210\dimexpr\linewidth-12\tabcolsep\relax}>{\raggedright\arraybackslash}p{0.180\dimexpr\linewidth-12\tabcolsep\relax}@{}}
@@ -100,7 +100,7 @@ Identification & Records identified from databases: \fillin{n} (IEEE Xplore \fil
 Screening & Records screened by title and abstract: \fillin{n}; records excluded: \fillin{n}. \\
  & Reports sought for retrieval: \fillin{n}; reports not retrieved: \fillin{n}. \\
 Eligibility & Reports assessed in full text: \fillin{n}; reports excluded, with reasons: metaphorical use of ``quantum'' (E1) \fillin{n}; not in English (E2) \fillin{n}; duplicate or earlier version (E3) \fillin{n}; no robotic application (E4) \fillin{n}. \\
-Included & Primary studies: 58 (51 empirical or theoretical studies and 7 reviews). Foundational works cited for context: 91. Total references: 149. \\
+Included & Primary studies: 58 (51 empirical or theoretical studies and 7 reviews). Foundational works cited for context: 91. Related quantum computer-vision studies discussed but not graded (Section 10.4 of the main article): 6. Total references: 155. \\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -130,14 +130,14 @@ Included & Primary studies: 58 (51 empirical or theoretical studies and 7 review
 8 & Selection process & Section 3.4 \\
 9 & Data collection process & Section 3.5 \\
 10 & Data items & Sections 3.5--3.6 \\
-11 & Study risk of bias assessment & Section 3.5; Table S3 \\
+11 & Study risk of bias assessment & Section 3.5; criteria in Table S3 \\
 12 & Effect measures & Not applicable (no meta-analysis); evidence levels in Table 2 \\
 13 & Synthesis methods & Sections 3.6 and 11 \\
 14 & Reporting bias assessment & Section 3.7 \\
 15 & Certainty assessment & Sections 11.2--11.3 \\
 16 & Study selection & Figure S1 \\
 17 & Study characteristics & Table S1; extraction\_table.csv \\
-18 & Risk of bias in studies & Table S3 \fillin{add per-study scores} \\
+18 & Risk of bias in studies & Limitation column of Table S1; Sections 4--10 \\
 19 & Results of individual studies & Sections 4--10; Table S1 \\
 20 & Results of syntheses & Section 11; Tables 2 and 3 \\
 21 & Reporting biases & Section 3.7 \\
@@ -152,12 +152,12 @@ Included & Primary studies: 58 (51 empirical or theoretical studies and 7 review
 \end{table}
 
 \begin{table}[h]
-\caption{Quality-assessment rubric for robotics application studies (0 = not met, 1 = partly met, 2 = fully met; maximum 14).}
+\caption{Quality-appraisal criteria for robotics application studies. Each criterion was judged as not met, partly met, or met; the judgments were not summed into a score, and the criteria a study does not meet are reported in the Limitation column of Table S1.}
 \label{tab:rubric}
 \footnotesize
 \begin{tabular}{@{}>{\raggedright\arraybackslash}p{0.250\dimexpr\linewidth-8\tabcolsep\relax}>{\raggedright\arraybackslash}p{0.220\dimexpr\linewidth-8\tabcolsep\relax}>{\raggedright\arraybackslash}p{0.260\dimexpr\linewidth-8\tabcolsep\relax}>{\raggedright\arraybackslash}p{0.270\dimexpr\linewidth-8\tabcolsep\relax}@{}}
 \toprule
-\textbf{Criterion} & \textbf{0} & \textbf{1} & \textbf{2} \\ \midrule
+\textbf{Criterion} & \textbf{Not met} & \textbf{Partly met} & \textbf{Met} \\ \midrule
 Q1 Problem formulation & Robotic task unclear & Task stated but simplified without justification & Task and mapping to the quantum formulation fully specified \\
 Q2 Classical baseline & None & Basic or untuned baseline & State-of-the-art, tuned baseline \\
 Q3 Experimental realism & Theory or toy example & Simulation or small QPU run & Physical robot or realistic field setting \\

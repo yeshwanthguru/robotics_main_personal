@@ -1,16 +1,18 @@
 SURVEY 1 – ACM COMPUTING SURVEYS (CSUR) SUBMISSION PACKAGE
-Quantum Computing for Autonomous Robotics: A Systematic Survey of Methods, Evidence, and Deployment Constraints
+Quantum Technologies for Autonomous Robotics: A Systematic Survey of Methods, Evidence, and Deployment Constraints
+(retitled from "Quantum Computing for ..."; the .docx manuscript and cover letter still carry the old title)
 =====================================================================================================
 
 FILES
   Survey1_CSUR_LaTeX_Overleaf.zip       Official submission source (ACM acmart, acmsmall format)
       main.tex                          Manuscript (\documentclass[acmsmall,screen,review]{acmart})
       supplement.tex                    Online supplementary material
-      refs.bib                          149 verified BibTeX entries (full author names, DOIs)
+      refs.bib                          155 verified BibTeX entries (full author names, DOIs)
       figures/                          Figures 1-5 + PRISMA flow diagram (300 dpi PNG)
   Survey1_ACM_CSUR_Manuscript.docx      Word version of the same manuscript, in acmsmall page layout
   Survey1_ACM_CSUR_Supplementary_Material.docx   Word version of the supplement
-  extraction_table.csv                  Data-extraction table for the 58 primary studies (supplementary data)
+  extraction_table.csv                  Data-extraction table for the 58 primary studies (supplementary data),
+                                        including the quantum-execution tag of each study
   Survey1_CSUR_Cover_Letter.docx        Cover letter to the Editor-in-Chief
 
 HOW TO PRODUCE THE SUBMISSION PDF (recommended route)
@@ -23,8 +25,8 @@ HOW TO PRODUCE THE SUBMISSION PDF (recommended route)
 STRUCTURE (CSUR conventions)
   Unstructured abstract (241 words); CCS concepts (CCSXML); keywords; ACM author-year
   citations; taxonomy figure in Section 3; comparison table with earlier surveys (Table 1);
-  open problems derived from the taxonomy (Section 12); reporting checklist (Table 4);
-  research roadmap (Table 5); figures carry \Description alt text (ACM accessibility);
+  evidence level x quantum execution cross-tabulation (Table 4); open problems derived from
+  the taxonomy (Section 12); reporting checklist (Table 5); research roadmap (Table 6); figures carry \Description alt text (ACM accessibility);
   data-availability statement; detailed tables moved to the online supplement.
   Body ~12,600 words; about 30 pages of main text in acmsmall + ~14 pages of references.
 
@@ -34,7 +36,9 @@ BEFORE YOU SUBMIT (things only you can supply)
   [ ] Section 3.4 and supplement Table S2 / Figure S1: PRISMA counts (records identified,
       duplicates, screened, full texts, exclusions by reason). These were not invented.
   [ ] Section 3.5: who extracted/scored the data and how disagreements were resolved.
-  [ ] Supplement Table S3/S4: per-study quality scores, if you want to report them.
+  [ ] Quality appraisal is reported qualitatively (unmet criteria = Limitation column of
+      Table S1). If you did score studies 0/1/2, restore the scores in supplement Table S3.
+  [ ] Update the title in Survey1_ACM_CSUR_Manuscript.docx and the cover letter.
   [ ] Acknowledgments / funding, competing-interest statement, protocol registration (or say none).
   [ ] Cover letter: date, suggested reviewers, corresponding-author details.
   [ ] Check the live CSUR author-guidelines page (dl.acm.org/journal/csur/author-guidelines)
@@ -45,7 +49,9 @@ BEFORE YOU SUBMIT (things only you can supply)
   All placeholders appear as red [FILL: ...] in the PDF and yellow-highlighted [FILL: ...] in Word.
 
 REFERENCE VERIFICATION
-  All 149 references were checked against publisher, DOI, arXiv, or the local PDFs.
+  Six quantum computer-vision references added in the review revision (Golyanik2020, Birdal2021,
+  Benkner2021, Doan2022, Zaech2022, Meli2022) were checked against the CVF open-access records.
+  All 149 original references were checked against publisher, DOI, arXiv, or the local PDFs.
   Corrections made relative to the earlier Survey 1 list include, for example:
     Tian2023 -> Physical Review Letters 133, 200801 (2024); Sinha2023 (Nav-Q) -> Quantum Machine
     Intelligence 7 (2025); Yu2025 (HQC-NBV) -> CVPR 2026; Antero2025 -> Robotics and Autonomous
