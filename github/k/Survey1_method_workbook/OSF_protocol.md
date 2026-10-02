@@ -32,6 +32,11 @@ Department of Mechanical Engineering, Amrita Vishwa Vidyapeetham, Chennai, India
 Review completed. Registered retrospectively after the corpus was closed (October 2026), to document
 the methods as applied, so that readers can check the review against them.
 If asked "Has data collection started?": Yes, completed.
+Review stage (tick Completed for every stage): preliminary searches; piloting of the study selection
+process; formal screening of search results against eligibility criteria; data extraction; risk of
+bias (quality) assessment; data analysis. Single choice: "Completed" / "Review completed".
+Free text: All stages completed; search closed October 2026; registered retrospectively before
+journal submission.
 
 **Type of review**
 Dropdown: Systematic review (not meta-analysis, not scoping, not rapid, not umbrella).
