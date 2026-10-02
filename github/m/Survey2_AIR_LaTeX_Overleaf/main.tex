@@ -1,0 +1,820 @@
+%% =============================================================================
+%% Quantum-like cognition and decision-making for autonomous agents: a survey
+%% Target journal: Artificial Intelligence Review (Springer Nature)
+%% Template: Springer Nature LaTeX template (sn-jnl.cls), reference style sn-basic
+%% (author-year, Springer Nature "Basic" style). See README for how to compile.
+%% =============================================================================
+\documentclass[pdflatex,sn-basic]{sn-jnl}
+
+\usepackage{graphicx}
+\usepackage{multirow}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{amsthm}
+\usepackage{mathrsfs}
+\usepackage[title]{appendix}
+\usepackage{xcolor}
+\usepackage{textcomp}
+\usepackage{manyfoot}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{algorithm}
+\usepackage{algorithmicx}
+\usepackage{algpseudocode}
+\usepackage{listings}
+
+%% [FILL: ...] marks text the authors must complete before submission.
+\newcommand{\fillin}[1]{{\color{red}\bfseries [FILL: #1]}}
+
+\raggedbottom
+
+\begin{document}
+\title[Quantum-like cognition for autonomous agents]{Quantum-like cognition and decision-making for autonomous agents: a survey from robotics to machine learning}
+
+%% ---------------------------------------------------------------------------
+%% AUTHORS -- replace the placeholders (one \author and \affil block per author)
+%% ---------------------------------------------------------------------------
+\author*[1]{\fnm{Firstname} \sur{Lastname}}\email{author@institution.edu}
+
+%% \author[2]{\fnm{Second} \sur{Author}}\email{second@institution.edu}
+
+\affil*[1]{\orgdiv{Department}, \orgname{Institution}, \orgaddress{\city{City}, \postcode{Postcode}, \country{Country}}}
+
+%% \affil[2]{\orgdiv{Department}, \orgname{Institution}, \orgaddress{\city{City}, \country{Country}}}
+
+\abstract{Autonomous robots and AI systems increasingly decide under ambiguity and in interaction with people whose judgements violate classical probability. Quantum cognition models beliefs as vectors in a Hilbert space and judgements as measurements, so that question order, context and interference between unresolved possibilities change the resulting probabilities. These quantum-probability (QP) models run on ordinary computers and need neither quantum hardware nor a quantum brain. This survey reviews 205 works covering the foundations, empirical tests and critiques of quantum cognition and its transfer to autonomous agents: quantum-like Bayesian networks, quantum-inspired machine learning and language models, quantum and quantum-inspired reinforcement learning, robot perception, emotion and decision models, multi-agent and human--machine teams, and human trust in AI. Every application is classified by model type and on a six-level evidence scale. The psychological evidence is substantial but contested: order effects obeying the parameter-free QQ equality are robust, whereas conjunction-fallacy and contextuality claims face credible classical rivals. Applications remain early: most are formal models or simulations, six reach a physical system, and none shows in a controlled comparison that a QP module improves an autonomous system's task performance. The most defensible near-term use is human-facing, predicting human judgements, trust and preferences. Worked examples, an illustrative reinforcement-learning experiment, a comparison with classical methods and a benchmark proposal complete the survey.}
+
+\keywords{Quantum cognition, Quantum probability, Decision-making, Autonomous agents, Human--robot interaction, Reinforcement learning}
+
+\maketitle
+
+\section{Introduction}\label{sec:intro}
+
+\subsection{Motivation}\label{sec:motivation}
+Classical autonomous systems rest on Kolmogorov probability. A robot's belief is a probability distribution over states; new evidence is incorporated by Bayes' rule; decisions maximise expected utility; and when the state is only partly observable the whole loop is formalised as a partially observable Markov decision process~\citep{Thrun2005,Lauri2023}. Sensor fusion follows the same logic, with the Kalman filter as the optimal estimator for linear-Gaussian systems~\citep{Kalman1960,Haykin2001}, and reinforcement learning (RL) assumes Markovian states and additive rewards~\citep{Sutton2018}. These assumptions have delivered reliable navigation, mapping and manipulation. They become fragile, however, in three situations that autonomous agents now meet routinely.
+
+The first is interaction with people. Human judgement systematically violates classical probability: the probability of a conjunction is judged higher than that of one of its components~\citep{Tversky1983}, answers depend on the order in which questions are asked~\citep{Wang2014}, and people who would choose the same option whatever the outcome of an uncertain event choose differently when the outcome is unknown, violating Savage's sure-thing principle~\citep{Savage1954,Shafir1992}. A robot that predicts human intentions, calibrates trust or explains its choices with a model that cannot represent these patterns will be systematically wrong about its human partners~\citep{Song2022,Roeder2023}. The second is ambiguity: when evidence is conflicting or the categories themselves are vague, a single joint probability distribution over all variables may not exist, a situation classical inference handles only with ad hoc devices~\citep{Ellsberg1961,Blutner2013}. The third is context and sequence: large language models (LLMs) and other learned systems also show order and framing effects~\citep{Binz2023,Tjuatja2024}, so AI components that query one another in sequence can inherit context-dependent behaviour that no fixed joint distribution describes~\citep{Lo2025}.
+
+
+\subsection{The quantum cognition hypothesis}\label{sec:hypothesis}
+Quantum cognition proposes that the mathematics of quantum theory, rather than its physics, provides a better description of these phenomena~\citep{Busemeyer2012,Pothos2013a,Bruza2015}. A belief state is a unit vector in a Hilbert space; a question is a subspace; the probability of an answer is the squared length of the state's projection onto that subspace; and answering a question changes the state. Two principles do most of the work~\citep{Busemeyer2015}. Complementarity (incompatibility) means that some questions correspond to non-commuting projectors, so that answering one first changes the answer to the other and no joint distribution over both exists. Superposition means that, before a judgement is made, the state need not be in any definite answer; unresolved possibilities combine through amplitudes, and their interference can raise or lower probabilities relative to the classical law of total probability~\citep{Pothos2009}. When all questions are compatible, QP reduces exactly to classical probability, so the framework is a generalisation rather than a replacement~\citep{Bruza2015}. The strongest single piece of support is a parameter-free prediction, the quantum question (QQ) equality, which held across 70 national surveys~\citep{Wang2013b,Wang2014}. The most recent overview of the research programme summarises two decades of such tests~\citep{Huang2025b}.
+
+
+\subsection{Scope, terminology and the role of quantum hardware}\label{sec:scope}
+This survey addresses a different question from surveys of quantum computing for robotics~\citep{Petschnigg2019,Yan2024}. Quantum-cognition models are linear-algebra models: states are vectors or density matrices of modest dimension, measurements are projectors or instruments, and dynamics are unitary or Lindblad evolutions, all of which run on standard CPUs and GPUs. Quantum hardware is therefore optional. Circuits for cognitive decision models have been run on trapped-ion processors~\citep{Widdows2023} and compositional language models on superconducting devices~\citep{Lorenz2023}, but these demonstrations show feasibility rather than advantage, and noisy intermediate-scale devices~\citep{Preskill2018} add latency and error without adding modelling power at these sizes. The practical barrier to adoption is not hardware but evidence: whether the effects are robust, whether QP models beat well-specified classical alternatives, and whether they improve what autonomous systems actually do. We therefore separate three families throughout: quantum-like models (QP mathematics on classical computers), quantum-inspired algorithms (classical heuristics borrowing quantum ideas, such as amplitude-based exploration) and quantum hardware implementations.
+
+The survey covers (i) the psychological and mathematical foundations of quantum cognition, including open-system dynamics, quantum instruments and contextuality; (ii) quantum-like graphical models for decision support; (iii) quantum-inspired machine learning, deep learning and natural-language processing, including recent probes of LLMs; (iv) quantum and quantum-inspired reinforcement learning; (v) quantum-like models for robot perception, emotion, planning and embodied cognition; (vi) multi-agent systems, swarms and human--machine teams; and (vii) quantum models of human trust in automation. It excludes quantum control of physical qubits and quantum sensing, except where they are used as agent decision models, and it treats claims that the brain is a quantum computer only in the neuroscience discussion (Section \ref{sec:neuro}). The contributions of the survey are stated in Section \ref{sec:related}.
+
+
+\subsection{Related surveys and contributions}\label{sec:related}
+Existing reviews cover four neighbouring areas but not their intersection (Table \ref{tab:surveys}). Surveys of quantum cognition in psychology, notably~\citet{Pothos2022} and~\citet{Huang2025b}, with earlier reviews by~\citet{Bruza2015} and~\citet{Ashtiani2015}, summarise the evidence from human judgement and decision-making but do not discuss robots, reinforcement learning or other autonomous agents. Surveys of quantum robotics~\citep{Yan2024,Petschnigg2019} focus on quantum computing, sensing and communication hardware and treat cognition briefly or not at all. Reviews of quantum machine learning~\citep{Biamonte2017,Dunjko2018}, quantum reinforcement learning~\citep{Meyer2022,Chen2024}, quantum mathematics in AI~\citep{Widdows2021}, quantum-inspired information retrieval~\citep{Uprety2021} and quantum-cognitively inspired sentiment analysis~\citep{Liu2023} cover algorithms but not the human-facing decision problems of autonomous agents. A recent chapter surveys quantum models of cognition across AI, finance and defence without grading evidence~\citep{Maksymov2025}, and position papers argue for a convergence of quantum-like cognition and AI~\citep{Khrennikov2022,Khrennikov2026}.
+
+\begin{table}[ht]
+\caption{Coverage of this survey compared with earlier reviews. $\checkmark$ = covered systematically; ($\checkmark$) = covered partially; -- = not covered. QC = quantum cognition; QRL = quantum reinforcement learning. The assessment is ours}\label{tab:surveys}%
+\footnotesize
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{0.170\dimexpr\textwidth-16\tabcolsep\relax}>{\raggedright\arraybackslash}p{0.230\dimexpr\textwidth-16\tabcolsep\relax}>{\raggedright\arraybackslash}p{0.100\dimexpr\textwidth-16\tabcolsep\relax}>{\raggedright\arraybackslash}p{0.100\dimexpr\textwidth-16\tabcolsep\relax}>{\raggedright\arraybackslash}p{0.100\dimexpr\textwidth-16\tabcolsep\relax}>{\raggedright\arraybackslash}p{0.100\dimexpr\textwidth-16\tabcolsep\relax}>{\raggedright\arraybackslash}p{0.100\dimexpr\textwidth-16\tabcolsep\relax}>{\raggedright\arraybackslash}p{0.100\dimexpr\textwidth-16\tabcolsep\relax}@{}}
+\toprule
+\textbf{Review} & \textbf{Focus} & \textbf{QC evidence and critiques} & \textbf{Robots and embodied agents} & \textbf{ML, DL and LLMs} & \textbf{QRL} & \textbf{Human--AI trust} & \textbf{Evidence grading} \\ \midrule
+\citet{Ashtiani2015} & Quantum-like decision formalisms & $\checkmark$ & -- & -- & -- & -- & -- \\
+\citet{Bruza2015} & Quantum cognition in cognitive science & $\checkmark$ & -- & -- & -- & -- & -- \\
+\citet{Pothos2022} & Quantum cognition (Annual Review) & $\checkmark$ & -- & -- & -- & -- & -- \\
+\citet{Huang2025b} & Overview of the research programme & $\checkmark$ & -- & -- & -- & ($\checkmark$) & -- \\
+\citet{Dunjko2018} & ML and AI in the quantum domain & -- & ($\checkmark$) & $\checkmark$ & $\checkmark$ & -- & -- \\
+\citet{Meyer2022} & Quantum reinforcement learning & -- & ($\checkmark$) & -- & $\checkmark$ & -- & -- \\
+\citet{Widdows2021} & Quantum mathematics in AI & ($\checkmark$) & -- & $\checkmark$ & -- & -- & -- \\
+\citet{Yan2024} & Quantum robotics & -- & $\checkmark$ & ($\checkmark$) & ($\checkmark$) & -- & -- \\
+\citet{Maksymov2025} & Quantum models of cognition in AI applications & ($\checkmark$) & ($\checkmark$) & ($\checkmark$) & -- & ($\checkmark$) & -- \\
+This survey & Quantum cognition for autonomous agents & $\checkmark$ & $\checkmark$ & $\checkmark$ & $\checkmark$ & $\checkmark$ & $\checkmark$ \\
+\botrule
+\end{tabular}
+\end{table}
+
+To our knowledge, this survey is the first to make the following five contributions.
+
+\begin{enumerate}
+\item It connects the psychological evidence base to applications in robotics, reinforcement learning, machine learning and deep learning, large language models and human--AI trust within one framework (Sections \ref{sec:theory}--\ref{sec:trust}).
+\item It separates quantum-like, quantum-inspired and quantum-hardware work consistently throughout.
+\item It grades every application study on a six-level evidence scale, from conceptual proposals to field deployment (Section \ref{sec:method} and Online Resource 1).
+\item It confronts the applications with the critical literature and with classical competitors (Sections \ref{sec:evidence} and \ref{sec:compare}).
+\item It provides worked examples, an illustrative experiment, a benchmark suite and a replication checklist, with reproducible code (Sections \ref{sec:rl-exp} and \ref{sec:agenda}, Online Resource 2).
+\end{enumerate}
+
+
+\subsection{Organisation}\label{sec:organisation}
+Section \ref{sec:method} describes the review methodology and the evidence scale. Section \ref{sec:history} traces the development of quantum cognition, Section \ref{sec:math} introduces the mathematics needed for the rest of the survey, and Section \ref{sec:theory} reviews the core phenomena and the evidence for and against QP models. Section \ref{sec:framework} maps QP principles onto agent functions, and Sections \ref{sec:perception}--\ref{sec:trust} review applications to perception and fusion, decision-making and planning, machine learning and language models, reinforcement learning, embodied and social robots, multi-agent systems, and human--AI trust. Section \ref{sec:synthesis} synthesises the evidence and compares QP models with classical alternatives. Sections \ref{sec:limits}--\ref{sec:neuro} discuss limitations, implementation, ethics and biological grounding, Section \ref{sec:agenda} sets out benchmarks and a research agenda, and Section \ref{sec:conclusion} concludes. Appendix \ref{app:math} collects the derivations and Appendix \ref{app:exp} the experimental details.
+
+
+\section{Review methodology}\label{sec:method}
+The corpus was assembled in three stages. We began with a curated reading list of 102 items compiled for this survey and a companion survey on quantum computing in robotics. Every item was checked against publisher, arXiv or repository records. About twenty entries needed corrections to titles, author lists, years or identifiers; three items could not be located in any index and were replaced by the two verified papers of the same research group; two items whose titles did not exist were replaced by the real works that matched their topic; and two further items were dropped, one because it could not be found and one because it did not concern quantum models. Second, PDFs held by the authors were identified by their first-page text rather than their file names; 31 relevant works found in this way were added. Third, we ran structured web searches (Google Scholar-style queries, publisher sites, arXiv, PubMed and Semantic Scholar) in two streams: applications of quantum cognition to robots, agents, human--machine teams and reinforcement learning; and quantum cognition theory, critiques, machine learning, LLMs and neuroscience published from 2016 to 2026. This added 74 verified works. The final corpus contains 205 works: 74 application studies, 71 theory and evidence papers, 17 reviews and 43 background works (classical baselines, hardware and software). The searches were last run on \fillin{date of the final search}; database-level hit counts are reported in Online Resource 1 \fillin{add the database-level counts}.
+
+Each application and theory paper was read in full where a PDF was available (64 works) or from its abstract otherwise, and classified by model type and by the evidence level in Table \ref{tab:levels}. The levels grade how far the evidence goes toward an autonomous system, not the quality of the underlying science: a rigorous psychology experiment is E3 because it involves human data but no agent.
+
+Each study was also classified by model type. \emph{Quantum-like} models use QP mathematics on classical computers; \emph{quantum-inspired} algorithms are classical heuristics that borrow quantum ideas, such as amplitude-based exploration; and \emph{quantum-hardware} studies execute circuits on quantum processors. Application studies were further assigned to one of seven domains: quantum-like decision networks; machine learning, natural-language processing and information retrieval; deep learning and LLMs; reinforcement learning; robots and embodied agents; multi-agent systems and teams; and human--AI trust. The complete classification of the 74 application studies is given in Online Resource 1.
+
+\begin{table}[ht]
+\caption{Evidence levels used to classify theory and application studies, with the number of application studies (n = 74) and of all graded studies (n = 145) at each level}\label{tab:levels}%
+\footnotesize
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{0.060\dimexpr\textwidth-12\tabcolsep\relax}>{\raggedright\arraybackslash}p{0.130\dimexpr\textwidth-12\tabcolsep\relax}>{\raggedright\arraybackslash}p{0.310\dimexpr\textwidth-12\tabcolsep\relax}>{\raggedright\arraybackslash}p{0.320\dimexpr\textwidth-12\tabcolsep\relax}>{\raggedright\arraybackslash}p{0.090\dimexpr\textwidth-12\tabcolsep\relax}>{\raggedright\arraybackslash}p{0.090\dimexpr\textwidth-12\tabcolsep\relax}@{}}
+\toprule
+\textbf{Level} & \textbf{Label} & \textbf{Definition} & \textbf{Typical example} & \textbf{n (appl.)} & \textbf{n (all)} \\ \midrule
+E1 & Conceptual & Position or proposal without a formal model or data & Architectural proposals~\citep{Aerts2011d,Lawless2020} & 6 & 8 \\
+E2 & Formal model & Mathematical model or algorithm; analytic or toy illustration only & Quantum emotion spaces~\citep{Yan2019} & 18 & 49 \\
+E3 & Human data & Model fitted to or tested on human behavioural or neural data & QQ equality in surveys~\citep{Wang2014}; trust in AI~\citep{Roeder2023} & 9 & 46 \\
+E4 & Simulation or benchmark & Simulated agents, ML benchmark datasets or LLM probes & Quantum RL navigation~\citep{Hohenfeld2024} & 35 & 36 \\
+E5 & Physical system & Physical robot or real hardware system in the laboratory & Quantum-inspired RL on a mobile robot~\citep{Dong2012} & 6 & 6 \\
+E6 & Field deployment & Real-world deployment or large-scale study with real users or operators & None found & 0 & 0 \\
+\botrule
+\end{tabular}
+\end{table}
+
+\paragraph{Threats to validity} Several threats apply. Coverage may be incomplete because the terminology is inconsistent (``quantum-like``, ``quantum-inspired'' and ``quantum'' are used interchangeably) and because several recent works are preprints that have not yet been peer-reviewed. About 92 entries were classified from their abstracts rather than full texts, which may have led to errors in the assigned evidence level; when in doubt, we assigned the lower level. Evidence levels grade how far a study goes towards an autonomous system, not its scientific quality. Finally, the heterogeneity of tasks and metrics prevented a quantitative meta-analysis, so the synthesis is narrative.
+
+
+\section{Historical development}\label{sec:history}
+Figure \ref{fig:eras} summarises five eras in the development of quantum cognition and its transfer to autonomous agents.
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=1.00\textwidth]{figures/Fig1_eras.png}
+\caption{Five eras of quantum cognition and its transfer to autonomous agents, with representative works}\label{fig:eras}
+\end{figure}
+
+
+\subsection{Classical foundations and early quantum ideas (1925--2000)}\label{sec:era1}
+The formalism that quantum cognition borrows was consolidated by von Neumann, who represented states as vectors in a Hilbert space, observables as self-adjoint operators and measurement as projection~\citep{vonNeumann1932}. Two of his results matter here. First, quantum probability is defined on a lattice of subspaces that is not distributive, so the classical identity P(A) = P(A\ensuremath{\wedge }B) + P(A\ensuremath{\wedge }\ensuremath{\neg }B) can fail. Second, measurement changes the state, the property later exploited to model the constructive nature of human judgement.
+
+Savage's axiomatisation of subjective expected utility made the sure-thing principle a pillar of rational choice~\citep{Savage1954}. Cognitive science then developed along two lines that still shape autonomous systems: symbolic architectures, from which today's cognitive architectures descend~\citep{Kotseruba2020,Laird2017}, and probabilistic models, later formalised as Bayesian networks and probabilistic robotics~\citep{Thrun2005}. Both assume that all variables can be placed in one sample space.
+
+The heuristics-and-biases programme documented systematic departures from probability theory~\citep{Tversky1974}. The conjunction fallacy (judging ``bank teller and feminist'' more probable than ``bank teller``)~\citep{Tversky1983}, ambiguity aversion in the Ellsberg paradox~\citep{Ellsberg1961} and the disjunction effect in the Prisoner's Dilemma~\citep{Shafir1992} became the benchmark phenomena that quantum models would later address.
+
+
+\subsection{Quantum probability enters cognitive science (2000--2010)}\label{sec:era2}
+The Brussels group argued that concepts behave like quantum entities whose meaning is actualised by context. Aerts, D'Hondt and Gabora showed that the quantum-logical disjunction is not classical~\citep{Aerts2000}, and Aerts later showed that membership judgements for combined concepts (the ``guppy effect'' and over- and underextension) are incompatible with classical models but reproduced in Fock space~\citep{Aerts2009}.
+
+Khrennikov developed quantum-like models of information spaces~\citep{Khrennikov1999} and a contextual probability framework in which interference arises from incompatible contexts rather than physical quantum effects~\citep{Khrennikov2010}. The ``quantum-like'' label used throughout this survey originates in this work.
+
+Busemeyer, Wang and Townsend introduced quantum dynamics of decision-making, contrasting quantum and Markov random walks~\citep{Busemeyer2006}. Pothos and Busemeyer then showed that interference between the ``opponent defects'' and ``opponent cooperates'' branches reproduces the disjunction effect that classical models cannot~\citep{Pothos2009}, and Busemeyer, Wang and Lambert-Mogiliansky derived parameter-free empirical tests separating Markov and quantum models~\citep{Busemeyer2009}. Bruza and colleagues asked whether the human mental lexicon is quantum-like~\citep{Bruza2009}.
+
+
+\subsection{Consolidation of the framework (2011--2015)}\label{sec:era3}
+The monograph by Busemeyer and Bruza unified the field's principles, models and data~\citep{Busemeyer2012}; it remains the standard reference (a second edition has since appeared). Its companion target article in Behavioral and Brain Sciences, with open peer commentary, made the case to mainstream cognitive science~\citep{Pothos2013a}.
+
+Busemeyer, Pothos, Franco and Trueblood explained conjunction and disjunction errors as sequential projections~\citep{Busemeyer2011}; Trueblood and Busemeyer modelled order effects in inference~\citep{Trueblood2011}; and Wang and Busemeyer derived the QQ equality~\citep{Wang2013b}, confirmed in 70 national surveys~\citep{Wang2014}.
+
+Two-stage paradigms, in which an intermediate judgement is either elicited or not, became the main test of interference. Making a categorisation before an action~\citep{Wang2016}, or a choice before a confidence rating~\citep{Kvam2015}, changed later judgements in ways that violate the law of total probability.
+
+A special issue of Topics in Cognitive Science set out the case for quantum models of cognition~\citep{Wang2013a} and extended them to similarity~\citep{Pothos2013b}, vagueness~\citep{Blutner2013} and concept dynamics~\citep{Aerts2013}. The Quantum Interaction conference series provided a venue shared with information retrieval and AI, where the first explicit bridge to AI and robotics was proposed~\citep{Aerts2011d,Aerts2011b}. Survey articles consolidated the field~\citep{Ashtiani2015,Bruza2015}.
+
+
+\subsection{First connections to AI and robotics (2016--2020)}\label{sec:era4}
+Quantum-like Bayesian networks replaced classical probabilities with complex amplitudes and gave decision-support systems a way to represent sure-thing violations~\citep{Moreira2016,Moreira2017a}. In information retrieval and NLP, density-matrix language models~\citep{Sordoni2013} led to quantum-inspired neural networks for matching and sentiment~\citep{Zhang2018,Li2019}. In RL, a separate line of quantum-inspired algorithms had already been validated on a mobile robot~\citep{Dong2008,Dong2012}, and projective simulation offered a physics-motivated learning agent~\citep{Briegel2012} tested on real robotic manipulation~\citep{Hangl2016}.
+
+Quantum-inspired multimodal fusion treated modalities as incompatible measurement contexts~\citep{Li2021a,Gkoumas2021}. For robots, Lanza, Solinas and Mastrogiovanni proposed a quantum-like perception model in which percepts are qubit states and queries are measurements~\citep{Lanza2020}, extended to multi-sensory integration~\citep{Lanza2021}.
+
+Early ``quantum robot'' architectures combined classical controllers with (then hypothetical) quantum processors~\citep{Benioff1998,Dong2006}; robot emotion was modelled as a qubit-encoded emotion space~\citep{Yan2019}; and a quantum-like cognitive architecture was proposed as an alternative to resource-rational analysis~\citep{Moreira2020a}. None of these architectures closed a real-time control loop with a quantum processor.
+
+
+\subsection{Quantum cognition for autonomous systems (2021--present)}\label{sec:era5}
+Recent robot-facing work includes quantum-like pedestrian-intention models for automated driving~\citep{Song2022}, quantum affective decision models for social robots~\citep{Ho2022,Yan2021c}, quantum-circuit planners and teleo-reactive controllers~\citep{Chella2022,Chella2026}, and a social-robotics research programme~\citep{DeCarolis2025}. Multi-goal trade-offs appear in quantum-like evidence networks~\citep{Gao2025} and multi-attribute decision models~\citep{She2021}. We found no study that applies quantum cognition to fault diagnosis in robots; the closest work is a fault-tolerant quantum filter for quantum systems~\citep{Gao2021}, which addresses a different problem.
+
+Quantum-cognitive fusion~\citep{Gkoumas2021}, density-matrix matching~\citep{Zhang2025} and quantum-cognitive neural networks that reproduce human-like confidence~\citep{Maksimovic2025} extend quantum-inspired ML. Since 2024, a new line probes LLMs for quantum-like structure: contextuality in LLM-derived probabilities~\citep{Lo2025}, context effects in similarity judgements~\citep{Uprety2024}, Bell-type correlations in concept combinations~\citep{Aerts2026}, and probability-judgement fallacies~\citep{Imannezhad2026,Kang2026}.
+
+Variational quantum policies and Q-functions~\citep{Chen2020,Jerbi2021,Skolik2022} were applied to robot navigation~\citep{Hohenfeld2024}, arm control~\citep{Acuto2022} and automated driving~\citep{Sinha2023}, while quantum-inspired experience replay continued the classical line~\citep{Wei2022}. On the cognitive side, open-system quantum--Markov models describe how preferences and beliefs evolve~\citep{Busemeyer2020,Kvam2021,Epping2023}, and quantum models of trust in AI track how human reliance changes during interaction~\citep{Roeder2023,vanderMeer2025,Humr2025}.
+
+
+\section{Mathematical foundations}\label{sec:math}
+This section gives the minimum machinery needed to read the rest of the survey; derivations are collected in Appendix \ref{app:math}, and tutorials are available elsewhere~\citep{Yearsley2016a,Yearsley2017}.
+
+
+\subsection{Complex vector spaces and inner products}\label{sec:vec}
+A state is a vector |\ensuremath{\psi}\ensuremath{\rangle } in \ensuremath{\mathbb{C}}\ensuremath{^n}. The inner product \ensuremath{\langle }\ensuremath{\phi}|\ensuremath{\psi}\ensuremath{\rangle } = \ensuremath{\Sigma}\ensuremath{_i} \ensuremath{\phi}\ensuremath{_i}* \ensuremath{\psi}\ensuremath{_i} is linear in its second argument and conjugate-linear in its first; the norm is \ensuremath{\|}\ensuremath{\psi}\ensuremath{\|} = \ensuremath{\surd }\ensuremath{\langle }\ensuremath{\psi}|\ensuremath{\psi}\ensuremath{\rangle }. Complex amplitudes matter because probabilities are squared magnitudes: two paths to the same outcome add as amplitudes, and their relative phase determines whether they reinforce or cancel.
+
+
+\subsection{Hilbert spaces and orthonormality}\label{sec:hilbert}
+A Hilbert space is a complete inner-product space; all models in this survey are finite-dimensional, so it is simply \ensuremath{\mathbb{C}}\ensuremath{^n} with the standard inner product. An orthonormal basis {|e\ensuremath{_i}\ensuremath{\rangle }} satisfies \ensuremath{\langle }e\ensuremath{_i}|e\ensuremath{_j}\ensuremath{\rangle } = \ensuremath{\delta}\ensuremath{_i}\ensuremath{_j}. In cognitive models each basis vector represents a fully resolved answer pattern, and different questions correspond to different bases of the same space.
+
+
+\subsection{Linear operators}\label{sec:ops}
+Observables are Hermitian operators (A = A\ensuremath{^{\dagger}}); dynamics are unitary operators (U\ensuremath{^{\dagger}}U = I) that preserve norms, generated by a Hermitian Hamiltonian H through U(t) = exp(\ensuremath{-}iHt). Two operators are compatible when they commute (AB = BA). The commutator [A, B] = AB \ensuremath{-} BA measures incompatibility and is the formal source of order effects.
+
+
+\subsection{Projectors and the Born and Lüders rules}\label{sec:proj}
+A projector P satisfies P = P\ensuremath{^{\dagger}} = P\ensuremath{^2}; it projects onto the subspace spanned by the eigenvectors associated with an answer. The Born rule gives p(answer) = \ensuremath{\|}P|\ensuremath{\psi}\ensuremath{\rangle }\ensuremath{\|}\ensuremath{^2} = \ensuremath{\langle }\ensuremath{\psi}|P|\ensuremath{\psi}\ensuremath{\rangle }, and the Lüders rule gives the post-answer state P|\ensuremath{\psi}\ensuremath{\rangle }/\ensuremath{\|}P|\ensuremath{\psi}\ensuremath{\rangle }\ensuremath{\|}. Sequential judgements therefore have probability p(A then B) = \ensuremath{\|}\ensuremath{P\_{B}} \ensuremath{P\_{A}} |\ensuremath{\psi}\ensuremath{\rangle }\ensuremath{\|}\ensuremath{^2}, which differs from p(B then A) when \ensuremath{P\_{A}} and \ensuremath{P\_{B}} do not commute. Mixed states are density matrices \ensuremath{\rho} (positive, unit trace), with p = tr(P\ensuremath{\rho}); general measurements are positive-operator-valued measures (POVMs) or quantum instruments, which are needed to model some combinations of effects (Section \ref{sec:postulates})~\citep{Ozawa2020,Fuyama2025}.
+
+
+\subsection{Tensor products and composite systems}\label{sec:tensor}
+Composite systems live in tensor products: two binary questions that are compatible can be represented in \ensuremath{\mathbb{C}}\ensuremath{^2} \ensuremath{\otimes } \ensuremath{\mathbb{C}}\ensuremath{^2} = \ensuremath{\mathbb{C}}\ensuremath{^4}. States that cannot be written as products (entangled states) represent dependencies that are not reducible to separate beliefs, and have been used to model concept combination~\citep{Aerts2011a}. For ML practitioners, tensor products are also the basis of tensor-network models~\citep{Stoudenmire2016}. The dimension grows as 2\ensuremath{^n} for n binary variables, which is the central computational limitation of naive QP models (Section \ref{sec:compute}). Hilbert-space multidimensional theory addresses this by choosing low-dimensional representations tailored to the questions asked~\citep{Busemeyer2018}.
+
+
+\subsection{Terminology}\label{sec:terms}
+In quantum cognition these terms are used in a precise mathematical sense that should not be confused with claims about physical quantum states in the brain. Superposition denotes a state that is a linear combination of answer states, representing unresolved uncertainty that is not mere ignorance of a fixed answer. Measurement is the act of eliciting a judgement or decision, which projects the state and so changes subsequent judgements. Interference is the cross term that appears when the probability of an outcome is computed from two unresolved paths; it is responsible for violations of the law of total probability. Entanglement is non-separability of a composite state; in cognition it is usually diagnosed by Bell-type or CHSH inequalities, and such diagnoses require care because signalling between measurements (direct influence of context on marginal probabilities) can mimic it~\citep{Dzhafarov2016a}.
+
+
+\subsection{Quantum versus classical probability}\label{sec:qvc}
+Table \ref{tab:qvc} compares the two frameworks. Classical probability assigns probabilities to subsets of one sample space and is commutative and distributive; QP assigns them to subspaces, is non-commutative for incompatible questions and violates the distributive law. Both satisfy the basic axioms for a single set of compatible events, and QP reduces to classical probability when all projectors commute~\citep{Bruza2015}. The difference matters only for incompatible questions, which is why careful experimental design is needed to discriminate the two.
+
+\begin{table}[ht]
+\caption{Classical versus quantum probability}\label{tab:qvc}%
+\footnotesize
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{0.240\dimexpr\textwidth-6\tabcolsep\relax}>{\raggedright\arraybackslash}p{0.360\dimexpr\textwidth-6\tabcolsep\relax}>{\raggedright\arraybackslash}p{0.400\dimexpr\textwidth-6\tabcolsep\relax}@{}}
+\toprule
+\textbf{Aspect} & \textbf{Classical (Kolmogorov) probability} & \textbf{Quantum probability} \\ \midrule
+Events & Subsets of one sample space & Subspaces of a Hilbert space \\
+State & Probability distribution & Unit vector $|\psi\rangle$ or density matrix $\rho$ \\
+Probability rule & Measure of the subset & Born rule: $\lVert P|\psi\rangle\rVert^2$ or $\mathrm{tr}(P\rho)$ \\
+Updating & Bayes' rule (conditioning) & Lüders rule (projection) or quantum instrument \\
+Conjunction & Commutative & Sequential and order-dependent for incompatible questions \\
+Law of total probability & Always holds & Can be violated by interference terms \\
+Distributive law & Holds & Fails for incompatible events \\
+Joint distribution & Always exists & Exists only for compatible questions \\
+Dynamics & Markov (Kolmogorov) equations & Unitary (Schrödinger) or open-system (Lindblad) equations \\
+Relation & -- & Reduces to classical probability when all projectors commute \\
+\botrule
+\end{tabular}
+\end{table}
+
+Figure \ref{fig:order} illustrates the geometry of an order effect and Figure \ref{fig:bloch} the standard geometric picture for a single binary question; interference is illustrated in Figure \ref{fig:interference} (Section \ref{sec:interference}). On the Bloch sphere, a pure state of one qubit is a point on the surface; a binary question is a diameter; the probability of ``yes'' is cos\ensuremath{^2}(\ensuremath{\theta}/2), where \ensuremath{\theta} is the angle between the state and the ``yes'' pole. Two questions whose diameters are not aligned are incompatible.
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=0.62\textwidth]{figures/Fig2_order_geometry.png}
+\caption{Geometry of a question-order effect in a real two-dimensional belief space. The state |\ensuremath{\psi}\ensuremath{\rangle } is projected onto ``A = yes'' then ``B = yes'' (blue path) or in the reverse order (orange path). With the angles used in Example 1 (Section \ref{sec:order}), p(A then B) = 0.29 and p(B then A) = 0.22, while the QQ equality is satisfied exactly}\label{fig:order}
+\end{figure}
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=0.55\textwidth]{figures/Fig4_bloch.png}
+\caption{Bloch-sphere representation of a single binary judgement. Complementary questions A and B correspond to orthogonal axes; the state |\ensuremath{\psi}\ensuremath{\rangle } has definite probabilities for both, but no joint distribution over the two answers}\label{fig:bloch}
+\end{figure}
+
+A glossary of symbols and notation is provided in Online Resource 1.
+
+
+\section{Core phenomena and the evidence for quantum cognition}\label{sec:theory}
+
+\subsection{Quantum cognition as a psychological theory}\label{sec:psych}
+Quantum cognition is best understood as a family of formal models, not a single theory of mind. Its common core is the use of QP to represent judgement and decision processes in which the act of judging is constructive: a person does not read out a pre-existing answer but creates one in the context of the question, and that answer becomes part of the context for the next question~\citep{Busemeyer2012,Pothos2013a}. On this view the probabilistic ``errors'' catalogued by the heuristics-and-biases programme are not failures of a classical reasoner but signatures of a different, and arguably principled, probability calculus~\citep{Pothos2017}. The Annual Review by Pothos and Busemeyer~\citep{Pothos2022} and the 2025 overview of the research programme~\citep{Huang2025b} are the authoritative summaries; Busemeyer and Wang give an accessible introduction~\citep{Busemeyer2015}.
+
+
+\subsection{Core postulates}\label{sec:postulates}
+Following~\citep{Busemeyer2012} and~\citep{Yearsley2016a}, a quantum cognitive model specifies five elements:
+
+\begin{itemize}
+\item A Hilbert space whose dimension is set by the number of distinguishable answer patterns (often 2--4 dimensions per question set).
+\item An initial belief state |\ensuremath{\psi}\ensuremath{\rangle } (or density matrix \ensuremath{\rho}) before any question is asked.
+\item A projector (or, more generally, an instrument) for each answer to each question, with incompatible questions represented in different bases.
+\item Born and Lüders rules for the probability of an answer and the updated state.
+\item Optionally, a Hamiltonian or Lindblad generator for how the state evolves between measurements, for example as evidence accumulates~\citep{Busemeyer2006,Busemeyer2020}.
+\end{itemize}
+
+Two refinements are now standard. First, projective measurement alone cannot reproduce both question-order effects and response replicability (repeating a question returns the same answer), a result known as the response-replicability problem~\citep{Khrennikov2014}. Quantum instruments, more general state-update maps, resolve this~\citep{Ozawa2020,Ozawa2021}, and recent work argues that the non-classicality of cognition lies in non-commuting state updates rather than non-commuting observables~\citep{Fuyama2025,Busemeyer2025}. Second, pure unitary dynamics predicts perpetual oscillation, so open-system (quantum--Markov, Gorini--Kossakowski--Sudarshan--Lindblad) models, in which the belief state couples to an environment and settles into a decision, have become the preferred dynamical framework~\citep{Busemeyer2020,Khrennikov2023a,Asano2026}. These refinements increase flexibility and thus the burden of showing that a model is not merely descriptive (Section \ref{sec:limits})~\citep{Broekaert2017}.
+
+
+\subsection{Order effects and the QQ equality}\label{sec:order}
+If the questions ``Is Clinton honest?'' and ``Is Gore honest?'' are represented by non-commuting projectors \ensuremath{P\_{A}} and \ensuremath{P\_{B}}, then p(A yes, then B yes) = \ensuremath{\|}\ensuremath{P\_{B}} \ensuremath{P\_{A}} \ensuremath{\psi}\ensuremath{\|}\ensuremath{^2} differs from p(B yes, then A yes). Wang and Busemeyer showed that any such model, as long as the questions are represented by projectors and the state is pure, obeys a parameter-free constraint, the QQ equality: [p(AyBn) + p(AnBy)] \ensuremath{-} [p(ByAn) + p(BnAy)] = 0~\citep{Wang2013b}. Classical Markov models that produce order effects do not generally satisfy it. Wang, Solloway, Shiffrin and Busemeyer tested the equality in 70 national surveys on question order and found it statistically supported, while anchoring-and-adjustment models failed to reproduce the pattern~\citep{Wang2014}. Order effects also arise in inference, where evidence presented in different orders leads to different final beliefs~\citep{Trueblood2011,Trueblood2017a}.
+
+Worked Example 1 makes the mechanism concrete (code in Online Resource 2). Take a real two-dimensional belief space with the state at 20\textdegree{}, question A at 0\textdegree{} and question B at 55\textdegree{}. Then p(A yes) = 0.883 and p(B yes) = 0.671; p(A yes, then B yes) = 0.291 while p(B yes, then A yes) = 0.221, an order effect of 7 percentage points; and the QQ quantity evaluates to zero to machine precision (Figure \ref{fig:order}). The effect disappears exactly when the projectors commute: here the norm of their commutator is 0.66, and setting the two angles equal or orthogonal reduces it to zero.
+
+Two cautions apply. The QQ equality is necessary rather than sufficient evidence for a quantum model: non-Hilbertian and classical models can also satisfy it~\citep{Aerts2017b,Kellen2018}, and when interference plays no role the same order effects can be captured by a classical projection model~\citep{Moreira2017b}. The claim therefore rests on the combination of an a priori prediction and its robust confirmation, not on uniqueness.
+
+
+\subsection{The conjunction fallacy}\label{sec:conj}
+In the classic Linda problem, people judge ``Linda is a feminist bank teller'' more likely than ``Linda is a bank teller''~\citep{Tversky1983}. The quantum account treats the conjunction as a sequence of projections: judging the more representative property first (``feminist``) moves the state towards a subspace from which ``bank teller'' is more reachable than from the initial state~\citep{Busemeyer2011}. Worked Example 2 shows this. With the state at 0\textdegree{}, ``feminist'' at 40\textdegree{} and ``bank teller'' at 80\textdegree{}, p(bank teller) = 0.030 but p(feminist, then bank teller) = 0.344, so the model produces a large conjunction fallacy without any free parameter beyond the three angles. The same model predicts disjunction errors and the relative size of both effects~\citep{Busemeyer2011}.
+
+The conjunction fallacy is also where the quantum account is most contested. Boyer-Kassem, Duchêne and Guerci derived testable consequences of the main quantum-like models and found experimental results at odds with them~\citep{BoyerKassem2016}; web-scale tests suggest that emergent meaning in concept combination, rather than order, drives the effect~\citep{Aerts2017}; and the ``probability theory plus noise'' model explains conjunction and related biases with noisy classical reasoning~\citep{Costello2014,Costello2018}. A review of experimental designs shows that most studies have explored a narrow part of the possible outcome space~\citep{Veloz2024}. For autonomous systems, the practical conclusion is that conjunction-fallacy modelling alone is weak justification for adopting QP.
+
+
+\subsection{Interference and the disjunction effect}\label{sec:interference}
+In the double-slit experiment, the pattern produced when the path is unobserved is not the sum of the patterns for each path. The decision analogue is the disjunction effect. In a one-shot Prisoner's Dilemma, Shafir and Tversky found that 97\% of participants defected when told the opponent had defected and 84\% when told the opponent had cooperated, but only 63\% when the opponent's move was unknown~\citep{Shafir1992}. The law of total probability requires the unknown case to lie between 0.84 and 0.97 (0.905 with equal priors). In QP the unknown-case probability is the classical mixture plus an interference term 2\ensuremath{\surd }(\ensuremath{\pi}\ensuremath{_1}p\ensuremath{_1}\ensuremath{\pi}\ensuremath{_2}p\ensuremath{_2})cos \ensuremath{\theta}, where \ensuremath{\pi}\ensuremath{_1} and \ensuremath{\pi}\ensuremath{_2} are the prior weights of the two branches (Appendix \ref{app:interf}). Worked Example 3 solves for this term (Figure \ref{fig:interference}): the observed 0.63 requires an interference term of \ensuremath{-}0.275, which corresponds to a phase \ensuremath{\theta} \ensuremath{\approx } 108\textdegree{}~\citep{Pothos2009}. The model explains the violation, but in this form the phase is fitted to the very datum it explains, which is why later work has sought ways to predict it, as discussed in Section \ref{sec:fusion}~\citep{Moreira2016,Wichert2020}. Yukalov and Sornette's quantum decision theory provides an alternative formalism in which an ``attraction factor'' plays the role of interference and a quarter-law gives an a priori estimate of its size~\citep{Yukalov2011,Yukalov2016}.
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=0.75\textwidth]{figures/Fig3_interference.png}
+\caption{Interference in the Prisoner's Dilemma disjunction effect. Observed defection rates from Shafir and Tversky (1992) and the classical prediction from the law of total probability with equal priors. The observed rate for the unknown condition lies outside the classically admissible range; QP accommodates it with an interference term of \ensuremath{-}0.275 (phase \ensuremath{\approx } 108\textdegree{}). Values computed with the code in Online Resource 2}\label{fig:interference}
+\end{figure}
+
+
+\subsection{Evidence for and against quantum models}\label{sec:evidence}
+The strongest evidence comes from three kinds of test. The first is a priori, parameter-free predictions confirmed in new data, above all the QQ equality~\citep{Wang2014}. The second is dynamic signatures that Markov models cannot produce: interference of an intermediate choice on later confidence~\citep{Kvam2015}, oscillations in preference strength~\citep{Kvam2021} and a Zeno-like slowing of belief change under frequent measurement~\citep{Yearsley2016b}. The third is quantitative model comparison, where Hilbert-space multidimensional models compared favourably with Bayesian networks~\citep{Busemeyer2018} and a quantum sequential sampler compared favourably with the Bayesian sampler~\citep{Huang2025a}. Contextuality analyses that control for direct influences have also found genuine contextuality in carefully designed tasks~\citep{Cervantes2018,Basieva2019}, and a temporal Bell inequality was violated in one of the tested cases~\citep{Waddup2023}.
+
+The picture is not one-sided. When the contextuality-by-default method was applied to earlier datasets, it found no true contextuality once direct influences were accounted for~\citep{Dzhafarov2016b}. In dynamic belief-change data, quantum advantages were confined to low-coherence conditions and shrank against a stronger Markov baseline~\citep{Busemeyer2019}. An open-system model of choice and response time was needed for only a subset of participants, the rest being fitted adequately by a Markov model~\citep{Epping2023}. The fair summary is therefore that QP models outperform standard classical models on a well-defined class of phenomena involving incompatible, sequential or context-dependent judgements, and are unnecessary elsewhere. This class is exactly the one autonomous agents encounter when they interact with people.
+
+
+\section{A framework for quantum-like autonomous agents}\label{sec:framework}
+Figure \ref{fig:framework} maps the QP principles of Section \ref{sec:theory} onto the agent functions discussed in Sections \ref{sec:framework}--\ref{sec:multi}.
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=1.00\textwidth]{figures/Fig5_framework.png}
+\caption{From quantum-probability principles to cognitive phenomena and to the agent functions reviewed in this survey}\label{fig:framework}
+\end{figure}
+
+The framework distinguishes three questions that recur in Sections \ref{sec:perception}--\ref{sec:trust}: whether the judgements involved are incompatible (so that a single joint distribution does not exist), whether the agent's task requires predicting or aligning with such judgements, and whether the QP model makes an a priori prediction that could fail. Only when all three hold is a QP module likely to add value over a classical model; Sections \ref{sec:compare} and \ref{sec:guide} turn this into a decision guide.
+
+
+\section{Perception, memory and multi-source fusion}\label{sec:perception}
+
+\subsection{Perception under sensor and feature ambiguity}\label{sec:ambig}
+\paragraph{Problem} Classical perception pipelines assume that each percept can be assigned a probability within one joint distribution over features. This assumption fails when features are not jointly measurable. Examples include ambiguous figures, vague categories whose boundaries shift with context~\citep{Blutner2013}, similarity judgements that are asymmetric and order-dependent~\citep{Pothos2013b}, and robots whose limited sensors cannot resolve mutually exclusive interpretations. In these cases the order in which features are queried, or the framing of the query, changes the outcome.
+
+\paragraph{Quantum-like approaches} Lanza, Solinas and Mastrogiovanni proposed the first explicitly quantum-like robot perception model: a percept is a qubit whose amplitudes encode the balance between two mutually exclusive interpretations, and perception is a measurement~\citep{Lanza2020}. The multi-sensory extension encodes n normalised sensor readings in n qubits and defines ``query operators'' that let the robot read out its degree of belief in a target world state~\citep{Lanza2021}. The work is a formal proof of concept evaluated in simulation, and runs on real quantum hardware produced large errors. No comparison with Bayesian or fuzzy fusion was reported, so the models demonstrate representability rather than improved perception. The quantum geometric model of similarity~\citep{Pothos2013b} and quantum-like concept representations~\citep{Aerts2009,Aerts2013} supply the cognitive templates such robot models could follow, and quantum-like Bayesian networks provide an inference engine for them (Section \ref{sec:fusion})~\citep{Moreira2014}.
+
+
+\subsection{Memory and episode recognition}\label{sec:memory}
+\paragraph{Problem} Human memory is reconstructive: whether an item is recognised depends on the retrieval cue and on earlier retrievals, and people can simultaneously endorse mutually exclusive memory claims (episodic over-distribution). A classical memory store with fixed item probabilities cannot produce these patterns without additional mechanisms.
+
+\paragraph{Quantum-like approaches} The generalised quantum episodic memory model treats verbatim and gist traces as incompatible features and accounts for over-distribution and subadditivity~\citep{Trueblood2017b}. Busemeyer, Ozawa, Pothos and Tsuchiya compared three ways of incorporating episodic memory into quantum judgement models, which differ in whether memory updates act like belief updates or like non-commuting projections~\citep{Busemeyer2025}. Associative structure in the mental lexicon also has a quantum-like description~\citep{Bruza2009}. For robots, the analogy is to context-dependent episodic retrieval in long-lived agents, for example recognising a place or a person under changing cues. No robot memory system based on these models has been reported. This is an open gap: the value of a QP memory for an artificial agent is unestablished, although the models suggest how an agent could reproduce, and therefore anticipate, human recall behaviour.
+
+
+\subsection{Fusion of non-independent sources}\label{sec:fusion}
+\paragraph{Problem} The Kalman filter is optimal for linear-Gaussian systems with known noise~\citep{Kalman1960}, and its non-linear and learned variants dominate robotic state estimation~\citep{Haykin2001,Thrun2005}. Its assumptions (a single joint distribution, independent noise, order-invariant updates) are appropriate for physical sensors measuring the same physical quantity. They break down when ``sensors'' are judgements from different contexts, for example a human report, a language instruction and a vision classifier, whose outputs cannot be embedded in one joint distribution. It is important to be precise here: for physical pose estimation from independent Gaussian sensors, QP adds nothing and the Kalman filter remains optimal (Section \ref{sec:case-fusion}).
+
+\paragraph{Quantum-like Bayesian networks and quantum-inspired fusion} Quantum-like Bayesian networks (QLBNs) replace the conditional probabilities of a Bayesian network with complex amplitudes, so marginalising over an unobserved node produces interference terms~\citep{Moreira2014,Moreira2016}. The central difficulty is that every unobserved node adds a free phase. Successive work has proposed heuristics, including a similarity heuristic~\citep{Moreira2016}, a ``law of balance'' and ``law of maximum uncertainty''~\citep{Wichert2020} and influence diagrams that add utilities~\citep{Moreira2020b}, to set the phases without fitting them to the data being predicted. Extensions combine QLBNs with belief entropy for multi-attribute decisions~\citep{She2021}, with Dempster--Shafer evidence theory~\citep{Gao2025}, and with entanglement to capture biased selection, where a biased entangled model achieved an RMSE of 3.4 on Prisoner's Dilemma data, the best among the models compared~\citep{Meghdadi2022}. In multimodal ML, quantum-inspired fusion treats each modality's decision as a measurement in an incompatible basis; on video sentiment benchmarks this outperformed decision-level and content-level fusion and handled cases in which every unimodal classifier failed~\citep{Gkoumas2021,Li2021a}. These results are on benchmark labels, not human decision data, and the incompatibility assumption itself was not tested.
+
+
+\section{Decision-making and planning under uncertainty}\label{sec:decision}
+
+\subsection{Violations of the independence axiom}\label{sec:independence}
+\paragraph{Problem} Expected-utility theory and the POMDP formalism rest on Savage's sure-thing principle~\citep{Savage1954}. Humans violate it (Section \ref{sec:interference})~\citep{Shafir1992}, and the Ellsberg paradox shows that ambiguity, not just risk, shapes choice~\citep{Ellsberg1961}. When an autonomous system must predict or collaborate with human decisions (in driving, triage, defence or shared control), a normative model will mispredict precisely those choices.
+
+\paragraph{Quantum-like approaches} Quantum decision models represent the unresolved state of the world as a superposition, so that deciding with the uncertainty unresolved differs from deciding in each resolved case~\citep{Pothos2009,Busemeyer2012}. Quantum decision theory treats prospects as superpositions and derives a quarter-law for the attraction factor~\citep{Yukalov2011,Yukalov2016}. Its evolutionary extension addresses time-inconsistent choices~\citep{Yukalov2020}, and a quantum-conceptual account of expected-utility violations has been proposed~\citep{Aerts2011c}. Interference also arises from an intermediate categorisation~\citep{Wang2016} or choice~\citep{Kvam2015}, a pattern directly relevant to agents that must first classify a situation and then act on it. The most direct robotics application is Song et al.'s quantum-like Bayesian model of pedestrian crossing decisions for automated driving: the model captures crossings that a classical model treats as irrational and covers edge events in interactive scenes better than a Social-LSTM baseline~\citep{Song2022}. That study is a simulation on trajectory data (E4), and its interference parameters appear to be set rather than learned. It nonetheless marks the point at which quantum cognition entered a safety-critical autonomy problem.
+
+
+\subsection{Planning under uncertainty}\label{sec:planning}
+\paragraph{Classical planners} Classical planners and POMDP solvers represent belief as a distribution over a fixed state space~\citep{Lauri2023}. They cannot represent the context-dependent preferences and goals of human partners, which may be constructed during interaction rather than retrieved~\citep{Kvam2021}.
+
+\paragraph{Quantum planning and quantum deliberation} Two different ideas are at work. The first uses quantum algorithms for search: Chella et al. formulated grid-map motion planning as a Grover-type search that amplifies valid paths and derived a condition for quadratic speed-up, demonstrated in noiseless simulation on small maps~\citep{Chella2022}. This is quantum computing and inherits the limits of current noisy quantum hardware~\citep{Preskill2018}. The second uses quantum dynamics to model deliberation. Quantum walks over option networks can produce choice probabilities that violate the sure-thing principle~\citep{MartinezMartinez2016}, and Lindblad models describe how a deliberating agent escapes classical equilibria~\citep{Asano2026}. Such models could let a planner anticipate how a human collaborator's goals will shift, but none has yet been integrated into a robot planner. We found no evidence that QP planning improves plan quality for autonomous systems, and we regard this as an open research question rather than an established capability.
+
+
+\section{Machine learning, deep learning and language models}\label{sec:ml}
+
+\subsection{Feature learning and representation}\label{sec:features}
+\paragraph{Classical approach} Classical representation learning maps inputs to real-valued feature vectors, whether by linear projections such as PCA, non-linear embeddings such as t-SNE, or learned deep features~\citep{Krizhevsky2012}. Probabilities are then obtained by a fixed read-out (for example softmax), which produces a single joint distribution over labels regardless of the order or context of the query.
+
+\paragraph{Quantum and quantum-inspired approaches} Three distinct ideas appear in the literature and should not be conflated. Quantum kernel methods map data into a quantum feature Hilbert space and require quantum hardware for any advantage~\citep{Schuld2019,Biamonte2017}. Their advantages are fragile, because trainability limits~\citep{Cerezo2021} and dequantisation results~\citep{Tang2019,Aaronson2015} often remove the claimed speed-up. Quantum-inspired representations use complex-valued vectors and density matrices on classical hardware: a word is a superposition of semantic ``sememes``, a sentence is a mixture, and matching is a measurement~\citep{Li2019,Zhang2018,Zhang2025}. Finally, quantum-cognitive representations aim to reproduce human-like judgement patterns rather than to improve accuracy~\citep{Maksimovic2025}. Tensor-network classifiers, which are classically simulable quantum-style models, reached below 1\% test error on MNIST~\citep{Stoudenmire2016}. Quantum-inspired matching models have typically performed comparably to strong CNN and RNN baselines rather than better, while offering representations their authors describe as more interpretable~\citep{Li2019}. Those interpretability claims have not been tested with users.
+
+
+\subsection{Classification under label ambiguity}\label{sec:labels}
+\paragraph{Problem} Real categories are vague and overlapping, and human annotators' labels depend on which category is considered first~\citep{Blutner2013,Wang2016}. A softmax classifier assigns a single distribution over labels and cannot represent the fact that the answer to ``is it a cat?'' depends on whether ``is it wild?'' was asked first. For ML systems trained on human labels, or used alongside human decision-makers, this is a modelling mismatch rather than label noise.
+
+\paragraph{Quantum-cognitive approaches} Representing labels as non-commuting projectors on a learned state produces order-dependent label judgements (Worked Example 5, Section \ref{sec:case-label}). Quantum-cognitively motivated decision fusion used this structure to combine modality-specific sentiment judgements~\citep{Gkoumas2021}, and a survey of quantum-cognitively inspired sentiment analysis maps the design space~\citep{Liu2023}. Quantum-cognitive neural networks that use tunnelling-inspired activations reproduced human-like confidence and uncertainty on image classification and trained up to 50 times faster than their classical counterpart. That human-likeness was assessed by simulation rather than against participant data~\citep{Maksimovic2025}. No study has yet shown that order-aware QP classifiers improve agreement with individual human annotators on a standard benchmark; this is a clear, testable gap (Benchmark 3, Section \ref{sec:bench}).
+
+
+\subsection{Knowledge representation and semantic similarity}\label{sec:semantics}
+Quantum logic has a long history in semantic representation. Widdows and Peters showed that negation and disjunction on word vectors behave as quantum-logical connectives, allowing unwanted word senses to be removed from queries~\citep{Widdows2003}. Density-matrix language models captured term dependencies for retrieval~\citep{Sordoni2013}, and a survey of quantum-theory-inspired information retrieval covers representation, ranking and user cognition~\citep{Uprety2021}. Widdows, Kitto and Cohen give the broadest account of quantum mathematics in AI~\citep{Widdows2021}. Compositional quantum NLP (DisCoCat) was run on real quantum hardware for small sentence-classification tasks, a feasibility demonstration with small datasets, long queue times and no quantum advantage~\citep{Lorenz2023}; two reviews cover the field~\citep{Widdows2024,Nausheen2025}. Contextual word embeddings have been recast in terms of quantum contextuality, as a framework without an empirical evaluation~\citep{Svozil2025}. For agents, such as robots grounding language instructions or dialogue systems tracking context, the relevant contribution is a principled way to represent meaning that depends on context. The contribution does not come from quantum computation.
+
+
+\subsection{Quantum-inspired deep learning}\label{sec:dl}
+\paragraph{Classical deep learning} In standard deep networks, activations are real numbers and output probabilities come from a softmax. Uncertainty is typically estimated post hoc (ensembles, dropout, Bayesian layers), and all outputs are assumed to live in one classical probability space.
+
+\paragraph{Complex-valued, quantum-inspired networks} Complex-valued, quantum-inspired networks carry phases as well as magnitudes, so that intermediate representations can interfere. CNM encodes words as complex superpositions and sentences as density matrices and matched strong baselines on question answering~\citep{Li2019}. A quantum many-body wave-function view of language modelling offered a theoretical justification for CNN structure~\citep{Zhang2018}. Quantum-inspired networks for conversational emotion recognition~\citep{Li2021b} and multimodal sentiment~\citep{Li2021a} performed on a par with the state of the art. Quantum Bayesian neural networks propose quantum algorithms for posterior sampling but were evaluated only in classical simulation~\citep{Berner2021}. The consistent pattern is parity, not superiority, on accuracy, with claims of interpretability that remain to be tested.
+
+\paragraph{Training under uncertainty} Deep networks face vanishing gradients; variational quantum circuits face the more severe problem of barren plateaus, in which gradients vanish exponentially with the number of qubits for global cost functions~\citep{Cerezo2021}. This is a limitation of quantum hardware models, not of quantum-like models run classically, which are trained with ordinary automatic differentiation~\citep{Bergholm2018,Broughton2020}.
+
+We found no evidence that ``superposed weight updates'' improve the training of classical deep networks, and we caution against the claim. Where quantum circuits are trained, gradients are estimated by parameter-shift rules and inherit barren-plateau and noise limits~\citep{Cerezo2021,Preskill2018}. Where quantum-inspired networks are trained classically, their complex-valued parameters are optimised by standard gradient descent. The contribution of quantum cognition to optimisation is therefore conceptual, for example modelling how a learner's uncertainty about incompatible hypotheses evolves, rather than algorithmic.
+
+
+\subsection{Order effects in large language models}\label{sec:llm}
+Transformer outputs depend on prompt order and framing. Human-like response biases in survey-style prompts were found only partially, and inconsistently, across nine LLMs~\citep{Tjuatja2024}, while cognitive-psychology batteries revealed both human-like and non-human-like reasoning in GPT-3~\citep{Binz2023}. Quantum-cognition methods give these observations a precise vocabulary and test statistics. Lo, Sadrzadeh and Mansfield constructed a linguistic schema modelled on a contextual quantum scenario and, using a masked LM, found about 0.15\% of instances contextual under the sheaf-theoretic criterion and about 71\% under contextuality-by-default~\citep{Lo2025}. Context effects in LLM similarity judgements mirror human order effects in some settings but not others~\citep{Uprety2024}. Bell-type tests on LLM concept combinations reported violations and Bose--Einstein-like word statistics resembling human data~\citep{Aerts2026}. GPT-5 committed far fewer conjunction fallacies than humans, and its judgement pattern was closer to early QP models than to the noisy variants that fit people~\citep{Imannezhad2026}. An audit of question-order effects with the QQ equality found near-deterministic saturation in a small model, showing that the QQ test can be uninformative when an LLM's answers are saturated~\citep{Kang2026}. Together these studies suggest that attention-based models exhibit some context effects that QP models describe well, but they do not show that transformers are quantum-like in general. The analogy between attention and ``soft measurement'' remains a hypothesis to be tested (Section \ref{sec:compare}).
+
+
+\section{Reinforcement learning}\label{sec:rl}
+
+\subsection{Violations of Markov assumptions}\label{sec:mdp}
+\paragraph{Problem} RL assumes the Markov property and stationary, additive rewards~\citep{Sutton2018}. Human feedback, which increasingly shapes RL for robots and LLMs, violates both: evaluations depend on what was asked before, preferences oscillate over time~\citep{Kvam2021}, and trust evolves non-monotonically~\citep{Roeder2023}. Reproducibility studies also show how sensitive deep RL is to seeds and hyperparameters, which sets a high bar for claims of improvement~\citep{Henderson2018}.
+
+\paragraph{Quantum-like models of reward sources} Open-system quantum--Markov models provide a principled way to model non-Markovian, context-dependent reward sources~\citep{Busemeyer2020,Epping2023}. To our knowledge no RL algorithm has yet used such a model of the human reward-giver, which we identify as a promising direction (Section \ref{sec:directions}).
+
+
+\subsection{Exploration and quantum-inspired reinforcement learning}\label{sec:qirl}
+Every RL agent must balance exploiting what it knows against exploring what it does not. Classical agents use \ensuremath{\varepsilon}-greedy, softmax or optimism-based rules~\citep{Sutton2018}. Quantum-inspired RL replaces these with a representation in which each state holds a superposition of actions and action selection is a measurement.
+
+Dong, Chen, Li and Tarn's quantum RL (QRL) stores, for each state, amplitudes over ``eigen-actions``; rewards drive Grover-style amplitude amplification of the chosen action, so the exploration probability adapts automatically~\citep{Dong2008}. The robust quantum-inspired variant was validated on a real mobile robot and was more robust to the learning rate than temporal-difference learning~\citep{Dong2012}, and quantum-inspired experience replay extends the idea to deep RL~\citep{Wei2022}. These algorithms are classical and should be judged against modern classical exploration strategies. Our illustrative experiment in Section \ref{sec:rl-exp} does exactly this and finds a clear trade-off: faster early learning with noisy rewards, but no stable convergence. Projective simulation is a different, physics-motivated agent model in which deliberation is a random walk through episodic memory~\citep{Briegel2012}. Its convergence in Markov decision processes has been proved~\citep{Boyajian2020}, a photonic hardware architecture has been proposed for it~\citep{Flamini2020}, its quantum version offers a provable quadratic speed-up in deliberation~\citep{Paparo2014}, a photonic experiment demonstrated a quantum speed-up in learning~\citep{Saggio2021}, and its classical version has been benchmarked against Q-learning and SARSA~\citep{Melnikov2018} and used on real robots (Section \ref{sec:robots}). Variational-circuit RL is discussed in Section \ref{sec:rl}.
+
+
+\subsection{Variational-circuit and agent-theoretic reinforcement learning}\label{sec:vqcrl}
+Classical exploration strategies are simple, well understood and hard to beat on small problems~\citep{Sutton2018}. Deep RL for real robots has succeeded mainly through careful engineering and simulation-to-real transfer rather than new exploration principles~\citep{Lauri2023}.
+
+Three lines coexist. Quantum-inspired RL (Section \ref{sec:qirl}) is classical~\citep{Dong2008,Dong2012,Wei2022}. Quantum-agent theory proves speed-ups in deliberation~\citep{Paparo2014} and learning separations for parametrised quantum policies on specially constructed tasks~\citep{Jerbi2021}, and a review covers ML and AI in the quantum domain~\citep{Dunjko2018}. Variational-circuit RL replaces neural function approximators with parametrised quantum circuits (PQCs). Its most consistent benefit is parameter efficiency: 28 circuit parameters instead of 64 table entries in Frozen Lake~\citep{Chen2020}; PQCs with 444--480 parameters matching networks about ten times larger in robot navigation, but losing in the more realistic dynamic environment~\citep{Hohenfeld2024}; hybrid critics matching classical soft actor-critic with more than six times fewer parameters on a simulated arm~\citep{Acuto2022}; and slightly higher mean area-under-curve than a classical baseline in simulated driving, with similar final policies~\citep{Sinha2023}. Two surveys review the field~\citep{Meyer2022,Chen2024}. None of these results was obtained on quantum hardware in closed loop, and none shows better policies than tuned classical networks of comparable compute.
+
+
+\subsection{Value estimation under uncertainty}\label{sec:value}
+Temporal-difference learning is order-sensitive by construction: the same experiences presented in different orders yield different value estimates. Classical RL treats this as a nuisance that experience replay reduces. Quantum cognition suggests an alternative reading when the learner is human-like: order effects in the evaluation of evidence are systematic and predictable~\citep{Trueblood2011,Trueblood2017a}.
+
+Quantum Q-learning with PQCs requires data re-uploading and trainable input and output weights to solve even CartPole; the best average PQC (302 parameters) needed about 500 episodes against about 250 for a 562-parameter network~\citep{Skolik2022}. Interference in reward prediction has not been demonstrated as a benefit in any benchmark we found. In our own illustrative experiment (Section \ref{sec:rl-exp}), amplitude-based exploration without a mechanism for reducing amplitudes became unstable under reward noise, which highlights a design gap rather than an advantage.
+
+
+\subsection{An illustrative experiment: quantum-inspired RL under reward noise}\label{sec:rl-exp}
+\paragraph{Problem setup} A tabular agent must reach the goal of a 6 \ensuremath{\times } 6 grid with four internal walls (shortest path: 10 steps). Reaching the goal gives reward +1 and each step \ensuremath{-}0.01. In the noisy condition, Gaussian noise (\ensuremath{\sigma} = 0.5) is added to every reward. Each agent is trained for 300 episodes (maximum 200 steps each) with 30 random seeds.
+
+\paragraph{Classical baselines} Because the state space is small, we use tabular Q-learning (learning rate 0.1, discount 0.95) with either \ensuremath{\varepsilon}-greedy exploration (\ensuremath{\varepsilon} decaying from 0.3 to 0.01) or softmax exploration (temperature decaying from 0.2 to 0.01). Deep Q-learning would behave similarly on this task at much higher cost.
+
+\paragraph{Quantum-inspired agent} The quantum-inspired agent follows Dong et al.'s QRL~\citep{Dong2008}: each state holds four action amplitudes (initially equal), actions are chosen by ``measurement'' with probability |amplitude|\ensuremath{^2}, state values are learned by TD(0), and the chosen action's amplitude is amplified by L = \ensuremath{\lfloor }k(r + V(s\ensuremath{'}))\ensuremath{\rfloor } Grover iterations, capped at three, with k = 30 selected from {10, 30, 100}.
+
+\paragraph{Results} With deterministic rewards, all three agents learned the optimal 10-step path in every seed (Figure \ref{fig:rl}). The \ensuremath{\varepsilon}-greedy agent converged fastest (first episode at which the 10-episode moving average fell to 15 steps or fewer: 60 \ensuremath{\pm } 6), while QRL (134 \ensuremath{\pm } 20) and softmax (128 \ensuremath{\pm } 10) were similar. With noisy rewards, QRL learned fastest at first: its median path length was 70 steps at episode 100, against 153 for \ensuremath{\varepsilon}-greedy and 200 (no progress) for softmax. However, it did not stabilise. Over the last 50 episodes its mean path length was 67 \ensuremath{\pm } 40 steps, against 14 \ensuremath{\pm } 13 for \ensuremath{\varepsilon}-greedy and 16 \ensuremath{\pm } 17 for softmax, and 5 of 30 seeds never met the convergence criterion. Varying k did not remove the instability (final means of 78, 67 and 74 steps for k = 10, 30 and 100). The reason is structural: amplitude amplification only increases the probability of rewarded actions, so an action amplified by a noisy positive reward is never de-amplified. The experiment is small and illustrative, but it shows why quantum-inspired RL must be compared with tuned classical baselines under realistic noise, and it points to a concrete design fix: amplitude updates that can also decrease. Full results are in Appendix \ref{app:exp}.
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=1.00\textwidth]{figures/Fig8_rl.png}
+\caption{Illustrative experiment (Section \ref{sec:rl-exp}): steps to reach the goal in a 6 \ensuremath{\times } 6 grid for \ensuremath{\varepsilon}-greedy Q-learning, softmax Q-learning and quantum-inspired RL (Dong et al. 2008), with deterministic (left) and noisy (right) rewards. Lines show the median of 30 seeds of the 10-episode moving average; shading shows the interquartile range; the dotted line is the optimal path length. Experiment run for this survey (code in Online Resource 2)}\label{fig:rl}
+\end{figure}
+
+
+\section{Embodied and social robots}\label{sec:robots}
+
+\subsection{Sensorimotor integration and quantum embodied cognition}\label{sec:embodied}
+Embodied agents must integrate signals whose meaning depends on the body's state and the task. Predictive-processing accounts cast this as prediction-error minimisation over a generative model~\citep{Friston2010,Clark2013}. Classical cognitive architectures implement it with symbolic and probabilistic modules~\citep{Laird2017,Kotseruba2020}.
+
+Robot-facing proposals fall into four groups (Online Resource 1, Table S1). The first is quantum-like perception models, already discussed~\citep{Lanza2020,Lanza2021}. The second is quantum-circuit models of robot ``thinking'' and control: a classic--quantum dialogue model of robot creativity~\citep{Mannone2024}, a teleo-reactive robot whose action rules are evaluated by quantum kernels and measurement-based circuits, reaching about 0.91 accuracy offline on wall-following data~\citep{Chella2026}, and a neuro-cognitive agent architecture using Grover and Deutsch--Jozsa routines in a game environment~\citep{Daglarli2025}. The third is quantum models of robot emotion and affect: emotion spaces encoded in qubits~\citep{Yan2019}, Plutchik-based emotion circuits for companion robots~\citep{Yan2021c}, a review of emotion-space models~\citep{Yan2021b}, the Q-Coppélia affective decision framework for HRI~\citep{Ho2022}, an early quantum-automata model of emotional robot behaviour~\citep{Lukac2007} and the QUADRI social-robotics programme~\citep{DeCarolis2025}. The fourth is architectural positions~\citep{Aerts2011d,Moreira2020a}. Most of this work is at E1--E2: circuits and formal models without user studies or classical baselines. The circuit-based models also blur the line between quantum-like modelling and quantum computing, which should be made explicit because only the former is deployable today.
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=1.00\textwidth]{figures/Fig6_architecture.png}
+\caption{A hybrid architecture for a quantum-like decision module in an autonomous agent. Classical perception and a context encoder feed a QP state; context-dependent measurements (projectors or instruments) produce graded, order-aware judgements that a classical planner or RL policy acts on, with explanation and escalation to a human. Feedback updates the state as an open system}\label{fig:architecture}
+\end{figure}
+
+
+\subsection{Affordances and action selection}\label{sec:affordance}
+Classical robots typically treat affordances (what an object allows the robot to do) as discrete, independently detectable properties, and select actions by maximising expected utility over a fixed action set.
+
+The most mature embodied line is not quantum cognition but projective simulation (PS) run classically. A real robot learned hierarchical manipulation skills through play, reaching 90\% success in about 80 roll-outs in simulation~\citep{Hangl2016}, and PS with active learning and behaviour composition solved previously unsolvable tasks and improved learning speed by about 30\%~\citep{Hangl2020}. Superposed affordances in the QP sense, where an object's affordances are incompatible and the order of evaluation matters, have not been implemented on a robot. They remain a hypothesis (Section \ref{sec:multi-open}).
+
+
+\subsection{Predictive processing and physical interaction}\label{sec:predictive}
+Predictive processing treats perception and action as the minimisation of prediction error~\citep{Friston2010,Clark2013}. Quantum-like models add one ingredient: the order in which predictions are tested can change the result. In physical interaction, such as handover, shared manipulation or co-driving, the human partner's intentions are themselves constructed during the interaction~\citep{Kvam2021}, so a robot that queries (by gesture, speech or motion) changes what it is trying to predict. We know of no experiment that tests this in physical HRI; the handover setting often cited for it has no published quantum-like study, and the related works listed in some bibliographies could not be verified (Section \ref{sec:method}).
+
+
+\section{Multi-agent systems, swarms and human--machine teams}\label{sec:multi}
+
+\subsection{Multi-robot coordination and teams}\label{sec:teams}
+Quantum game theory showed that entangled strategies can escape classical dilemmas~\citep{Eisert1999}, but physical entanglement between robots is impractical and cannot be used to signal~\citep{Khoshnoud2020}. Quantum-like approaches instead model interdependent agents. Lawless argues that interdependence in autonomous human--machine teams is quantum-like: team performance is not decomposable into member contributions~\citep{Lawless2020,Lawless2023,Lawless2025}. Human interaction data show context sensitivity that a quantum model fitted better than a matched classical model~\citep{Waddup2021}. Quantum game models have been proposed for interaction-aware automated driving, although an independent reproduction could not confirm their collision results~\citep{Essalmi2025}. Multi-robot emotion fusion~\citep{Yan2021a} and swarm rules expressed as quantum circuits~\citep{Mannone2022} remain formal models; the latter's run on IBM hardware was very noisy.
+
+
+\subsection{Distributed quantum-like decisions}\label{sec:swarms}
+Networks of quantum decision-makers exchanging information converge to consensus and reproduce a dynamic disjunction effect~\citep{Yukalov2018,Yukalov2022}, and affective AI has been framed as a ``quantum operation'' combining cognition and emotion~\citep{Yukalov2023}. Quantum stochastic walks give a network model of decision~\citep{MartinezMartinez2016}. PS swarms reproduce collective motion~\citep{Ried2019}, foraging-dependent alignment~\citep{LopezIncera2020} and queue formation with polarisation near 0.99~\citep{Kong2026}, all in simulation with classical PS. Quantum multi-agent RL gained 57.7\% in reward over a parameter-matched classical baseline in a single simulated environment, but a larger classical model matched it~\citep{Yun2022}.
+
+
+\subsection{Concept learning and semantic emergence}\label{sec:concepts}
+Entangled concept combinations~\citep{Aerts2011a}, Fock-space concept dynamics~\citep{Aerts2013} and Bell-type structure in LLM language~\citep{Aerts2026} suggest that shared meaning in groups of agents could be modelled with quantum structure. Whether such models help artificial agents develop shared concepts is untested.
+
+
+\subsection{Open questions}\label{sec:multi-open}
+\begin{itemize}
+\item Can a quantum-like model of human teammates improve a robot team's coordination with people, compared with Bayesian theory-of-mind models?
+\item Do quantum-like consensus models predict human--robot group decisions better than classical opinion dynamics?
+\item Are ``superposed affordances'' measurable in human behaviour during joint action, and do they help a robot anticipate its partner?
+\item Which multi-agent claims survive when compared with classical models of equal parameter count~\citep{Yun2022}?
+\end{itemize}
+
+
+\section{Human--AI trust and oversight}\label{sec:trust}
+Human trust in automation is the application domain in which quantum-like models have the strongest human-data support. Quantum models outperformed Markov models in predicting how people's reliability judgements of an automated system evolve over an interaction~\citep{Roeder2023}, and a quantum-inspired model was fitted to air-traffic controllers' trust in automation, although with a very small sample~\citep{Pushparaj2021}. Quantum-like trust models have been proposed for AI-supported decisions, including military decision aids~\citep{Humr2023,Humr2025,Humr2026}, and for the dynamics of human reliance on AI advice~\citep{vanderMeer2025}; computational trust between artificial agents has also been given a quantum-like formulation~\citep{Ashtiani2019}. These models share a common structure: the person's trust is a state that is changed by each interaction, so the order in which the agent presents advice, explanations and errors becomes a design variable. For autonomous systems, the practical uses are to anticipate when a person's reliance will shift, to choose the order and framing of explanations, and to trigger escalation to human oversight before trust and system capability diverge (Section \ref{sec:safety}). None of these models has yet been evaluated in closed loop with a robot.
+
+
+\section{Synthesis and comparison with classical approaches}\label{sec:synthesis}
+
+\subsection{Evidence map}\label{sec:map}
+Online Resource 1 (Table S1) lists every application study with its domain, model type, evidence level, task and main limitation, and Figure \ref{fig:evidence} summarises the distribution. Of the 74 application studies, 6 reach a physical system (E5). Two run small cognitive or language models on quantum processors~\citep{Widdows2023,Lorenz2023}; three are robot studies that use quantum-inspired RL or classical projective simulation~\citep{Dong2012,Hangl2016,Hangl2020}; and one demonstrates quantum-communication hardware on mobile robots~\citep{Khoshnoud2020}. None of the six tests a quantum-cognition decision model on a robot, and no study reaches E6. Human-data validation (E3) is concentrated in decision networks and in human--AI trust, where quantum models outperformed Markov models in predicting how people's reliability judgements evolve~\citep{Roeder2023} and a quantum-inspired model was fitted to air-traffic controllers' trust in automation, with a very small sample~\citep{Pushparaj2021}. Quantum-like trust models have also been proposed for AI-supported decisions~\citep{Humr2023,Humr2025,Humr2026,vanderMeer2025} and for computational trust between agents~\citep{Ashtiani2019}.
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=0.95\textwidth]{figures/Fig7_evidence.png}
+\caption{Evidence levels of the 145 theory and application studies in the corpus, by domain (reviews and background works excluded). E1 conceptual; E2 formal model; E3 human data; E4 simulation or benchmark; E5 physical system; E6 field deployment. No study reaches E6}\label{fig:evidence}
+\end{figure}
+
+The psychological literature is mature, with a textbook~\citep{Busemeyer2012}, a BBS target article~\citep{Pothos2013a}, tutorials~\citep{Yearsley2016a,Yearsley2017}, reviews~\citep{Bruza2015,Pothos2022,Huang2025b} and an active critical literature (Section \ref{sec:compare}). Its models are fitted to human data, which places most of them at level E3.
+
+Quantum decision theory~\citep{Yukalov2011,Yukalov2016}, contextual probability~\citep{Khrennikov2010,Khrennikov2023b}, contextuality-by-default~\citep{Dzhafarov2016a} and quantum-like heuristics~\citep{Huang2025c} provide alternative formalisms. A 2015 survey organised quantum-like decision models by formalism~\citep{Ashtiani2015}.
+
+
+\subsection{Quantum-like versus classical models}\label{sec:compare}
+Table \ref{tab:compare} summarises the comparison of quantum-like and classical approaches.
+
+\begin{table}[ht]
+\caption{Comparison of classical and quantum-like or quantum-inspired approaches}\label{tab:compare}%
+\footnotesize
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{0.200\dimexpr\textwidth-8\tabcolsep\relax}>{\raggedright\arraybackslash}p{0.250\dimexpr\textwidth-8\tabcolsep\relax}>{\raggedright\arraybackslash}p{0.270\dimexpr\textwidth-8\tabcolsep\relax}>{\raggedright\arraybackslash}p{0.280\dimexpr\textwidth-8\tabcolsep\relax}@{}}
+\toprule
+\textbf{Criterion} & \textbf{Classical (Bayes, Markov, DRL)} & \textbf{Quantum-like or quantum-inspired} & \textbf{Current evidence} \\ \midrule
+Order and context effects & Require extra mechanisms (anchoring, memory) & Arise from non-commuting projectors; a priori QQ constraint & Strong for QQ~\citep{Wang2014}; classical accounts possible~\citep{Kellen2018} \\
+Total-probability violations & Cannot be produced without changing the model & Interference terms & Replicated in two-stage tasks~\citep{Wang2016,Kvam2015} \\
+Conjunction fallacy & Noise models (probability theory plus noise) & Sequential projection & Contested~\citep{BoyerKassem2016,Costello2018} \\
+Dynamics of belief and trust & Markov random walks & Quantum walks, open systems & Mixed: quantum better at low coherence~\citep{Busemeyer2019}; trust~\citep{Roeder2023} \\
+Physical state estimation & Kalman and particle filters (optimal) & No advantage expected & No comparison published \\
+Classification accuracy & Strong deep-learning baselines & Parity on benchmarks & \citep{Li2019,Li2021b} \\
+RL performance & Tuned deep RL, scalable & Parameter-efficient PQCs; QiRL robust to learning rate & No better policies~\citep{Hohenfeld2024,Skolik2022} \\
+Parameters and flexibility & Well understood & Phases and instruments add flexibility & Risk of over-fitting~\citep{Broekaert2017} \\
+Interpretability & Varies & Geometric parameters; untested with users & No user studies \\
+Hardware needs & CPU or GPU & CPU or GPU (quantum-like); QPU optional & Few-qubit demonstrations~\citep{Widdows2023} \\
+\botrule
+\end{tabular}
+\end{table}
+
+\paragraph{When classical models win} When all variables are compatible (jointly measurable, context-free), QP reduces to classical probability and adds only parameters~\citep{Bruza2015}. For physical state estimation, diagnosis from calibrated sensors~\citep{Blanke2016} and planning with known dynamics, Bayesian networks and filters are simpler, better understood and supported by mature tooling. Markov models remain adequate for most participants in several dynamic tasks~\citep{Busemeyer2019,Epping2023}.
+
+\paragraph{When quantum-like models win} QP models win where their a priori structure matches the phenomenon: question-order effects that obey the QQ equality~\citep{Wang2014}, total-probability violations in two-stage decisions~\citep{Pothos2009,Wang2016} and interference of choice on confidence~\citep{Kvam2015}. In direct comparisons, Hilbert-space multidimensional models compared favourably with Bayesian networks~\citep{Busemeyer2018} and quantum-like influence diagrams predicted paradoxical choices that expected utility cannot~\citep{Moreira2020b}. The main classical competitors are noisy classical reasoning~\citep{Costello2014,Costello2018}, classical accounts of mirrored order effects~\citep{Kellen2018} and contextuality analyses that attribute effects to direct influences~\citep{Dzhafarov2016b}. Replies and new tests continue~\citep{Busemeyer2017b,Basieva2019}.
+
+\paragraph{Quantum versus deep reinforcement learning} Deep RL scales to high-dimensional robot control but requires large amounts of data and careful tuning, and its reported gains are fragile~\citep{Henderson2018}.
+
+PQC-based RL is parameter-efficient but not yet better or faster in wall-clock terms, and it has not been run in closed loop on hardware (Section \ref{sec:rl}). Quantum-inspired RL is cheap and can be robust to learning-rate choices~\citep{Dong2012}, but our illustrative experiment shows instability under reward noise (Section \ref{sec:rl-exp}). The claim that quantum RL is more interpretable is not supported by any user study we found.
+
+\paragraph{Quantum cognition and transformer attention} Attention weights a set of tokens by their compatibility with a query, loosely analogous to a context-dependent measurement. The analogy is suggestive, and QP tools (the QQ equality, contextuality-by-default) are useful auditing instruments for LLMs~\citep{Lo2025,Kang2026}. However, transformers are classical functions of their input; order effects in LLMs can arise from training data and position encodings without any QP structure, and their human-likeness varies across models and prompts~\citep{Tjuatja2024,Imannezhad2026}. QP models are best used here to describe and test LLM behaviour, not as a claim about its mechanism.
+
+
+\subsection{A decision guide}\label{sec:guide}
+Figure \ref{fig:guide} condenses the comparison into a decision guide. Keep a classical core for perception, estimation and control, where classical methods are optimal or nearly so. Add a quantum-like module only where the agent must predict, explain or align with judgements that are sequential, ambiguous or context-dependent. Typical cases are human intentions, trust and preferences, and the answers of other learned agents. Validate the module against a classical model with the same number of parameters and against a noise-augmented classical model.
+
+\begin{figure}[ht]
+\centering
+\includegraphics[width=0.95\textwidth]{figures/Fig9_decision_guide.png}
+\caption{Decision guide for choosing between classical and quantum-like models in an autonomous system}\label{fig:guide}
+\end{figure}
+
+
+\subsection{Worked comparison: fusion of physical and semantic cues}\label{sec:case-fusion}
+\paragraph{Problem setup} A robot estimates its position along a corridor from two sensors, a lidar reading z\ensuremath{_1} = 2.10 m (variance 0.04) and a camera estimate z\ensuremath{_2} = 1.90 m (variance 0.09). A human operator also reports whether the robot has ``passed the doorway``, and a vision classifier gives its own judgement.
+
+\paragraph{Classical approach} The Kalman update gives \ensuremath{\hat{x}} = 2.038 m with variance 0.028 m\ensuremath{^2}, and the result is identical whichever sensor is processed first~\citep{Kalman1960}. For this physical sub-problem, the Kalman filter is optimal and a QP model cannot improve on it.
+
+\paragraph{Quantum-like approach} The QP model is applied only to the semantic judgement ``has the robot passed the doorway?``, which combines two context-dependent cues: the operator's report (p = 0.80 of ``passed'' when that cue is attended) and the classifier's judgement (p = 0.30). With equal weights the classical mixture is 0.55. A QLBN adds an interference term 2\ensuremath{\surd }(0.5\ensuremath{\cdot }0.80\ensuremath{\cdot }0.5\ensuremath{\cdot }0.30)\ensuremath{\cdot }cos \ensuremath{\theta} = 0.49 cos \ensuremath{\theta}, giving 0.55 at \ensuremath{\theta} = 90\textdegree{} (the classical case), 0.795 at \ensuremath{\theta} = 60\textdegree{} and 0.305 at \ensuremath{\theta} = 120\textdegree{}; at \ensuremath{\theta} = 0 the unnormalised value exceeds 1, which is why QLBNs must renormalise~\citep{Moreira2016,Wichert2020}. The phase encodes how the two cues interact in the human's judgement, and it must be estimated from, or better predicted for, human data.
+
+\paragraph{Comparison} The worked example shows the correct division of labour: physical fusion stays classical, and QP models the human-facing judgement. We found no published study that compares QP and classical fusion on robot pose estimation, and we do not expect QP to help there.
+
+
+\subsection{Worked comparison: classification under label ambiguity}\label{sec:case-label}
+\paragraph{Problem setup} An image of a large domestic-looking cat is judged by annotators on two questions: ``cat?'' and ``wild animal?``. Human answers to such overlapping categories are order-dependent~\citep{Wang2016}.
+
+\paragraph{Classical approach} A CNN with independent sigmoid outputs~\citep{Krizhevsky2012} predicts p(cat) and p(wild) and, if a joint is needed, assumes conditional independence. The joint probability is the same whichever question is asked first.
+
+\paragraph{Quantum-like approach} Represent the image as a state at 35\textdegree{} in a two-dimensional judgement space, with ``cat'' at 0\textdegree{} and ``wild'' at 60\textdegree{} (Worked Example 5). Then p(cat) = 0.671 and p(wild) = 0.821; p(cat, then wild) = 0.168 but p(wild, then cat) = 0.205. The model predicts a specific order effect and, through the QQ equality, a constraint on the four sequential answer patterns that can be tested on annotation data.
+
+\paragraph{Comparison} No accuracy gains are claimed. The value of the QP model is that it predicts the order-dependence of human labels, which a softmax classifier cannot represent; whether modelling this improves learning from human labels is untested.
+
+
+\section{Limitations, assumptions and implementation}\label{sec:limits}
+
+\subsection{When quantum cognition does not help}\label{sec:nohelp}
+QP models do not help when all relevant variables are compatible, which covers most physical sensing, estimation and control; the models then reduce to classical probability with extra parameters~\citep{Bruza2015}. They do not help when the target effects are weak or absent in the population of interest: several conjunction-fallacy predictions failed~\citep{BoyerKassem2016}, classical noise models explain many judgement biases~\citep{Costello2014,Costello2018}, and in dynamic tasks many participants are fitted as well by Markov models~\citep{Epping2023}. Nor do they help when the goal is simply to maximise an agent's task reward, where no study has shown a QP decision module outperforming a tuned classical one. Finally, they do not help when the effects are artefacts of the measurement interface, for example saturated LLM outputs that render the QQ test uninformative~\citep{Kang2026}.
+
+
+\subsection{Interpretability}\label{sec:interp}
+QP models are often described as interpretable because their parameters are geometric (angles between subspaces, phases). In practice, complex phases and high-dimensional density matrices are no easier for users to understand than neural weights, and interpretability claims for quantum-inspired networks have not been tested with users~\citep{Li2019,Li2021b}. Interpretable quantum ML is an active research goal rather than an achievement~\citep{Flamini2024}.
+
+
+\subsection{Computational overhead and real-time constraints}\label{sec:compute}
+Quantum-like models are cheap at the scale of psychological experiments but scale exponentially if every binary variable becomes a qubit (Section \ref{sec:compute}). Quantum-hardware versions add queueing, noise and barren plateaus~\citep{Preskill2018,Cerezo2021}, and dequantisation shows that some claimed quantum speed-ups vanish against clever classical algorithms~\citep{Tang2019,Aaronson2015}. Where accuracy gains have been measured, they are typically parity or small improvements on benchmarks (Sections \ref{sec:ml}--\ref{sec:rl}).
+
+A two- to eight-dimensional QP model can be evaluated in microseconds on an embedded CPU, so quantum-like decision modules are compatible with real-time control. Circuit-based implementations on cloud quantum processors are not: queueing and communication latencies are orders of magnitude larger than control cycles. Real-time use therefore implies classical simulation of the QP model.
+
+A pure state over n binary variables needs 2\ensuremath{^n} complex amplitudes (16 bytes each in double precision): 16 KB for n = 10, 16 MB for n = 20 and 16 GB for n = 30. Density matrices square these figures. Practical cognitive models avoid this by using low-dimensional spaces per question set~\citep{Busemeyer2018} or tensor-network factorisations~\citep{Stoudenmire2016}.
+
+Applying a projector or a unitary costs O(d\ensuremath{^2}) for a dense d-dimensional operator, and a Lindblad step costs O(d\ensuremath{^3}). For the dimensions used in the literature (d \ensuremath{\leq } 16), these costs are negligible. QLBNs add a phase per unobserved node, so exact inference grows with the number of interference terms, as in classical exact inference~\citep{Moreira2014}.
+
+
+\subsection{Core assumptions and where they break down}\label{sec:assumptions}
+QP models assume that belief states form a linear space, that a finite (usually small) dimension suffices, and that measurement outcomes are closed under the chosen projectors or instruments. Dynamic models further assume a specific Hamiltonian or Lindblad generator~\citep{Busemeyer2020,Asano2026}.
+
+Response replicability shows that simple projective models are too restrictive~\citep{Khrennikov2014}; quantum instruments fix this at the cost of extra flexibility~\citep{Ozawa2020,Ozawa2021}. Some order-effect data appear to be non-Hilbertian altogether~\citep{Aerts2017b}. Signalling (direct influence of context on marginal probabilities) violates the assumptions under which Bell-type and contextuality tests are interpreted~\citep{Dzhafarov2016a}. Individual differences are often averaged away in aggregate fits~\citep{Epping2023}.
+
+Key unknowns for autonomous systems are: whether QP effects in laboratory tasks generalise to operational settings; how to set phases a priori rather than fit them~\citep{Wichert2020}; how QP models should be learned from data at scale; and whether modelling human QP effects improves joint human--agent performance. A further source of uncertainty for this survey is that about 92 entries were classified from their abstracts, and several recent preprints have not yet been peer-reviewed (Section \ref{sec:method}).
+
+
+\subsection{Quantum hardware and software}\label{sec:hw}
+Current NISQ devices~\citep{Preskill2018} suffice for the few-qubit circuits of cognitive models~\citep{Widdows2023}, but noise distorts sensitive order-effect circuits and adds latency. There is no computational need for hardware at these sizes.
+
+Connectivity limits matter only for large entangled models, which cognitive models do not yet use. Quantum hardware becomes relevant only if QP models are scaled to many interacting variables or used as quantum-agent learners with proven speed-ups~\citep{Paparo2014,Saggio2021}.
+
+For quantum-like models, NumPy or SciPy suffices (Online Resource 2), with QuTiP for open-system dynamics. For circuit implementations, Qiskit, PennyLane~\citep{Bergholm2018} and TensorFlow Quantum~\citep{Broughton2020} integrate with PyTorch and TensorFlow. Note that PyQuante, named in some roadmaps, is a quantum-chemistry package and is not suited to cognitive modelling.
+
+
+\section{Ethical, safety and transparency considerations}\label{sec:ethics}
+
+\subsection{Transparency}\label{sec:transparency}
+A QP decision module can be explained in terms of its elements: which questions were asked, in which order, and how each answer changed the state. This is a potential transparency advantage over opaque neural policies, but it must be demonstrated with users. Designers should document the ordering of queries, because under QP the ordering is part of the decision.
+
+
+\subsection{Safety and escalation to human oversight}\label{sec:safety}
+Quantum models of trust in AI provide the most direct safety application. They predict when human reliance will shift, which can trigger escalation or explanation~\citep{Roeder2023,Humr2025,Humr2026,vanderMeer2025}. Formal verification of autonomous robots remains classical~\citep{Luckcuck2019,Dreossi2019}; a QP module inside a verified system should be bounded by classical safety envelopes, so that its context-dependence cannot drive the system outside certified behaviour.
+
+
+\subsection{Accountability}\label{sec:accountability}
+Because QP models make outcomes depend on the sequence of interactions, logs must record the order and framing of queries to allow audit. An order-dependent model that is not logged is effectively unaccountable.
+
+
+\subsection{Bias and fairness}\label{sec:bias}
+QP models reproduce human biases; that is their purpose in psychology. Used to predict people, they can help a system anticipate and correct for biased human inputs. Used to design an agent's own decisions, they risk importing those biases deliberately. The choice should be explicit: model human bias, do not emulate it, unless emulation is required for natural interaction and is disclosed. Tests of LLMs show that AI systems may display human-like biases, fewer biases or different biases depending on the model~\citep{Binz2023,Tjuatja2024,Imannezhad2026}.
+
+
+\section{Biological grounding}\label{sec:neuro}
+The Orch-OR theory proposes quantum computation in neuronal microtubules~\citep{Hameroff2014}, and Fisher proposed nuclear-spin qubits in Posner molecules as a possible quantum memory~\citep{Fisher2015}. Tegmark estimated that decoherence times in the brain are far shorter than neural processing times, making sustained quantum computation implausible~\citep{Tegmark2000}. These hypotheses are contested and are not required by quantum cognition.
+
+Predictive processing and the free-energy principle cast cognition as prediction-error minimisation~\citep{Friston2010,Clark2013}. They provide a classical framework in which the constructive, context-dependent judgements that QP models describe could arise from hierarchical inference in which each query changes the prior for the next.
+
+Several proposals show how classical neural systems could implement QP operations. Neural oscillators can realise unitary evolution, projection and state reduction~\citep{Busemeyer2017a}; uncertainty in neuronal firing can be represented as quantum-like superposition~\citep{Khrennikov2018}; and generalised probability theory links neuronal networks and oscillations to quantum-like cognition~\citep{Khrennikov2025a,Khrennikov2025b,Khrennikov2025c}. These are existence proofs rather than empirical findings, but they remove the need for a quantum brain.
+
+If QP structure arises from classical mechanisms such as context-dependent sampling, oscillatory coding and constructive inference, artificial agents can reproduce it with classical computation. The design question is therefore not whether to use quantum hardware but whether an agent should represent incompatible perspectives explicitly, as QP models do.
+
+
+\section{Open problems, benchmarks and research agenda}\label{sec:agenda}
+
+\subsection{Validation programme}\label{sec:validation}
+Because the literature contains almost no controlled comparisons on autonomous systems, we propose a two-phase validation programme. Each task has a classical baseline, a quantum-like model and an a priori QP prediction that can fail.
+
+\paragraph{Phase 1: simulation benchmarks} A simulated mobile robot with injected faults receives diagnostic evidence from heterogeneous sources (sensor residuals, operator reports, log classifiers) presented in different orders. The baseline is a Bayesian-network or observer-based diagnoser~\citep{Blanke2016}. The test is whether a QLBN predicts operators' order-dependent diagnoses better, and whether exploiting it improves joint human--robot diagnosis accuracy. The quantum fault-tolerant filter~\citep{Gao2021} is not an appropriate baseline because it addresses quantum systems.
+
+Fusion of physical sensors (baseline: Kalman or particle filter) combined with semantic cues from language or human reports. The prediction is that QP fusion helps only in the semantic, context-dependent channel; it should do no better than the Kalman filter on physical channels (Section \ref{sec:case-fusion}).
+
+Navigation where route advice from a human, a map and a learned model conflict. Baselines are POMDP planners and ensembles; the quantum-like model predicts the human's acceptance of advice as a function of order and framing~\citep{Song2022,Roeder2023}.
+
+Classification of ambiguous images, with human labels collected under controlled question orders. The model predicts order-dependent label distributions and the QQ statistic; the baseline is a calibrated softmax classifier with annotator noise.
+
+\paragraph{Phase 2: real systems} Human--robot handover, shared manipulation and guided navigation are natural platforms because a human judgement is embedded in the loop. The primary outcome is task success and human trust, not model fit alone.
+
+Decision-support systems in which people accept or reject AI recommendations, as in air-traffic control~\citep{Pushparaj2021} or military decision aids~\citep{Humr2026}, offer realistic settings with measurable trust dynamics.
+
+
+\subsection{Metrics and baselines}\label{sec:metrics}
+Table \ref{tab:metrics} lists the metrics. Every study should report predictive accuracy on held-out data (not only fit), model complexity (parameters, AIC/BIC or cross-validated likelihood), a parameter-matched classical baseline, a noise-augmented classical baseline such as probability theory plus noise~\citep{Costello2014}, and at least one a priori QP test (the QQ equality, a total-probability test or a contextuality test with direct influences controlled)~\citep{Dzhafarov2016a}.
+
+\begin{table}[ht]
+\caption{Metrics and baselines for validating quantum-like models in autonomous systems}\label{tab:metrics}%
+\footnotesize
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{0.320\dimexpr\textwidth-6\tabcolsep\relax}>{\raggedright\arraybackslash}p{0.340\dimexpr\textwidth-6\tabcolsep\relax}>{\raggedright\arraybackslash}p{0.340\dimexpr\textwidth-6\tabcolsep\relax}@{}}
+\toprule
+\textbf{Metric} & \textbf{What it measures} & \textbf{Why it is needed} \\ \midrule
+Held-out predictive log-likelihood & Out-of-sample prediction of human or agent judgements & Avoids rewarding flexible models that only fit \\
+AIC, BIC and parameter count & Model complexity & QP phases and instruments add freedom \\
+QQ statistic or total-probability test & An a priori QP prediction & Makes the QP model falsifiable \\
+Contextuality-by-default with direct influences & Genuine contextuality & Separates contextuality from signalling \\
+Task success, return or error & Autonomous-system performance & The outcome that matters for deployment \\
+Trust and acceptance & Human reliance on the agent & Main target of human-facing QP models \\
+Seeds and confidence intervals & Statistical robustness & RL results are seed-sensitive \\
+Latency and compute & Real-time feasibility & Embedded deployment \\
+\botrule
+\end{tabular}
+\end{table}
+
+
+\subsection{Benchmark suite and replication checklist}\label{sec:bench}
+Table \ref{tab:bench} specifies four benchmarks that operationalise Section \ref{sec:validation}. Each pairs a classical baseline with an a priori QP test, so that a benchmark can falsify the QP model as well as support it.
+
+\begin{table}[ht]
+\caption{Proposed benchmark suite}\label{tab:bench}%
+\footnotesize
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{0.160\dimexpr\textwidth-10\tabcolsep\relax}>{\raggedright\arraybackslash}p{0.240\dimexpr\textwidth-10\tabcolsep\relax}>{\raggedright\arraybackslash}p{0.200\dimexpr\textwidth-10\tabcolsep\relax}>{\raggedright\arraybackslash}p{0.200\dimexpr\textwidth-10\tabcolsep\relax}>{\raggedright\arraybackslash}p{0.200\dimexpr\textwidth-10\tabcolsep\relax}@{}}
+\toprule
+\textbf{Benchmark} & \textbf{Task} & \textbf{Classical baseline} & \textbf{QP model and a priori test} & \textbf{Primary metrics} \\ \midrule
+B1 Fault diagnosis & Simulated robot faults; operator judgements under order-randomised evidence & Bayesian network or observer-based diagnosis & QLBN; QQ test on paired questions & Diagnosis accuracy; held-out likelihood \\
+B2 Sensor fusion & Physical sensors plus semantic cues & Kalman or particle filter & QP only on the semantic channel; interference test & RMSE (physical); acceptance prediction \\
+B3 Label ambiguity & Ambiguous images, counterbalanced question order & Calibrated softmax plus annotator model & Projector model; QQ test & Order-effect prediction; calibration \\
+B4 RL under reward uncertainty & Tabular and continuous control with noisy or human rewards & \ensuremath{\varepsilon}-greedy, softmax, SAC or PPO & QiRL or PQC; parameter-matched comparison & Return; stability over \ensuremath{\geq }30 seeds \\
+\botrule
+\end{tabular}
+\end{table}
+
+Each benchmark should be run with a pre-registered protocol: (1) state the QP model and its a priori prediction (for example the QQ equality or a total-probability violation) before collecting data; (2) collect human judgements under counterbalanced question orders; (3) fit the QP model, a parameter-matched classical model and a noise-augmented classical model on training data; (4) compare predictive performance on held-out data with cross-validated log-likelihood and report parameter counts; (5) for agent benchmarks, report task outcomes over 30 or more seeds with confidence intervals~\citep{Henderson2018}; and (6) release code and data. The replication checklist in Table \ref{tab:checklist} applies.
+
+All code for the worked examples and the illustrative experiment is provided as Online Resource 2 and will be released at \fillin{repository URL} under \fillin{licence}.
+
+\begin{table}[ht]
+\caption{Replication checklist for quantum-cognition studies in autonomous systems}\label{tab:checklist}%
+\footnotesize
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{0.060\dimexpr\textwidth-4\tabcolsep\relax}>{\raggedright\arraybackslash}p{0.940\dimexpr\textwidth-4\tabcolsep\relax}@{}}
+\toprule
+\textbf{\#} & \textbf{Requirement} \\ \midrule
+1 & State whether the model is quantum-like, quantum-inspired or runs on quantum hardware. \\
+2 & Pre-register the a priori QP prediction and how it could fail. \\
+3 & Report the Hilbert-space dimension, state preparation, projectors or instruments, and all free parameters. \\
+4 & Include a parameter-matched classical baseline and a noise-augmented classical baseline. \\
+5 & Evaluate on held-out data; report likelihoods and parameter counts. \\
+6 & Counterbalance question orders; test for direct influences before claiming contextuality. \\
+7 & For agents, report \ensuremath{\geq }30 seeds, confidence intervals and hyperparameter search budgets for all methods. \\
+8 & For hardware runs, report device, shots, noise and mitigation, and a noiseless simulation for comparison. \\
+9 & Release code, data and the order and framing of all queries. \\
+\botrule
+\end{tabular}
+\end{table}
+
+
+\subsection{Research directions}\label{sec:directions}
+\paragraph{Near term (1--3 years)} The first priority is controlled comparisons: QP versus parameter-matched and noise-augmented classical models, on held-out human data, in HRI and decision-support settings (Benchmarks 1--4). Specific open problems are: learning QLBN phases from data with a priori constraints~\citep{Wichert2020}; quantum-like models of human reward-givers for RL from human feedback (Section \ref{sec:mdp}); quantum trust models that adapt in real time from physiological signals~\citep{Roeder2023}; and QP audits of LLM components used in robots~\citep{Lo2025}.
+
+\paragraph{Medium term (3--7 years)} Scaling QP models to many interacting variables requires low-rank, tensor-network or sampling-based representations~\citep{Stoudenmire2016}, and learning algorithms that preserve the a priori constraints (such as the QQ equality) that make QP models testable.
+
+Quantum-like models of human--machine team interdependence~\citep{Lawless2023} and networks of quantum decision-makers~\citep{Yukalov2022} should be tested against classical team and opinion-dynamics models in real human--robot teams.
+
+\paragraph{Long term (7+ years)} Quantum hardware may matter if quantum agents with proven speed-ups~\citep{Paparo2014,Saggio2021} can be embedded in robots, or if QP models grow beyond classical simulation. Neither is imminent.
+
+Hybrid architectures (Figure \ref{fig:architecture}) with a classical core and a quantum-like module can be deployed now; a quantum back-end is an optional long-term extension~\citep{Widdows2023}.
+
+
+\section{Conclusion}\label{sec:conclusion}
+Quantum cognition offers autonomous systems a mathematically precise way to represent judgements that are sequential, ambiguous and context-dependent. The psychological evidence for such effects is substantial for order effects and interference, weaker and contested for the conjunction fallacy and contextuality, and increasingly nuanced as open-system and instrument-based models mature. The applications to robots and AI are promising but early: most are formal models or simulations, a handful reach physical systems, and none demonstrates improved task performance in a controlled comparison.
+
+The most defensible near-term role for quantum cognition is human-facing: predicting, explaining and aligning with human judgements, trust and preferences, where QP models have outperformed Markov and Bayesian alternatives on several human-data tests. Physical estimation and control should stay classical.
+
+We call for (i) controlled comparisons against strong classical baselines; (ii) a priori, falsifiable QP predictions in every study; (iii) open benchmarks with human data collected under counterbalanced orders; (iv) clear labelling of quantum-like, quantum-inspired and quantum-hardware work; and (v) HRI experiments that measure joint human--robot outcomes.
+
+We envisage autonomous agents that keep a classical core for perception and control but reason about people with models that respect how people actually judge. Such agents would ask questions in the right order, anticipate how their explanations change human trust, and escalate to human oversight when a person's constructed preferences diverge from the agent's plan. Reaching this vision depends less on quantum hardware than on careful experiments.
+
+
+\bmhead{Acknowledgements}
+\fillin{acknowledgements, or delete this heading}
+
+\section*{Declarations}
+
+\begin{itemize}
+\item \textbf{Funding}: \fillin{funding information, or ``No funding was received for conducting this study.''}
+\item \textbf{Competing interests}: \fillin{``The authors have no competing interests to declare that are relevant to the content of this article.''}
+\item \textbf{Ethics approval and consent to participate}: Not applicable. This article is a literature review; the illustrative experiment uses simulated agents only and involves no human or animal participants.
+\item \textbf{Consent for publication}: Not applicable.
+\item \textbf{Data availability}: The classification of all application studies (domain, model type, evidence level, task and main limitation) is provided in Online Resource 1 and as a CSV file (Online Resource 3).
+\item \textbf{Materials availability}: Not applicable.
+\item \textbf{Code availability}: The Python code that reproduces the worked examples and the illustrative reinforcement-learning experiment is provided as Online Resource 2 \fillin{and at a public repository URL}.
+\item \textbf{Author contribution}: \fillin{CRediT statement, e.g., ``A.B.: conceptualization, methodology, writing -- original draft; C.D.: supervision, writing -- review and editing.''}
+\end{itemize}
+
+\noindent\textbf{Supplementary information.} Online Resource 1 (PDF): classification of the 74 application studies (Table S1) and glossary of symbols (Table S2). Online Resource 2 (Python): code for the worked examples and the illustrative experiment. Online Resource 3 (CSV): machine-readable version of Table S1.
+
+\begin{appendices}
+
+\section{Mathematical derivations}\label{app:math}
+
+\subsection{Born and Lüders rules}\label{app:born}
+For a pure state |\ensuremath{\psi}\ensuremath{\rangle } and projector P, p = \ensuremath{\|}P|\ensuremath{\psi}\ensuremath{\rangle }\ensuremath{\|}\ensuremath{^2} = \ensuremath{\langle }\ensuremath{\psi}|P|\ensuremath{\psi}\ensuremath{\rangle }, and the post-measurement state is P|\ensuremath{\psi}\ensuremath{\rangle }/\ensuremath{\|}P|\ensuremath{\psi}\ensuremath{\rangle }\ensuremath{\|}. For a density matrix \ensuremath{\rho}, p = tr(P\ensuremath{\rho}) and \ensuremath{\rho} \ensuremath{\mapsto } P\ensuremath{\rho}P / tr(P\ensuremath{\rho}).
+
+
+\subsection{Sequential probabilities and the order effect}\label{app:seq}
+Because P is idempotent and self-adjoint, p(A then B) = \ensuremath{\|}\ensuremath{P\_{B}} \ensuremath{P\_{A}} \ensuremath{\psi}\ensuremath{\|}\ensuremath{^2} = \ensuremath{\langle }\ensuremath{\psi}|\ensuremath{P\_{A}} \ensuremath{P\_{B}} \ensuremath{P\_{A}}|\ensuremath{\psi}\ensuremath{\rangle }. Hence the order effect is p(A then B) \ensuremath{-} p(B then A) = \ensuremath{\langle }\ensuremath{\psi}|\ensuremath{P\_{A}} \ensuremath{P\_{B}} \ensuremath{P\_{A}} \ensuremath{-} \ensuremath{P\_{B}} \ensuremath{P\_{A}} \ensuremath{P\_{B}}|\ensuremath{\psi}\ensuremath{\rangle }, which vanishes for all \ensuremath{\psi} when [\ensuremath{P\_{A}}, \ensuremath{P\_{B}}] = 0.
+
+
+\subsection{Proof of the QQ equality}\label{app:qq}
+Write \ensuremath{\langle }X\ensuremath{\rangle } = \ensuremath{\langle }\ensuremath{\psi}|X|\ensuremath{\psi}\ensuremath{\rangle } and Ā = I \ensuremath{-} \ensuremath{P\_{A}}. Then p(AyBn) = \ensuremath{\langle }\ensuremath{P\_{A}}\ensuremath{\rangle } \ensuremath{-} \ensuremath{\langle }\ensuremath{P\_{A}} \ensuremath{P\_{B}} \ensuremath{P\_{A}}\ensuremath{\rangle } and p(AnBy) = \ensuremath{\langle }Ā \ensuremath{P\_{B}} Ā\ensuremath{\rangle } = \ensuremath{\langle }\ensuremath{P\_{B}}\ensuremath{\rangle } \ensuremath{-} \ensuremath{\langle }\ensuremath{P\_{A}} \ensuremath{P\_{B}}\ensuremath{\rangle } \ensuremath{-} \ensuremath{\langle }\ensuremath{P\_{B}} \ensuremath{P\_{A}}\ensuremath{\rangle } + \ensuremath{\langle }\ensuremath{P\_{A}} \ensuremath{P\_{B}} \ensuremath{P\_{A}}\ensuremath{\rangle }. Their sum is \ensuremath{\langle }\ensuremath{P\_{A}}\ensuremath{\rangle } + \ensuremath{\langle }\ensuremath{P\_{B}}\ensuremath{\rangle } \ensuremath{-} \ensuremath{\langle }\ensuremath{P\_{A}} \ensuremath{P\_{B}}\ensuremath{\rangle } \ensuremath{-} \ensuremath{\langle }\ensuremath{P\_{B}} \ensuremath{P\_{A}}\ensuremath{\rangle }, which is symmetric in A and B. The same sum for the reverse order is therefore identical, and [p(AyBn) + p(AnBy)] \ensuremath{-} [p(ByAn) + p(BnAy)] = 0 for any pure state and any pair of projectors~\citep{Wang2013b}.
+
+
+\subsection{Interference and the law of total probability}\label{app:interf}
+Let the unresolved state be |\ensuremath{\psi}\ensuremath{\rangle } = a|\ensuremath{\psi}\ensuremath{_1}\ensuremath{\rangle } + b|\ensuremath{\psi}\ensuremath{_2}\ensuremath{\rangle }, where |\ensuremath{\psi}\ensuremath{_1}\ensuremath{\rangle } and |\ensuremath{\psi}\ensuremath{_2}\ensuremath{\rangle } are the states after learning each resolution, and |a|\ensuremath{^2} + |b|\ensuremath{^2} = 1. Then p(D) = \ensuremath{\|}\ensuremath{P\_{D}} \ensuremath{\psi}\ensuremath{\|}\ensuremath{^2} = |a|\ensuremath{^2} p\ensuremath{_1} + |b|\ensuremath{^2} p\ensuremath{_2} + 2 Re(a* b \ensuremath{\langle }\ensuremath{\psi}\ensuremath{_1}|\ensuremath{P\_{D}}|\ensuremath{\psi}\ensuremath{_2}\ensuremath{\rangle }), where p\ensuremath{_i} = \ensuremath{\|}\ensuremath{P\_{D}} \ensuremath{\psi}\ensuremath{_i}\ensuremath{\|}\ensuremath{^2}. Writing the cross term as 2\ensuremath{\surd }(|a|\ensuremath{^2}p\ensuremath{_1}|b|\ensuremath{^2}p\ensuremath{_2}) cos \ensuremath{\theta} gives the interference form used in Section \ref{sec:interference}. With p\ensuremath{_1} = 0.97, p\ensuremath{_2} = 0.84 and |a|\ensuremath{^2} = |b|\ensuremath{^2} = 0.5, the observed 0.63 implies cos \ensuremath{\theta} = \ensuremath{-}0.305 (\ensuremath{\theta} \ensuremath{\approx } 107.7\textdegree{}).
+
+
+\subsection{Condition for a conjunction fallacy}\label{app:conj}
+In a real two-dimensional space with the state at angle 0, ``feminist'' at \ensuremath{\alpha} and ``bank teller'' at \ensuremath{\beta}, p(BT) = cos\ensuremath{^2}\ensuremath{\beta} and p(F then BT) = cos\ensuremath{^2}\ensuremath{\alpha} cos\ensuremath{^2}(\ensuremath{\beta} \ensuremath{-} \ensuremath{\alpha}). The fallacy p(F then BT) > p(BT) occurs whenever cos \ensuremath{\alpha} cos(\ensuremath{\beta} \ensuremath{-} \ensuremath{\alpha}) > cos \ensuremath{\beta}, which holds, for example, for \ensuremath{\alpha} = 40\textdegree{} and \ensuremath{\beta} = 80\textdegree{} (0.344 > 0.030).
+
+
+\subsection{Open-system (Lindblad) dynamics}\label{app:lindblad}
+Quantum--Markov models evolve a density matrix according to d\ensuremath{\rho}/dt = \ensuremath{-}i[H, \ensuremath{\rho}] + \ensuremath{\Sigma}\ensuremath{_k} \ensuremath{\gamma}\ensuremath{_k} (L\ensuremath{_k} \ensuremath{\rho} L\ensuremath{_k}\ensuremath{^{\dagger}} \ensuremath{-} ½{L\ensuremath{_k}\ensuremath{^{\dagger}}L\ensuremath{_k}, \ensuremath{\rho}}), where the Hamiltonian H generates coherent (quantum-walk) deliberation and the operators L\ensuremath{_k} generate incoherent (Markov-walk) transitions~\citep{Busemeyer2020,Asano2026}. Setting \ensuremath{\gamma}\ensuremath{_k} = 0 recovers unitary dynamics; setting H = 0 with suitable L\ensuremath{_k} recovers a Markov process.
+
+
+\subsection{Quantum instruments}\label{app:instr}
+A quantum instrument assigns to each outcome a completely positive map that may differ from the Lüders projection. Instruments allow response replicability and order effects to coexist~\citep{Ozawa2020,Ozawa2021} and underlie recent characterisations of cognitive measurements~\citep{Fuyama2025}.
+
+
+\section{Experimental details and worked-example values}\label{app:exp}
+Table \ref{tab:rlres} reports the illustrative reinforcement-learning experiment of Section \ref{sec:rl-exp} and Table \ref{tab:worked} the values of the worked examples. No other experiments were run for this survey. All values can be reproduced with the code in Online Resource 2.
+
+\begin{table}[ht]
+\caption{Illustrative RL experiment (Section \ref{sec:rl-exp}): 6 \ensuremath{\times } 6 grid, 300 episodes, 30 seeds. Final = mean steps over the last 50 episodes (optimum 10); convergence = first episode at which the 10-episode moving average is \ensuremath{\leq }15 steps}\label{tab:rlres}%
+\footnotesize
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{0.260\dimexpr\textwidth-12\tabcolsep\relax}>{\raggedright\arraybackslash}p{0.110\dimexpr\textwidth-12\tabcolsep\relax}>{\raggedright\arraybackslash}p{0.160\dimexpr\textwidth-12\tabcolsep\relax}>{\raggedright\arraybackslash}p{0.180\dimexpr\textwidth-12\tabcolsep\relax}>{\raggedright\arraybackslash}p{0.120\dimexpr\textwidth-12\tabcolsep\relax}>{\raggedright\arraybackslash}p{0.170\dimexpr\textwidth-12\tabcolsep\relax}@{}}
+\toprule
+\textbf{Agent} & \textbf{Reward noise \ensuremath{\sigma}} & \textbf{Final steps (mean \ensuremath{\pm } SD)} & \textbf{Convergence episode (mean \ensuremath{\pm } SD)} & \textbf{Seeds converged} & \textbf{Total steps (mean)} \\ \midrule
+\ensuremath{\varepsilon}-greedy Q-learning & 0 & 10.1 \ensuremath{\pm } 0.0 & 60 \ensuremath{\pm } 6 & 30/30 & 4,453 \\
+Softmax Q-learning & 0 & 10.0 \ensuremath{\pm } 0.0 & 128 \ensuremath{\pm } 10 & 30/30 & 8,162 \\
+Quantum-inspired RL (k = 30) & 0 & 10.0 \ensuremath{\pm } 0.0 & 134 \ensuremath{\pm } 20 & 30/30 & 7,362 \\
+\ensuremath{\varepsilon}-greedy Q-learning & 0.5 & 13.8 \ensuremath{\pm } 13.4 & 154 \ensuremath{\pm } 41 & 30/30 & 24,746 \\
+Softmax Q-learning & 0.5 & 16.2 \ensuremath{\pm } 16.7 & 187 \ensuremath{\pm } 28 & 30/30 & 32,885 \\
+Quantum-inspired RL (k = 30) & 0.5 & 67.1 \ensuremath{\pm } 40.1 & 132 \ensuremath{\pm } 42 & 25/30 & 25,122 \\
+\botrule
+\end{tabular}
+\end{table}
+
+Sensitivity of quantum-inspired RL to the amplification constant k (30 seeds; mean steps over the last 50 episodes / seeds converged): k = 10: 16.3 / 30 (\ensuremath{\sigma} = 0) and 78.1 / 5 (\ensuremath{\sigma} = 0.5); k = 30: 10.0 / 30 and 67.1 / 25; k = 100: 10.0 / 30 and 73.5 / 25.
+
+\begin{table}[ht]
+\caption{Values of the worked examples (computed with the code in Online Resource 2)}\label{tab:worked}%
+\footnotesize
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{0.270\dimexpr\textwidth-6\tabcolsep\relax}>{\raggedright\arraybackslash}p{0.330\dimexpr\textwidth-6\tabcolsep\relax}>{\raggedright\arraybackslash}p{0.400\dimexpr\textwidth-6\tabcolsep\relax}@{}}
+\toprule
+\textbf{Example} & \textbf{Setup} & \textbf{Result} \\ \midrule
+1 Order effect (Section \ref{sec:order}) & State 20\textdegree{}, A 0\textdegree{}, B 55\textdegree{} & p(A) = 0.883; p(B) = 0.671; p(A\ensuremath{\rightarrow }B) = 0.291; p(B\ensuremath{\rightarrow }A) = 0.221; QQ = 0 \\
+2 Conjunction fallacy (Section \ref{sec:conj}) & State 0\textdegree{}, feminist 40\textdegree{}, bank teller 80\textdegree{} & p(BT) = 0.030; p(F\ensuremath{\rightarrow }BT) = 0.344 \\
+3 Interference (Section \ref{sec:interference}) & Shafir and Tversky (1992): 0.97, 0.84, 0.63 & Classical 0.905; interference \ensuremath{-}0.275; \ensuremath{\theta} = 107.7\textdegree{} \\
+4 Kalman fusion (Section \ref{sec:case-fusion}) & z\ensuremath{_1} = 2.10 (var 0.04), z\ensuremath{_2} = 1.90 (var 0.09) & \ensuremath{\hat{x}} = 2.038, var 0.028; order-invariant \\
+4b Two-cue QLBN (Section \ref{sec:case-fusion}) & p\ensuremath{_1} = 0.80, p\ensuremath{_2} = 0.30, equal weights & 0.795 (60\textdegree{}), 0.55 (90\textdegree{}), 0.305 (120\textdegree{}) \\
+5 Label order (Section \ref{sec:case-label}) & Image 35\textdegree{}, cat 0\textdegree{}, wild 60\textdegree{} & p(cat\ensuremath{\rightarrow }wild) = 0.168; p(wild\ensuremath{\rightarrow }cat) = 0.205 \\
+\botrule
+\end{tabular}
+\end{table}
+
+
+\subsection{Extended worked examples}\label{app:ext}
+\paragraph{A question-order test for human--robot interaction} Suppose a service robot asks a user two questions before acting: ``Is the task urgent?'' (A) and ``Should I follow the usual route?'' (B). With the belief geometry of Worked Example 1, the model predicts p(A yes, then B yes) = 0.29 and p(B yes, then A yes) = 0.22, and the QQ equality constrains the four sequential patterns. A counterbalanced study, with a sample size set by a power analysis, can test the prediction; if it holds, the robot can choose the order that minimises misunderstanding, and log the order for accountability (Section \ref{sec:accountability}).
+
+\paragraph{A two-cue judgement with a quantum-like Bayesian network} Section \ref{sec:case-fusion} computed the interference term for two cues. In a full QLBN with n unobserved binary nodes, there are 2\ensuremath{^n} paths and up to 2\ensuremath{^n}(2\ensuremath{^n} \ensuremath{-} 1)/2 pairwise interference terms. Heuristics that set all phases from a single principle keep the model testable~\citep{Moreira2016,Wichert2020}. The renormalisation step (dividing by the sum over outcomes) must always be applied, because unnormalised quantum-like probabilities can exceed 1, as \ensuremath{\theta} = 0 in Section \ref{sec:case-fusion} shows.
+
+\paragraph{Adding de-amplification to quantum-inspired RL} The instability found in Section \ref{sec:rl-exp} suggests a simple modification: when the TD error is negative, apply a rotation that moves amplitude away from the chosen action, for example a reflection about the uniform state. Testing this against \ensuremath{\varepsilon}-greedy and softmax under the Benchmark 4 protocol is a natural next experiment.
+
+
+\end{appendices}
+
+\bibliography{refs}
+
+\end{document}

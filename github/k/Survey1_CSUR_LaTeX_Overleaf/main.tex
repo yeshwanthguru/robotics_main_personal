@@ -1,0 +1,583 @@
+%% =============================================================================
+%% Quantum Computing for Autonomous Robotics: A Systematic Survey
+%% Target: ACM Computing Surveys (CSUR). Template: acmart (acmsmall).
+%% Compile on Overleaf (acmart is pre-installed) or locally with a TeX Live
+%% distribution that includes acmart:  pdflatex main; bibtex main; pdflatex main x2
+%% =============================================================================
+%% Submission mode: 'review' adds line numbers. Add 'anonymous' if the current
+%% CSUR instructions ask for an anonymized manuscript.
+\documentclass[acmsmall,screen,review]{acmart}
+
+\usepackage{array}
+\usepackage{booktabs}
+\usepackage{xcolor}
+%% [FILL: ...] marks text the authors must complete before submission.
+\newcommand{\fillin}[1]{{\color{red}\bfseries [FILL: #1]}}
+
+\AtBeginDocument{\providecommand\BibTeX{{Bib\TeX}}}
+
+%% Rights management -- ACM fills these in after acceptance.
+\setcopyright{acmlicensed}
+\copyrightyear{2026}
+\acmYear{2026}
+\acmDOI{XXXXXXX.XXXXXXX}
+\acmJournal{CSUR}
+\acmVolume{1}
+\acmNumber{1}
+\acmArticle{1}
+\acmMonth{1}
+
+\begin{document}
+\title[Quantum Computing for Autonomous Robotics: A Systematic Survey]{Quantum Computing for Autonomous Robotics: A Systematic Survey of Methods, Evidence, and Deployment Constraints}
+%% ---------------------------------------------------------------------------
+%% AUTHORS -- replace the placeholders. One \author block per author.
+%% ---------------------------------------------------------------------------
+\author{Firstname Lastname}
+\orcid{0000-0000-0000-0000}
+\email{author@institution.edu}
+\affiliation{%
+  \institution{Department, Institution}
+  \city{City}
+  \country{Country}}
+
+%% \author{Second Author}
+%% \orcid{0000-0000-0000-0000}
+%% \email{second@institution.edu}
+%% \affiliation{\institution{Institution}\city{City}\country{Country}}
+
+\renewcommand{\shortauthors}{Lastname et al.}
+\begin{abstract}
+Quantum computing promises speed-ups for optimization, search, sampling, and learning, which are the computational kernels that limit autonomous robots in large, uncertain, and dynamic environments. Claims about ``quantum robotics,'' however, range from asymptotic complexity results to small simulations and early hardware runs, which makes it difficult to judge what is usable today. This article presents a PRISMA 2020-guided systematic survey of 58 primary studies that apply quantum or quantum-inspired methods to robotic functions, set against 91 foundational works on quantum algorithms, hardware, cognition, and classical robotics. We organize the field with a robotics-function taxonomy (optimization, planning, learning, sensing and communication, and decision-making), grade every study on a six-level evidence hierarchy from theoretical analysis to end-to-end deployment, and separate genuinely quantum results from quantum-inspired classical ones. No quantum computational method has yet shown an end-to-end advantage on a physical robot. Quantum annealing has routed fleets of up to 1,000 simulated vehicles after decomposition, but classical and quantum-inspired solvers match or beat it in head-to-head comparisons; quantum reinforcement learning consistently needs one to two orders of magnitude fewer trainable parameters, but not less training time or better policies; and cloud latency, noise, and trainability keep quantum processors out of real-time control loops. Quantum sensing and quantum communication are the only branches fielded on moving platforms. We identify quantum-probability models of human judgment as a hardware-light opportunity for human-robot interaction, propose reporting standards for quantum-robotics experiments, and derive a research agenda from the taxonomy.
+\end{abstract}
+
+\begin{CCSXML}
+<ccs2012>
+   <concept><concept_id>10002944.10011122.10002945</concept_id><concept_desc>General and reference~Surveys and overviews</concept_desc><concept_significance>500</concept_significance></concept>
+   <concept><concept_id>10010520.10010553.10010554</concept_id><concept_desc>Computer systems organization~Robotics</concept_desc><concept_significance>500</concept_significance></concept>
+   <concept><concept_id>10010583.10010786.10010813.10011726</concept_id><concept_desc>Hardware~Quantum computation</concept_desc><concept_significance>500</concept_significance></concept>
+   <concept><concept_id>10003752.10003753.10003758</concept_id><concept_desc>Theory of computation~Quantum computation theory</concept_desc><concept_significance>300</concept_significance></concept>
+   <concept><concept_id>10010147.10010178.10010199</concept_id><concept_desc>Computing methodologies~Planning and scheduling</concept_desc><concept_significance>300</concept_significance></concept>
+   <concept><concept_id>10010147.10010257</concept_id><concept_desc>Computing methodologies~Machine learning</concept_desc><concept_significance>300</concept_significance></concept>
+</ccs2012>
+\end{CCSXML}
+
+\ccsdesc[500]{General and reference~Surveys and overviews}
+\ccsdesc[500]{Computer systems organization~Robotics}
+\ccsdesc[500]{Hardware~Quantum computation}
+\ccsdesc[300]{Theory of computation~Quantum computation theory}
+\ccsdesc[300]{Computing methodologies~Planning and scheduling}
+\ccsdesc[300]{Computing methodologies~Machine learning}
+
+\keywords{Quantum robotics, quantum annealing, QAOA, variational quantum algorithms, quantum machine learning, quantum reinforcement learning, quantum sensing, hybrid quantum-classical systems, quantum cognition, NISQ, systematic literature review}
+
+%% \received{DD Month YYYY}
+%% \received[revised]{DD Month YYYY}
+%% \received[accepted]{DD Month YYYY}
+
+\maketitle
+
+
+\section{Introduction}\label{sec:intro}
+
+\subsection{Motivation}\label{sec:motivation}
+Autonomous robots must repeatedly solve hard computational problems under tight time budgets: estimating their state from noisy sensors, planning collision-free motions, allocating tasks among many agents, and learning behaviors from limited experience. Modern robotics addresses these problems with probabilistic estimation, sampling-based planning, and learning~\cite{Thrun2005,Siciliano2016}, but many of the underlying problems remain computationally demanding. Multi-robot routing and task allocation are NP-hard combinatorial problems, particle-filter localization and belief-space planning scale with the size of the state space, and reinforcement learning on physical robots is notoriously sample-inefficient~\cite{Kober2013}.
+
+Quantum computing offers, in principle, new tools for exactly these kernels. Grover's algorithm gives a quadratic speed-up for unstructured search~\cite{Grover1996}, amplitude estimation accelerates Monte Carlo sampling quadratically~\cite{Montanaro2015}, variational algorithms such as the Quantum Approximate Optimization Algorithm (QAOA) target combinatorial optimization~\cite{Farhi2014}, and parameterized quantum circuits have been proposed as compact function approximators for learning~\cite{Cerezo2021a}. Quantum sensors, meanwhile, are beginning to deliver measurable gains in navigation-grade inertial and magnetic sensing~\cite{Degen2017}.
+
+Robotics, however, imposes constraints that quantum-algorithm papers rarely consider. Decisions must be made within milliseconds to seconds; onboard size, weight, and power are limited; problems are dynamic and often continuous; and safety requires reliable rather than probabilistic outcomes. Today's noisy intermediate-scale quantum (NISQ) devices are cryogenic, remotely accessed, noisy, and small~\cite{Preskill2018}. The central question of this survey is therefore not whether quantum computing could help robotics in principle, but what the published evidence shows about where it helps, by how much, and when.
+
+
+\subsection{Scope and Terminology}\label{sec:scope}
+We use \emph{quantum robotics} for the application of quantum computation, quantum sensing, quantum communication, and quantum-probability modeling to the functions of autonomous robots. Three distinctions recur throughout the survey. First, a method is \emph{genuinely quantum} if it requires quantum hardware, or its classical simulation, to run, and \emph{quantum-inspired} if it is a classical algorithm that borrows quantum concepts such as amplitudes or superposition-like representations. Second, a method is \emph{NISQ-compatible} if it can run on today's noisy processors without error correction, and \emph{fault-tolerant} if its advantage depends on error-corrected logical qubits. Third, we separate \emph{quantum computation} for robots from \emph{quantum sensing and communication} on robots, because the two are at very different levels of maturity. We do not cover robots that manipulate quantum systems as their task (for example, laboratory automation of quantum experiments) or the use of classical robotics to build quantum hardware.
+
+
+\subsection{Related Surveys and Positioning}\label{sec:related}
+Earlier surveys have mapped possible intersections between quantum technologies and robotics. \citet{Tandon2017} wrote the first book-length survey, organized around how quantum methods could help a robot sense, plan, learn, and act. \citet{Petschnigg2019} published a position paper at ICRA that mapped quantum algorithms onto the sense-think-act loop and framed robots as future users of quantum cloud services. \citet{Yan2024} reviewed quantum-robot architectures, perception, and robot-environment interaction, including quantum-inspired evolutionary algorithms, quantum affective computing, and quantum cryptography for robot communication. Since 2024, several further reviews have appeared. \citet{Nigatu2026} reviewed 107 contributions on quantum machine learning for robotics in five application domains; \citet{Udekwe2025} recast robotic tasks as optimization, search, sampling, and linear-algebra problems and discussed hardware and latency constraints; and shorter surveys have covered quantum-based robot control~\cite{Fazilat2025a} and quantum computing applications in robotics~\cite{Haldorai2024}. Broader reviews provide taxonomies of quantum computing as a whole~\cite{Gill2022}, connect quantum computing with artificial intelligence~\cite{GarciaPineda2026}, and discuss its role in automating science and engineering~\cite{Kadowaki2025}. Surveys of the underlying methods, notably of quantum reinforcement learning~\cite{Meyer2022} and quantum machine learning~\cite{Wang2024}, are not robotics-specific.
+
+Table \ref{tab:surveys} compares these robotics surveys with the present one. They share three limitations. First, they are largely descriptive and rarely grade the strength of evidence behind each claim, so asymptotic speed-ups, noiseless simulations, and hardware experiments are presented side by side. Second, they seldom separate genuinely quantum methods from quantum-inspired classical algorithms, which run on conventional hardware and account for many of the robotics results that have been validated physically. Third, they predate or under-weight the experimental literature of the NISQ era, including quantum reinforcement learning on robot tasks, QUBO-based fleet control on quantum annealers, head-to-head solver comparisons, dequantization results, error-mitigation costs, and measured cloud latencies.
+
+\begin{table}[t]
+\caption{Comparison of this survey with earlier surveys of quantum computing for robotics. $\checkmark$ = addressed systematically; ($\checkmark$) = addressed partially or descriptively; -- = not addressed. Evid. = evidence; Q vs. QI = genuinely quantum results separated from quantum-inspired ones; HW = hardware; comm. = communication; QP = quantum probability. The assessment is ours and is based on the content of each survey.}
+\label{tab:surveys}
+\footnotesize
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{0.160\dimexpr\linewidth-16\tabcolsep\relax}>{\raggedright\arraybackslash}p{0.130\dimexpr\linewidth-16\tabcolsep\relax}>{\raggedright\arraybackslash}p{0.230\dimexpr\linewidth-16\tabcolsep\relax}>{\raggedright\arraybackslash}p{0.096\dimexpr\linewidth-16\tabcolsep\relax}>{\raggedright\arraybackslash}p{0.096\dimexpr\linewidth-16\tabcolsep\relax}>{\raggedright\arraybackslash}p{0.096\dimexpr\linewidth-16\tabcolsep\relax}>{\raggedright\arraybackslash}p{0.096\dimexpr\linewidth-16\tabcolsep\relax}>{\raggedright\arraybackslash}p{0.096\dimexpr\linewidth-16\tabcolsep\relax}@{}}
+\toprule
+\textbf{Survey} & \textbf{Type} & \textbf{Focus} & \textbf{Evid. grading} & \textbf{Q vs. QI} & \textbf{HW and latency} & \textbf{Sensing, comm.} & \textbf{QP cognition} \\ \midrule
+\citet{Tandon2017} & Book & Sense, plan, learn, act; quantum MDPs and POMDPs & -- & -- & ($\checkmark$) & $\checkmark$ & -- \\
+\citet{Petschnigg2019} & Position paper & Sense-think-act loop; quantum AI, perception, optimization & -- & -- & ($\checkmark$) & ($\checkmark$) & -- \\
+\citet{Yan2024} & Narrative review & Architectures, perception, robot-environment interaction & -- & ($\checkmark$) & -- & $\checkmark$ & ($\checkmark$) \\
+\citet{Haldorai2024} & Narrative review & Quantum computing principles and robotic applications & -- & -- & ($\checkmark$) & -- & -- \\
+\citet{Udekwe2025} & Systematic review & Robotic tasks recast as optimization, search, sampling, linear algebra & ($\checkmark$) & ($\checkmark$) & $\checkmark$ & ($\checkmark$) & -- \\
+\citet{Fazilat2025a} & Short review & Quantum-based control strategies & -- & -- & -- & -- & -- \\
+\citet{Nigatu2026} & Review & Quantum machine learning for robotics (107 works) & -- & -- & ($\checkmark$) & -- & -- \\
+This survey & Systematic review (PRISMA 2020) & Five robotic functions; 58 primary studies, 149 references & $\checkmark$ & $\checkmark$ & $\checkmark$ & $\checkmark$ & $\checkmark$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+
+\subsection{Contributions}\label{sec:contrib}
+This survey makes five contributions.
+
+\begin{enumerate}
+  \item A systematic, PRISMA 2020-guided review of 58 primary studies on quantum and quantum-inspired methods for robotics, published between 1998 and 2026, set against 91 foundational works (Section \ref{sec:method}).
+  \item A robotics-function taxonomy that links each robotic function to the quantum methods applied to it and to representative tasks, together with a six-level evidence hierarchy and five classification dimensions that are applied to every study (Section \ref{sec:classification}, Figure \ref{fig:taxonomy}).
+  \item A critical, method-by-method synthesis of quantum optimization, search, learning, sensing and communication, hybrid architectures, and quantum cognition for robots, in which every result is reported with its evidence level, baseline, and principal limitation (Sections \ref{sec:opt} to \ref{sec:emerging}).
+  \item A cross-cutting analysis that separates theoretical, simulated, hardware, and end-to-end claims of quantum advantage and quantifies the latency gap between robot control loops and quantum hardware access (Section \ref{sec:analysis}).
+  \item A research agenda derived from the taxonomy, together with a reporting checklist for future quantum-robotics experiments (Section \ref{sec:challenges}).
+\end{enumerate}
+
+
+\subsection{Organization}\label{sec:organization}
+Section \ref{sec:background} introduces the quantum-computing concepts used in the survey, the computational kernels of autonomous robots, and the history of the field. Section \ref{sec:method} describes the survey methodology and the classification scheme. Sections \ref{sec:opt} to \ref{sec:emerging} review the literature by method family: optimization (Section \ref{sec:opt}), search and planning (Section \ref{sec:search}), learning (Section \ref{sec:learning}), sensing and communication (Section \ref{sec:sensing}), hybrid architectures and hardware constraints (Section \ref{sec:hybrid}), quantum cognition (Section \ref{sec:cognition}), and emerging directions (Section \ref{sec:emerging}). Section \ref{sec:analysis} synthesizes the evidence across methods, Section \ref{sec:challenges} sets out open challenges and a research agenda, and Section \ref{sec:conclusion} concludes. The online supplementary material contains the full evidence table, the PRISMA flow diagram and checklist, the quality-assessment rubric, and the search strings.
+
+
+\section{Background}\label{sec:background}
+
+\subsection{Quantum Computing Essentials}\label{sec:qc}
+A qubit is a two-level quantum system whose state is a unit vector $|\psi\rangle=\alpha|0\rangle+\beta|1\rangle$ with $|\alpha|^2+|\beta|^2=1$. A register of $n$ qubits is described by $2^n$ complex amplitudes; gate-based quantum computers transform it with unitary gates and read it out by measurement, which returns a classical bit string with probability given by the squared magnitude of its amplitude~\cite{Nielsen2010}. Quantum algorithms obtain speed-ups by arranging for the amplitudes of wrong answers to cancel through interference, not by ``trying all answers in parallel``. Two further consequences matter for robotics. Measurement destroys the superposition, so expectation values must be estimated from many repeated executions, called \emph{shots}; and loading classical data, such as a sensor reading, into amplitudes costs circuit depth that can cancel the speed-up~\cite{Aaronson2015}.
+
+Two hardware paradigms appear in the robotics literature. \emph{Gate-based} processors, built from superconducting circuits, trapped ions, or photons, run arbitrary circuits~\cite{Kjaergaard2020}. \emph{Quantum annealers} implement a single algorithm: they evolve slowly from an easy initial Hamiltonian to a problem Hamiltonian whose ground state encodes the solution of an Ising or quadratic unconstrained binary optimization (QUBO) problem~\cite{Johnson2011,Lucas2014},
+
+\begin{equation}
+\min_{x\in\{0,1\}^n} x^{\top}Qx = \min_{x\in\{0,1\}^n}\sum_{i\le j} Q_{ij}\,x_i x_j,
+\end{equation}
+where constraints such as ``each robot takes exactly one route'' are added as quadratic penalty terms. On gate-based hardware, the same QUBO can be attacked with QAOA, which prepares $|\gamma,\beta\rangle=\prod_{k=1}^{p}e^{-i\beta_k H_M}e^{-i\gamma_k H_C}|+\rangle^{\otimes n}$, alternating $p$ layers of a cost Hamiltonian $H_C$ and a mixing Hamiltonian $H_M$, with angles tuned by a classical optimizer~\cite{Farhi2014}. QAOA belongs to the family of \emph{variational quantum algorithms} (VQAs), which also includes the Variational Quantum Eigensolver (VQE) and the parameterized quantum circuits used in quantum machine learning; all of them run a short circuit on the quantum processor and update its parameters on a classical computer~\cite{Peruzzo2014,McClean2016,Cerezo2021a,Bharti2022}.
+
+Current processors belong to the NISQ regime: tens to a few thousand physical qubits, gate errors of roughly $10^{-3}$ to $10^{-2}$, and no error correction~\cite{Preskill2018}. Error mitigation can improve expectation values at a sampling cost that grows exponentially with circuit size~\cite{Temme2017,Kandala2019,Cai2023}, whereas fault-tolerant computing encodes each logical qubit in many physical ones~\cite{Terhal2015,Fowler2012}. The algorithms with provable speed-ups relevant to robotics (Grover search, amplitude estimation, and quantum linear-system solvers~\cite{Harrow2009}) require fault tolerance; the NISQ-compatible algorithms (QAOA, VQE, variational learning, and annealing) are heuristics whose advantage, if any, must be shown empirically~\cite{Montanaro2016}.
+
+
+\subsection{Computational Kernels of Autonomous Robots}\label{sec:kernels}
+The robotics problems targeted by quantum methods fall into five kernels. \emph{Combinatorial optimization} covers task allocation, multi-robot routing, scheduling of automated guided vehicles (AGVs), and assembly-line balancing, usually NP-hard and solved classically with mixed-integer programming or metaheuristics. \emph{Search and planning} covers motion and path planning, for which sampling-based planners such as RRT~\cite{LaValle1998} and the asymptotically optimal RRT* and PRM*~\cite{Karaman2011} are the classical baselines, together with integrated task-and-motion planning~\cite{Garrett2021}. \emph{Estimation} covers localization and mapping, where Monte Carlo localization~\cite{Dellaert1999} and particle-filter SLAM scale with the number of hypotheses. \emph{Learning} covers supervised perception and reinforcement learning (RL)~\cite{Sutton2018,Kober2013}. \emph{Decision-making under uncertainty} covers partially observable Markov decision processes (POMDPs)~\cite{Kaelbling1998,Kurniawati2022} and models of the humans with whom robots interact. These five kernels map onto the five robotic functions of our taxonomy (Section \ref{sec:classification}).
+
+
+\subsection{Historical Evolution}\label{sec:history}
+Figure \ref{fig:timeline} summarizes the history of the field in four eras. In the \emph{theoretical era} (1980--1994), \citet{Feynman1982} argued that classical computers cannot efficiently simulate quantum systems, \citet{Deutsch1985} formalized the universal quantum computer, and \citet{Deutsch1992} gave the first exponential separation between quantum and deterministic classical computation. In the \emph{algorithmic era} (1995--2005), Shor's factoring algorithm~\cite{Shor1997}, Grover's search~\cite{Grover1996}, and amplitude amplification and estimation~\cite{Brassard2002} established that quantum computers could outperform classical ones on practically important tasks, and \citet{Benioff1998} introduced the concept of a \emph{quantum robot}, a mobile quantum system carrying an onboard quantum computer and interacting with its environment. In the \emph{early-hardware era} (2006--2015), \citet{Dong2006} reframed Benioff's concept as an engineering architecture of quantum computing units, controllers, and sensors, and proposed Grover-based search and quantum reinforcement learning for it~\cite{Dong2008}; the HHL algorithm promised exponential speed-ups for linear systems~\cite{Harrow2009}; D-Wave demonstrated programmable quantum annealing~\cite{Johnson2011}; and VQE~\cite{Peruzzo2014} and QAOA~\cite{Farhi2014} introduced the variational paradigm. In the \emph{NISQ era} (2016-present), \citet{Preskill2018} named the regime of noisy 50--100-qubit devices, Google's Sycamore processor performed a random-circuit sampling task beyond the reach of classical simulation at the time~\cite{Arute2019}, and cloud access made quantum experimentation widely available. Robotics researchers began to publish quantum and quantum-inspired studies of navigation~\cite{Dong2012,Hohenfeld2024}, fleet routing~\cite{Ohzeki2019,Clark2019}, motion planning~\cite{Chella2022}, swarms~\cite{Chella2023}, localization~\cite{Antero2025}, and kinematics~\cite{Otani2025}, alongside rapid progress in quantum sensing for navigation~\cite{Muradoglu2025}.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=0.80\linewidth]{figures/fig3_timeline.png}
+\caption{Timeline of quantum computing and quantum robotics milestones, 1982--2026, across the four eras used in this survey.}
+\Description{Vertical timeline from 1982 to 2026 divided into four eras (theoretical foundations, algorithm development, early hardware, NISQ and robotics), with quantum computing milestones on the left (Feynman 1982 to Sycamore 2019) and quantum robotics milestones on the right (Benioff's quantum robot 1998 to a quantum navigation policy executed on IBM hardware in 2026).}
+\label{fig:timeline}
+\end{figure}
+
+
+\section{Survey Methodology}\label{sec:method}
+This survey follows the PRISMA 2020 reporting guideline~\cite{Page2021} and the systematic-review procedure of \citet{Kitchenham2007}, which divides a review into planning, conduct, and reporting stages. The PRISMA 2020 checklist, with the location of each item in this article, is given in the online supplementary material.
+
+
+\subsection{Research Questions}\label{sec:rqs}
+The survey addresses five research questions.
+
+\begin{itemize}
+  \item \textbf{RQ1.} Which quantum computing methods have been applied to which robotic functions (optimization, planning, learning, sensing and communication, and decision-making)?
+  \item \textbf{RQ2.} What level of evidence supports each application, from theoretical analysis to end-to-end deployment on physical robots?
+  \item \textbf{RQ3.} Which reported benefits are genuinely quantum, and which are obtained by quantum-inspired classical algorithms or removed by dequantization?
+  \item \textbf{RQ4.} Which hardware and deployment constraints (qubit counts, noise, latency, quantum-classical communication, and size, weight, power, and cooling) limit the use of quantum computing in robotics today?
+  \item \textbf{RQ5.} Which directions offer realistic benefit in the near term (2026--2030), and what research is needed for the longer term?
+\end{itemize}
+
+
+\subsection{Search Strategy}\label{sec:search}
+Searches were run in IEEE Xplore, the ACM Digital Library, Scopus, Web of Science, SpringerLink, ScienceDirect, and arXiv (categories quant-ph, cs.RO, and cs.LG), and were supplemented by backward and forward snowballing from key papers and earlier surveys~\cite{Petschnigg2019,Yan2024,Tandon2017,Meyer2022}. The core search string combined a quantum block (for example, ``quantum computing``, ``quantum annealing``, QAOA, ``quantum reinforcement learning``, ``quantum-inspired``, ``quantum sensing``, ``quantum cognition``), a robotics block (for example, robot*, ``autonomous vehicle*``, swarm, UAV, AGV, manipulator), and an application block (for example, planning, navigation, localization, ``task allocation``, routing, control, learning, ``decision making``, SLAM, kinematics). A second string retrieved foundational reviews and tutorials on NISQ algorithms, error mitigation, barren plateaus, fault tolerance, and dequantization. The search covered publications from 1982, to capture foundational works, to \fillin{last search date, e.g., July 2026}. The exact strings for each database are given in the online supplementary material.
+
+
+\subsection{Eligibility Criteria}\label{sec:criteria}
+Studies were included if they (I1) proposed, evaluated, or reviewed a quantum or quantum-inspired method applied to a robotic function; (I2) provided foundational algorithms, hardware, or theory on which such methods depend; or (I3) supplied the classical robotics baselines needed for comparison. Studies were excluded if they (E1) used ``quantum'' only metaphorically, without a quantum-mechanical formalism or algorithm; (E2) were not available in English; (E3) were duplicates or earlier versions of an included study, in which case the most complete version was retained (for example, the journal version of \citet{Hohenfeld2024} rather than its preprint); or (E4) addressed quantum communication or cryptography without a robotic application. Studies satisfying I1 form the set of \emph{primary studies}; studies satisfying only I2 or I3 are cited as \emph{foundational works} and were not graded.
+
+
+\subsection{Study Selection}\label{sec:selection}
+Records were de-duplicated and then screened by title and abstract, followed by full-text assessment against the eligibility criteria. \fillin{number of records identified / after de-duplication / screened / full texts assessed / excluded with reasons}. The final corpus comprises 58 primary studies (51 empirical or theoretical studies and 7 reviews) and 91 foundational works, for 149 references in total. The PRISMA flow diagram is given in the online supplementary material. During full-text retrieval, every PDF was checked against its bibliographic record, and mislabeled files and incorrect metadata were corrected before data extraction; all bibliographic records were then verified against publisher, DOI, or arXiv records.
+
+
+\subsection{Data Extraction and Quality Assessment}\label{sec:extraction}
+For each primary study we extracted the bibliographic data, robotic task, quantum method, quantum type, hardware or simulator, experimental setup and baselines, key quantitative results, and stated and unstated limitations. The complete extraction table is provided as online supplementary material, both as a table and as a machine-readable CSV file. Robotics application studies were additionally scored with a seven-criterion quality rubric (problem formulation, strength of the classical baseline, experimental realism, reporting of hardware and noise, performance metrics, reproducibility, and critical discussion of limitations), each criterion scored 0, 1, or 2. \fillin{state who extracted and scored the data, and how disagreements were resolved, e.g., ``Two authors extracted the data independently; disagreements were resolved by discussion.''}
+
+
+\subsection{Classification Scheme}\label{sec:classification}
+Each primary study was classified along a robotic-function taxonomy, an evidence hierarchy, and five further dimensions.
+
+\paragraph{Robotic-function taxonomy.} Each study was assigned to its primary robotic function: \emph{optimization} (task allocation, routing, scheduling, and kinematics), \emph{planning} (path and motion planning, view planning, and localization posed as search), \emph{learning} (supervised quantum machine learning and reinforcement learning), \emph{sensing and communication} (inertial and magnetic navigation sensors and quantum key distribution between robots), and \emph{decision-making} (quantum-probability and cognitive models of choice). Figure \ref{fig:taxonomy} shows the resulting taxonomy, the quantum methods applied to each function, and representative robotic tasks; it also structures Sections \ref{sec:opt} to \ref{sec:emerging}.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=1.00\linewidth]{figures/fig1_taxonomy.png}
+\caption{Taxonomy of quantum technologies for robotics: robotic functions (top), the quantum methods applied to each (middle), and representative robotic tasks (bottom).}
+\Description{Tree diagram with ``Quantum technologies for robotics'' at the root and five branches (optimization, planning, learning, sensing and communication, decision-making); each branch lists quantum methods such as QUBO and annealing, QAOA, Grover search, variational circuits, quantum sensors, and quantum-probability models, and example tasks such as AGV routing, path planning, robot navigation RL, GNSS-denied navigation, and human-robot interaction.}
+\label{fig:taxonomy}
+\end{figure}
+
+\paragraph{Evidence hierarchy.} Evidence was graded on six ordered levels, defined in Table \ref{tab:levels}. The hierarchy separates what has been \emph{argued} (L1), \emph{simulated} (L2), \emph{executed on quantum hardware} (L3), \emph{coupled to a robot or robot simulator in a closed loop} (L4), \emph{demonstrated on a physical robot or vehicle} (L5), and \emph{deployed end to end with a measured advantage over a classical baseline} (L6). A study's level is the highest level reached by its own experiments, not by the components it builds on.
+
+\begin{table}[t]
+\caption{Evidence hierarchy used to grade the primary studies, with the number of studies at each level (51 studies; 7 reviews excluded).}
+\label{tab:levels}
+\footnotesize
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{0.060\dimexpr\linewidth-10\tabcolsep\relax}>{\raggedright\arraybackslash}p{0.160\dimexpr\linewidth-10\tabcolsep\relax}>{\raggedright\arraybackslash}p{0.420\dimexpr\linewidth-10\tabcolsep\relax}>{\raggedright\arraybackslash}p{0.050\dimexpr\linewidth-10\tabcolsep\relax}>{\raggedright\arraybackslash}p{0.310\dimexpr\linewidth-10\tabcolsep\relax}@{}}
+\toprule
+\textbf{Level} & \textbf{Name} & \textbf{Definition} & \textbf{n} & \textbf{Examples} \\ \midrule
+L1 & Theoretical & Analysis, complexity argument, or conceptual model only & 4 & \cite{Lawless2023,Humr2025} \\
+L2 & Simulation & Quantum circuits or annealing simulated on classical computers & 15 & \cite{Chella2022,Nigatu2025,Yu2025} \\
+L3 & QPU experiment & At least part of the method executed on real quantum hardware & 19 & \cite{Clark2019,Leib2023,Otani2025} \\
+L4 & Robot-in-the-loop & Quantum computation coupled in a closed loop to a robot or high-fidelity robot simulator & 8 & \cite{Hohenfeld2024,Sinha2023,Quang2025} \\
+L5 & Physical demonstration & Behavior demonstrated on a physical robot or vehicle & 4 & \cite{Dong2012,Tian2023,Conrad2025} \\
+L6 & End-to-end deployment & Field operation in a realistic setting with a measured advantage over a classical baseline & 1 & \cite{Muradoglu2025} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\paragraph{Further classification dimensions.} Studies were further classified by (i) \emph{quantum type}, genuinely quantum or quantum-inspired (Section \ref{sec:scope}); (ii) \emph{method family}, such as QUBO formulations with annealing or QAOA, Grover search and amplitude amplification, variational circuits, quantum kernels, quantum-probability models, and quantum sensors; (iii) \emph{hardware}, such as gate-based superconducting, trapped-ion, or photonic processors, quantum annealers, quantum-inspired digital annealers, or none; (iv) \emph{regime}, NISQ-compatible or requiring fault tolerance; and (v) the \emph{dominant deployment constraint}, such as qubit count, noise, latency, the input/output bottleneck, or size, weight, power, and cooling (SWaP-C).
+
+
+\subsection{Threats to Validity}\label{sec:validity}
+Several threats apply to this survey. \emph{Coverage}: the field moves quickly, terminology is inconsistent (``quantum``, ``quantum-inspired``, and ``quantum-like'' are used interchangeably), and several key results are preprints~\cite{Altrabulsi2026,Muradoglu2025}; we mitigated these risks with broad search strings, seven databases, and snowballing, but studies not in English and unpublished industrial work are missing. \emph{Publication bias} probably favors positive results, so the actual rate of null or negative results is likely higher than reported here. \emph{Classification}: evidence levels were assigned from the information reported, which is often incomplete on hardware, shots, and latency; when in doubt, we assigned the lower level. \emph{Synthesis}: the heterogeneity of tasks, metrics, and baselines prevented a quantitative meta-analysis, so the synthesis is narrative and structured by the taxonomy. For a few records the analysis relied on the published abstract and supplementary material rather than the full text.
+
+
+\section{Quantum Optimization for Robot Coordination, Scheduling, and Kinematics}\label{sec:opt}
+
+\subsection{Methods}\label{sec:opt-methods}
+Most robotic optimization problems addressed with quantum methods are first written as QUBO problems or, equivalently, Ising models (Section \ref{sec:qc}). \citet{Lucas2014} catalogued Ising formulations of Karp's 21 NP-complete problems and many others, including the traveling-salesman, coloring, and scheduling problems that underlie routing and task allocation. A QUBO can be solved by quantum annealing on superconducting flux-qubit hardware~\cite{Johnson2011} or by gate-based variational algorithms. QAOA~\cite{Farhi2014} alternates $p$ layers of problem and mixing unitaries; its solution quality is non-decreasing in $p$ and converges to the optimum as $p\to\infty$, but its single-layer guarantee on 3-regular MaxCut (0.6924) is weaker than that of the best classical algorithms. \citet{Hadfield2019} generalized QAOA into the Quantum Alternating Operator Ansatz, whose mixers keep the state inside the feasible space and so enforce hard constraints without penalty terms. \citet{Zhou2020} showed that optimal QAOA parameters follow transferable patterns that reduce the parameter search from exponential to polynomial effort in $p$, and \citet{Barkoutsos2020} showed that optimizing the conditional value-at-risk of the samples, rather than their mean, improves convergence on combinatorial problems.
+
+No proven exponential speed-up exists for NP-hard optimization; QAOA and annealing are heuristics whose advantage, if any, is empirical. From noisy simulations against a state-of-the-art MaxCut solver, \citet{Guerreschi2019} estimated that a runtime crossover would require several hundred to a few thousand qubits. The expected benefit for robotics is therefore faster good-enough solutions to large allocation and routing problems at scales beyond those of today's devices.
+
+
+\subsection{Multi-Robot Fleets and Automated Guided Vehicles}\label{sec:opt-fleets}
+Quantum optimization is the largest and most hardware-tested cluster of robotics studies. Most of it concerns fleets of AGVs and transport robots, formulated as QUBOs and solved on D-Wave annealers or hybrid solvers.
+
+\citet{Ohzeki2019} formulated the collision-free control of AGVs in a factory as a QUBO in which binary variables select one route per vehicle from a set of candidates, and quadratic penalties forbid multiple selections and the simultaneous occupation of road segments or intersections; the QUBO is re-solved in every time period. Using a simulation of an actual DENSO plant with 10 AGVs, the authors compared a D-Wave 2000Q annealer, the Fujitsu Digital Annealer, and the Gurobi solver against the plant's rule-based control. The optimization-based control produced smoother, collision-free traffic. D-Wave returned plans quickly but handled only small instances (the largest QUBO had 60 variables) and needed post-processing to discard constraint-violating samples, whereas the digital annealer and the classical solver handled larger problems efficiently. The main lesson of this industrially grounded study is that the QUBO formulation, rather than the quantum hardware, delivered most of the benefit.
+
+\citet{Quang2025} scaled QUBO-based AGV routing to commercial warehouse size. Working with the operating system of a commercial AGV product, they combined a real-time candidate-route generator, a priority-weighted cost function for safety, and dynamic clustering that splits the fleet-wide problem into sub-QUBOs small enough for current annealers, solved on D-Wave hardware or on classical and quantum-inspired solvers. On a 154 m $\times$ 298 m layout with 8,242 tags, real warehouse request data, and an AGV simulator running up to 1,000 vehicles, route generation reduced the number of optimization variables by 96\% for small and medium systems and by 78\% for large ones, clustering kept every subproblem below 10,000 variables, and a complexity-based formulation cut sampling time by about 28\%. This is the largest-scale robotics application of quantum annealing that we identified; however, most of its gains come from decomposition and problem engineering, and it does not show that the annealer outperforms classical solvers on the same subproblems.
+
+\citet{Clark2019} asked whether current annealers could route many robots on a grid in real time. A classical computer generates candidate paths for each robot, and a D-Wave 2000Q annealer solves the combinatorial problem of choosing one conflict-free path per robot, usually the most time-consuming step classically. Benchmarks with up to 200 robots showed that valid multi-robot routing solutions can be produced with existing annealing hardware. ``Real time``, however, refers to the anneal; end-to-end latency, including cloud access and embedding, remains the bottleneck~\cite{Ravi2021}.
+
+Three studies compared quantum and classical solvers head to head. \citet{Smierzchalski2024} evaluated D-Wave's hybrid solvers for scheduling AGVs in a space-constrained factory by mapping the problem onto a railway-style scheduling model; instances with up to 21 AGVs, which matter because of possible deadlocks, were solved in seconds with performance comparable to the classical CPLEX solver. The authors caution that, because the hybrid solver is proprietary and combines classical heuristics with occasional calls to the quantum processing unit (QPU), the contribution of quantum computation cannot be isolated, a caveat that applies to much of the hybrid-solver literature. \citet{Leib2023} carried out one of the most rigorous comparisons in the corpus, on a transport-robot scheduling problem from a BASF high-throughput laboratory. With three different models of the problem, they compared D-Wave's hybrid annealer, Fujitsu's quantum-inspired Digital Annealer and its hybrid framework, and Gurobi on both solution quality and end-to-end runtime. On smaller instances Gurobi reached comparable quality 10 to 100 times faster; on the largest instances the Fujitsu hybrid found good solutions within minutes where Gurobi hit its time limit, while D-Wave showed only limited opportunities. For robot scheduling today, then, the practical benefit of ``quantum'' optimization comes mainly from quantum-inspired digital hardware. Finally, \citet{AtchadeAdelomou2021} presented qRobot, a proof of concept in which the joint order-batching and picking-route problem of a warehouse robot is modeled as a capacitated vehicle-routing problem, translated into a QUBO, and solved with VQE and other hybrid algorithms. The robot's onboard computer, a Raspberry Pi 4 with an ARM64 quantum software stack, dispatches jobs to cloud back ends including IBM Quantum, Amazon Braket, and D-Wave. The system returned valid routes for small instances; its value lies mainly in the end-to-end architecture, since instance sizes were very small, there was no systematic comparison with mature vehicle-routing solvers, and cloud queueing latency was not assessed.
+
+
+\subsection{Industrial Trajectories, Assembly, and Inspection}\label{sec:opt-industrial}
+Beyond fleets, the same approach has been applied to robot trajectory sequencing, assembly lines, and inspection paths. \citet{Schuetz2022}, from the Amazon Quantum Solutions Lab with BMW Group, sequenced robot tasks in automotive body and paint shops. Their end-to-end solution is built on a classical biased random-key genetic algorithm, strengthened by model stacking, ensembles, and path relinking, which consistently outperformed greedy baselines on industry-scale data; quantum annealing on Amazon Braket was evaluated as a complementary plug-in module. The paper is a realistic template for a ``quantum-ready'' industrial pipeline, but it is candid that the performance comes from the classical algorithm.
+
+\citet{Willmann2025} formulated robotic assembly-line balancing as a QUBO and solved it on a D-Wave Advantage 4.1 processor. For a small case (four tasks, two workstations, two equipment types), the annealer found the optimal configurations among its samples, but the full workflow, including QPU communication, took about 10,110 s, compared with 0.03 s for an exact classical solver. This negative result is valuable because it quantifies how overheads outside the anneal itself, such as queueing, communication, and repeated sampling, dominate end-to-end runtime for small industrial problems. \citet{Osaba2025} applied D-Wave's hybrid solvers to plan the trajectories of an inspection robot from CAD models, modeled as a three-dimensional, open-route traveling-salesman problem on an incomplete graph. Across five industrial cases, the nonlinear hybrid solver achieved quality competitive with Gurobi and Google OR-Tools with reduced computation time. It is one of the few studies reporting a runtime benefit on a robotics task, but the short-paper format, the proprietary solver, and the limited runtime detail mean that it should be treated as preliminary.
+
+
+\subsection{Kinematics}\label{sec:opt-kinematics}
+Two recent studies execute robot kinematics on quantum hardware. \citet{Otani2025} encoded the orientation of each link of a manipulator in a qubit through rotation gates, with entangling gates ($R_{XX}, R_{YY}, R_{ZZ}$) representing the coupling between parent and child links, so that the circuit reproduces the forward kinematics and a classical optimizer (COBYLA) searches for joint angles that reach a target pose. On a two-link manipulator with three rotational degrees of freedom per joint, entanglement reduced the positioning error and accelerated convergence relative to a circuit without entanglement, both in simulation and on the 64-qubit RIKEN/Fujitsu superconducting computer. The problem is tiny (two qubits) and no comparison is made with standard inverse-kinematics (IK) solvers, so the study is an early hardware demonstration rather than evidence of advantage. \citet{Salloum2026} instead reformulated planar IK as a QUBO by discretizing joint angles into one-hot binary variables, and solved it on D-Wave annealers with the Pegasus and Zephyr topologies. They defined time-to-solution rigorously and compared embedding strategies: global embedding on Zephyr used the fewest physical qubits, and the hybrid solver reached lower time-to-solution than classical QUBO baselines on larger instances. The authors state explicitly that the method is not superior to state-of-the-art continuous IK solvers. Together, the two studies show that kinematics can be executed on today's hardware, but only in discretized or toy form in which classical continuous solvers remain stronger.
+
+
+\subsection{Assessment}\label{sec:opt-assessment}
+Classical baselines are decisive for judging these results. Sampling-based planners such as RRT~\cite{LaValle1998}, RRT* and PRM*~\cite{Karaman2011}, and integrated task-and-motion planners~\cite{Garrett2021} solve continuous problems that current QUBO formulations represent only after coarse discretization. Where studies compare against mature commercial solvers, the picture is consistent: Gurobi or CPLEX matched or beat the annealer on small and medium instances~\cite{Ohzeki2019,Smierzchalski2024,Leib2023}, an exact classical solver was orders of magnitude faster on a small assembly problem~\cite{Willmann2025}, and advantages on the largest instances came from quantum-inspired digital annealers rather than quantum hardware~\cite{Leib2023}.
+
+\paragraph{Maturity.} Evidence reaches L3 and, for fleet routing, L4 in simulation. Annealers have produced valid collision-free plans for up to 200 robots~\cite{Clark2019}, sub-QUBOs of a 1,000-AGV fleet have been routed through a commercial AGV operating system in simulation~\cite{Quang2025}, and kinematics has been solved on annealers~\cite{Salloum2026} and on a 64-qubit gate-based processor~\cite{Otani2025}. No study reports a robust runtime or quality advantage over the best classical solver; one short study reports reduced computation time for inspection paths~\cite{Osaba2025}, which awaits confirmation.
+
+\paragraph{Key barrier.} Problem size and embedding. Penalty-based QUBOs inflate qubit counts, annealer connectivity forces embedding overheads, and classical and quantum-inspired digital solvers~\cite{Goto2019} currently solve the same QUBOs at much larger scale. Most of the reported benefit comes from the optimization formulation rather than from quantum hardware.
+
+
+\section{Quantum Search for Planning, Navigation, and Localization}\label{sec:search}
+
+\subsection{Methods}\label{sec:search-methods}
+Grover's algorithm finds a marked item among $N$ using $O(\sqrt{N})$ oracle calls~\cite{Grover1996}, and amplitude amplification generalizes this to any procedure that succeeds with probability $a$, needing $O(1/\sqrt{a})$ repetitions instead of $O(1/a)$~\cite{Brassard2002}. Amplitude estimation yields a near-quadratic speed-up for the Monte Carlo estimation of expected values~\cite{Montanaro2015}, which is directly relevant to particle-filter localization~\cite{Dellaert1999} and probabilistic planning. Quantum walks provide quadratic speed-ups for search and for the deliberation of learning agents~\cite{Paparo2014}, and coherent distance estimation gives polynomial query reductions for nearest-neighbor classification and clustering~\cite{Wiebe2015}, a primitive used in sampling-based planners and place recognition. These speed-ups count oracle queries, not wall-clock time, and require fault-tolerant hardware; \citet{Benioff2002} showed early on that a quantum robot's Grover search of a two-dimensional region is no faster than a classical search, a caution that applies to the planning studies below.
+
+
+\subsection{Motion Planning and Swarm Planning}\label{sec:search-planning}
+\citet{Chella2022} formulated robot motion planning as quantum search. The robot's world, admissible actions, and goal conditions are expressed as a production system, and the tree of possible action sequences is encoded in a reversible Boolean oracle so that Grover's algorithm can find a goal-reaching sequence with $O(\sqrt{N})$ oracle calls instead of exhaustive $O(N)$ search. The authors detail the translation of classical logic into reversible gates with ancilla qubits, analyze the success probability for single and multiple solutions, and introduce a qubit-reuse technique. All experiments ran on the noiseless Qiskit Aer simulator, which limited problems to about 27 qubits. The paper is an instructive end-to-end mapping of planning onto a gate-based algorithm, but qubit requirements grow with plan depth, the oracle presupposes a fully known map, and there is no comparison with heuristic planners such as A* or sampling-based methods. \citet{Chella2023} extended the planner to swarms of simple robots in a search-and-rescue scenario inspired by ant foraging: each robot's position and perceived proximity to the target are encoded in qubits, pairwise information exchange is a quantum circuit that decides which peer to follow, and each robot plans its next moves with a Grover circuit. In Qiskit simulations, the quantum swarm reached the target faster than two classical ant-behavior simulations, but the swarms are small, the circuits are noiseless, and the baselines are generic ant-colony simulations rather than state-of-the-art multi-robot planners.
+
+\citet{Nigatu2025} combined quantum machine learning with Grover search for manipulator optimization: a parameterized circuit is trained to approximate the forward kinematics and then used to build the oracle with which Grover's algorithm searches the configuration space. In simulated one-degree-of-freedom, two-degree-of-freedom, and dual-arm tasks, the method reported speed-ups of up to 93 times over classical optimizers such as Nelder-Mead as dimensionality increased. The speed-ups are measured in simulation and rest on Grover's quadratic query advantage, which requires fault-tolerant hardware to be realized in wall-clock terms. \citet{Sarkar2024} proposed a hybrid quantum ant-colony optimization architecture for ``quantum-enabled'' mobile robots that must visit a set of targets, which converts classical data to circuits automatically and runs many ants in parallel. On TSPLIB instances and 50 random 16-node graphs in the Qiskit simulator, it produced optimal or near-optimal tours with an average error of about 7\% relative to OR-Tools optima; accuracy degraded as the number of qubits grew, and runtime benefits are only projected.
+
+
+\subsection{Multi-Agent Pathfinding and UAV Navigation}\label{sec:search-mapf}
+\citet{Gerlach2025} presented the first optimal hybrid quantum-classical algorithms for multi-agent pathfinding (MAPF), the core coordination problem of robot fleets. Building on branch-and-cut-and-price, the method decomposes conflicts between agents into conflict graphs and solves the resulting small, independent QUBO subproblems with a quantum or quantum-inspired solver. On standard MAPF benchmarks, including runs on real quantum hardware, the approach dominated earlier QUBO formulations and compared favorably with state-of-the-art classical MAPF solvers. This is methodologically the strongest multi-robot result in the corpus, because the quantum component sits inside a provably optimal classical framework and is benchmarked against strong baselines. \citet{GonzalezVillasmil2026} formulated simultaneous multi-robot path planning as a single QUBO, using breadth-first-search preprocessing to remove more than 95\% of the variables and time-windowed decomposition to keep problems tractable. On grids of up to $10\times 10$ cells with four robots, solved by simulated annealing and simulated QAOA, it found near-optimal paths (a 5.3\% path-length penalty in dense scenarios), but classical planners remained faster at all tested sizes. \citet{Rao2024} designed a constraint-preserving QAOA formulation~\cite{Hadfield2019} for multi-vehicle coverage path planning, proved its validity, gave efficient constructions of the problem and mixer operators, and estimated the resources needed on current hardware, reporting improvements over depth-first-search exploration, which is a weak baseline.
+
+\citet{Innan2025} proposed QUAV, one of the first applications of QAOA to drone trajectory planning. The flight graph, obstacles, and no-fly zones are encoded in a cost Hamiltonian, geospatial coordinates are transformed so that paths are geographically accurate, and circuit depth scales linearly with the number of graph edges. In simulation and on IBM's ibm\_kyiv processor, QUAV produced feasible trajectories despite noise and limited connectivity; the graphs are small, however, and there is no benchmark against classical planners.
+
+
+\subsection{Perception-Driven Planning and Localization}\label{sec:search-loc}
+\citet{Yu2025} proposed HQC-NBV, a hybrid quantum-classical approach to next-best-view planning, the choice of camera viewpoints for exploring or reconstructing an unknown scene. Viewpoint selection is encoded in a multi-term Hamiltonian, and a variational ansatz with bidirectional alternating entanglement captures dependencies between viewpoint parameters. In simulated environments, the method achieved 7.9--49.2\% higher exploration efficiency than classical approaches, and ablations attributed part of the gain to the entanglement structure; the circuits are simulated and the baselines are not state-of-the-art view planners. \citet{Antero2025} used Grover search for mobile-robot localization on a known two-dimensional map. The environment is encoded as a costmap of obstacle proximities, the robot's local sensor view forms a perception pattern, and localization becomes the problem of finding where that pattern occurs in the map, which a Grover oracle solves with $O(\sqrt{N})$ queries instead of the $O(N)$ cell evaluations of grid-based Monte Carlo localization. The approach localized the robot correctly in simulation and was also run on cloud quantum hardware, but accuracy on real devices degraded as the map grew, and classical simulation becomes infeasible beyond about 40 qubits. The reported speed-up is therefore an asymptotic query count that presumes a large fault-tolerant device, which illustrates the gap between theoretical and realized advantage.
+
+\paragraph{Maturity.} Grover-based planning remains at L2 (noiseless simulation)~\cite{Chella2022,Nigatu2025}. QAOA-based UAV planning~\cite{Innan2025} and Grover localization~\cite{Antero2025} reach L3 on very small problems, with accuracy degrading on real devices, and hybrid MAPF reaches L3 with strong classical baselines~\cite{Gerlach2025}. Apart from the last, no study compares against heuristic planners such as A*, RRT, or RRT*~\cite{Karaman2011}, or against Monte Carlo localization on realistic maps~\cite{Dellaert1999}.
+
+\paragraph{Key barrier.} Oracle construction and circuit depth. Grover-type speed-ups are at most quadratic and apply to query counts, not wall-clock time. Building the reversible oracle for a map or plan tree requires many ancilla qubits and deep circuits, which exceed NISQ coherence budgets, and the quadratic gain is quickly consumed by error-correction overheads~\cite{Fowler2012}.
+
+
+\section{Quantum Learning for Robots}\label{sec:learning}
+
+\subsection{Supervised Quantum Machine Learning}\label{sec:qml}
+Quantum machine learning (QML) has developed along two lines~\cite{Biamonte2017,Schuld2021,Wang2024}. The first relies on fault-tolerant linear algebra: quantum clustering~\cite{Lloyd2014} and the quantum support vector machine~\cite{Rebentrost2014} promised exponential speed-ups given quantum random-access memory (qRAM). The second uses NISQ-compatible parameterized circuits: quantum circuit learning~\cite{Mitarai2018} and quantum neural networks for classification~\cite{Farhi2018} train low-depth circuits with a classical optimizer, while the kernel view~\cite{Schuld2019} interprets data encoding as a feature map into Hilbert space. \citet{Havlicek2019} implemented a variational classifier and a quantum kernel estimator on IBM hardware, reaching 100\% accuracy on synthetic data designed to suit the chosen feature map, and quanvolutional neural networks~\cite{Henderson2020} inserted random quantum filters into convolutional networks without showing an advantage over random classical nonlinear features.
+
+Direct applications of supervised QML to robot perception remain scarce. \citet{Petschnigg2019} and \citet{Yan2024} identify quantum image processing, quantum principal component analysis, and quantum support vector machines for object recognition and sensor fusion as candidate applications, but note that existing quantum image representations handle two-dimensional images rather than the three-dimensional point clouds typical of robot perception. The first QML study on real industrial robot data targeted robot software engineering: with PAL Robotics, \citet{Wang2025} built a test oracle that predicts the expected behavior of an autonomous mobile robot for regression testing after software updates. Quantum reservoir computing alone failed to converge, but combining it with a small classical network produced an oracle whose prediction error was about 15\% lower than that of a classical neural-network baseline. The study points to offline software assurance as a realistic, latency-tolerant niche for QML in robotics. Earlier, \citet{Goncalves2018} ran small quantum neural networks for a quantum robot interacting with a quantum target on IBM's five-qubit processor, in the tradition of robots acting on quantum environments~\cite{Benioff1998}.
+
+\paragraph{Barren plateaus.} \citet{McClean2018} showed that the gradients of randomly initialized parameterized circuits vanish exponentially with the number of qubits. \citet{Cerezo2021b} showed that global cost functions cause barren plateaus even at shallow depth, whereas local costs keep gradients polynomial at logarithmic depth. \citet{Larocca2025} unified the sources of barren plateaus (expressivity, global costs, entangled data, and noise) and raised the concern that architectures provably free of barren plateaus may also be efficiently classically simulable, which would remove their quantum advantage. For robot learning, where inputs are high-dimensional and rewards are often global, this is a fundamental limit to scalability.
+
+\paragraph{Dequantization.} Several claimed exponential QML speed-ups have been matched by classical sampling-based algorithms under the same input assumptions~\cite{Tang2019,Chia2020}, and the fine print of quantum linear-algebra speed-ups (efficient state preparation and limited read-out) rarely holds for robot data~\cite{Aaronson2015}.
+
+
+\subsection{Quantum Reinforcement Learning}\label{sec:qrl}
+Quantum reinforcement learning (QRL) has three strands~\cite{Meyer2022,Dunjko2018}. The first is quantum-inspired: \citet{Dong2008} represented actions as superpositions whose amplitudes are updated by Grover-like amplification, with action selection by measurement collapse. The second is agent-centered: projective simulation~\cite{Briegel2012} models deliberation as a random walk over episodic memory, which a quantum walk can speed up quadratically~\cite{Paparo2014}. The third, now dominant, strand replaces the neural networks of deep RL~\cite{Sutton2018} with variational quantum circuits (VQCs): VQC-based deep Q-learning~\cite{Chen2020}; data re-uploading and trainable output scaling for Q-learning~\cite{Skolik2022}; quantum policy gradients with a proven learning separation on artificial tasks~\cite{Jerbi2021}; gradient-free evolutionary training with tensor-network compression for high-dimensional inputs~\cite{Chen2022}; and multi-agent QRL with centralized training and decentralized execution~\cite{Yun2022}.
+
+\paragraph{Quantum-inspired navigation.} \citet{Dong2012} applied quantum-inspired RL (QiRL) to mobile-robot navigation. Each action is an ``eigenaction'' in a superposition whose amplitudes are learned; action selection mimics measurement collapse, so exploration and exploitation are balanced by the amplitudes, and a Grover-inspired rule amplifies rewarded actions. QiRL learned obstacle avoidance and goal reaching faster than temporal-difference learning in simulation and on a real two-wheeled robot, and was more robust to the choice of learning rate. The algorithm runs entirely on classical hardware and its baselines were limited to plain temporal-difference learning, but it remains one of the few quantum-motivated learning methods validated on a physical robot.
+
+\paragraph{Variational QRL for navigation and control.} \citet{Hohenfeld2024} replaced the Q-network of Double Deep Q-Networks with parameterized circuits and trained a simulated Turtlebot 2 to navigate grid environments of increasing size and a larger dynamic environment with moving obstacles and lidar sensing. The circuits learned optimal policies with notably fewer trainable parameters and outperformed classical networks of equal parameter count; however, the classical baseline, with at least an order of magnitude more parameters, trained faster and more stably and produced better policies in the dynamic environment. \citet{Dragan2025} extended this line to continuous states and actions with VQC actors and critics in Deep Deterministic Policy Gradient (DDPG). A simulated Turtlebot 2 controlled its wheel velocities from three lidar readings, orientation, and speed in warehouse-like mazes. The best quantum model (8 qubits, 5 layers, 851 parameters) solved the $3\times 3$ and $4\times 4$ mazes in all 30 trials but the $5\times 5$ maze in only 10 of 30, whereas a classical DDPG with 136,451 parameters solved all three consistently. \citet{Sinha2023} proposed Nav-Q for collision-free navigation of self-driving cars, in which only the critic of an actor-critic architecture is a hybrid quantum-classical network, so the trained policy runs classically at deployment, together with a qubit-independent data-encoding scheme for high-dimensional inputs. On the CARLA-CTS1.0 benchmark, Nav-Q trained more stably than its classical counterpart and, in some settings, converged faster with substantially fewer parameters; noisy simulation showed that hardware noise degrades training. \citet{Acuto2022} studied a variational quantum Soft Actor-Critic (SAC) on a simulated robotic arm. Replacing only the actor gave the same learning curve as the classical SAC, but a fully quantum SAC with about 2,700 parameters converged where a classical SAC with about 3,000 parameters failed, and the classical agent needed about 274,000 parameters, roughly 100 times more, to reach comparable returns. \citet{Lokossou2025} extended variational SAC to legged locomotion on the MuJoCo Walker2d environment with 17-qubit circuits in simulation, reaching an average return about 8\% higher than a classical SAC with 41 rather than 1,250 learnable parameters; qubit limitations prevented a move to the full Humanoid environment.
+
+\paragraph{Quantum-neuromorphic hybrids.} \citet{Altrabulsi2026} proposed Q-SpiRL, which combines spiking neural networks with an 8-qubit variational circuit for obstacle-aware navigation. Compared with tabular Q-learning, a classical multilayer perceptron, a classical spiking network, and a quantum-enhanced perceptron on grid worlds of up to $40\times 40$ cells with static and dynamic obstacles, the quantum-enhanced spiking network gave the best overall trade-off, reaching up to 99\% success, and the trained policy was executed on IBM hardware as a feasibility check. The environments are discrete, however, and policies are converted into Q-tables for evaluation. \citet{Taghavi2025} combined VQCs for high-level policy exploration with spiking networks for low-latency motor control in a multi-agent RL framework; in a simulated forest with ten UAV agents, it reduced safety violations relative to classical multi-agent baselines, although the contribution of the quantum component is not isolated.
+
+
+\subsection{Assessment}\label{sec:learning-assessment}
+Across the robotics studies, the one consistent advantage of QRL is \emph{parameter efficiency}: quantum policies match classical ones of equal size and reach comparable returns with one to two orders of magnitude fewer trainable parameters~\cite{Hohenfeld2024,Acuto2022,Dragan2025,Lokossou2025}, and Nav-Q reports more stable training~\cite{Sinha2023}. Adequately sized classical networks, however, train faster and more stably and perform better in the hardest environments~\cite{Hohenfeld2024,Dragan2025}, and a formal learning advantage exists only for artificial tasks~\cite{Jerbi2021}. Parameter count is not the same as training time, sample efficiency, or energy on real quantum devices.
+
+\paragraph{Maturity.} Supervised QML for robotics remains at L1--L2, with hardware demonstrations using two to a few qubits and synthetic or down-sampled data~\cite{Havlicek2019,Farhi2018}; the robot software-testing oracle is the only study on real industrial robot data~\cite{Wang2025}. Variational QRL studies reach L4 only in simulated robot environments, with idealized, noise-free circuit simulation~\cite{Hohenfeld2024,Dragan2025,Acuto2022,Lokossou2025,Sinha2023}; Q-SpiRL reaches L3 by executing a trained policy on IBM hardware~\cite{Altrabulsi2026}; and only the quantum-inspired QiRL reaches L5, on a physical robot~\cite{Dong2012}.
+
+\paragraph{Key barrier.} Sample efficiency, data loading, and trainability. The real bottleneck of robot RL is the cost of real-world samples~\cite{Kober2013}, not network size, and no QRL study shows better sample efficiency on a robot task; training on real QPUs would require millions of circuit evaluations with the queueing latencies discussed in Section \ref{sec:hybrid}. Exponential QML speed-ups rely on qRAM state preparation that does not yet exist, and NISQ models face barren plateaus and encoding bottlenecks for high-dimensional sensor data.
+
+
+\section{Quantum Sensing and Communication for Mobile Robots}\label{sec:sensing}
+
+\subsection{Quantum Navigation Sensors}\label{sec:sensors}
+Quantum sensing uses quantum systems, such as cold atoms, nitrogen-vacancy (NV) centers, and trapped ions, to measure physical quantities with sensitivity and stability beyond those of classical sensors~\cite{Degen2017}. Cold-atom interferometers provide accelerometers and gyroscopes with extremely low bias drift, and optically pumped magnetometers measure weak magnetic fields. \citet{Bongs2019} reviewed the transition of atom-interferometric sensors from the laboratory to the field and identified SWaP-C, dynamic range, and robustness as the main engineering barriers.
+
+\citet{Cheiney2018} addressed the main obstacles to using cold-atom interferometers for navigation, namely their low sample rate and limited dynamic range. In their hybrid accelerometer, a matter-wave interferometer, which is extremely stable but slow, continuously estimates the bias drift of a fast classical accelerometer through a Kalman filter. Under experimentally simulated vehicle-like conditions, the hybrid sensor combined a 400 Hz bandwidth with a stability of 10 ng after 11 hours of integration. \citet{Wang2021} tackled the same limitations with maximum-likelihood fusion: a co-located classical accelerometer resolves the phase wrapping of the quantum sensor, and the recovered quantum measurement recalibrates the classical sensor's bias, improving navigation error in a simulated one-dimensional inertial-navigation scenario. \citet{Wang2023} assessed NV-center (quantum diamond) magnetometers as aids to inertial navigation where global navigation satellite systems (GNSS) are unavailable, combining simulated magnetic measurements with probabilistic data association and Viterbi map-matching to estimate achievable navigation errors at current and near-term sensitivities. These solid-state sensors could eventually be small enough for mobile robots.
+
+\citet{Muradoglu2025} demonstrated ``quantum-assured'' magnetic-anomaly navigation, in which quantum magnetometers measure the Earth's crustal magnetic field and a denoising and map-matching suite compares the measurements with anomaly maps to provide passive, jamming-resistant position fixes without GNSS. In flight trials from ground level to about 19,000 ft, the system achieved up to about 46 times lower positioning error than a velocity-aided strategic-grade inertial navigation system (INS), with a best final error of 22 m (0.006\% of the distance flown) and at least an 11-fold advantage across all airborne trials; it also delivered ground-vehicle magnetic navigation with public maps, with an error about 7 times lower than that of the INS. The system learns vehicle-specific parameters online and is compact enough for fixed-wing drones. This is the strongest field evidence in this survey that quantum technology already improves a robotic capability, although the benefit comes from quantum sensing rather than quantum computing, and the result is a company-led preprint that would benefit from independent replication.
+
+
+\subsection{Quantum Communication between Robots}\label{sec:qkd}
+\citet{Khoshnoud2020}, with NASA JPL, implemented single-photon generation by spontaneous parametric down-conversion, polarization encoding, and single-photon detection on networks of aerial and ground robots, as a step toward quantum-secured and entanglement-assisted multi-robot coordination. \citet{Tian2023} reported drone-based quantum key distribution (QKD): a compact, polarization-encoded decoy-state BB84 transmitter on an octocopter distributed secret keys in real time over 200 m at an average rate of 8.48 kHz. \citet{Conrad2025} built a modular, reduced-SWaP QKD transmitter and receiver and demonstrated drone-to-drone, drone-to-vehicle, and vehicle-to-vehicle quantum communication with finite-key secure rates of 1.6--20 kbps, supported by device models of the non-idealities of mobile operation. Quantum-secured communication between robots in motion has thus reached field demonstration, a maturity comparable to that of quantum navigation sensing and well ahead of quantum computation for robots.
+
+\paragraph{Maturity.} This is the most mature branch of quantum robotics. Magnetic-anomaly navigation reaches L6, with end-to-end field operation on aircraft and a ground vehicle and a measured advantage over a strategic-grade INS~\cite{Muradoglu2025}, and QKD between drones and vehicles reaches L5~\cite{Tian2023,Conrad2025}.
+
+\paragraph{Key barrier.} SWaP-C and dynamic range. Cold-atom sensors are still bulky, power-hungry, and limited in bandwidth, and must be fused with classical sensors by Kalman-type estimators~\cite{Cheiney2018,Wang2021}; miniaturization for small robots is ongoing~\cite{Bongs2019}. QKD links are limited by range, alignment, and weather.
+
+
+\section{Hybrid Quantum-Classical Architectures and Deployment Constraints}\label{sec:hybrid}
+
+\subsection{Where the Quantum Processor Sits in the Robot}\label{sec:hybrid-position}
+Every practical quantum-robotics system reviewed here is hybrid. Variational algorithms pair a QPU that prepares and measures parameterized states with a classical optimizer~\cite{McClean2016,Cerezo2021a,Bharti2022}, and error mitigation must be co-designed with the algorithm~\cite{Endo2021}. In robotics, the robot's classical controller must also decide which subproblems to offload, when, and to which processor. Across the corpus, the QPU occupies one of three positions (Figure \ref{fig:architecture}): (i) \emph{offline}, as a training-time accelerator whose output is a classical policy, as with Nav-Q's quantum critic~\cite{Sinha2023}; (ii) in a \emph{slow outer planning loop}, solving periodic allocation or routing problems, as in AGV control re-solved in every period~\cite{Ohzeki2019}, multi-robot routing~\cite{Clark2019}, and warehouse picking~\cite{AtchadeAdelomou2021}; and (iii) \emph{inside the decision loop}, as a policy or search oracle queried at run time, as in Q-SpiRL~\cite{Altrabulsi2026} and Grover-based localization~\cite{Antero2025}. Only positions (i) and (ii) are compatible with current latencies.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=0.95\linewidth]{figures/fig4_architecture.png}
+\caption{Positions of quantum resources relative to a robot's classical control stack. Offline training (i) and periodic, asynchronous optimization with a classical fallback (ii) are feasible today; an in-loop quantum query (iii) is not.}
+\Description{Block diagram of a robot's classical sense-plan-act stack with a fast control loop, connected to a quantum processor in three ways: (i) offline training producing a classical policy, (ii) asynchronous periodic optimization with a classical fallback, and (iii) a run-time query inside the control loop, marked as not feasible today.}
+\label{fig:architecture}
+\end{figure}
+
+\paragraph{Deployment models.} Current superconducting processors require dilution refrigerators~\cite{Kjaergaard2020}, so robots access QPUs through the cloud (IBM Quantum, Amazon Braket, and D-Wave Leap), as in qRobot's Raspberry-Pi-based controller~\cite{AtchadeAdelomou2021}. An \emph{edge} deployment, with an on-premise QPU serving a factory or warehouse fleet, is the realistic medium-term model; an onboard QPU on a mobile robot, as envisioned by \citet{Benioff1998} and \citet{Dong2006}, is not feasible with present technology~\cite{Mannone2025}.
+
+\paragraph{Execution modes.} Batch execution (offline training and overnight planning) tolerates any latency; asynchronous execution, in which a QPU refines a plan while a classical fallback keeps the robot operating, tolerates seconds to minutes; real-time execution, with a QPU call inside a control cycle of milliseconds, is not achievable today.
+
+\paragraph{Architecture patterns.} Three patterns recur: classical candidate generation followed by quantum selection, in which candidate paths are generated classically and their combination is chosen by annealing~\cite{Clark2019,Ohzeki2019}; quantum function approximation within classical RL loops~\cite{Hohenfeld2024,Dragan2025}; and quantum sensing fused with classical estimation~\cite{Cheiney2018}. Emerging capabilities extend these patterns. Dynamic circuits with mid-circuit measurement and real-time classical feed-forward~\cite{Corcoles2021} bring classical decision logic inside a quantum computation, a prerequisite for closed-loop use; circuit cutting~\cite{Tang2021} distributes large circuits across several small QPUs with classical reconstruction; and error-mitigated variational pipelines~\cite{Endo2021} and CVaR objectives~\cite{Barkoutsos2020} improve solution quality per shot.
+
+
+\subsection{Hardware Constraints}\label{sec:hardware}
+\paragraph{Platforms and qubit counts.} Superconducting processors lead in qubit count and gate speed but require millikelvin cryogenics~\cite{Kjaergaard2020}; trapped-ion devices offer higher fidelities and all-to-all connectivity at slower gate speeds, as used by \citet{Widdows2023}; and photonic and annealing platforms serve specialized workloads~\cite{Peruzzo2014,Johnson2011}. Gate-based robotics experiments used circuits of only 2--8 qubits, even when run on processors with up to 64 qubits~\cite{Otani2025,Altrabulsi2026,Innan2025}, whereas annealer studies solved QUBOs for up to 200 robots directly~\cite{Clark2019} and for 1,000-AGV fleets only after decomposition into subproblems below 10,000 variables~\cite{Quang2025}.
+
+\paragraph{Noise, mitigation, and fault tolerance.} Gate errors and decoherence limit circuit depth~\cite{Preskill2018}. Error mitigation, including zero-noise extrapolation and probabilistic error cancellation~\cite{Temme2017}, improves expectation values on real processors~\cite{Kandala2019}, but its sampling overhead grows exponentially with circuit size~\cite{Cai2023}. In robotics, noise degraded localization accuracy on real devices~\cite{Antero2025} and training in noisy simulation~\cite{Sinha2023}. Algorithms with provable speed-ups require logical qubits protected by error correction~\cite{Terhal2015}; surface codes need on the order of a thousand physical qubits per logical qubit at realistic error rates~\cite{Fowler2012}, and resource estimates for industrially useful chemistry already call for large fault-tolerant machines with long run times~\cite{Reiher2017,Kim2022}.
+
+\paragraph{Latency and cloud access.} Analysis of two years of IBM Quantum cloud usage found queueing times ranging from under a minute to over days and a threefold variation in fidelity across machines~\cite{Ravi2021}. D-Wave anneals take microseconds~\cite{Ohzeki2019}, but end-to-end latency, including network access, embedding, and post-processing, is far longer and is rarely reported in robotics studies; the only study that reported it found 10,110 s for a workflow that a classical solver completed in 0.03 s~\cite{Willmann2025}.
+
+\paragraph{Quantum-classical communication and resources.} Variational algorithms require many iterations of circuit execution, measurement, and classical update~\cite{McClean2016}, each crossing the quantum-classical boundary. Data encoding also costs circuit depth: HHL-type speed-ups presuppose efficient state preparation and allow only limited read-out~\cite{Harrow2009,Aaronson2015}, and high-dimensional robot observations must be compressed before encoding~\cite{Chen2022}. Estimating an expectation value to precision $\epsilon$ needs $O(1/\epsilon^2)$ shots, multiplied by mitigation overheads~\cite{Cai2023} and by the number of optimizer iterations, and simulating the robotics circuits classically hits memory limits at about 27--40 qubits~\cite{Chella2022,Antero2025}.
+
+\paragraph{Size, weight, power, and cooling.} Cryogenic quantum computers cannot be carried by mobile robots~\cite{Kjaergaard2020,Mannone2025}, and cold-atom sensors still need substantial SWaP reductions~\cite{Bongs2019}.
+
+\paragraph{Maturity.} Hybrid architectures are demonstrated at L3, and at L4 only in simulation-coupled settings, such as Webots-Qiskit swarms~\cite{Mannone2025} and CARLA~\cite{Sinha2023}. No study reports a measured end-to-end latency budget for a robot that uses a QPU in operation.
+
+\paragraph{Key barrier.} Latency. Even with more and better qubits, a remotely accessed, shared, cryogenic processor cannot sit inside a millisecond-scale control loop; this constraint is architectural, not only technological. The most promising near-term architecture keeps the QPU out of the real-time loop and uses it for training, for periodic fleet-level optimization with classical fallbacks, or for sensing.
+
+
+\section{Quantum Cognition for Robot Decision-Making}\label{sec:cognition}
+
+\subsection{Motivation and Formalism}\label{sec:cog-formalism}
+Robots increasingly make decisions with and about humans, whose judgments systematically violate classical (Bayesian) probability: question-order effects, conjunction and disjunction fallacies, and violations of the sure-thing principle are well documented~\cite{Pothos2013}. Classical robot decision-making relies on Markov decision processes and POMDPs~\cite{Kaelbling1998,Kurniawati2022} and on dynamic stochastic models of choice such as decision field theory~\cite{Busemeyer1993}, all of which assume classical, context-independent probabilities. Quantum cognition offers an alternative formalism that requires neither a quantum computer nor a ``quantum brain``. In quantum probability (QP), beliefs are unit vectors in a Hilbert space, propositions are subspaces, and judgments are projections~\cite{Busemeyer2012}. Probabilities are squared lengths of projections, so the order of sequential judgments matters because projectors need not commute,
+
+\begin{equation}
+\Pr(A\text{ then }B)=\lVert P_B P_A\psi\rVert^2 \neq \lVert P_A P_B\psi\rVert^2=\Pr(B\text{ then }A),
+\end{equation}
+and interference terms can make the probability of a disjunction lower than that of either component. These properties reproduce the empirical violations with few parameters~\cite{Pothos2013,Pothos2022}. A cognitive state can remain indefinite with respect to a judgment until a decision is required, composite judgments can be entangled to represent concept combinations that cannot be decomposed~\cite{Busemeyer2012}, and contextuality, the dependence of an outcome on the other measurements performed with it, explains why the order and framing of information change decisions~\cite{Pothos2022}. For a robot, the same formalism can model how the sequence of its own observations, questions, or recommendations shifts a human partner's likely response, which classical POMDP observation models do not capture.
+
+
+\subsection{Robotic and Human-Machine Applications}\label{sec:cog-apps}
+\citet{Widdows2023} showed that several QP models of human decision-making can be implemented directly as circuits on quantum hardware: mental states are represented in qubit registers, and judgments correspond to gates and projective measurements. With reusable circuit components for question-order effects and decisions under uncertainty, experiments on an 11-qubit IonQ trapped-ion computer showed that very small circuits, some with a single qubit, reproduce well-documented non-classical patterns of human judgment. The authors claim neither that the brain uses qubits nor any computational advantage, since the models are small enough to simulate classically; the contribution for robotics is a set of building blocks for embedding QP models in a robot's decision module, for example to predict human responses in human-robot interaction (HRI). \citet{Yan2021} proposed ``quantum affective computing``, in which a robot's emotion is a superposition over basis emotions in a qubit-encoded emotion space, unitary operators model transitions between emotional states, and the emotional states of communicating robots are fused through entanglement, which reduces the qubits and gates needed to represent the joint state of a group. The framework is demonstrated through small simulations and has not been validated against human emotional data.
+
+\citet{DeCarolis2025} reviewed more than 35 studies published between 2021 and 2025 on quantum computing for social robotics, as groundwork for a project on quantum-enhanced HRI. They identified emotion recognition, path finding, and cognitive modeling as the most promising areas and proposed recasting HRI problems usually handled by RL and agent-based models as quantum search or QML problems, without reporting an implementation. \citet{Daglarli2025} integrated quantum routines (Deutsch-Jozsa, Bernstein-Vazirani, and Grover search) into a brain-inspired cognitive architecture for autonomous agents that combines a prefrontal-cortex-inspired model, transformer-based RL, metacognition, and situation awareness. In a Minecraft-based simulation, the quantum-enhanced agent converged about twice as fast to an 80\% success rate and gained about 15\% more cumulative reward than its classical counterpart, although the circuits are simulated and the contribution of each routine is not isolated.
+
+Quantum-like models have also been proposed for human-machine teams, the setting in which robots increasingly operate. \citet{Lawless2023} reviewed a quantum-like theory of interdependence for autonomous human-machine teams, arguing that team members' states are non-separable, analogous to entanglement, so that aggregating individual measurements cannot predict team performance. \citet{Humr2025} argued that QP can improve human-AI decision-making by modeling how people rationalize AI outputs: order effects, interference, and ``ontic'' indecision produce belief dynamics that classical probability cannot capture. Although framed for AI decision support, the approach transfers directly to HRI, where a robot's recommendations shape a human partner's judgments.
+
+\paragraph{Maturity.} The evidence for QP models of human judgment is extensive and experimentally tested~\cite{Pothos2022}. Their robotic use, by contrast, is at L1--L3: small circuits on an 11-qubit trapped-ion computer~\cite{Widdows2023}, simulated multi-robot emotion fusion~\cite{Yan2021}, a quantum-enhanced cognitive architecture in a game simulation~\cite{Daglarli2025}, theoretical models of human-machine teams~\cite{Lawless2023} and human-AI decisions~\cite{Humr2025}, and a project-level agenda for social robots~\cite{DeCarolis2025}.
+
+\paragraph{Key gap.} No study has yet tested a QP-based robot decision module against a classical baseline with human participants. Because QP models are small and can run classically or on current QPUs, this branch is the most deployable today, yet it is the least tested in robots.
+
+
+\section{Emerging Directions}\label{sec:emerging}
+
+\subsection{Quantum-Inspired Robotics}\label{sec:qi}
+Quantum-inspired algorithms borrow quantum concepts but run on classical hardware. They include quantum-inspired evolutionary algorithms with Q-bit individuals~\cite{Han2002}, quantum-behaved particle swarm optimization (QPSO), amplitude-based QiRL~\cite{Dong2012}, simulated-bifurcation Ising machines~\cite{Goto2019}, and dequantized sampling-based linear algebra~\cite{Tang2019,Chia2020}. \citet{Zuo2018} improved FastSLAM by using QPSO to move sampled particles closer to the robot's true pose before weighting, with Gaussian perturbations to maintain diversity and a diversity-triggered resampling step to counter particle depletion. In simulation, QPSO-FastSLAM achieved lower pose and landmark errors than FastSLAM 2.0 and PSO-FastSLAM (for example, 0.44 m versus 0.52 m with 20 particles), and it also performed better on the Victoria Park outdoor dataset. \citet{Fazilat2025b} used ``quantum neural networks``, in fact multilayer perceptrons with a quantum-inspired activation function, to learn the IK of a six-degree-of-freedom ABB IRB140 arm; the networks reduced mean absolute error by 15.6\% (without singularity avoidance) and 16.7\% (with it) relative to classical networks, reaching 1.64 mm position accuracy. Although published under a ``quantum'' title, the method runs entirely on classical hardware, which is a clear example of why quantum-inspired and genuinely quantum results must be reported separately. Simulated quantum circuits have also been used for education, for example in Lego robots controlled by multiple-valued quantum automata~\cite{Raghuvanshi2007}.
+
+Quantum-inspired methods account for most of the quantum-labeled computational results validated on physical robots or real robot data~\cite{Dong2012,Zuo2018,Fazilat2025b}, and quantum-inspired Ising machines already solve QUBOs of 2,000 spins on a single FPGA and of 100,000 spins on GPU clusters~\cite{Goto2019}. They are deployable today: QiRL has been demonstrated on a physical robot (L5), and QPSO-SLAM has been evaluated on a real outdoor dataset. Dequantization results~\cite{Tang2019,Chia2020} and the ``fine print'' of quantum speed-ups~\cite{Aaronson2015} show that quantum claims must be compared with the best classical algorithm under the same input assumptions.
+
+
+\subsection{Quantum Swarm Robotics}\label{sec:swarm}
+The Palermo group has developed a research program on quantum swarm robotics. \citet{Mannone2022} classified swarms with category theory and proposed a block-matrix representation in which diagonal blocks describe individual robots and off-diagonal blocks describe pairwise interactions, computed with a four-qubit circuit on IBM simulators and quantum computers. \citet{Mannone2023} implemented local, pairwise interactions as a quantum circuit built around a custom logic gate, embedded it in an ant-foraging algorithm with toy swarms of 3 and 10 robots, and analyzed how global foraging behavior emerges and what role entanglement plays; the authors present the work as a modeling methodology rather than an optimization method. \citet{Mannone2025} reviewed and extended this local-to-global approach, coupling the Webots robot simulator with the Qiskit simulator in two- and three-dimensional search-and-rescue and aquatic scenarios, and reported faster convergence and shorter travel than fully classical algorithms. They are candid that quantum processors cannot be carried by small robots, that the file-based coupling of the simulators slows execution, and that more realistic sensor-based rewards reduce performance. \citet{Mannone2025b} generalized the block-matrix model to micro- and nano-robotic networks by describing the swarm as a density matrix whose size does not grow with the number of robots. Grover-based path planning~\cite{Chella2023} and multi-agent QRL with centralized training and decentralized execution~\cite{Yun2022} complete this direction. The evidence is at L2--L3, with toy swarms of 3--10 robots, and the key barrier is that each robot would need QPU access at every interaction step, with latencies and costs that grow with swarm size~\cite{Ravi2021}.
+
+
+\subsection{Distributed Quantum Robotics}\label{sec:distributed}
+In the distributed vision, fleets or swarms share a pool of networked quantum resources. Quantum communication between mobile robots already has physical demonstrations (Section \ref{sec:qkd}). For distributed computation, circuit cutting executes large circuits on several small QPUs with classical recombination~\cite{Tang2021}, multi-agent QRL with centralized training and decentralized execution keeps qubit counts independent of the number of agents~\cite{Yun2022}, and entanglement-based fusion has been proposed to compress the joint state of a robot group~\cite{Yan2021}. Distributed quantum computation for robots remains at L1--L2: classical post-processing for circuit cutting grows exponentially with the number of cuts~\cite{Tang2021}, and networked entanglement between mobile platforms is far beyond current capability.
+
+
+\subsection{Quantum Simulation for Robot Materials}\label{sec:materials}
+Quantum simulation of molecules, the application with the strongest expected advantage~\cite{McArdle2020,Bauer2020}, may benefit robotics indirectly through better batteries, actuators, and sensors. Variational simulations of lithium-sulfur battery molecules have run on IBM hardware~\cite{Rice2021}, and fault-tolerant resource estimates exist for lithium-ion electrolyte molecules~\cite{Kim2022} and for catalytic reaction mechanisms~\cite{Reiher2017}. This direction is at L3 for small molecules that remain classically tractable; industrially relevant problems require large fault-tolerant machines.
+
+
+\section{Cross-Cutting Analysis}\label{sec:analysis}
+
+\subsection{Synthesis across Robotic Functions}\label{sec:synthesis}
+Table \ref{tab:synthesis} synthesizes the results across robotic functions. Three observations stand out. First, each robotic function is served by a different quantum paradigm with a very different level of maturity: sensing and communication are fielded on moving platforms, optimization reaches QPU experiments at fleet scale, and learning and planning remain largely simulated. Second, the most mature ``quantum'' results in computation are quantum-inspired and run classically~\cite{Dong2012,Zuo2018}. Third, every genuinely quantum computational result is either too small to be classically hard or is outperformed by classical baselines when those baselines are properly sized~\cite{Hohenfeld2024,Dragan2025,Ohzeki2019,Leib2023}.
+
+\begin{table}[t]
+\caption{Cross-domain synthesis of quantum and quantum-inspired methods for robotics. Evidence levels follow Table \ref{tab:levels}; ``sim.'' denotes a simulated robot environment.}
+\label{tab:synthesis}
+\footnotesize
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{0.270\dimexpr\linewidth-10\tabcolsep\relax}>{\raggedright\arraybackslash}p{0.210\dimexpr\linewidth-10\tabcolsep\relax}>{\raggedright\arraybackslash}p{0.100\dimexpr\linewidth-10\tabcolsep\relax}>{\raggedright\arraybackslash}p{0.240\dimexpr\linewidth-10\tabcolsep\relax}>{\raggedright\arraybackslash}p{0.180\dimexpr\linewidth-10\tabcolsep\relax}@{}}
+\toprule
+\textbf{Application} & \textbf{Quantum method} & \textbf{Evidence} & \textbf{Current limitation} & \textbf{Deployment potential} \\ \midrule
+Fleet and multi-robot routing, AGV scheduling~\cite{Ohzeki2019,Clark2019,Quang2025,Smierzchalski2024,Leib2023} & QUBO with quantum annealing or hybrid solvers & L3--L4 (sim.) & Decomposition needed; classical and digital annealers competitive or better & Medium: periodic, offline \\
+Multi-agent pathfinding~\cite{Gerlach2025,GonzalezVillasmil2026} & QUBO subproblems in exact classical framework & L2--L3 & Small QUBOs; structure-dependent & Medium \\
+Industrial trajectories, assembly, inspection~\cite{Schuetz2022,Willmann2025,Osaba2025} & QUBO and annealing in classical pipelines & L3 & Classical algorithm does most of the work; overheads & Low-medium \\
+Warehouse picking~\cite{AtchadeAdelomou2021} & QUBO with VQE and QAOA via cloud & L3 & Tiny instances; cloud latency & Low-medium \\
+Inverse kinematics~\cite{Otani2025,Salloum2026,Nigatu2025} & Gate-based VQA, annealing, QML with Grover & L2--L3 & Toy size; continuous classical IK solvers stronger & Low \\
+Motion and swarm planning~\cite{Chella2022,Chella2023} & Grover search & L2 & Oracle depth; noiseless simulation & Low (needs fault tolerance) \\
+UAV path and view planning~\cite{Innan2025,Yu2025,Sarkar2024} & QAOA, variational, hybrid quantum ACO & L2--L3 & Small graphs; weak baselines & Low-medium \\
+Localization~\cite{Antero2025} & Grover pattern search & L3 & Noise; simulation limited to about 40 qubits & Low (needs fault tolerance) \\
+Navigation and locomotion RL~\cite{Hohenfeld2024,Dragan2025,Altrabulsi2026,Lokossou2025,Taghavi2025} & VQC-based deep RL & L3--L4 (sim.) & No advantage over adequately sized classical networks & Medium: compact embedded policies \\
+Driving and arm control~\cite{Sinha2023,Acuto2022} & Quantum critic; variational SAC & L4 (sim.) & Simulation only & Medium (training-time use) \\
+Navigation, SLAM, IK (quantum-inspired)~\cite{Dong2012,Zuo2018,Fazilat2025b} & QiRL, QPSO, quantum-inspired networks & L2--L5 & Weak baselines & High (runs classically today) \\
+GNSS-denied navigation~\cite{Muradoglu2025,Cheiney2018} & Quantum magnetometers, atom interferometers & L3--L6 & SWaP-C, bandwidth & High (near-term) \\
+Human decision modeling, HRI, human-machine teams~\cite{Widdows2023,Yan2021,Lawless2023,Humr2025} & Quantum-probability models & L1--L3 & No HRI evaluation yet & High (hardware-light) \\
+Swarms and distributed robots~\cite{Mannone2023,Mannone2025} & Pairwise quantum circuits & L3--L4 (sim.) & QPU access at every interaction & Low \\
+Secure robot and drone communication~\cite{Tian2023,Conrad2025,Khoshnoud2020} & QKD, photonic hardware & L5 & Range, SWaP, weather & High (security, near-term) \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+
+\subsection{Evidence Hierarchy}\label{sec:hierarchy}
+Figure \ref{fig:evidence} places the 51 empirical and theoretical primary studies (the 7 reviews are excluded) on the evidence hierarchy of Table \ref{tab:levels}. The distribution is bottom-heavy: 4 studies are at L1, 15 at L2, 19 at L3, and 8 at L4, all of the latter in simulated robot environments. At the top of the hierarchy, quantum communication has been demonstrated on drones, vehicles, and cooperating robots~\cite{Tian2023,Conrad2025,Khoshnoud2020}, and one quantum-inspired learning method has been demonstrated on a physical robot~\cite{Dong2012}, giving four studies at L5. Only one quantum technology, magnetic-anomaly navigation with quantum magnetometers, has reached end-to-end field deployment with a measured advantage over a classical baseline (L6)~\cite{Muradoglu2025}. No genuinely quantum \emph{computational} method has reached L5 or L6.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=0.90\linewidth]{figures/fig2_evidence.png}
+\caption{Evidence levels reached by the 51 primary robotics studies (7 reviews excluded), by technology type. No quantum computational method reaches L5 or L6; the studies at those levels use quantum sensing, quantum communication, or quantum-inspired classical computation.}
+\Description{Stacked horizontal bar chart of the number of studies at each evidence level from L1 to L6, colored by technology type (quantum computation including quantum-probability models, quantum-inspired classical computation, quantum sensing, and quantum communication); most studies are at L2 and L3, and only sensing, communication, and quantum-inspired studies appear at L5 and L6.}
+\label{fig:evidence}
+\end{figure}
+
+
+\subsection{Claims of Quantum Advantage versus Evidence}\label{sec:claims}
+Claims of quantum advantage in the robotics literature refer to four different things, which should not be confused.
+
+\paragraph{Theoretical speed-up.} Provable speed-ups relevant to robotics are quadratic for search, amplitude estimation, and Monte Carlo sampling~\cite{Grover1996,Brassard2002,Montanaro2015}, and exponential only for structured problems such as linear systems under strong input/output assumptions~\cite{Harrow2009,Aaronson2015}, which have been substantially weakened by dequantization~\cite{Tang2019,Chia2020}. For NP-hard optimization, no provable advantage exists~\cite{Farhi2014}, and a provable learning separation for quantum policies exists only for artificial tasks built on the discrete logarithm~\cite{Jerbi2021}.
+
+\paragraph{Simulated speed-up.} Simulated studies usually report fewer iterations, oracle queries, or parameters rather than lower wall-clock time: $O(\sqrt{N})$ query counts for localization~\cite{Antero2025} and planning~\cite{Chella2022}, faster swarm convergence against generic ant simulations~\cite{Chella2023}, and parameter reductions of about 100--200 times in QRL~\cite{Acuto2022,Dragan2025}. These metrics ignore circuit depth, shots, error mitigation, and the cost of classical simulation, and the baselines are rarely state of the art.
+
+\paragraph{Hardware demonstration.} Hardware demonstrations establish feasibility, not advantage: valid annealer plans for up to 200 robots~\cite{Clark2019}, collision-free AGV control~\cite{Ohzeki2019}, decomposed routing of a 1,000-AGV fleet~\cite{Quang2025}, optimal MAPF with QUBO subproblems~\cite{Gerlach2025}, QAOA drone paths on IBM hardware~\cite{Innan2025}, annealer-based IK~\cite{Salloum2026}, two-qubit kinematics on a 64-qubit processor~\cite{Otani2025}, a navigation policy executed on IBM hardware~\cite{Altrabulsi2026}, and cognitive circuits on trapped ions~\cite{Widdows2023}. Where compared, classical solvers remained competitive or better~\cite{Ohzeki2019,Smierzchalski2024,Leib2023,Willmann2025}, advantages on the largest instances came from quantum-inspired digital hardware~\cite{Leib2023}, and hardware noise reduced accuracy~\cite{Antero2025}.
+
+\paragraph{End-to-end robotics advantage.} Better task performance in a realistic robotic deployment against a strong classical baseline has been shown only for quantum sensing~\cite{Muradoglu2025}. Quantum communication has been deployed between moving platforms~\cite{Conrad2025}, but it offers security rather than a performance advantage. For quantum computation, an end-to-end robotics advantage remains undemonstrated.
+
+
+\subsection{The Latency Gap}\label{sec:latency}
+Figure \ref{fig:latency} compares the relevant timescales. Robot control loops run at 10--1,000 Hz and planning loops at roughly 0.1--10 Hz, whereas cloud QPU access involves queueing from minutes to days~\cite{Ravi2021}, plus compilation, embedding, many shots, and post-processing; variational methods compound this with hundreds of optimizer iterations~\cite{McClean2016}. The only viable integration patterns today are therefore offline training~\cite{Sinha2023}, asynchronous periodic optimization with a classical fallback~\cite{Ohzeki2019}, and sensing~\cite{Muradoglu2025}. Dynamic circuits~\cite{Corcoles2021} and on-premise edge QPUs could shorten latency in the future, but real-time quantum control of robots is not a near-term prospect.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=0.92\linewidth]{figures/fig5_latency.png}
+\caption{Timescales of robot control and planning compared with quantum hardware operation and end-to-end cloud quantum access (log scale). The anneal time is from \citet{Ohzeki2019} and the queueing range from \citet{Ravi2021}; the range for variational training is indicative.}
+\Description{Log-scale horizontal chart of timescales from microseconds to days: gate and anneal times in microseconds, robot control loops at 1 to 100 milliseconds, planning loops at 0.1 to 10 seconds, variational training in minutes to hours, and cloud queueing from about a minute to several days.}
+\label{fig:latency}
+\end{figure}
+
+
+\subsection{Scalability}\label{sec:scalability}
+Scalability limits appear on four fronts: qubit counts, since QAOA needs hundreds to thousands of qubits for advantage~\cite{Guerreschi2019}; trainability, because of barren plateaus~\cite{McClean2018,Larocca2025}; input dimensionality, since robot sensor data must be compressed before encoding~\cite{Chen2022}; and verification, since the classical simulation of the circuits used in robotics studies stops at about 27--40 qubits~\cite{Chella2022,Antero2025}. The robotics studies to date use toy-scale problems: grid worlds, swarms of 2--10 robots, and two-link manipulators. Hardware limits compound these: noise and decoherence~\cite{Preskill2018}, exponential error-mitigation overheads~\cite{Cai2023}, fault-tolerance overheads of about a thousand physical qubits per logical qubit~\cite{Fowler2012}, cryogenic SWaP-C~\cite{Kjaergaard2020}, restricted annealer connectivity, and the bandwidth, dynamic-range, and size limits of quantum sensors~\cite{Bongs2019,Wang2021}.
+
+
+\section{Open Challenges and Research Agenda}\label{sec:challenges}
+We derive the open challenges from the taxonomy of Figure \ref{fig:taxonomy}: for each robotic function, we state the gap between the current evidence level and a deployable result, and then the cross-cutting challenges that apply to all functions. Table \ref{tab:roadmap} arranges the resulting research directions by time horizon.
+
+
+\subsection{Challenges by Robotic Function}\label{sec:ch-function}
+\paragraph{Optimization.} The open question is whether quantum hardware adds anything to a well-engineered QUBO pipeline. Studies need \emph{instance families} on which quantum, quantum-inspired, and classical solvers are compared on equal end-to-end terms, including embedding and queueing, at the sizes of real fleets~\cite{Leib2023,Quang2025}. Constraint-preserving mixers~\cite{Hadfield2019} and transferable QAOA parameters~\cite{Zhou2020} have not yet been tested on robot scheduling, and decomposition schemes that place small QUBOs inside provably optimal classical frameworks~\cite{Gerlach2025} are the most promising template.
+
+\paragraph{Planning.} Grover-based planning and localization need oracle constructions whose qubit counts and depth scale gracefully with map size, and evaluations against A*, RRT*~\cite{Karaman2011}, and Monte Carlo localization~\cite{Dellaert1999} on realistic maps. Fault-tolerant resource estimates (logical qubits, T-gates, and wall-clock time) for a representative robot planning problem would show whether a quadratic speed-up survives error-correction overheads~\cite{Fowler2012}.
+
+\paragraph{Learning.} The parameter-efficiency hypothesis of QRL~\cite{Hohenfeld2024,Acuto2022} should be tested for what matters on robots: sample efficiency, training wall-clock time, energy, and robustness on physical platforms, with circuits trained on real QPUs rather than in idealized simulation. Encodings for high-dimensional observations that avoid barren plateaus~\cite{Cerezo2021b,Larocca2025} without becoming classically simulable remain open.
+
+\paragraph{Sensing and communication.} Quantum navigation sensors need independent field replication~\cite{Muradoglu2025}, miniaturization to the SWaP budgets of small robots~\cite{Bongs2019}, and integration into standard estimation stacks through Kalman-type fusion~\cite{Cheiney2018,Wang2021}. QKD between robots needs evaluations of range, weather, and alignment under realistic mission profiles~\cite{Conrad2025}.
+
+\paragraph{Decision-making.} The clearest near-term gap is a QP-based decision and human-modeling layer for robots, evaluated with human participants against Bayesian and POMDP baselines~\cite{Kurniawati2022,Pothos2022}. Such a layer needs little or no quantum hardware~\cite{Widdows2023} and addresses a genuine need in HRI and human-machine teaming~\cite{Lawless2023,Humr2025}.
+
+
+\subsection{Cross-Cutting Challenges}\label{sec:ch-cross}
+\paragraph{Reporting standards and benchmarks.} The heterogeneity of tasks, metrics, and baselines prevented any quantitative meta-analysis in this survey. Table \ref{tab:checklist} proposes a minimal reporting checklist for quantum-robotics experiments; shared benchmark suites for fleet scheduling, MAPF, navigation RL, and localization would allow results to be compared across studies.
+
+\paragraph{Separating quantum from quantum-inspired results.} Quantum-inspired and classical results should be reported separately from quantum-hardware results, and claimed speed-ups should be checked against the best classical algorithm under the same input assumptions~\cite{Aaronson2015,Tang2019}.
+
+\paragraph{Latency-aware architectures.} Architectures should keep the QPU out of the real-time loop, provide classical fallbacks, and report end-to-end latency budgets. Edge QPUs with dynamic circuits~\cite{Corcoles2021} and circuit cutting~\cite{Tang2021} are the main technical routes to closing the latency gap.
+
+\paragraph{Safety and verification.} Probabilistic quantum outputs must be verified before a robot acts on them; post-processing that rejects constraint-violating samples~\cite{Ohzeki2019} is a first step, but formal guarantees for hybrid quantum-classical controllers do not yet exist.
+
+\begin{table}[t]
+\caption{Proposed minimal reporting checklist for quantum-robotics experiments.}
+\label{tab:checklist}
+\footnotesize
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{0.240\dimexpr\linewidth-4\tabcolsep\relax}>{\raggedright\arraybackslash}p{0.760\dimexpr\linewidth-4\tabcolsep\relax}@{}}
+\toprule
+\textbf{Item} & \textbf{What to report} \\ \midrule
+1. Task and formulation & Robotic task, its mapping to the quantum formulation (e.g., QUBO size, penalty weights, encoding), and any discretization relative to the original continuous problem. \\
+2. Quantum type & Genuinely quantum or quantum-inspired; quantum hardware, simulator, or digital annealer used; noise model for simulations. \\
+3. Classical baseline & State-of-the-art, tuned classical method (e.g., Gurobi, CPLEX, RRT*, A*, adequately sized deep RL) with comparable resources. \\
+4. Quantum resources & Qubits, circuit depth, two-qubit gate count, shots, optimizer iterations, embedding size, and error-mitigation method. \\
+5. End-to-end time and energy & Wall-clock time including queueing, compilation or embedding, and post-processing; energy where possible. \\
+6. Task metrics & Success rate, solution quality, path length, or error, with variance over seeds or instances. \\
+7. Evidence level & Level reached in Table \ref{tab:levels}, and whether the quantum component runs in the real-time loop. \\
+8. Reproducibility & Code, data, hyperparameters, device name, and calibration date. \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[t]
+\caption{Research agenda derived from the taxonomy, arranged by time horizon.}
+\label{tab:roadmap}
+\footnotesize
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{0.130\dimexpr\linewidth-8\tabcolsep\relax}>{\raggedright\arraybackslash}p{0.500\dimexpr\linewidth-8\tabcolsep\relax}>{\raggedright\arraybackslash}p{0.150\dimexpr\linewidth-8\tabcolsep\relax}>{\raggedright\arraybackslash}p{0.220\dimexpr\linewidth-8\tabcolsep\relax}@{}}
+\toprule
+\textbf{Horizon} & \textbf{Research direction} & \textbf{Function} & \textbf{Key references} \\ \midrule
+Near term (1--3 years) & Integrate quantum magnetometers and cold-atom accelerometers into robot navigation stacks with Kalman-type fusion and independent field validation & Sensing & \cite{Muradoglu2025,Cheiney2018} \\
+ & Develop QP decision and human-modeling modules for social and collaborative robots; evaluate them with human participants against Bayesian and POMDP baselines & Decision-making & \cite{Pothos2022,Kurniawati2022} \\
+ & Establish benchmarks and reporting standards (Table \ref{tab:checklist}) & All & - \\
+ & Use quantum and quantum-inspired QUBO solvers for offline and periodic fleet optimization with classical fallbacks & Optimization & \cite{Quang2025,Gerlach2025,Goto2019} \\
+ & Evaluate QKD for secure multi-robot and drone communication & Communication & \cite{Conrad2025} \\
+Medium term (3--5 years) & Train QRL policies on real QPUs where parameter efficiency matters for embedded deployment, and test for sample-efficiency gains on physical robots & Learning & \cite{Hohenfeld2024,Kober2013} \\
+ & Build edge (on-premise) QPU architectures for warehouses and factories with dynamic circuits and asynchronous execution & Architecture & \cite{Corcoles2021} \\
+ & Apply constraint-preserving QAOA mixers with transferable parameters to task allocation and scheduling & Optimization & \cite{Hadfield2019,Zhou2020} \\
+Long term (5+ years) & Use fault-tolerant amplitude estimation to accelerate Monte Carlo localization and belief-space planning & Planning & \cite{Montanaro2015} \\
+ & Develop distributed quantum computing for multi-robot systems & Architecture & \cite{Tang2021,Yun2022} \\
+ & Use quantum simulation to design robot batteries and materials & Materials & \cite{Kim2022,Rice2021} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+
+\section{Conclusion}\label{sec:conclusion}
+This survey of 58 primary studies, set against 91 foundational works, found that quantum robotics is conceptually rich but empirically early. Quantum optimization is the most hardware-tested area, from 200-robot routing on annealers to decomposed routing of 1,000-AGV fleets, but classical and quantum-inspired solvers match or beat it in head-to-head comparisons. Quantum search and planning remain simulated. Quantum reinforcement learning reliably reduces parameter counts but has not been shown to produce better or faster policies, and supervised QML faces barren plateaus and dequantization. Quantum sensing, by contrast, has delivered field-validated navigation gains, and QKD already links drones and vehicles in motion. The robotics results that have been validated physically are mostly quantum-inspired and run on classical hardware.
+
+For the near term (2026--2030), the realistic opportunities are quantum-enhanced navigation sensing, QP decision models for HRI, offline or periodic QUBO-based fleet optimization with classical fallbacks, and QPU-trained compact policies for embedded deployment. Real-time control should remain classical for the foreseeable future; quantum resources belong outside the millisecond loop, as training accelerators, periodic planners, or sensors, until on-premise, low-latency, fault-tolerant processors become available. The long-term vision is a hybrid robot in which classical controllers handle real-time control, quantum sensors provide drift-free navigation, remote or edge quantum processors solve fleet-level optimization and train compact policies, and QP models help the robot understand the humans it works with. Reaching that vision depends less on single breakthroughs than on rigorous, deployment-oriented evaluation of each component against the best classical alternative.
+
+
+\begin{acks}
+\fillin{Acknowledgments and funding: grant numbers, funding bodies, and people to thank.}
+\end{acks}
+
+\section*{Data Availability}
+The full data-extraction table for the 58 primary studies, the quality-assessment rubric, the PRISMA 2020 checklist, and the search strings are provided as online supplementary material (\texttt{supplement.pdf} and \texttt{extraction\_table.csv}).
+
+\bibliographystyle{ACM-Reference-Format}
+\bibliography{refs}
+
+\end{document}

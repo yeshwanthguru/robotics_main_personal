@@ -1,0 +1,688 @@
+\relax 
+\providecommand\hyper@newdestlabel[2]{}
+\providecommand\HyField@AuxAddToFields[1]{}
+\providecommand\HyField@AuxAddToCoFields[2]{}
+\citation{Gal2016,Kendall2017}
+\citation{Haarnoja2018,Schulman2017}
+\citation{Chi2023,Zhao2023}
+\citation{Cully2015,Kumar2021}
+\citation{Ahn2022,Yao2023a,Schick2023}
+\citation{Brohan2023b,Kim2024,Black2024}
+\citation{Cadene2026,Cadene2024}
+\citation{Cadene2026}
+\citation{Gawlikowski2023}
+\citation{Hospedales2022}
+\citation{DeLange2022}
+\citation{Baltrusaitis2019}
+\citation{Kairouz2021,Qi2021}
+\citation{Osa2018}
+\citation{Brunke2022,Garcia2015}
+\citation{Khalastchi2018}
+\citation{Pang2021}
+\citation{Yu2025}
+\@writefile{toc}{\contentsline {section}{\numberline {I}Introduction}{1}{section.1}\protected@file@percent }
+\newlabel{sec:intro}{{I}{1}{Introduction}{section.1}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {I-A}}Adaptive Embodied Agents on Edge Hardware}{1}{subsection.1.1}\protected@file@percent }
+\newlabel{sec:problem}{{\mbox  {I-A}}{1}{Adaptive Embodied Agents on Edge Hardware}{subsection.1.1}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {I-B}}An Organizing Framework: Four Modalities and Their Confidence Signals}{1}{subsection.1.2}\protected@file@percent }
+\newlabel{sec:framework}{{\mbox  {I-B}}{1}{An Organizing Framework: Four Modalities and Their Confidence Signals}{subsection.1.2}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {I-C}}Scope}{1}{subsection.1.3}\protected@file@percent }
+\newlabel{sec:scope}{{\mbox  {I-C}}{1}{Scope}{subsection.1.3}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {I-D}}Related Surveys and Contributions}{1}{subsection.1.4}\protected@file@percent }
+\newlabel{sec:related}{{\mbox  {I-D}}{1}{Related Surveys and Contributions}{subsection.1.4}{}}
+\citation{Gal2016}
+\citation{Alshiekh2018}
+\citation{Liu2023b}
+\citation{Ong2025}
+\citation{Agia2024}
+\citation{Huang2025}
+\citation{Kim2024}
+\citation{Kalashnikov2018}
+\citation{Cadene2026}
+\citation{Radford2021}
+\citation{Shridhar2021}
+\citation{Gal2016,Lakshminarayanan2017,Sensoy2018}
+\citation{Gawlikowski2023}
+\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces Architecture used to organize this survey. Four learning modalities each emit a confidence signal; signals are calibrated, normalized, and fused; a local LLM orchestrator or learned gate decides which modalities to invoke within a compute budget; and the orchestrator improves online through low-rank adaptation (LoRA) updates, replay, and meta-learning.}}{2}{figure.1}\protected@file@percent }
+\newlabel{fig:arch}{{1}{2}{Architecture used to organize this survey. Four learning modalities each emit a confidence signal; signals are calibrated, normalized, and fused; a local LLM orchestrator or learned gate decides which modalities to invoke within a compute budget; and the orchestrator improves online through low-rank adaptation (LoRA) updates, replay, and meta-learning}{figure.1}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {I-E}}Organization}{2}{subsection.1.5}\protected@file@percent }
+\newlabel{sec:organization}{{\mbox  {I-E}}{2}{Organization}{subsection.1.5}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {II}Review Methodology}{2}{section.2}\protected@file@percent }
+\newlabel{sec:method}{{II}{2}{Review Methodology}{section.2}{}}
+\citation{Mnih2015}
+\citation{Schulman2017}
+\citation{Haarnoja2018,Fujimoto2018}
+\citation{Kalashnikov2018}
+\citation{Hafner2023}
+\citation{Osa2018}
+\citation{Ross2011}
+\citation{Chi2023}
+\citation{Zhao2023}
+\citation{Florence2021}
+\citation{Zhao2023}
+\citation{Bongard2006}
+\citation{Cully2015}
+\citation{Nagabandi2019}
+\citation{Kumar2021}
+\citation{Pang2021,Khalastchi2018}
+\citation{Guo2017,Hendrycks2017}
+\citation{Brunke2022}
+\citation{Ross2011}
+\citation{Kumar2021}
+\citation{Tobin2017}
+\citation{Yuan2025,Ankile2025}
+\citation{Yuan2025,Ankile2025}
+\citation{Wagenmaker2025}
+\citation{Hoque2021}
+\@writefile{lot}{\contentsline {table}{\numberline {I}{\ignorespaces Evidence Levels Used to Classify the Reviewed Works, With the Number of Works at Each Level (n = 180)}}{3}{table.1}\protected@file@percent }
+\newlabel{tab:levels}{{I}{3}{Evidence Levels Used to Classify the Reviewed Works, With the Number of Works at Each Level (n = 180)}{table.1}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces Evidence levels of the 180 works by survey section. E1 conceptual; E2 algorithmic or analytic; E3 simulation or benchmark; E4 real robot (laboratory); E5 real robot (extensive or multi-platform); E6 deployment. No work reaches E6.}}{3}{figure.2}\protected@file@percent }
+\newlabel{fig:evidence}{{2}{3}{Evidence levels of the 180 works by survey section. E1 conceptual; E2 algorithmic or analytic; E3 simulation or benchmark; E4 real robot (laboratory); E5 real robot (extensive or multi-platform); E6 deployment. No work reaches E6}{figure.2}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {III}Learning Modalities in Robotics}{3}{section.3}\protected@file@percent }
+\newlabel{sec:background}{{III}{3}{Learning Modalities in Robotics}{section.3}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {III-A}}Overview of the Four Modalities}{3}{subsection.3.1}\protected@file@percent }
+\newlabel{sec:modalities}{{\mbox  {III-A}}{3}{Overview of the Four Modalities}{subsection.3.1}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {III-B}}Why Each Modality Alone Is Insufficient}{3}{subsection.3.2}\protected@file@percent }
+\newlabel{sec:insufficient}{{\mbox  {III-B}}{3}{Why Each Modality Alone Is Insufficient}{subsection.3.2}{}}
+\citation{Gal2016}
+\citation{Lakshminarayanan2017}
+\citation{Sensoy2018}
+\citation{Guo2017}
+\citation{Haarnoja2018}
+\citation{Osband2016}
+\citation{Burda2019}
+\citation{Agia2024}
+\citation{Xu2025,Romer2025}
+\citation{Wu2024}
+\citation{Huang2022a}
+\citation{Ahn2022}
+\citation{Huang2022b}
+\citation{Liang2023}
+\citation{Singh2023}
+\citation{Shah2022}
+\citation{Song2023}
+\citation{Huang2023a}
+\citation{Yu2023}
+\citation{Dalal2024}
+\citation{Driess2023}
+\citation{Wang2024a}
+\citation{Yao2023a}
+\citation{Schick2023}
+\citation{Shinn2023}
+\citation{Yao2023b}
+\citation{Chen2023b}
+\citation{Zeng2024}
+\citation{Yao2024}
+\citation{Zhai2024}
+\citation{Ren2023}
+\citation{Liang2024}
+\citation{Wang2024c}
+\citation{Ren2024}
+\citation{Liu2026}
+\citation{Yuan2026}
+\citation{Sinha2024}
+\citation{Liu2026}
+\citation{Hoque2021}
+\citation{Ahn2022,Huang2022b}
+\citation{Liang2023,Singh2023}
+\citation{Yao2023a,Shinn2023}
+\citation{Schick2023}
+\citation{Chen2023b,Yao2024}
+\citation{Ren2023,Liang2024}
+\citation{Yuan2026}
+\citation{Sinha2024}
+\citation{Ong2025,Ding2024,Aggarwal2024}
+\citation{Liu2026}
+\citation{Hoque2021}
+\citation{Brohan2023a}
+\citation{Brohan2023b}
+\citation{Kim2024}
+\citation{Octo2024}
+\citation{Black2024}
+\citation{Bousmalis2023}
+\citation{Reed2022}
+\citation{Jiang2023}
+\citation{Shridhar2022}
+\citation{Li2024a}
+\citation{OXE2024}
+\citation{Mark2025}
+\citation{Chen2025}
+\citation{Lu2025,Li2026}
+\citation{Cadene2026}
+\citation{Shukor2025}
+\citation{Wen2025}
+\citation{Budzianowski2025}
+\citation{Kim2025}
+\citation{Pertsch2025}
+\citation{Wang2025a,Zhang2026a}
+\citation{Liu2024a}
+\citation{Yu2025}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {III-C}}The Case for Composition}{4}{subsection.3.3}\protected@file@percent }
+\newlabel{sec:composition}{{\mbox  {III-C}}{4}{The Case for Composition}{subsection.3.3}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {IV}LLMs as Planners and Orchestrators}{4}{section.4}\protected@file@percent }
+\newlabel{sec:llm}{{IV}{4}{LLMs as Planners and Orchestrators}{section.4}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {IV-A}}LLM-Driven Planning and Tool Use}{4}{subsection.4.1}\protected@file@percent }
+\newlabel{sec:llmplan}{{\mbox  {IV-A}}{4}{LLM-Driven Planning and Tool Use}{subsection.4.1}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {IV-B}}Agent Loops and Tool Calling}{4}{subsection.4.2}\protected@file@percent }
+\newlabel{sec:agents}{{\mbox  {IV-B}}{4}{Agent Loops and Tool Calling}{subsection.4.2}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {IV-C}}Limits of a Frozen LLM Orchestrator}{4}{subsection.4.3}\protected@file@percent }
+\newlabel{sec:frozen}{{\mbox  {IV-C}}{4}{Limits of a Frozen LLM Orchestrator}{subsection.4.3}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {IV-D}}Learned Versus Hard-Coded Orchestration}{4}{subsection.4.4}\protected@file@percent }
+\newlabel{sec:gap}{{\mbox  {IV-D}}{4}{Learned Versus Hard-Coded Orchestration}{subsection.4.4}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {V}VLA and Robot Foundation Models}{4}{section.5}\protected@file@percent }
+\newlabel{sec:vla}{{V}{4}{VLA and Robot Foundation Models}{section.5}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {V-A}}Vision--Language--Action Models}{4}{subsection.5.1}\protected@file@percent }
+\newlabel{sec:vlamodels}{{\mbox  {V-A}}{4}{Vision--Language--Action Models}{subsection.5.1}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {V-B}}Limitations of Generalizt Policies on Edge Hardware}{4}{subsection.5.2}\protected@file@percent }
+\newlabel{sec:generalizt}{{\mbox  {V-B}}{4}{Limitations of Generalizt Policies on Edge Hardware}{subsection.5.2}{}}
+\citation{Ravichandran2025}
+\citation{Radford2021,Shridhar2021}
+\citation{Shridhar2022}
+\citation{Tobin2017}
+\@writefile{lot}{\contentsline {table}{\numberline {II}{\ignorespaces The Four Learning Modalities and Their Confidence Signals}}{5}{table.2}\protected@file@percent }
+\newlabel{tab:signals}{{II}{5}{The Four Learning Modalities and Their Confidence Signals}{table.2}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {III}{\ignorespaces Orchestration Approaches Against Four Requirements of Learned Edge Orchestration}}{5}{table.3}\protected@file@percent }
+\newlabel{tab:orch}{{III}{5}{Orchestration Approaches Against Four Requirements of Learned Edge Orchestration}{table.3}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {V-C}}Memory, Latency, and Compute}{5}{subsection.5.3}\protected@file@percent }
+\newlabel{sec:memory}{{\mbox  {V-C}}{5}{Memory, Latency, and Compute}{subsection.5.3}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {V-D}}Modular Policies With a Small Local Orchestrator}{5}{subsection.5.4}\protected@file@percent }
+\newlabel{sec:modular}{{\mbox  {V-D}}{5}{Modular Policies With a Small Local Orchestrator}{subsection.5.4}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces Parameter counts of representative planners and policies (log scale) compared with a 4 GB Raspberry Pi 5, whose memory holds the 16-bit weights of at most about 2 billion parameters before any activations or operating system. Sizes from the cited papers; ACT's size as reported in the LeRobot paper.}}{5}{figure.3}\protected@file@percent }
+\newlabel{fig:size}{{3}{5}{Parameter counts of representative planners and policies (log scale) compared with a 4 GB Raspberry Pi 5, whose memory holds the 16-bit weights of at most about 2 billion parameters before any activations or operating system. Sizes from the cited papers; ACT's size as reported in the LeRobot paper}{figure.3}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {VI}Vision Perception With Epistemic Uncertainty}{5}{section.6}\protected@file@percent }
+\newlabel{sec:vision}{{VI}{5}{Vision Perception With Epistemic Uncertainty}{section.6}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {VI-A}}Perception Pipeline}{5}{subsection.6.1}\protected@file@percent }
+\newlabel{sec:pipeline}{{\mbox  {VI-A}}{5}{Perception Pipeline}{subsection.6.1}{}}
+\citation{Kendall2017}
+\citation{Gal2016}
+\citation{Lakshminarayanan2017}
+\citation{Osband2016}
+\citation{Sensoy2018}
+\citation{Amini2020}
+\citation{Hendrycks2017}
+\citation{Guo2017}
+\citation{Zollo2025}
+\citation{Ren2023}
+\citation{Hendrycks2017}
+\citation{Guo2017}
+\citation{Sensoy2018,Amini2020}
+\citation{Gal2016}
+\citation{Lakshminarayanan2017}
+\citation{Ren2023}
+\citation{Schulman2017}
+\citation{Mnih2015}
+\citation{Haarnoja2018}
+\citation{Fujimoto2018}
+\citation{Andrychowicz2017}
+\citation{Kumar2020}
+\citation{Hafner2023}
+\citation{Haarnoja2018}
+\citation{Osband2016}
+\citation{Fujimoto2018}
+\citation{Burda2019}
+\citation{Yuan2025,Ankile2025}
+\citation{Wagenmaker2025}
+\citation{Mark2025,Chen2025,Lu2025,Li2026}
+\citation{Ross2011}
+\citation{Chi2023}
+\citation{Zhao2023}
+\citation{Florence2021}
+\citation{Jang2021}
+\citation{Lynch2019}
+\citation{Mandlekar2021}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {VI-B}}Epistemic Uncertainty Quantification}{6}{subsection.6.2}\protected@file@percent }
+\newlabel{sec:uq}{{\mbox  {VI-B}}{6}{Epistemic Uncertainty Quantification}{subsection.6.2}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {VI-C}}Calibration}{6}{subsection.6.3}\protected@file@percent }
+\newlabel{sec:calibration}{{\mbox  {VI-C}}{6}{Calibration}{subsection.6.3}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {VI-D}}Cost Versus Uncertainty Quality on Edge Hardware}{6}{subsection.6.4}\protected@file@percent }
+\newlabel{sec:uqcost}{{\mbox  {VI-D}}{6}{Cost Versus Uncertainty Quality on Edge Hardware}{subsection.6.4}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {VII}Reinforcement Learning With Policy Variance}{6}{section.7}\protected@file@percent }
+\newlabel{sec:rl}{{VII}{6}{Reinforcement Learning With Policy Variance}{section.7}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {VII-A}}RL Backbones}{6}{subsection.7.1}\protected@file@percent }
+\newlabel{sec:rlback}{{\mbox  {VII-A}}{6}{RL Backbones}{subsection.7.1}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {VII-B}}Policy and Value Variance as Confidence Signals}{6}{subsection.7.2}\protected@file@percent }
+\newlabel{sec:rlconf}{{\mbox  {VII-B}}{6}{Policy and Value Variance as Confidence Signals}{subsection.7.2}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {VII-C}}Sample Efficiency on Edge Hardware}{6}{subsection.7.3}\protected@file@percent }
+\newlabel{sec:rledge}{{\mbox  {VII-C}}{6}{Sample Efficiency on Edge Hardware}{subsection.7.3}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {VIII}Imitation Learning With Behavioral Fidelity}{6}{section.8}\protected@file@percent }
+\newlabel{sec:il}{{VIII}{6}{Imitation Learning With Behavioral Fidelity}{section.8}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {VIII-A}}Learning From Demonstration}{6}{subsection.8.1}\protected@file@percent }
+\newlabel{sec:lfd}{{\mbox  {VIII-A}}{6}{Learning From Demonstration}{subsection.8.1}{}}
+\citation{Ho2016}
+\citation{Chi2023}
+\citation{Florence2021}
+\citation{Jiang2023}
+\citation{Agia2024}
+\citation{Romer2025}
+\citation{Wu2024}
+\citation{Xu2025}
+\citation{Romer2025}
+\citation{Duan2017}
+\citation{Zhao2023}
+\citation{Fu2024}
+\citation{Zhu2025}
+\citation{Khalastchi2018}
+\citation{Pang2021}
+\citation{Liu2023c}
+\citation{Duan2025}
+\citation{Ye2025}
+\citation{Gu2025}
+\citation{Agia2024}
+\citation{Sinha2024}
+\citation{Bongard2006}
+\citation{Cully2015}
+\citation{Nagabandi2019}
+\citation{Kumar2021}
+\citation{Shi2024}
+\citation{Liu2023}
+\@writefile{lot}{\contentsline {table}{\numberline {IV}{\ignorespaces Uncertainty Estimators: Cost and Suitability for a Raspberry-Pi-Class Robot}}{7}{table.4}\protected@file@percent }
+\newlabel{tab:uqcost}{{IV}{7}{Uncertainty Estimators: Cost and Suitability for a Raspberry-Pi-Class Robot}{table.4}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {VIII-B}}Behavioral Fidelity as Confidence}{7}{subsection.8.2}\protected@file@percent }
+\newlabel{sec:fidelity}{{\mbox  {VIII-B}}{7}{Behavioral Fidelity as Confidence}{subsection.8.2}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {VIII-C}}Fast Adaptation From Few Demonstrations}{7}{subsection.8.3}\protected@file@percent }
+\newlabel{sec:fewshot}{{\mbox  {VIII-C}}{7}{Fast Adaptation From Few Demonstrations}{subsection.8.3}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {IX}Fault Adaptation and Recovery}{7}{section.9}\protected@file@percent }
+\newlabel{sec:fault}{{IX}{7}{Fault Adaptation and Recovery}{section.9}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {IX-A}}Fault Detection}{7}{subsection.9.1}\protected@file@percent }
+\newlabel{sec:faultdet}{{\mbox  {IX-A}}{7}{Fault Detection}{subsection.9.1}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {IX-B}}Online Adaptation to Damage or Malfunction}{7}{subsection.9.2}\protected@file@percent }
+\newlabel{sec:damage}{{\mbox  {IX-B}}{7}{Online Adaptation to Damage or Malfunction}{subsection.9.2}{}}
+\citation{Xu2025,Romer2025}
+\citation{Finn2017}
+\citation{Nichol2018}
+\citation{Snell2017}
+\citation{Andrychowicz2016}
+\citation{Hospedales2022}
+\citation{Duan2016}
+\citation{Rakelly2019}
+\citation{Zintgraf2020}
+\citation{Yu2019}
+\citation{Zintgraf2020}
+\citation{Rakelly2019}
+\citation{Zhu2025}
+\citation{Duan2017}
+\citation{Yu2019}
+\citation{Liu2023b}
+\citation{Mees2022}
+\citation{James2020}
+\citation{Romer2026a}
+\citation{Guo2017}
+\citation{Zollo2025}
+\citation{Ren2023,Lindemann2023,Xu2025}
+\citation{McMahan2017}
+\citation{Li2020}
+\citation{Kairouz2021}
+\citation{Qi2021}
+\citation{Kendall2018}
+\citation{Han2021,Han2022a}
+\citation{Han2022b}
+\citation{Baltrusaitis2019}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {IX-C}}Recovery-Success Rate as Confidence}{8}{subsection.9.3}\protected@file@percent }
+\newlabel{sec:recovery}{{\mbox  {IX-C}}{8}{Recovery-Success Rate as Confidence}{subsection.9.3}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {X}Meta-Learning and Learning to Learn}{8}{section.10}\protected@file@percent }
+\newlabel{sec:meta}{{X}{8}{Meta-Learning and Learning to Learn}{section.10}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {X-A}}Foundations}{8}{subsection.10.1}\protected@file@percent }
+\newlabel{sec:metafound}{{\mbox  {X-A}}{8}{Foundations}{subsection.10.1}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {X-B}}Meta-Reinforcement Learning}{8}{subsection.10.2}\protected@file@percent }
+\newlabel{sec:metarl}{{\mbox  {X-B}}{8}{Meta-Reinforcement Learning}{subsection.10.2}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {X-C}}The Orchestrator as a Meta-Learner}{8}{subsection.10.3}\protected@file@percent }
+\newlabel{sec:orchmeta}{{\mbox  {X-C}}{8}{The Orchestrator as a Meta-Learner}{subsection.10.3}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {X-D}}Training the Orchestrator on Task Distributions}{8}{subsection.10.4}\protected@file@percent }
+\newlabel{sec:taskdist}{{\mbox  {X-D}}{8}{Training the Orchestrator on Task Distributions}{subsection.10.4}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {XI}Uncertainty Fusion and Decentralized Confidence Signals}{8}{section.11}\protected@file@percent }
+\newlabel{sec:fusion}{{XI}{8}{Uncertainty Fusion and Decentralized Confidence Signals}{section.11}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {XI-A}}Heterogeneous Confidence Signals}{8}{subsection.11.1}\protected@file@percent }
+\newlabel{sec:hetero}{{\mbox  {XI-A}}{8}{Heterogeneous Confidence Signals}{subsection.11.1}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {XI-B}}Making Confidences Comparable}{8}{subsection.11.2}\protected@file@percent }
+\newlabel{sec:comparable}{{\mbox  {XI-B}}{8}{Making Confidences Comparable}{subsection.11.2}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {XI-C}}Federated Learning and Decentralized Confidence Fusion}{8}{subsection.11.3}\protected@file@percent }
+\newlabel{sec:federated}{{\mbox  {XI-C}}{8}{Federated Learning and Decentralized Confidence Fusion}{subsection.11.3}{}}
+\citation{Yuan2026}
+\citation{Ren2023,Liang2024}
+\citation{Hu2022}
+\citation{Dettmers2023}
+\citation{Liu2024b}
+\citation{Kim2024}
+\citation{Houlsby2019}
+\citation{Li2021}
+\citation{Liu2022}
+\citation{Romer2026b}
+\citation{DeLange2022}
+\citation{Liu2023b}
+\citation{Wan2024}
+\citation{Rusu2016}
+\citation{Schaul2016}
+\citation{Rolnick2019}
+\citation{Rebuffi2017}
+\citation{LopezPaz2017}
+\citation{Kirkpatrick2017}
+\citation{Lin2022}
+\citation{Cai2020}
+\citation{Lin2020}
+\citation{Zhu2023}
+\citation{Malladi2023}
+\citation{Li2025}
+\citation{Cadene2026}
+\citation{Jacobs1991}
+\citation{Shazeer2017}
+\citation{Fedus2022}
+\citation{Riquelme2021}
+\citation{Puigcerver2024}
+\citation{Rosenbaum2018}
+\citation{Wang2024b}
+\citation{Reuss2025}
+\citation{Huang2025}
+\citation{SMP2026}
+\citation{Yue2024}
+\citation{Zhang2026b}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {XI-D}}From Fused Confidence to Allocation}{9}{subsection.11.4}\protected@file@percent }
+\newlabel{sec:allocation}{{\mbox  {XI-D}}{9}{From Fused Confidence to Allocation}{subsection.11.4}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {XII}On-Device Adaptation: LoRA, Replay, and Continual Learning}{9}{section.12}\protected@file@percent }
+\newlabel{sec:ondevice}{{XII}{9}{On-Device Adaptation: LoRA, Replay, and Continual Learning}{section.12}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {XII-A}}Parameter-Efficient Adaptation}{9}{subsection.12.1}\protected@file@percent }
+\newlabel{sec:peft}{{\mbox  {XII-A}}{9}{Parameter-Efficient Adaptation}{subsection.12.1}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {XII-B}}Continual Learning and Forgetting}{9}{subsection.12.2}\protected@file@percent }
+\newlabel{sec:continual}{{\mbox  {XII-B}}{9}{Continual Learning and Forgetting}{subsection.12.2}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {XII-C}}Feasibility of On-Device Training}{9}{subsection.12.3}\protected@file@percent }
+\newlabel{sec:feasibility}{{\mbox  {XII-C}}{9}{Feasibility of On-Device Training}{subsection.12.3}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {XIII}Adaptive Computation, Mixture of Experts, and Modality Routing}{9}{section.13}\protected@file@percent }
+\newlabel{sec:routing}{{XIII}{9}{Adaptive Computation, Mixture of Experts, and Modality Routing}{section.13}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {XIII-A}}Mixture of Experts as a Framework for Modality Routing}{9}{subsection.13.1}\protected@file@percent }
+\newlabel{sec:moe}{{\mbox  {XIII-A}}{9}{Mixture of Experts as a Framework for Modality Routing}{subsection.13.1}{}}
+\citation{Ong2025}
+\citation{Ding2024}
+\citation{Aggarwal2024}
+\citation{Chen2024}
+\citation{Hoque2021}
+\citation{Graves2016}
+\citation{Bengio2015}
+\citation{Chen2024,Aggarwal2024}
+\citation{Sinha2024}
+\citation{Liu2026}
+\citation{Shazeer2017,Fedus2022}
+\citation{Osband2016}
+\citation{Ren2023,Yuan2026}
+\citation{Ong2025,Ding2024}
+\citation{Yue2024,Zhang2026b}
+\citation{Romer2026b,Zhu2025}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {XIII-B}}The Gate Function}{10}{subsection.13.2}\protected@file@percent }
+\newlabel{sec:gate}{{\mbox  {XIII-B}}{10}{The Gate Function}{subsection.13.2}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {XIII-C}}Conditional Execution and Cascading}{10}{subsection.13.3}\protected@file@percent }
+\newlabel{sec:cascade}{{\mbox  {XIII-C}}{10}{Conditional Execution and Cascading}{subsection.13.3}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces Illustrative simulation (not robot data): success rate against mean compute cost for confidence-gated routing among four modalities as the cost penalty \ensuremath  {\lambda } varies, with calibrated (blue) and miscalibrated (orange) confidences, and baselines. Recalibration (green) coincides with the oracle. Ten seeds of 20,000 steps; standard deviations below 0.005. Code is provided as supplementary material.}}{10}{figure.4}\protected@file@percent }
+\newlabel{fig:sim}{{4}{10}{Illustrative simulation (not robot data): success rate against mean compute cost for confidence-gated routing among four modalities as the cost penalty \ensuremath {\lambda } varies, with calibrated (blue) and miscalibrated (orange) confidences, and baselines. Recalibration (green) coincides with the oracle. Ten seeds of 20,000 steps; standard deviations below 0.005. Code is provided as supplementary material}{figure.4}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {XIII-D}}Load Balancing and Expert Utilization}{10}{subsection.13.4}\protected@file@percent }
+\newlabel{sec:balance}{{\mbox  {XIII-D}}{10}{Load Balancing and Expert Utilization}{subsection.13.4}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {XIII-E}}The Orchestration Gap}{10}{subsection.13.5}\protected@file@percent }
+\newlabel{sec:position}{{\mbox  {XIII-E}}{10}{The Orchestration Gap}{subsection.13.5}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {XIII-F}}Formal Problem Statement}{10}{subsection.13.6}\protected@file@percent }
+\newlabel{sec:formal}{{\mbox  {XIII-F}}{10}{Formal Problem Statement}{subsection.13.6}{}}
+\citation{Cadene2026,Cadene2024}
+\citation{Shridhar2022}
+\citation{Cadene2024,Cadene2026}
+\citation{Liu2023b}
+\citation{Mees2022}
+\citation{James2020}
+\citation{Yu2019}
+\citation{Mandlekar2021}
+\citation{KressGazit2024}
+\citation{Snyder2025}
+\citation{TRI2025}
+\citation{KressGazit2024,Snyder2025}
+\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces Qualitative positioning of orchestration approaches by adaptivity of the orchestration policy (horizontal) and use of calibrated uncertainty (vertical). The orange box marks the unoccupied target region. Positions are approximate and based on the per-paper write-ups.}}{11}{figure.5}\protected@file@percent }
+\newlabel{fig:position}{{5}{11}{Qualitative positioning of orchestration approaches by adaptivity of the orchestration policy (horizontal) and use of calibrated uncertainty (vertical). The orange box marks the unoccupied target region. Positions are approximate and based on the per-paper write-ups}{figure.5}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {XIV}Low-Cost Platforms, Benchmarks, and Evaluation}{11}{section.14}\protected@file@percent }
+\newlabel{sec:platforms}{{XIV}{11}{Low-Cost Platforms, Benchmarks, and Evaluation}{section.14}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {XIV-A}}A Reference Low-Cost Platform}{11}{subsection.14.1}\protected@file@percent }
+\newlabel{sec:lekiwi}{{\mbox  {XIV-A}}{11}{A Reference Low-Cost Platform}{subsection.14.1}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {V}{\ignorespaces Documented Configuration of the LeKiwi Reference Platform}}{11}{table.5}\protected@file@percent }
+\newlabel{tab:hw}{{V}{11}{Documented Configuration of the LeKiwi Reference Platform}{table.5}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {XIV-B}}Benchmark Tasks and Task Distributions}{11}{subsection.14.2}\protected@file@percent }
+\newlabel{sec:bench}{{\mbox  {XIV-B}}{11}{Benchmark Tasks and Task Distributions}{subsection.14.2}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {XIV-C}}Evaluation Protocol}{11}{subsection.14.3}\protected@file@percent }
+\newlabel{sec:protocol}{{\mbox  {XIV-C}}{11}{Evaluation Protocol}{subsection.14.3}{}}
+\citation{Fu2024}
+\citation{Kemp2022}
+\citation{Zhao2023}
+\citation{Shukor2025}
+\citation{OXE2024}
+\citation{Ren2023,Lindemann2023}
+\citation{Han2022a}
+\citation{Hu2022}
+\citation{Dettmers2023}
+\citation{Kirkpatrick2017,Rolnick2019}
+\citation{Zhu2023,Cadene2026}
+\citation{Brunke2022,Garcia2015}
+\citation{Alshiekh2018}
+\citation{Phan2020}
+\citation{Hsu2024,Wabersich2023}
+\citation{Yu2019}
+\citation{Burda2019,Hendrycks2017}
+\citation{Ren2023,Yuan2026}
+\citation{Ahn2022,Huang2022b}
+\citation{Liu2026}
+\citation{Schulman2017}
+\citation{Guo2017}
+\citation{Zollo2025}
+\citation{Ren2023}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {XIV-D}}Comparable Low-Cost Mobile Manipulation Systems}{12}{subsection.14.4}\protected@file@percent }
+\newlabel{sec:comparable-sys}{{\mbox  {XIV-D}}{12}{Comparable Low-Cost Mobile Manipulation Systems}{subsection.14.4}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {XV}Open Challenges}{12}{section.15}\protected@file@percent }
+\newlabel{sec:challenges}{{XV}{12}{Open Challenges}{section.15}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {XV-A}}Online Calibration Across Modalities}{12}{subsection.15.1}\protected@file@percent }
+\newlabel{sec:ch-calib}{{\mbox  {XV-A}}{12}{Online Calibration Across Modalities}{subsection.15.1}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {XV-B}}Training While Acting}{12}{subsection.15.2}\protected@file@percent }
+\newlabel{sec:ch-lora}{{\mbox  {XV-B}}{12}{Training While Acting}{subsection.15.2}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {XV-C}}Safety of Self-Modifying Learners}{12}{subsection.15.3}\protected@file@percent }
+\newlabel{sec:ch-safety}{{\mbox  {XV-C}}{12}{Safety of Self-Modifying Learners}{subsection.15.3}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {XV-D}}Generalization Beyond the Task Distribution}{12}{subsection.15.4}\protected@file@percent }
+\newlabel{sec:ch-general}{{\mbox  {XV-D}}{12}{Generalization Beyond the Task Distribution}{subsection.15.4}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {XV-E}}Integration With Higher-Level Planning}{12}{subsection.15.5}\protected@file@percent }
+\newlabel{sec:ch-plan}{{\mbox  {XV-E}}{12}{Integration With Higher-Level Planning}{subsection.15.5}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {XVI}Conclusion}{12}{section.16}\protected@file@percent }
+\newlabel{sec:conclusion}{{XVI}{12}{Conclusion}{section.16}{}}
+\@writefile{toc}{\contentsline {section}{Appendix\nobreakspace  A: Mathematical Details}{12}{section*.2}\protected@file@percent }
+\newlabel{app:math}{{A}{12}{\appendixname \nobreakspace \thesectiondis \\* Mathematical Details}{section*.2}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {A-A}}Budgeted Routing as a Constrained MDP}{12}{subsection.Appendix.A.1}\protected@file@percent }
+\newlabel{app:cmdp}{{\mbox  {A-A}}{12}{Budgeted Routing as a Constrained MDP}{subsection.Appendix.A.1}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {A-B}}One-Step Optimality Under Calibration}{12}{subsection.Appendix.A.2}\protected@file@percent }
+\newlabel{app:opt}{{\mbox  {A-B}}{12}{One-Step Optimality Under Calibration}{subsection.Appendix.A.2}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {A-C}}Calibration Maps}{12}{subsection.Appendix.A.3}\protected@file@percent }
+\newlabel{app:calib}{{\mbox  {A-C}}{12}{Calibration Maps}{subsection.Appendix.A.3}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {A-D}}Recovery-Success Posterior}{12}{subsection.Appendix.A.4}\protected@file@percent }
+\newlabel{app:beta}{{\mbox  {A-D}}{12}{Recovery-Success Posterior}{subsection.Appendix.A.4}{}}
+\citation{Schaul2016}
+\citation{Kirkpatrick2017}
+\bibstyle{IEEEtran}
+\bibdata{refs}
+\bibcite{Gal2016}{1}
+\bibcite{Kendall2017}{2}
+\bibcite{Haarnoja2018}{3}
+\bibcite{Schulman2017}{4}
+\bibcite{Chi2023}{5}
+\bibcite{Zhao2023}{6}
+\bibcite{Cully2015}{7}
+\bibcite{Kumar2021}{8}
+\bibcite{Ahn2022}{9}
+\bibcite{Yao2023a}{10}
+\bibcite{Schick2023}{11}
+\bibcite{Brohan2023b}{12}
+\bibcite{Kim2024}{13}
+\bibcite{Black2024}{14}
+\bibcite{Cadene2026}{15}
+\bibcite{Cadene2024}{16}
+\bibcite{Gawlikowski2023}{17}
+\bibcite{Hospedales2022}{18}
+\bibcite{DeLange2022}{19}
+\bibcite{Baltrusaitis2019}{20}
+\bibcite{Kairouz2021}{21}
+\bibcite{Qi2021}{22}
+\bibcite{Osa2018}{23}
+\bibcite{Brunke2022}{24}
+\bibcite{Garcia2015}{25}
+\bibcite{Khalastchi2018}{26}
+\bibcite{Pang2021}{27}
+\bibcite{Yu2025}{28}
+\bibcite{Alshiekh2018}{29}
+\bibcite{Liu2023b}{30}
+\bibcite{Ong2025}{31}
+\bibcite{Agia2024}{32}
+\@writefile{lot}{\contentsline {table}{\numberline {VI}{\ignorespaces Illustrative Routing Simulation: Success Rate and Mean Compute Cost (\ensuremath  {\lambda } = 0.05), Mean \ensuremath  {\pm } SD Over 10 Seeds of 20 000 Steps (Synthetic Data)}}{13}{table.6}\protected@file@percent }
+\newlabel{tab:simres}{{VI}{13}{Illustrative Routing Simulation: Success Rate and Mean Compute Cost (\ensuremath {\lambda } = 0.05), Mean \ensuremath {\pm } SD Over 10 Seeds of 20 000 Steps (Synthetic Data)}{table.6}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {A-E}}A Candidate Orchestrator Update Algorithm}{13}{subsection.Appendix.A.5}\protected@file@percent }
+\newlabel{app:alg}{{\mbox  {A-E}}{13}{A Candidate Orchestrator Update Algorithm}{subsection.Appendix.A.5}{}}
+\@writefile{toc}{\contentsline {section}{Appendix\nobreakspace  B: Illustrative Routing Simulation: Full Results}{13}{section*.3}\protected@file@percent }
+\newlabel{app:sim}{{B}{13}{\appendixname \nobreakspace \thesectiondis \\* Illustrative Routing Simulation: Full Results}{section*.3}{}}
+\@writefile{toc}{\contentsline {section}{References}{13}{section*.4}\protected@file@percent }
+\bibcite{Huang2025}{33}
+\bibcite{Kalashnikov2018}{34}
+\bibcite{Radford2021}{35}
+\bibcite{Shridhar2021}{36}
+\bibcite{Lakshminarayanan2017}{37}
+\bibcite{Sensoy2018}{38}
+\bibcite{Mnih2015}{39}
+\bibcite{Fujimoto2018}{40}
+\bibcite{Hafner2023}{41}
+\bibcite{Ross2011}{42}
+\bibcite{Florence2021}{43}
+\bibcite{Bongard2006}{44}
+\bibcite{Nagabandi2019}{45}
+\bibcite{Guo2017}{46}
+\bibcite{Hendrycks2017}{47}
+\bibcite{Tobin2017}{48}
+\bibcite{Yuan2025}{49}
+\bibcite{Ankile2025}{50}
+\bibcite{Wagenmaker2025}{51}
+\bibcite{Hoque2021}{52}
+\bibcite{Osband2016}{53}
+\bibcite{Burda2019}{54}
+\bibcite{Xu2025}{55}
+\bibcite{Romer2025}{56}
+\bibcite{Wu2024}{57}
+\bibcite{Huang2022a}{58}
+\bibcite{Huang2022b}{59}
+\bibcite{Liang2023}{60}
+\bibcite{Singh2023}{61}
+\bibcite{Shah2022}{62}
+\bibcite{Song2023}{63}
+\bibcite{Huang2023a}{64}
+\bibcite{Yu2023}{65}
+\bibcite{Dalal2024}{66}
+\bibcite{Driess2023}{67}
+\bibcite{Wang2024a}{68}
+\bibcite{Shinn2023}{69}
+\bibcite{Yao2023b}{70}
+\bibcite{Chen2023b}{71}
+\bibcite{Zeng2024}{72}
+\bibcite{Yao2024}{73}
+\bibcite{Zhai2024}{74}
+\bibcite{Ren2023}{75}
+\bibcite{Liang2024}{76}
+\bibcite{Wang2024c}{77}
+\bibcite{Ren2024}{78}
+\bibcite{Liu2026}{79}
+\bibcite{Yuan2026}{80}
+\bibcite{Sinha2024}{81}
+\bibcite{Ding2024}{82}
+\bibcite{Aggarwal2024}{83}
+\bibcite{Brohan2023a}{84}
+\bibcite{Octo2024}{85}
+\bibcite{Bousmalis2023}{86}
+\bibcite{Reed2022}{87}
+\bibcite{Jiang2023}{88}
+\bibcite{Shridhar2022}{89}
+\bibcite{Li2024a}{90}
+\bibcite{OXE2024}{91}
+\bibcite{Mark2025}{92}
+\bibcite{Chen2025}{93}
+\bibcite{Lu2025}{94}
+\bibcite{Li2026}{95}
+\bibcite{Shukor2025}{96}
+\bibcite{Wen2025}{97}
+\bibcite{Budzianowski2025}{98}
+\bibcite{Kim2025}{99}
+\bibcite{Pertsch2025}{100}
+\bibcite{Wang2025a}{101}
+\bibcite{Zhang2026a}{102}
+\bibcite{Liu2024a}{103}
+\bibcite{Ravichandran2025}{104}
+\bibcite{Amini2020}{105}
+\bibcite{Zollo2025}{106}
+\bibcite{Andrychowicz2017}{107}
+\bibcite{Kumar2020}{108}
+\bibcite{Jang2021}{109}
+\bibcite{Lynch2019}{110}
+\bibcite{Mandlekar2021}{111}
+\bibcite{Ho2016}{112}
+\bibcite{Duan2017}{113}
+\bibcite{Fu2024}{114}
+\bibcite{Zhu2025}{115}
+\bibcite{Liu2023c}{116}
+\bibcite{Duan2025}{117}
+\bibcite{Ye2025}{118}
+\bibcite{Gu2025}{119}
+\bibcite{Shi2024}{120}
+\bibcite{Liu2023}{121}
+\bibcite{Finn2017}{122}
+\bibcite{Nichol2018}{123}
+\bibcite{Snell2017}{124}
+\bibcite{Andrychowicz2016}{125}
+\bibcite{Duan2016}{126}
+\bibcite{Rakelly2019}{127}
+\bibcite{Zintgraf2020}{128}
+\bibcite{Yu2019}{129}
+\bibcite{Mees2022}{130}
+\bibcite{James2020}{131}
+\bibcite{Romer2026a}{132}
+\bibcite{Lindemann2023}{133}
+\bibcite{McMahan2017}{134}
+\bibcite{Li2020}{135}
+\bibcite{Kendall2018}{136}
+\bibcite{Han2021}{137}
+\bibcite{Han2022a}{138}
+\bibcite{Han2022b}{139}
+\bibcite{Hu2022}{140}
+\bibcite{Dettmers2023}{141}
+\bibcite{Liu2024b}{142}
+\bibcite{Houlsby2019}{143}
+\bibcite{Li2021}{144}
+\bibcite{Liu2022}{145}
+\bibcite{Romer2026b}{146}
+\bibcite{Wan2024}{147}
+\bibcite{Rusu2016}{148}
+\bibcite{Schaul2016}{149}
+\bibcite{Rolnick2019}{150}
+\bibcite{Rebuffi2017}{151}
+\bibcite{LopezPaz2017}{152}
+\bibcite{Kirkpatrick2017}{153}
+\bibcite{Lin2022}{154}
+\bibcite{Cai2020}{155}
+\bibcite{Lin2020}{156}
+\bibcite{Zhu2023}{157}
+\bibcite{Malladi2023}{158}
+\bibcite{Li2025}{159}
+\bibcite{Jacobs1991}{160}
+\bibcite{Shazeer2017}{161}
+\bibcite{Fedus2022}{162}
+\bibcite{Riquelme2021}{163}
+\bibcite{Puigcerver2024}{164}
+\bibcite{Rosenbaum2018}{165}
+\bibcite{Wang2024b}{166}
+\bibcite{Reuss2025}{167}
+\bibcite{SMP2026}{168}
+\bibcite{Yue2024}{169}
+\bibcite{Zhang2026b}{170}
+\bibcite{Chen2024}{171}
+\bibcite{Graves2016}{172}
+\bibcite{Bengio2015}{173}
+\bibcite{KressGazit2024}{174}
+\bibcite{Snyder2025}{175}
+\bibcite{TRI2025}{176}
+\bibcite{Kemp2022}{177}
+\bibcite{Phan2020}{178}
+\bibcite{Hsu2024}{179}
+\bibcite{Wabersich2023}{180}
+\@writefile{toc}{\contentsline {section}{Biographies}{16}{IEEEbiography.0}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{Firstname Lastname}{16}{IEEEbiography.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{Second Author}{16}{IEEEbiography.2}\protected@file@percent }
+\gdef \@abspage@last{16}

@@ -1,0 +1,1109 @@
+\begin{thebibliography}{205}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{{#1}}
+\providecommand{\urlprefix}{URL }
+\providecommand{\doi}[1]{\url{https://doi.org/#1}}
+\providecommand{\eprint}[2][]{\url{#2}}
+ \bibcommenthead
+
+\bibitem[{Aaronson(2015)}]{Aaronson2015}
+Aaronson S (2015) Read the fine print. Nature Physics 11(4):291--293.
+  \doi{10.1038/nphys3272}
+
+\bibitem[{Acuto et~al.(2022)Acuto, Barill{\`a}, Bozzolo, Conterno, Pavese, and
+  Policicchio}]{Acuto2022}
+Acuto A, Barill{\`a} P, Bozzolo L, et~al (2022) Variational quantum soft
+  actor-critic for robotic arm control.
+  {\href{https://arxiv.org/abs/2212.11681}{{arXiv:2212.11681}}}
+
+\bibitem[{Aerts(2009)}]{Aerts2009}
+Aerts D (2009) Quantum structure in cognition. Journal of Mathematical
+  Psychology 53(5):314--348. \doi{10.1016/j.jmp.2009.04.005}
+
+\bibitem[{Aerts and Sassoli~de Bianchi(2017)}]{Aerts2017b}
+Aerts D, Sassoli~de Bianchi M (2017) Beyond-quantum modeling of question order
+  effects and response replicability in psychological measurements. Journal of
+  Mathematical Psychology 79:104--120.
+  {\href{https://arxiv.org/abs/1508.03686}{{arXiv:1508.03686}}}
+
+\bibitem[{Aerts and Sozzo(2011)}]{Aerts2011a}
+Aerts D, Sozzo S (2011) Quantum structure in cognition: Why and how concepts
+  are entangled. In: Song D, Melucci M, Frommholz I, et~al (eds) Quantum
+  Interaction: 5th International Symposium, {QI} 2011, Aberdeen, {UK}, June
+  26--29, 2011, Revised Selected Papers, Lecture Notes in Computer Science, vol
+  7052. Springer, Berlin, Heidelberg, pp 116--127,
+  \doi{10.1007/978-3-642-24971-6_12}
+
+\bibitem[{Aerts et~al.(2000)Aerts, D'Hondt, and Gabora}]{Aerts2000}
+Aerts D, D'Hondt E, Gabora L (2000) Why the disjunction in quantum logic is not
+  classical. Foundations of Physics 30(9):1473--1480.
+  \doi{10.1023/A:1026457918361}
+
+\bibitem[{Aerts et~al.(2011{\natexlab{a}})Aerts, Broekaert, Czachor, and
+  D'Hooghe}]{Aerts2011c}
+Aerts D, Broekaert J, Czachor M, et~al (2011{\natexlab{a}}) A
+  quantum-conceptual explanation of violations of expected utility in
+  economics. In: Song D, Melucci M, Frommholz I, et~al (eds) Quantum
+  Interaction: 5th International Symposium, {QI} 2011, Aberdeen, {UK}, June
+  26--29, 2011, Revised Selected Papers, Lecture Notes in Computer Science, vol
+  7052. Springer, Berlin, Heidelberg, pp 192--198,
+  \doi{10.1007/978-3-642-24971-6_19}
+
+\bibitem[{Aerts et~al.(2011{\natexlab{b}})Aerts, Czachor, and
+  Sozzo}]{Aerts2011d}
+Aerts D, Czachor M, Sozzo S (2011{\natexlab{b}}) Quantum interaction approach
+  in cognition, artificial intelligence and robotics. In: Privman V,
+  Ovchinnikov V (eds) Proceedings of the Fifth International Conference on
+  Quantum, Nano and Micro Technologies ({ICQNM} 2011). IARIA, pp 35--40,
+  {\href{https://arxiv.org/abs/1104.3345}{{arXiv:1104.3345}}}
+
+\bibitem[{Aerts et~al.(2011{\natexlab{c}})Aerts, Gabora, Sozzo, and
+  Veloz}]{Aerts2011b}
+Aerts D, Gabora L, Sozzo S, et~al (2011{\natexlab{c}}) Quantum structure in
+  cognition: Fundamentals and applications. In: Proceedings of the Fifth
+  International Conference on Quantum, Nano and Micro Technologies ({ICQNM}
+  2011). IARIA, {\href{https://arxiv.org/abs/1104.3344}{{arXiv:1104.3344}}}
+
+\bibitem[{Aerts et~al.(2013)Aerts, Gabora, and Sozzo}]{Aerts2013}
+Aerts D, Gabora L, Sozzo S (2013) Concepts and their dynamics: A
+  quantum-theoretic modeling of human thought. Topics in Cognitive Science
+  5(4):737--772. \doi{10.1111/tops.12042}
+
+\bibitem[{Aerts et~al.(2017)Aerts, Aerts~Argu{\"e}lles, Beltran, Beltran,
+  Sassoli~de Bianchi, Sozzo, and Veloz}]{Aerts2017}
+Aerts D, Aerts~Argu{\"e}lles J, Beltran L, et~al (2017) Testing quantum models
+  of conjunction fallacy on the {World Wide Web}. International Journal of
+  Theoretical Physics 56(12):3744--3756. \doi{10.1007/s10773-017-3288-8}
+
+\bibitem[{Aerts et~al.(2026)Aerts, Aerts~Argu{\"e}lles, Beltran, Geriente,
+  Leporini, Sassoli~de Bianchi, and Sozzo}]{Aerts2026}
+Aerts D, Aerts~Argu{\"e}lles J, Beltran L, et~al (2026) Identifying quantum
+  structure in {AI} language: Evidence for evolutionary convergence of human
+  and artificial cognition. Entropy 28(6):622. \doi{10.3390/e28060622}
+
+\bibitem[{Asano and Khrennikov(2026)}]{Asano2026}
+Asano M, Khrennikov A (2026) Quantum-like models of cognition and decision
+  making: open-systems and {Gorini--Kossakowski--Sudarshan--Lindblad} dynamics.
+  {\href{https://arxiv.org/abs/2604.18643}{{arXiv:2604.18643}}}
+
+\bibitem[{Ashtiani and {Abdollahi Azgomi}(2019)}]{Ashtiani2019}
+Ashtiani M, {Abdollahi Azgomi} M (2019) A novel trust evolution algorithm based
+  on a quantum-like model of computational trust. Cognition, Technology \& Work
+  21(2):201--224. \doi{10.1007/s10111-018-0496-9}
+
+\bibitem[{Ashtiani and Azgomi(2015)}]{Ashtiani2015}
+Ashtiani M, Azgomi MA (2015) A survey of quantum-like approaches to decision
+  making and cognition. Mathematical Social Sciences 75:49--80.
+  \doi{10.1016/j.mathsocsci.2015.02.004}
+
+\bibitem[{Basieva et~al.(2019)Basieva, Cervantes, Dzhafarov, and
+  Khrennikov}]{Basieva2019}
+Basieva I, Cervantes VH, Dzhafarov EN, et~al (2019) True contextuality beats
+  direct influences in human decision making. Journal of Experimental
+  Psychology: General 148(11):1925--1937. \doi{10.1037/xge0000585}
+
+\bibitem[{Benioff(1998)}]{Benioff1998}
+Benioff P (1998) Quantum robots and environments. Physical Review A
+  58(2):893--904. \doi{10.1103/PhysRevA.58.893}
+
+\bibitem[{Bergholm et~al.(2018)Bergholm, Izaac, Schuld, Gogolin, Ahmed, Ajith,
+  Alam et~al.}]{Bergholm2018}
+Bergholm V, Izaac J, Schuld M, et~al (2018) {PennyLane}: Automatic
+  differentiation of hybrid quantum-classical computations.
+  {\href{https://arxiv.org/abs/1811.04968}{{arXiv:1811.04968}}}
+
+\bibitem[{Berner et~al.(2021)Berner, Fortuin, and Landman}]{Berner2021}
+Berner N, Fortuin V, Landman J (2021) Quantum {Bayesian} neural networks.
+  \doi{10.48550/arXiv.2107.09599},
+  {\href{https://arxiv.org/abs/2107.09599}{{arXiv:2107.09599}}}
+
+\bibitem[{Biamonte et~al.(2017)Biamonte, Wittek, Pancotti, Rebentrost, Wiebe,
+  and Lloyd}]{Biamonte2017}
+Biamonte J, Wittek P, Pancotti N, et~al (2017) Quantum machine learning. Nature
+  549(7671):195--202. \doi{10.1038/nature23474}
+
+\bibitem[{Binz and Schulz(2023)}]{Binz2023}
+Binz M, Schulz E (2023) Using cognitive psychology to understand {GPT-3}.
+  Proceedings of the National Academy of Sciences 120(6):e2218523120.
+  \doi{10.1073/pnas.2218523120}
+
+\bibitem[{Blanke et~al.(2016)Blanke, Kinnaert, Lunze, and
+  Staroswiecki}]{Blanke2016}
+Blanke M, Kinnaert M, Lunze J, et~al (2016) Diagnosis and Fault-Tolerant
+  Control, 3rd edn. Springer, Berlin, Heidelberg,
+  \doi{10.1007/978-3-662-47943-8}
+
+\bibitem[{Blutner et~al.(2013)Blutner, Pothos, and Bruza}]{Blutner2013}
+Blutner R, Pothos EM, Bruza P (2013) A quantum probability perspective on
+  borderline vagueness. Topics in Cognitive Science 5(4):711--736.
+  \doi{10.1111/tops.12041}
+
+\bibitem[{Boyajian et~al.(2020)Boyajian, Clausen, Trenkwalder, Dunjko, and
+  Briegel}]{Boyajian2020}
+Boyajian WL, Clausen J, Trenkwalder LM, et~al (2020) On the convergence of
+  projective-simulation-based reinforcement learning in {Markov} decision
+  processes. Quantum Machine Intelligence 2(2):13.
+  \doi{10.1007/s42484-020-00023-9}
+
+\bibitem[{Boyer-Kassem et~al.(2016)Boyer-Kassem, Duch{\^e}ne, and
+  Guerci}]{BoyerKassem2016}
+Boyer-Kassem T, Duch{\^e}ne S, Guerci E (2016) Quantum-like models cannot
+  account for the conjunction fallacy. Theory and Decision 81(4):479--510.
+  \doi{10.1007/s11238-016-9549-9}
+
+\bibitem[{Briegel and De~las Cuevas(2012)}]{Briegel2012}
+Briegel HJ, De~las Cuevas G (2012) Projective simulation for artificial
+  intelligence. Scientific Reports 2:400. \doi{10.1038/srep00400}
+
+\bibitem[{Broekaert et~al.(2017)Broekaert, Basieva, Blasiak, and
+  Pothos}]{Broekaert2017}
+Broekaert J, Basieva I, Blasiak P, et~al (2017) Quantum-like dynamics applied
+  to cognition: A consideration of available options. Philosophical
+  Transactions of the Royal Society A: Mathematical, Physical and Engineering
+  Sciences 375(2106):20160387. \doi{10.1098/rsta.2016.0387}
+
+\bibitem[{Broughton et~al.(2020)Broughton, Verdon, McCourt, Martinez, Yoo
+  et~al.}]{Broughton2020}
+Broughton M, Verdon G, McCourt T, et~al (2020) {TensorFlow Quantum}: A software
+  framework for quantum machine learning.
+  {\href{https://arxiv.org/abs/2003.02989}{{arXiv:2003.02989}}}
+
+\bibitem[{Bruza et~al.(2009)Bruza, Kitto, Nelson, and McEvoy}]{Bruza2009}
+Bruza P, Kitto K, Nelson D, et~al (2009) Is there something quantum-like about
+  the human mental lexicon? Journal of Mathematical Psychology 53(5):363--377.
+  \doi{10.1016/j.jmp.2009.04.004}
+
+\bibitem[{Bruza et~al.(2015)Bruza, Wang, and Busemeyer}]{Bruza2015}
+Bruza PD, Wang Z, Busemeyer JR (2015) Quantum cognition: A new theoretical
+  approach to psychology. Trends in Cognitive Sciences 19(7):383--393.
+  \doi{10.1016/j.tics.2015.05.001}
+
+\bibitem[{Busemeyer and Bruza(2012)}]{Busemeyer2012}
+Busemeyer JR, Bruza PD (2012) Quantum Models of Cognition and Decision.
+  Cambridge University Press, Cambridge, \doi{10.1017/CBO9780511997716}
+
+\bibitem[{Busemeyer and Wang(2015)}]{Busemeyer2015}
+Busemeyer JR, Wang Z (2015) What is quantum cognition, and how is it applied to
+  psychology? Current Directions in Psychological Science 24(3):163--169.
+  \doi{10.1177/0963721414568663}
+
+\bibitem[{Busemeyer and Wang(2017)}]{Busemeyer2017b}
+Busemeyer JR, Wang Z (2017) Is there a problem with quantum models of
+  psychological measurements? PLoS ONE 12(11):e0187733.
+  \doi{10.1371/journal.pone.0187733}
+
+\bibitem[{Busemeyer and Wang(2018)}]{Busemeyer2018}
+Busemeyer JR, Wang Z (2018) Hilbert space multidimensional theory.
+  Psychological Review 125(4):572--591. \doi{10.1037/rev0000106}
+
+\bibitem[{Busemeyer et~al.(2006)Busemeyer, Wang, and Townsend}]{Busemeyer2006}
+Busemeyer JR, Wang Z, Townsend JT (2006) Quantum dynamics of human
+  decision-making. Journal of Mathematical Psychology 50(3):220--241.
+  \doi{10.1016/j.jmp.2006.01.003}
+
+\bibitem[{Busemeyer et~al.(2009)Busemeyer, Wang, and
+  Lambert-Mogiliansky}]{Busemeyer2009}
+Busemeyer JR, Wang Z, Lambert-Mogiliansky A (2009) Empirical comparison of
+  {Markov} and quantum models of decision making. Journal of Mathematical
+  Psychology 53(5):423--433. \doi{10.1016/j.jmp.2009.03.002}
+
+\bibitem[{Busemeyer et~al.(2011)Busemeyer, Pothos, Franco, and
+  Trueblood}]{Busemeyer2011}
+Busemeyer JR, Pothos EM, Franco R, et~al (2011) A quantum theoretical
+  explanation for probability judgment errors. Psychological Review
+  118(2):193--218. \doi{10.1037/a0022542}
+
+\bibitem[{Busemeyer et~al.(2017)Busemeyer, Fakhari, and Kvam}]{Busemeyer2017a}
+Busemeyer JR, Fakhari P, Kvam P (2017) Neural implementation of operations used
+  in quantum cognition. Progress in Biophysics and Molecular Biology 130(Part
+  A):53--60. \doi{10.1016/j.pbiomolbio.2017.04.007}
+
+\bibitem[{Busemeyer et~al.(2019)Busemeyer, Kvam, and Pleskac}]{Busemeyer2019}
+Busemeyer JR, Kvam PD, Pleskac TJ (2019) {Markov} versus quantum dynamic models
+  of belief change during evidence monitoring. Scientific Reports 9:18025.
+  \doi{10.1038/s41598-019-54383-9}
+
+\bibitem[{Busemeyer et~al.(2020)Busemeyer, Zhang, Balakrishnan, and
+  Wang}]{Busemeyer2020}
+Busemeyer JR, Zhang Q, Balakrishnan SN, et~al (2020) Application of
+  quantum--{Markov} open system models to human cognition and decision. Entropy
+  22(9):990. \doi{10.3390/e22090990}
+
+\bibitem[{Busemeyer et~al.(2025)Busemeyer, Ozawa, Pothos, and
+  Tsuchiya}]{Busemeyer2025}
+Busemeyer JR, Ozawa M, Pothos EM, et~al (2025) Incorporating episodic memory
+  into quantum models of judgment and decision. Philosophical Transactions of
+  the Royal Society A: Mathematical, Physical and Engineering Sciences
+  383(2309):20240387. \doi{10.1098/rsta.2024.0387}
+
+\bibitem[{Cerezo et~al.(2021)Cerezo, Sone, Volkoff, Cincio, and
+  Coles}]{Cerezo2021}
+Cerezo M, Sone A, Volkoff T, et~al (2021) Cost function dependent barren
+  plateaus in shallow parametrized quantum circuits. Nature Communications
+  12:1791. \doi{10.1038/s41467-021-21728-w}
+
+\bibitem[{Cervantes and Dzhafarov(2018)}]{Cervantes2018}
+Cervantes VH, Dzhafarov EN (2018) {Snow Queen} is evil and beautiful:
+  Experimental evidence for probabilistic contextuality in human choices.
+  Decision 5(3):193--204. \doi{10.1037/dec0000095}
+
+\bibitem[{Chella et~al.(2022)Chella, Gaglio, Pilato, Vella, and
+  Zammuto}]{Chella2022}
+Chella A, Gaglio S, Pilato G, et~al (2022) A quantum planner for robot motion.
+  Mathematics 10(14):2475. \doi{10.3390/math10142475}
+
+\bibitem[{Chella et~al.(2026)Chella, Gaglio, Pilato, and Vella}]{Chella2026}
+Chella A, Gaglio S, Pilato G, et~al (2026) An architecture for a quantum
+  teleo-reactive robot. Entropy 28(7):731. \doi{10.3390/e28070731}
+
+\bibitem[{Chen(2024)}]{Chen2024}
+Chen SYC (2024) An introduction to quantum reinforcement learning ({QRL}).
+  {\href{https://arxiv.org/abs/2409.05846}{{arXiv:2409.05846}}}
+
+\bibitem[{Chen et~al.(2020)Chen, Yang, Qi, Chen, Ma, and Goan}]{Chen2020}
+Chen SYC, Yang CHH, Qi J, et~al (2020) Variational quantum circuits for deep
+  reinforcement learning. IEEE Access 8:141007--141024.
+  \doi{10.1109/ACCESS.2020.3010470}
+
+\bibitem[{Clark(2013)}]{Clark2013}
+Clark A (2013) Whatever next? predictive brains, situated agents, and the
+  future of cognitive science. Behavioral and Brain Sciences 36(3):181--204.
+  \doi{10.1017/S0140525X12000477}
+
+\bibitem[{Costello and Watts(2014)}]{Costello2014}
+Costello F, Watts P (2014) Surprisingly rational: probability theory plus noise
+  explains biases in judgment. Psychological Review 121(3):463--480.
+  \doi{10.1037/a0037010}
+
+\bibitem[{Costello and Watts(2018)}]{Costello2018}
+Costello F, Watts P (2018) Invariants in probabilistic reasoning. Cognitive
+  Psychology 100:1--16. \doi{10.1016/j.cogpsych.2017.11.003}
+
+\bibitem[{Daglarli(2025)}]{Daglarli2025}
+Daglarli E (2025) A generative neuro-cognitive architecture using quantum
+  algorithms for the autonomous behavior of a smart agent in a simulation
+  environment. Computers, Materials \& Continua 84(3).
+  \doi{10.32604/cmc.2025.065572}
+
+\bibitem[{De~Carolis et~al.(2025)De~Carolis, Loglisci, Palestra, and
+  Violante}]{DeCarolis2025}
+De~Carolis BN, Loglisci C, Palestra G, et~al (2025) Quantum-enhanced social
+  robotics: The {QUADRI} project. In: Adjunct Proceedings of the 33rd {ACM}
+  Conference on User Modeling, Adaptation and Personalization ({UMAP} Adjunct
+  '25). ACM, New York, NY, USA, \doi{10.1145/3708319.3735545}
+
+\bibitem[{Dong et~al.(2006)Dong, Chen, Zhang, and Chen}]{Dong2006}
+Dong D, Chen C, Zhang C, et~al (2006) Quantum robot: Structure, algorithms and
+  applications. Robotica 24(4):513--521. \doi{10.1017/S0263574705002596}
+
+\bibitem[{Dong et~al.(2008)Dong, Chen, Li, and Tarn}]{Dong2008}
+Dong D, Chen C, Li H, et~al (2008) Quantum reinforcement learning. IEEE
+  Transactions on Systems, Man, and Cybernetics, Part B: Cybernetics
+  38(5):1207--1220. \doi{10.1109/TSMCB.2008.925743}
+
+\bibitem[{Dong et~al.(2012)Dong, Chen, Chu, and Tarn}]{Dong2012}
+Dong D, Chen C, Chu J, et~al (2012) Robust quantum-inspired reinforcement
+  learning for robot navigation. IEEE/ASME Transactions on Mechatronics
+  17(1):86--97. \doi{10.1109/TMECH.2010.2090896}
+
+\bibitem[{Dreossi et~al.(2019)Dreossi, Fremont, Ghosh, Kim, Ravanbakhsh,
+  Vazquez-Chanlatte, and Seshia}]{Dreossi2019}
+Dreossi T, Fremont DJ, Ghosh S, et~al (2019) {VerifAI}: A toolkit for the
+  formal design and analysis of artificial intelligence-based systems. In:
+  Dillig I, Tasiran S (eds) Computer Aided Verification ({CAV} 2019), Lecture
+  Notes in Computer Science, vol 11561. Springer, Cham, pp 432--442,
+  \doi{10.1007/978-3-030-25540-4_25}
+
+\bibitem[{Dunjko and Briegel(2018)}]{Dunjko2018}
+Dunjko V, Briegel HJ (2018) Machine learning \& artificial intelligence in the
+  quantum domain: a review of recent progress. Reports on Progress in Physics
+  81(7):074001. \doi{10.1088/1361-6633/aab406}
+
+\bibitem[{Dzhafarov and Kujala(2016)}]{Dzhafarov2016a}
+Dzhafarov EN, Kujala JV (2016) Context--content systems of random variables:
+  The {Contextuality-by-Default} theory. Journal of Mathematical Psychology
+  74:11--33. \doi{10.1016/j.jmp.2016.04.010}
+
+\bibitem[{Dzhafarov et~al.(2016)Dzhafarov, Zhang, and Kujala}]{Dzhafarov2016b}
+Dzhafarov EN, Zhang R, Kujala J (2016) Is there contextuality in behavioural
+  and social systems? Philosophical Transactions of the Royal Society A:
+  Mathematical, Physical and Engineering Sciences 374(2058):20150099.
+  \doi{10.1098/rsta.2015.0099}
+
+\bibitem[{Eisert et~al.(1999)Eisert, Wilkens, and Lewenstein}]{Eisert1999}
+Eisert J, Wilkens M, Lewenstein M (1999) Quantum games and quantum strategies.
+  Physical Review Letters 83(15):3077--3080. \doi{10.1103/PhysRevLett.83.3077}
+
+\bibitem[{Ellsberg(1961)}]{Ellsberg1961}
+Ellsberg D (1961) Risk, ambiguity, and the {Savage} axioms. The Quarterly
+  Journal of Economics 75(4):643--669. \doi{10.2307/1884324}
+
+\bibitem[{Epping et~al.(2023)Epping, Kvam, Pleskac, and Busemeyer}]{Epping2023}
+Epping GP, Kvam PD, Pleskac TJ, et~al (2023) Open system model of choice and
+  response time. Journal of Choice Modelling 49:100453.
+  \doi{10.1016/j.jocm.2023.100453}
+
+\bibitem[{Essalmi et~al.(2025)Essalmi, Garrido, and Nashashibi}]{Essalmi2025}
+Essalmi K, Garrido F, Nashashibi F (2025) Quantum game models for
+  interaction-aware decision-making in automated driving. ArXiv preprint,
+  {\href{https://arxiv.org/abs/2509.01582}{{arXiv:2509.01582}}}
+
+\bibitem[{Fisher(2015)}]{Fisher2015}
+Fisher MPA (2015) Quantum cognition: The possibility of processing with nuclear
+  spins in the brain. Annals of Physics 362:593--602.
+  \doi{10.1016/j.aop.2015.08.020}
+
+\bibitem[{Flamini et~al.(2020)Flamini, Hamann, Jerbi, Trenkwalder,
+  Poulsen~Nautrup, and Briegel}]{Flamini2020}
+Flamini F, Hamann A, Jerbi S, et~al (2020) Photonic architecture for
+  reinforcement learning. New Journal of Physics 22(4):045002.
+  \doi{10.1088/1367-2630/ab783c}
+
+\bibitem[{Flamini et~al.(2024)Flamini, Krumm, Fiderer, M{\"u}ller, and
+  Briegel}]{Flamini2024}
+Flamini F, Krumm M, Fiderer LJ, et~al (2024) Towards interpretable quantum
+  machine learning via single-photon quantum walks. Quantum Science and
+  Technology 9(4):045011. \doi{10.1088/2058-9565/ad5907}
+
+\bibitem[{Friston(2010)}]{Friston2010}
+Friston K (2010) The free-energy principle: a unified brain theory? Nature
+  Reviews Neuroscience 11(2):127--138. \doi{10.1038/nrn2787}
+
+\bibitem[{Fuyama et~al.(2025)Fuyama, Khrennikov, and Ozawa}]{Fuyama2025}
+Fuyama M, Khrennikov A, Ozawa M (2025) Quantum-like cognition and
+  decision-making in the light of quantum measurement theory. Philosophical
+  Transactions of the Royal Society A: Mathematical, Physical and Engineering
+  Sciences 383(2309):20240372. \doi{10.1098/rsta.2024.0372}
+
+\bibitem[{Gao et~al.(2021)Gao, Dong, Petersen, and Ding}]{Gao2021}
+Gao Q, Dong D, Petersen IR, et~al (2021) Design of a discrete-time
+  fault-tolerant quantum filter and fault detector. IEEE Transactions on
+  Cybernetics 51(2):889--899. \doi{10.1109/TCYB.2019.2899877}
+
+\bibitem[{Gao et~al.(2025)Gao, Yang, Pan, and Pelusi}]{Gao2025}
+Gao X, Yang H, Pan L, et~al (2025) Quantum-like evidence networks
+  decision-making model. Engineering Applications of Artificial Intelligence
+  157:111368. \doi{10.1016/j.engappai.2025.111368}
+
+\bibitem[{Gkoumas et~al.(2021)Gkoumas, Li, Dehdashti, Melucci, Yu, and
+  Song}]{Gkoumas2021}
+Gkoumas D, Li Q, Dehdashti S, et~al (2021) Quantum cognitively motivated
+  decision fusion for video sentiment analysis. In: Proceedings of the {AAAI}
+  Conference on Artificial Intelligence, pp 827--835,
+  \doi{10.1609/aaai.v35i1.16165}
+
+\bibitem[{Hameroff and Penrose(2014)}]{Hameroff2014}
+Hameroff S, Penrose R (2014) Consciousness in the universe: A review of the
+  `{Orch OR}' theory. Physics of Life Reviews 11(1):39--78.
+  \doi{10.1016/j.plrev.2013.08.002}
+
+\bibitem[{Hangl et~al.(2016)Hangl, Ugur, Szedmak, and Piater}]{Hangl2016}
+Hangl S, Ugur E, Szedmak S, et~al (2016) Robotic playing for hierarchical
+  complex skill learning. In: Proceedings of the 2016 {IEEE/RSJ} International
+  Conference on Intelligent Robots and Systems ({IROS}). IEEE, pp 2799--2804,
+  {\href{https://arxiv.org/abs/1603.00794}{{arXiv:1603.00794}}}
+
+\bibitem[{Hangl et~al.(2020)Hangl, Dunjko, Briegel, and Piater}]{Hangl2020}
+Hangl S, Dunjko V, Briegel HJ, et~al (2020) Skill learning by autonomous
+  robotic playing using active learning and exploratory behavior composition.
+  Frontiers in Robotics and {AI} 7:42. \doi{10.3389/frobt.2020.00042}
+
+\bibitem[{Haykin(2001)}]{Haykin2001}
+Haykin S (ed)  (2001) {Kalman} Filtering and Neural Networks. Wiley, New York,
+  \doi{10.1002/0471221546}
+
+\bibitem[{Henderson et~al.(2018)Henderson, Islam, Bachman, Pineau, Precup, and
+  Meger}]{Henderson2018}
+Henderson P, Islam R, Bachman P, et~al (2018) Deep reinforcement learning that
+  matters. In: Proceedings of the {AAAI} Conference on Artificial Intelligence,
+  pp 3207--3214, \doi{10.1609/aaai.v32i1.11694}
+
+\bibitem[{Ho and Hoorn(2022)}]{Ho2022}
+Ho JKW, Hoorn JF (2022) Quantum affective processes for multidimensional
+  decision-making. Scientific Reports 12:20468.
+  \doi{10.1038/s41598-022-22855-0}
+
+\bibitem[{Hohenfeld et~al.(2024)Hohenfeld, Heimann, Wiebe, and
+  Kirchner}]{Hohenfeld2024}
+Hohenfeld H, Heimann D, Wiebe F, et~al (2024) Quantum deep reinforcement
+  learning for robot navigation tasks. IEEE Access 12:87217--87236.
+  \doi{10.1109/ACCESS.2024.3417808}
+
+\bibitem[{Huang et~al.(2025{\natexlab{a}})Huang, Busemeyer, Ebelt, and
+  Pothos}]{Huang2025a}
+Huang J, Busemeyer JR, Ebelt Z, et~al (2025{\natexlab{a}}) Bridging the gap
+  between subjective probability and probability judgments: the {Quantum
+  Sequential Sampler}. Psychological Review 132(4):916--955.
+  \doi{10.1037/rev0000489}
+
+\bibitem[{Huang et~al.(2025{\natexlab{b}})Huang, Epping, Trueblood, Yearsley,
+  Busemeyer, and Pothos}]{Huang2025b}
+Huang J, Epping GP, Trueblood JS, et~al (2025{\natexlab{b}}) An overview of the
+  quantum cognition research program. Psychonomic Bulletin \& Review
+  32:2507--2556. \doi{10.3758/s13423-025-02675-9}
+
+\bibitem[{Huang et~al.(2025{\natexlab{c}})Huang, Pleskac, and
+  Busemeyer}]{Huang2025c}
+Huang J, Pleskac TJ, Busemeyer JR (2025{\natexlab{c}}) Quantum recognition
+  heuristics: A tutorial example of quantum heuristics. In: 2025 IEEE
+  International Conference on Quantum Computing and Engineering (QCE). IEEE,
+  \doi{10.1109/QCE65121.2025.10486}
+
+\bibitem[{Humr and Canan(2026)}]{Humr2026}
+Humr S, Canan M (2026) System level intervention for {AI}-supported
+  decision-making: A quantum cognition perspective. In: Quantum {AI} and {NLP}
+  ({QNLPAI} 2025), Communications in Computer and Information Science, vol
+  2659. Springer, Cham, p 250--273, \doi{10.1007/978-3-032-13883-5_14}
+
+\bibitem[{Humr et~al.(2025)Humr, Canan, and Demir}]{Humr2025}
+Humr S, Canan M, Demir M (2025) A quantum probability approach to improving
+  human--{AI} decision making. Entropy 27(2):152. \doi{10.3390/e27020152}
+
+\bibitem[{Humr et~al.(2023)Humr, Canan, and Demir}]{Humr2023}
+Humr SA, Canan M, Demir M (2023) Temporal evolution of trust in artificial
+  intelligence-supported decision-making. Proceedings of the Human Factors and
+  Ergonomics Society Annual Meeting 67(1):1936--1941.
+  \doi{10.1177/21695067231193672}
+
+\bibitem[{Imannezhad et~al.(2026)Imannezhad, Pothos, and
+  Wills}]{Imannezhad2026}
+Imannezhad P, Pothos EM, Wills AJ (2026) Divergent patterns of probabilistic
+  reasoning in humans and {GPT-5}. Frontiers in Psychology 17:1782184.
+  \doi{10.3389/fpsyg.2026.1782184}
+
+\bibitem[{Jerbi et~al.(2021)Jerbi, Gyurik, Marshall, Briegel, and
+  Dunjko}]{Jerbi2021}
+Jerbi S, Gyurik C, Marshall SC, et~al (2021) Parametrized quantum policies for
+  reinforcement learning. In: Advances in Neural Information Processing
+  Systems, {\href{https://arxiv.org/abs/2103.05577}{{arXiv:2103.05577}}}
+
+\bibitem[{Kalman(1960)}]{Kalman1960}
+Kalman RE (1960) A new approach to linear filtering and prediction problems.
+  Journal of Basic Engineering 82(1):35--45. \doi{10.1115/1.3662552}
+
+\bibitem[{Kang(2026)}]{Kang2026}
+Kang P (2026) Auditing question-order effects in large language models with the
+  {QQ} equality: Mechanism characterization and a saturation caveat.
+  {\href{https://arxiv.org/abs/2607.17219}{{arXiv:2607.17219}}}
+
+\bibitem[{Kellen et~al.(2018)Kellen, Singmann, and Batchelder}]{Kellen2018}
+Kellen D, Singmann H, Batchelder WH (2018) Classic-probability accounts of
+  mirrored (quantum-like) order effects in human judgments. Decision
+  5(4):323--338. \doi{10.1037/dec0000080}
+
+\bibitem[{Khoshnoud et~al.(2020)Khoshnoud, Quadrelli, Esat, and
+  Robinson}]{Khoshnoud2020}
+Khoshnoud F, Quadrelli MB, Esat II, et~al (2020) Quantum cooperative robotics
+  and autonomy. {\href{https://arxiv.org/abs/2008.12230}{{arXiv:2008.12230}}}
+
+\bibitem[{Khrennikov(1999)}]{Khrennikov1999}
+Khrennikov A (1999) Classical and quantum mechanics on information spaces with
+  applications to cognitive, psychological, social, and anomalous phenomena.
+  Foundations of Physics 29(7):1065--1098. \doi{10.1023/A:1018885632116}
+
+\bibitem[{Khrennikov(2010)}]{Khrennikov2010}
+Khrennikov A (2010) Ubiquitous Quantum Structure: From Psychology to Finance.
+  Springer, Berlin, Heidelberg, \doi{10.1007/978-3-642-05101-2}
+
+\bibitem[{Khrennikov(2022)}]{Khrennikov2022}
+Khrennikov A (2022) Quantum probability for modeling cognition, decision
+  making, and artificial intelligence. In: Accardi L, Mukhamedov F,
+  Al~Rawashdeh A (eds) Infinite Dimensional Analysis, Quantum Probability and
+  Applications, Springer Proceedings in Mathematics \& Statistics, vol 390.
+  Springer, Cham, p 89--100, \doi{10.1007/978-3-031-06170-7_4}
+
+\bibitem[{Khrennikov(2023)}]{Khrennikov2023a}
+Khrennikov A (2023) Open systems, quantum probability, and logic for
+  quantum-like modeling in biology, cognition, and decision-making. Entropy
+  25(6):886. \doi{10.3390/e25060886}
+
+\bibitem[{Khrennikov(2024)}]{Khrennikov2023b}
+Khrennikov A (2024) Contextual measurement model and quantum theory. Royal
+  Society Open Science 11(3):231953. \doi{10.1098/rsos.231953}
+
+\bibitem[{Khrennikov(2026)}]{Khrennikov2026}
+Khrennikov A (2026) Quantum-like cognition and {AI} toward the convergence of
+  natural and artificial intelligence. Discover Artificial Intelligence 6:167.
+  \doi{10.1007/s44163-026-00909-w}
+
+\bibitem[{Khrennikov and Yamada(2025)}]{Khrennikov2025c}
+Khrennikov A, Yamada M (2025) Quantum-like representation of neuronal networks'
+  activity: modeling ``mental entanglement''. Frontiers in Human Neuroscience
+  19:1685339. \doi{10.3389/fnhum.2025.1685339}
+
+\bibitem[{Khrennikov et~al.(2014)Khrennikov, Basieva, Dzhafarov, and
+  Busemeyer}]{Khrennikov2014}
+Khrennikov A, Basieva I, Dzhafarov EN, et~al (2014) Quantum models for
+  psychological measurements: An unsolved problem. {PLoS ONE} 9(10):e110909.
+  \doi{10.1371/journal.pone.0110909}
+
+\bibitem[{Khrennikov et~al.(2018)Khrennikov, Basieva, Pothos, and
+  Yamato}]{Khrennikov2018}
+Khrennikov A, Basieva I, Pothos EM, et~al (2018) Quantum probability in
+  decision making from quantum information representation of neuronal states.
+  Scientific Reports 8:16225. \doi{10.1038/s41598-018-34531-3}
+
+\bibitem[{Khrennikov et~al.(2025{\natexlab{a}})Khrennikov, Iriki, and
+  Basieva}]{Khrennikov2025b}
+Khrennikov A, Iriki A, Basieva I (2025{\natexlab{a}}) Constructing a bridge
+  between functioning of oscillatory neuronal networks and quantum-like
+  cognition along with quantum-inspired computation and {AI}. BioSystems
+  257:105573. \doi{10.1016/j.biosystems.2025.105573}
+
+\bibitem[{Khrennikov et~al.(2025{\natexlab{b}})Khrennikov, Ozawa, Benninger,
+  and Shor}]{Khrennikov2025a}
+Khrennikov A, Ozawa M, Benninger F, et~al (2025{\natexlab{b}}) Coupling
+  quantum-like cognition with the neuronal networks within generalized
+  probability theory. Journal of Mathematical Psychology 125:102923.
+  \doi{10.1016/j.jmp.2025.102923}
+
+\bibitem[{Kong et~al.(2026)Kong, Xue, Wang, and Xu}]{Kong2026}
+Kong D, Xue K, Wang P, et~al (2026) Emergence of longitudinal queues in group
+  navigation: An interpretable approach via projective simulation. Biomimetics
+  11(3):201. \doi{10.3390/biomimetics11030201}
+
+\bibitem[{Kotseruba and Tsotsos(2020)}]{Kotseruba2020}
+Kotseruba I, Tsotsos JK (2020) 40 years of cognitive architectures: Core
+  cognitive abilities and practical applications. Artificial Intelligence
+  Review 53(1):17--94. \doi{10.1007/s10462-018-9646-y}
+
+\bibitem[{Krizhevsky et~al.(2012)Krizhevsky, Sutskever, and
+  Hinton}]{Krizhevsky2012}
+Krizhevsky A, Sutskever I, Hinton GE (2012) {ImageNet} classification with deep
+  convolutional neural networks. In: Pereira F, Burges CJC, Bottou L, et~al
+  (eds) Advances in Neural Information Processing Systems 25 ({NIPS} 2012).
+  Curran Associates, pp 1097--1105,
+  \urlprefix\url{https://papers.nips.cc/paper/2012/hash/c399862d3b9d6b76c8436e924a68c45b-Abstract.html}
+
+\bibitem[{Kvam et~al.(2015)Kvam, Pleskac, Yu, and Busemeyer}]{Kvam2015}
+Kvam PD, Pleskac TJ, Yu S, et~al (2015) Interference effects of choice on
+  confidence: Quantum characteristics of evidence accumulation. Proceedings of
+  the National Academy of Sciences 112(34):10645--10650.
+  \doi{10.1073/pnas.1500688112}
+
+\bibitem[{Kvam et~al.(2021)Kvam, Busemeyer, and Pleskac}]{Kvam2021}
+Kvam PD, Busemeyer JR, Pleskac TJ (2021) Temporal oscillations in preference
+  strength provide evidence for an open system model of constructed preference.
+  Scientific Reports 11:8169. \doi{10.1038/s41598-021-87659-0}
+
+\bibitem[{Laird et~al.(2017)Laird, Lebiere, and Rosenbloom}]{Laird2017}
+Laird JE, Lebiere C, Rosenbloom PS (2017) A standard model of the mind: Toward
+  a common computational framework across artificial intelligence, cognitive
+  science, neuroscience, and robotics. {AI} Magazine 38(4):13--26.
+  \doi{10.1609/aimag.v38i4.2744}
+
+\bibitem[{Lanza et~al.(2020)Lanza, Solinas, and Mastrogiovanni}]{Lanza2020}
+Lanza D, Solinas P, Mastrogiovanni F (2020) A preliminary study for a
+  quantum-like robot perception model.
+  {\href{https://arxiv.org/abs/2006.02771}{{arXiv:2006.02771}}}
+
+\bibitem[{Lanza et~al.(2021)Lanza, Solinas, and Mastrogiovanni}]{Lanza2021}
+Lanza D, Solinas P, Mastrogiovanni F (2021) Multi-sensory integration in a
+  quantum-like robot perception model. In: Siciliano B, Laschi C, Khatib O
+  (eds) Experimental Robotics: The 17th International Symposium ({ISER} 2020),
+  Springer Proceedings in Advanced Robotics, vol~19. Springer, Cham, p
+  502--509, \doi{10.1007/978-3-030-71151-1_44}
+
+\bibitem[{Lauri et~al.(2023)Lauri, Hsu, and Pajarinen}]{Lauri2023}
+Lauri M, Hsu D, Pajarinen J (2023) Partially observable {Markov} decision
+  processes in robotics: a survey. IEEE Transactions on Robotics 39(1):21--40.
+  \doi{10.1109/TRO.2022.3200138}
+
+\bibitem[{Lawless(2020)}]{Lawless2020}
+Lawless WF (2020) Quantum-like interdependence theory advances autonomous
+  human--machine teams ({A-HMTs}). Entropy 22(11):1227. \doi{10.3390/e22111227}
+
+\bibitem[{Lawless and Moskowitz(2025)}]{Lawless2025}
+Lawless WF, Moskowitz IS (2025) An entropy approach to interdependent
+  human--machine teams. Entropy 27(2):176. \doi{10.3390/e27020176}
+
+\bibitem[{Lawless et~al.(2023)Lawless, Moskowitz, and Doctor}]{Lawless2023}
+Lawless WF, Moskowitz IS, Doctor KZ (2023) A quantum-like model of
+  interdependence for embodied human--machine teams: Reviewing the path to
+  autonomy facing complexity and uncertainty. Entropy 25(9):1323.
+  \doi{10.3390/e25091323}
+
+\bibitem[{Li et~al.(2019)Li, Wang, and Melucci}]{Li2019}
+Li Q, Wang B, Melucci M (2019) {CNM}: An interpretable complex-valued network
+  for matching. In: Proceedings of the 2019 Conference of the North {American}
+  Chapter of the Association for Computational Linguistics: Human Language
+  Technologies, Volume 1 (Long and Short Papers). Association for Computational
+  Linguistics, Minneapolis, Minnesota, pp 4139--4148,
+  \doi{10.18653/v1/N19-1420}
+
+\bibitem[{Li et~al.(2021{\natexlab{a}})Li, Gkoumas, Lioma, and
+  Melucci}]{Li2021a}
+Li Q, Gkoumas D, Lioma C, et~al (2021{\natexlab{a}}) Quantum-inspired
+  multimodal fusion for video sentiment analysis. Information Fusion 65:58--71.
+  \doi{10.1016/j.inffus.2020.08.006}
+
+\bibitem[{Li et~al.(2021{\natexlab{b}})Li, Gkoumas, Sordoni, Nie, and
+  Melucci}]{Li2021b}
+Li Q, Gkoumas D, Sordoni A, et~al (2021{\natexlab{b}}) Quantum-inspired neural
+  network for conversational emotion recognition. In: Proceedings of the {AAAI}
+  Conference on Artificial Intelligence, pp 13270--13278,
+  \doi{10.1609/aaai.v35i15.17567}
+
+\bibitem[{Liu et~al.(2023)Liu, Li, Wang, Zhang, and Song}]{Liu2023}
+Liu Y, Li Q, Wang B, et~al (2023) A survey of quantum-cognitively inspired
+  sentiment analysis models. {ACM} Computing Surveys 56(1):1--37.
+  \doi{10.1145/3604550}
+
+\bibitem[{Lo et~al.(2025)Lo, Sadrzadeh, and Mansfield}]{Lo2025}
+Lo KI, Sadrzadeh M, Mansfield S (2025) Quantum-like contextuality in large
+  language models. Proceedings of the Royal Society A
+  {\href{https://arxiv.org/abs/2412.16806}{{arXiv:2412.16806}}}
+
+\bibitem[{L{\'o}pez-Incera et~al.(2020)L{\'o}pez-Incera, Ried, M{\"u}ller, and
+  Briegel}]{LopezIncera2020}
+L{\'o}pez-Incera A, Ried K, M{\"u}ller T, et~al (2020) Development of swarm
+  behavior in artificial learning agents that adapt to different foraging
+  environments. PLoS ONE 15(12):e0243628. \doi{10.1371/journal.pone.0243628}
+
+\bibitem[{Lorenz et~al.(2023)Lorenz, Pearson, Meichanetzidis, Kartsaklis, and
+  Coecke}]{Lorenz2023}
+Lorenz R, Pearson A, Meichanetzidis K, et~al (2023) {QNLP} in practice: Running
+  compositional models of meaning on a quantum computer. Journal of Artificial
+  Intelligence Research 76:1305--1342. \doi{10.1613/jair.1.14329}
+
+\bibitem[{Luckcuck et~al.(2019)Luckcuck, Farrell, Dennis, Dixon, and
+  Fisher}]{Luckcuck2019}
+Luckcuck M, Farrell M, Dennis LA, et~al (2019) Formal specification and
+  verification of autonomous robotic systems: A survey. ACM Computing Surveys
+  52(5):100:1--100:41. \doi{10.1145/3342355}
+
+\bibitem[{Lukac and Perkowski(2007)}]{Lukac2007}
+Lukac M, Perkowski M (2007) Quantum mechanical model of emotional robot
+  behaviors. In: Proceedings of the 37th International Symposium on
+  Multiple-Valued Logic ({ISMVL} 2007). IEEE, Oulu, Finland
+
+\bibitem[{Maksimovic and Maksymov(2025)}]{Maksimovic2025}
+Maksimovic M, Maksymov IS (2025) Quantum-cognitive neural networks: Assessing
+  confidence and uncertainty with human decision-making simulations. Big Data
+  and Cognitive Computing 9(1):12. \doi{10.3390/bdcc9010012}
+
+\bibitem[{Maksymov(2025)}]{Maksymov2025}
+Maksymov IS (2025) Cognition in superposition: quantum models in {AI}, finance,
+  defence, gaming and collective behaviour.
+  {\href{https://arxiv.org/abs/2508.20098}{{arXiv:2508.20098}}}
+
+\bibitem[{Mannone et~al.(2022)Mannone, Seidita, and Chella}]{Mannone2022}
+Mannone M, Seidita V, Chella A (2022) Categories, quantum computing, and swarm
+  robotics: A case study. Mathematics 10(3):372. \doi{10.3390/math10030372}
+
+\bibitem[{Mannone et~al.(2024)Mannone, Chella, Pilato, Seidita, Vella, and
+  Gaglio}]{Mannone2024}
+Mannone M, Chella A, Pilato G, et~al (2024) Modeling robotic thinking and
+  creativity: A classic--quantum dialogue. Mathematics 12(5):642.
+  \doi{10.3390/math12050642}
+
+\bibitem[{Mart{\'i}nez-Mart{\'i}nez and
+  S{\'a}nchez-Burillo(2016)}]{MartinezMartinez2016}
+Mart{\'i}nez-Mart{\'i}nez I, S{\'a}nchez-Burillo E (2016) Quantum stochastic
+  walks on networks for decision-making. Scientific Reports 6:23812.
+  \doi{10.1038/srep23812}
+
+\bibitem[{van~der Meer et~al.(2025)van~der Meer, Hoyte, Roeder, and
+  Bruza}]{vanderMeer2025}
+van~der Meer J, Hoyte P, Roeder L, et~al (2025) Modeling the quantum-like
+  dynamics of human reliability ratings in human--{AI} interactions by
+  interaction dependent {Hamiltonians}. ArXiv preprint,
+  {\href{https://arxiv.org/abs/2504.13918}{{arXiv:2504.13918}}}
+
+\bibitem[{Meghdadi et~al.(2022)Meghdadi, Akbarzadeh-T., and
+  Javidan}]{Meghdadi2022}
+Meghdadi A, Akbarzadeh-T. MR, Javidan K (2022) A quantum-like cognitive
+  approach to modeling human biased selection behavior. Scientific Reports
+  12:22545. \doi{10.1038/s41598-022-13757-2}
+
+\bibitem[{Melnikov et~al.(2018)Melnikov, Makmal, and Briegel}]{Melnikov2018}
+Melnikov AA, Makmal A, Briegel HJ (2018) Benchmarking projective simulation in
+  navigation problems. IEEE Access 6:64639--64648.
+  \doi{10.1109/ACCESS.2018.2876494}
+
+\bibitem[{Meyer et~al.(2022)Meyer, Ufrecht, Periyasamy, Scherer, Plinge, and
+  Mutschler}]{Meyer2022}
+Meyer N, Ufrecht C, Periyasamy M, et~al (2022) A survey on quantum
+  reinforcement learning.
+  {\href{https://arxiv.org/abs/2211.03464}{{arXiv:2211.03464}}}
+
+\bibitem[{Moreira(2017)}]{Moreira2017a}
+Moreira C (2017) Quantum probabilistic graphical models for cognition and
+  decision. PhD thesis, Instituto Superior T{\'e}cnico, Universidade de Lisboa,
+  Lisbon, Portugal
+
+\bibitem[{Moreira and Wichert(2014)}]{Moreira2014}
+Moreira C, Wichert A (2014) Interference effects in quantum belief networks.
+  Applied Soft Computing 25:64--85. \doi{10.1016/j.asoc.2014.09.008}
+
+\bibitem[{Moreira and Wichert(2016)}]{Moreira2016}
+Moreira C, Wichert A (2016) Quantum-like {Bayesian} networks for modeling
+  decision making. Frontiers in Psychology 7:11. \doi{10.3389/fpsyg.2016.00011}
+
+\bibitem[{Moreira and Wichert(2017)}]{Moreira2017b}
+Moreira C, Wichert A (2017) Are quantum models for order effects quantum?
+  International Journal of Theoretical Physics 56:4029--4046.
+  \doi{10.1007/s10773-017-3424-5}
+
+\bibitem[{Moreira et~al.(2020{\natexlab{a}})Moreira, Fell, Dehdashti, Bruza,
+  and Wichert}]{Moreira2020a}
+Moreira C, Fell L, Dehdashti S, et~al (2020{\natexlab{a}}) Towards a
+  quantum-like cognitive architecture for decision-making. Behavioral and Brain
+  Sciences 43:e17. \doi{10.1017/S0140525X19001687}
+
+\bibitem[{Moreira et~al.(2020{\natexlab{b}})Moreira, Tiwari, Pandey, Bruza, and
+  Wichert}]{Moreira2020b}
+Moreira C, Tiwari P, Pandey HM, et~al (2020{\natexlab{b}}) Quantum-like
+  influence diagrams for decision-making. Neural Networks 132:190--210.
+  \doi{10.1016/j.neunet.2020.07.009}
+
+\bibitem[{Nausheen et~al.(2025)Nausheen, Ahmed, Khan, and Riaz}]{Nausheen2025}
+Nausheen F, Ahmed K, Khan MI, et~al (2025) Quantum natural language processing:
+  A comprehensive review of models, methods, and applications.
+  {\href{https://arxiv.org/abs/2504.09909}{{arXiv:2504.09909}}}
+
+\bibitem[{von Neumann(1932)}]{vonNeumann1932}
+von Neumann J (1932) Mathematische {Grundlagen} der {Quantenmechanik}.
+  Springer, Berlin, english translation: \emph{Mathematical Foundations of
+  Quantum Mechanics}, trans. R. T. Beyer, Princeton University Press,
+  Princeton, 1955
+
+\bibitem[{Ozawa and Khrennikov(2020)}]{Ozawa2020}
+Ozawa M, Khrennikov A (2020) Application of theory of quantum instruments to
+  psychology: Combination of question order effect with response replicability
+  effect. Entropy 22(1):37. \doi{10.3390/e22010037}
+
+\bibitem[{Ozawa and Khrennikov(2021)}]{Ozawa2021}
+Ozawa M, Khrennikov A (2021) Modeling combination of question order effect,
+  response replicability effect, and {QQ}-equality with quantum instruments.
+  Journal of Mathematical Psychology 100:102491.
+  \doi{10.1016/j.jmp.2020.102491}
+
+\bibitem[{Paparo et~al.(2014)Paparo, Dunjko, Makmal, Martin-Delgado, and
+  Briegel}]{Paparo2014}
+Paparo GD, Dunjko V, Makmal A, et~al (2014) Quantum speedup for active learning
+  agents. Physical Review X 4(3):031002. \doi{10.1103/PhysRevX.4.031002}
+
+\bibitem[{Petschnigg et~al.(2019)Petschnigg, Brandst{\"o}tter, Pichler,
+  Hofbaur, and Dieber}]{Petschnigg2019}
+Petschnigg C, Brandst{\"o}tter M, Pichler H, et~al (2019) Quantum computation
+  in robotic science and applications. In: 2019 International Conference on
+  Robotics and Automation ({ICRA}). IEEE, pp 803--810,
+  \doi{10.1109/ICRA.2019.8793768}
+
+\bibitem[{Pothos and Busemeyer(2009)}]{Pothos2009}
+Pothos EM, Busemeyer JR (2009) A quantum probability explanation for violations
+  of `rational' decision theory. Proceedings of the Royal Society B: Biological
+  Sciences 276(1665):2171--2178. \doi{10.1098/rspb.2009.0121}
+
+\bibitem[{Pothos and Busemeyer(2013)}]{Pothos2013a}
+Pothos EM, Busemeyer JR (2013) Can quantum probability provide a new direction
+  for cognitive modeling? Behavioral and Brain Sciences 36(3):255--274.
+  \doi{10.1017/S0140525X12001525}
+
+\bibitem[{Pothos and Busemeyer(2022)}]{Pothos2022}
+Pothos EM, Busemeyer JR (2022) Quantum cognition. Annual Review of Psychology
+  73(1):749--778. \doi{10.1146/annurev-psych-033020-123501}
+
+\bibitem[{Pothos et~al.(2013)Pothos, Busemeyer, and Trueblood}]{Pothos2013b}
+Pothos EM, Busemeyer JR, Trueblood JS (2013) A quantum geometric model of
+  similarity. Psychological Review 120(3):679--696. \doi{10.1037/a0033142}
+
+\bibitem[{Pothos et~al.(2017)Pothos, Yearsley, Shiffrin, and
+  Busemeyer}]{Pothos2017}
+Pothos EM, Yearsley JM, Shiffrin RM, et~al (2017) The rational status of
+  quantum cognition. Journal of Experimental Psychology: General
+  146(7):968--987. \doi{10.1037/xge0000312}
+
+\bibitem[{Preskill(2018)}]{Preskill2018}
+Preskill J (2018) Quantum computing in the {NISQ} era and beyond. Quantum 2:79.
+  \doi{10.22331/q-2018-08-06-79}
+
+\bibitem[{Pushparaj et~al.(2021)Pushparaj, Ky, Ayeni, Alam, and
+  Duong}]{Pushparaj2021}
+Pushparaj K, Ky G, Ayeni AJ, et~al (2021) A quantum-inspired model for
+  human-automation trust in air traffic controllers derived from functional
+  magnetic resonance imaging and correlated with behavioural indicators.
+  Journal of Air Transport Management 97:102143.
+  \doi{10.1016/j.jairtraman.2021.102143}
+
+\bibitem[{Ried et~al.(2019)Ried, M{\"u}ller, and Briegel}]{Ried2019}
+Ried K, M{\"u}ller T, Briegel HJ (2019) Modelling collective motion based on
+  the principle of agency: General framework and the case of marching locusts.
+  PLoS ONE 14(2):e0212044. \doi{10.1371/journal.pone.0212044}
+
+\bibitem[{Roeder et~al.(2023)Roeder, Hoyte, van~der Meer, Fell, Johnston, Kerr,
+  and Bruza}]{Roeder2023}
+Roeder L, Hoyte P, van~der Meer J, et~al (2023) A quantum model of trust
+  calibration in human--{AI} interactions. Entropy 25(9):1362.
+  \doi{10.3390/e25091362}
+
+\bibitem[{Saggio et~al.(2021)Saggio, Asenbeck, Hamann, Str{\"o}mberg,
+  Schiansky, Dunjko, Friis, Harris, Hochberg, Englund, W{\"o}lk, Briegel, and
+  Walther}]{Saggio2021}
+Saggio V, Asenbeck BE, Hamann A, et~al (2021) Experimental quantum speed-up in
+  reinforcement learning agents. Nature 591(7849):229--233.
+  \doi{10.1038/s41586-021-03242-7}
+
+\bibitem[{Savage(1954)}]{Savage1954}
+Savage LJ (1954) The Foundations of Statistics. John Wiley \& Sons, New York
+
+\bibitem[{Schuld and Killoran(2019)}]{Schuld2019}
+Schuld M, Killoran N (2019) Quantum machine learning in feature {Hilbert}
+  spaces. Physical Review Letters 122(4):040504.
+  \doi{10.1103/PhysRevLett.122.040504}
+
+\bibitem[{Shafir and Tversky(1992)}]{Shafir1992}
+Shafir E, Tversky A (1992) Thinking through uncertainty: Nonconsequential
+  reasoning and choice. Cognitive Psychology 24(4):449--474.
+  \doi{10.1016/0010-0285(92)90015-T}
+
+\bibitem[{She et~al.(2021)She, Han, and Liu}]{She2021}
+She L, Han S, Liu X (2021) Application of quantum-like {Bayesian} network and
+  belief entropy for interference effect in multi-attribute decision making
+  problem. Computers \& Industrial Engineering 157:107307.
+  \doi{10.1016/j.cie.2021.107307}
+
+\bibitem[{Sinha et~al.(2025)Sinha, Macaluso, and Klusch}]{Sinha2023}
+Sinha A, Macaluso A, Klusch M (2025) {Nav-Q}: Quantum deep reinforcement
+  learning for collision-free navigation of self-driving cars. Quantum Machine
+  Intelligence 7(1):19. \doi{10.1007/s42484-024-00226-4}
+
+\bibitem[{Skolik et~al.(2022)Skolik, Jerbi, and Dunjko}]{Skolik2022}
+Skolik A, Jerbi S, Dunjko V (2022) Quantum agents in the {Gym}: A variational
+  quantum algorithm for deep {Q}-learning. Quantum 6:720.
+  \doi{10.22331/q-2022-05-24-720}
+
+\bibitem[{Song et~al.(2022)Song, Wang, Fu, Sun, Wang, and Gao}]{Song2022}
+Song Q, Wang W, Fu W, et~al (2022) Research on quantum cognition in autonomous
+  driving. Scientific Reports 12:300. \doi{10.1038/s41598-021-04239-y}
+
+\bibitem[{Sordoni et~al.(2013)Sordoni, Nie, and Bengio}]{Sordoni2013}
+Sordoni A, Nie JY, Bengio Y (2013) Modeling term dependencies with quantum
+  language models for {IR}. In: Proceedings of the 36th International {ACM}
+  {SIGIR} Conference on Research and Development in Information Retrieval
+  ({SIGIR} '13). ACM, Dublin, Ireland, pp 653--662,
+  \doi{10.1145/2484028.2484098}
+
+\bibitem[{Stoudenmire and Schwab(2016)}]{Stoudenmire2016}
+Stoudenmire E, Schwab DJ (2016) Supervised learning with tensor networks. In:
+  Lee DD, Sugiyama M, Luxburg UV, et~al (eds) Advances in Neural Information
+  Processing Systems 29 ({NIPS} 2016). Curran Associates, Inc., pp 4799--4807,
+  \urlprefix\url{https://proceedings.neurips.cc/paper/2016/hash/5314b9674c86e3f9d1ba25ef9bb32895-Abstract.html},
+  {\href{https://arxiv.org/abs/1605.05775}{{arXiv:1605.05775}}}
+
+\bibitem[{Sutton and Barto(2018)}]{Sutton2018}
+Sutton RS, Barto AG (2018) Reinforcement Learning: An Introduction, 2nd edn.
+  MIT Press, Cambridge, MA
+
+\bibitem[{Svozil(2025)}]{Svozil2025}
+Svozil K (2025) Quantum contextuality for contextual word embeddings.
+  {\href{https://arxiv.org/abs/2504.13824}{{arXiv:2504.13824}}}
+
+\bibitem[{Tang(2019)}]{Tang2019}
+Tang E (2019) A quantum-inspired classical algorithm for recommendation
+  systems. In: Proceedings of the 51st Annual {ACM} {SIGACT} Symposium on
+  Theory of Computing ({STOC} 2019). ACM, New York, NY, USA, pp 217--228,
+  \doi{10.1145/3313276.3316310}
+
+\bibitem[{Tegmark(2000)}]{Tegmark2000}
+Tegmark M (2000) Importance of quantum decoherence in brain processes. Physical
+  Review E 61(4):4194--4206. \doi{10.1103/PhysRevE.61.4194}
+
+\bibitem[{Thrun et~al.(2005)Thrun, Burgard, and Fox}]{Thrun2005}
+Thrun S, Burgard W, Fox D (2005) Probabilistic Robotics. MIT Press, Cambridge,
+  MA
+
+\bibitem[{Tjuatja et~al.(2024)Tjuatja, Chen, Wu, Talwalkar, and
+  Neubig}]{Tjuatja2024}
+Tjuatja L, Chen V, Wu T, et~al (2024) Do {LLMs} exhibit human-like response
+  biases? {A} case study in survey design. Transactions of the Association for
+  Computational Linguistics 12:1011--1026. \doi{10.1162/tacl_a_00685}
+
+\bibitem[{Trueblood and Busemeyer(2011)}]{Trueblood2011}
+Trueblood JS, Busemeyer JR (2011) A quantum probability account of order
+  effects in inference. Cognitive Science 35(8):1518--1552.
+  \doi{10.1111/j.1551-6709.2011.01197.x}
+
+\bibitem[{Trueblood and Hemmer(2017)}]{Trueblood2017b}
+Trueblood JS, Hemmer P (2017) The generalized quantum episodic memory model.
+  Cognitive Science 41(8):2089--2125. \doi{10.1111/cogs.12460}
+
+\bibitem[{Trueblood et~al.(2017)Trueblood, Yearsley, and
+  Pothos}]{Trueblood2017a}
+Trueblood JS, Yearsley JM, Pothos EM (2017) A quantum probability framework for
+  human probabilistic inference. Journal of Experimental Psychology: General
+  146(9):1307--1341. \doi{10.1037/xge0000326}
+
+\bibitem[{Tversky and Kahneman(1974)}]{Tversky1974}
+Tversky A, Kahneman D (1974) Judgment under uncertainty: Heuristics and biases.
+  Science 185(4157):1124--1131. \doi{10.1126/science.185.4157.1124}
+
+\bibitem[{Tversky and Kahneman(1983)}]{Tversky1983}
+Tversky A, Kahneman D (1983) Extensional versus intuitive reasoning: The
+  conjunction fallacy in probability judgment. Psychological Review
+  90(4):293--315. \doi{10.1037/0033-295X.90.4.293}
+
+\bibitem[{Uprety et~al.(2020)Uprety, Gkoumas, and Song}]{Uprety2021}
+Uprety S, Gkoumas D, Song D (2020) A survey of quantum theory inspired
+  approaches to information retrieval. {ACM} Computing Surveys
+  53(5):98:1--98:39. \doi{10.1145/3402179}
+
+\bibitem[{Uprety et~al.(2024)Uprety, Liu, Jaiswal, and Song}]{Uprety2024}
+Uprety S, Liu H, Jaiswal AK, et~al (2024) Investigating context effects in
+  similarity judgements in large language models.
+  {\href{https://arxiv.org/abs/2408.10711}{{arXiv:2408.10711}}}
+
+\bibitem[{Veloz and Sobetska(2024)}]{Veloz2024}
+Veloz T, Sobetska O (2024) Analyzing the conjunction fallacy as a fact.
+  {\href{https://arxiv.org/abs/2402.13615}{{arXiv:2402.13615}}}
+
+\bibitem[{Waddup et~al.(2023)Waddup, Yearsley, Blasiak, and
+  Pothos}]{Waddup2023}
+Waddup O, Yearsley JM, Blasiak P, et~al (2023) Temporal {Bell} inequalities in
+  cognition. Psychonomic Bulletin \& Review 30(5):1946--1953.
+  \doi{10.3758/s13423-023-02275-5}
+
+\bibitem[{Waddup et~al.(2021)Waddup, Blasiak, Yearsley, Wojciechowski, and
+  Pothos}]{Waddup2021}
+Waddup OJ, Blasiak P, Yearsley JM, et~al (2021) Sensitivity to context in human
+  interactions. Mathematics 9(21):2784. \doi{10.3390/math9212784}
+
+\bibitem[{Wang and Busemeyer(2013)}]{Wang2013b}
+Wang Z, Busemeyer JR (2013) A quantum question order model supported by
+  empirical tests of an a priori and precise prediction. Topics in Cognitive
+  Science 5(4):689--710. \doi{10.1111/tops.12040}
+
+\bibitem[{Wang and Busemeyer(2016)}]{Wang2016}
+Wang Z, Busemeyer JR (2016) Interference effects of categorization on decision
+  making. Cognition 150:133--149. \doi{10.1016/j.cognition.2016.01.019}
+
+\bibitem[{Wang et~al.(2013)Wang, Busemeyer, Atmanspacher, and
+  Pothos}]{Wang2013a}
+Wang Z, Busemeyer JR, Atmanspacher H, et~al (2013) The potential of using
+  quantum theory to build models of cognition. Topics in Cognitive Science
+  5(4):672--688. \doi{10.1111/tops.12043}
+
+\bibitem[{Wang et~al.(2014)Wang, Solloway, Shiffrin, and Busemeyer}]{Wang2014}
+Wang Z, Solloway T, Shiffrin RM, et~al (2014) Context effects produced by
+  question orders reveal quantum nature of human judgments. Proceedings of the
+  National Academy of Sciences 111(26):9431--9436.
+  \doi{10.1073/pnas.1407756111}
+
+\bibitem[{Wei et~al.(2022)Wei, Ma, Chen, and Dong}]{Wei2022}
+Wei Q, Ma H, Chen C, et~al (2022) Deep reinforcement learning with
+  quantum-inspired experience replay. IEEE Transactions on Cybernetics
+  52(9):9326--9338. \doi{10.1109/TCYB.2021.3053414}
+
+\bibitem[{Wichert et~al.(2020)Wichert, Moreira, and Bruza}]{Wichert2020}
+Wichert A, Moreira C, Bruza P (2020) Balanced quantum-like {Bayesian} networks.
+  Entropy 22(2):170. \doi{10.3390/e22020170}
+
+\bibitem[{Widdows and Peters(2003)}]{Widdows2003}
+Widdows D, Peters S (2003) Word vectors and quantum logic: Experiments with
+  negation and disjunction. In: Proceedings of the 8th Mathematics of Language
+  Conference ({MOL} 8), Bloomington, IN, pp 141--154
+
+\bibitem[{Widdows et~al.(2021)Widdows, Kitto, and Cohen}]{Widdows2021}
+Widdows D, Kitto K, Cohen T (2021) Quantum mathematics in artificial
+  intelligence. Journal of Artificial Intelligence Research 72:1307--1341.
+  \doi{10.1613/jair.1.12702}
+
+\bibitem[{Widdows et~al.(2023)Widdows, Rani, and Pothos}]{Widdows2023}
+Widdows D, Rani J, Pothos EM (2023) Quantum circuit components for cognitive
+  decision-making. Entropy 25(4):548. \doi{10.3390/e25040548}
+
+\bibitem[{Widdows et~al.(2024)Widdows, Aboumrad, Kim, Ray, and
+  Mei}]{Widdows2024}
+Widdows D, Aboumrad W, Kim D, et~al (2024) Quantum natural language processing.
+  KI -- K{\"u}nstliche Intelligenz 38(4):293--310.
+  \doi{10.1007/s13218-024-00861-w}
+
+\bibitem[{Yan et~al.(2019)Yan, Iliyasu, Jiao, and Yang}]{Yan2019}
+Yan F, Iliyasu AM, Jiao S, et~al (2019) Quantum structure for modelling emotion
+  space of robots. Applied Sciences 9(16):3351. \doi{10.3390/app9163351}
+
+\bibitem[{Yan et~al.(2021{\natexlab{a}})Yan, Iliyasu, and Hirota}]{Yan2021a}
+Yan F, Iliyasu AM, Hirota K (2021{\natexlab{a}}) Conceptual framework for
+  quantum affective computing and its use in fusion of multi-robot emotions.
+  Electronics 10(2):100. \doi{10.3390/electronics10020100}
+
+\bibitem[{Yan et~al.(2021{\natexlab{b}})Yan, Iliyasu, and Hirota}]{Yan2021b}
+Yan F, Iliyasu AM, Hirota K (2021{\natexlab{b}}) Emotion space modelling for
+  social robots. Engineering Applications of Artificial Intelligence
+  100:104178. \doi{10.1016/j.engappai.2021.104178}
+
+\bibitem[{Yan et~al.(2021{\natexlab{c}})Yan, Yang, Li, Yu, and Zhai}]{Yan2021c}
+Yan F, Yang X, Li N, et~al (2021{\natexlab{c}}) Emotion generation and
+  transition of companion robots based on {Plutchik's} model and quantum
+  circuit schemes. Security and Communication Networks 2021:6802521.
+  \doi{10.1155/2021/6802521}
+
+\bibitem[{Yan et~al.(2024)Yan, Iliyasu, Li, Salama, and Hirota}]{Yan2024}
+Yan F, Iliyasu AM, Li N, et~al (2024) Quantum robotics: a review of emerging
+  trends. Quantum Machine Intelligence 6(2):86.
+  \doi{10.1007/s42484-024-00225-5}
+
+\bibitem[{Yearsley(2017)}]{Yearsley2017}
+Yearsley JM (2017) Advanced tools and concepts for quantum cognition: A
+  tutorial. Journal of Mathematical Psychology 78:24--39.
+  \doi{10.1016/j.jmp.2016.07.005}
+
+\bibitem[{Yearsley and Busemeyer(2016)}]{Yearsley2016a}
+Yearsley JM, Busemeyer JR (2016) Quantum cognition and decision theories: A
+  tutorial. Journal of Mathematical Psychology 74:99--116.
+  \doi{10.1016/j.jmp.2015.11.005}
+
+\bibitem[{Yearsley and Pothos(2016)}]{Yearsley2016b}
+Yearsley JM, Pothos EM (2016) Zeno's paradox in decision-making. Proceedings of
+  the Royal Society B: Biological Sciences 283(1828):20160291.
+  \doi{10.1098/rspb.2016.0291}
+
+\bibitem[{Yukalov(2020)}]{Yukalov2020}
+Yukalov VI (2020) Evolutionary processes in quantum decision theory. Entropy
+  22(6):681. \doi{10.3390/e22060681}
+
+\bibitem[{Yukalov(2023)}]{Yukalov2023}
+Yukalov VI (2023) Quantum operation of affective artificial intelligence. Laser
+  Physics 33(6):065204. \doi{10.1088/1555-6611/accf7a}
+
+\bibitem[{Yukalov and Sornette(2011)}]{Yukalov2011}
+Yukalov VI, Sornette D (2011) Decision theory with prospect interference and
+  entanglement. Theory and Decision 70(3):283--328.
+  \doi{10.1007/s11238-010-9202-y}
+
+\bibitem[{Yukalov and Sornette(2016)}]{Yukalov2016}
+Yukalov VI, Sornette D (2016) Quantum probability and quantum decision-making.
+  Philosophical Transactions of the Royal Society A: Mathematical, Physical and
+  Engineering Sciences 374(2058):20150100. \doi{10.1098/rsta.2015.0100},
+  {\href{https://arxiv.org/abs/1601.02480}{{arXiv:1601.02480}}}
+
+\bibitem[{Yukalov et~al.(2018)Yukalov, Yukalova, and Sornette}]{Yukalov2018}
+Yukalov VI, Yukalova EP, Sornette D (2018) Information processing by networks
+  of quantum decision makers. Physica A: Statistical Mechanics and its
+  Applications 492:747--766. \doi{10.1016/j.physa.2017.11.004}
+
+\bibitem[{Yukalov et~al.(2022)Yukalov, Yukalova, and Sornette}]{Yukalov2022}
+Yukalov VI, Yukalova EP, Sornette D (2022) Role of collective information in
+  networks of quantum operating agents. Physica A: Statistical Mechanics and
+  its Applications 598:127365. \doi{10.1016/j.physa.2022.127365}
+
+\bibitem[{Yun et~al.(2022)Yun, Kwak, Kim, Cho, Jung, Park, and Kim}]{Yun2022}
+Yun WJ, Kwak Y, Kim JP, et~al (2022) Quantum multi-agent reinforcement learning
+  via variational quantum circuit design. In: Proceedings of the 2022 {IEEE}
+  42nd International Conference on Distributed Computing Systems ({ICDCS}).
+  IEEE, pp 1332--1335, \doi{10.1109/ICDCS54860.2022.00151}
+
+\bibitem[{Zhang et~al.(2025)Zhang, Li, Song, and Tiwari}]{Zhang2025}
+Zhang C, Li Q, Song D, et~al (2025) Quantum-inspired semantic matching based on
+  neural networks with the duality of density matrices. Engineering
+  Applications of Artificial Intelligence 140:109667.
+  \doi{10.1016/j.engappai.2024.109667}
+
+\bibitem[{Zhang et~al.(2018)Zhang, Su, Zhang, Wang, and Song}]{Zhang2018}
+Zhang P, Su Z, Zhang L, et~al (2018) A quantum many-body wave function inspired
+  language modeling approach. In: Proceedings of the 27th {ACM} International
+  Conference on Information and Knowledge Management ({CIKM} 2018). ACM, pp
+  1303--1312, \doi{10.1145/3269206.3271723}
+
+\end{thebibliography}
