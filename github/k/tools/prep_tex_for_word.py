@@ -21,8 +21,7 @@ body = body.replace('\\begin{acks}', '\\section*{Acknowledgments}').replace('\\e
 body = re.sub(r'\\Description\{.*?\}\n', '', body)
 # >{\raggedright\arraybackslash}p{0.160\dimexpr\linewidth-16\tabcolsep\relax} -> p{0.160\linewidth}
 body = re.sub(r'>\{\\raggedright\\arraybackslash\}p\{([0-9.]+)\\dimexpr[^}]*\}', r'p{\1\\linewidth}', body)
-body = body.replace('\\fillin{', '\\textbf{[FILL: ')
-body = re.sub(r'\\textbf\{\[FILL: ([^{}]*(?:\{[^{}]*\}[^{}]*)*)\}', r'\\textbf{[FILL: \1]}', body)
+body = re.sub(r'\\fillin\{([^{}]*)\}', r'[\1]', body)
 
 pre = '\\documentclass{article}\n\\usepackage{natbib}\n\\usepackage{graphicx}\n\\begin{document}\n'
 open(out_tex, 'w', encoding='utf-8').write(pre + body + '\n\\end{document}\n')

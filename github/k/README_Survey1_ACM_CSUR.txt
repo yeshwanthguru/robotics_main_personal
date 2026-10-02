@@ -75,7 +75,7 @@ BEFORE YOU SUBMIT (things only you can supply)
       add "anonymous" to the \documentclass options (and use "Anonymous author(s)" in Word).
   [ ] Optionally regenerate the CCS concepts with the ACM CCS tool (dl.acm.org/ccs) and
       paste the new CCSXML into main.tex.
-  All placeholders appear as red [FILL: ...] in the PDF and yellow-highlighted [FILL: ...] in Word.
+  Placeholders for facts only the authors can supply appear in red brackets, e.g. [n], in the PDF.
 
 REFERENCE VERIFICATION
   Six quantum computer-vision references added in the review revision (Golyanik2020, Birdal2021,

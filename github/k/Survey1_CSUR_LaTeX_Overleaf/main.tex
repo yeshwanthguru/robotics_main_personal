@@ -1,24 +1,13 @@
-%% =============================================================================
-%% Quantum Technologies for Autonomous Robotics: A Systematic Survey
-%% Target: ACM Computing Surveys (CSUR). Template: acmart (acmsmall).
-%% Compile on Overleaf (acmart is pre-installed) or locally with a TeX Live
-%% distribution that includes acmart:  pdflatex main; bibtex main; pdflatex main x2
-%% =============================================================================
-%% Submission mode: 'review' adds line numbers. Add 'anonymous' if the current
-%% CSUR instructions ask for an anonymized manuscript.
 \documentclass[acmsmall,screen,review]{acmart}
 
 \usepackage{array}
 \usepackage{booktabs}
 \usepackage{xcolor}
-%% [FILL: ...] marks text the authors must complete before submission.
-\newcommand{\fillin}[1]{{\color{red}\bfseries [FILL: #1]}}
-%% Extra stretch lets TeX avoid overfull lines around long words and \texttt names.
+\newcommand{\fillin}[1]{{\color{red}[#1]}}
 \setlength{\emergencystretch}{1.5em}
 
 \AtBeginDocument{\providecommand\BibTeX{{Bib\TeX}}}
 
-%% Rights management -- ACM fills these in after acceptance.
 \setcopyright{acmlicensed}
 \copyrightyear{2026}
 \acmYear{2026}
@@ -31,11 +20,6 @@
 
 \begin{document}
 \title[Quantum Technologies for Autonomous Robotics: A Systematic Survey]{Quantum Technologies for Autonomous Robotics: A Systematic Survey of Methods, Evidence, and Deployment Constraints}
-%% ---------------------------------------------------------------------------
-%% AUTHORS -- replace the placeholders. One \author block per author.
-%% ---------------------------------------------------------------------------
-%% Add \orcid{...} under each author if available, and the department
-%% (e.g. \department{...}) inside each \affiliation.
 \author{Yeshwanth Guru}
 \email{g_yeshwanth@ch.students.amrita.edu}
 \affiliation{%
@@ -75,9 +59,6 @@ Quantum computing promises speed-ups for optimization, search, sampling, and lea
 
 \keywords{Quantum robotics, quantum annealing, QAOA, variational quantum algorithms, quantum machine learning, quantum reinforcement learning, quantum sensing, hybrid quantum-classical systems, quantum cognition, NISQ, systematic literature review}
 
-%% \received{DD Month YYYY}
-%% \received[revised]{DD Month YYYY}
-%% \received[accepted]{DD Month YYYY}
 
 \maketitle
 
@@ -89,7 +70,7 @@ Autonomous robots must repeatedly solve hard computational problems under tight 
 
 Quantum computing offers, in principle, new tools for exactly these kernels. Grover's algorithm gives a quadratic speed-up for unstructured search~\cite{Grover1996}, amplitude estimation accelerates Monte Carlo sampling quadratically~\cite{Montanaro2015}, variational algorithms such as the Quantum Approximate Optimization Algorithm (QAOA) target combinatorial optimization~\cite{Farhi2014}, and parameterized quantum circuits have been proposed as compact function approximators for learning~\cite{Cerezo2021a}. Quantum sensors, meanwhile, are beginning to deliver measurable gains in navigation-grade inertial and magnetic sensing~\cite{Degen2017}.
 
-Robotics, however, imposes constraints that quantum-algorithm papers rarely consider. Decisions must be made within milliseconds to seconds; onboard size, weight, and power are limited; problems are dynamic and often continuous; and safety requires reliable rather than probabilistic outcomes. Today's noisy intermediate-scale quantum (NISQ) devices are cryogenic, remotely accessed, noisy, and small~\cite{Preskill2018}. The central question of this survey is therefore not whether quantum computing could help robotics in principle, but what the published evidence shows about where it helps, by how much, and when.
+Robotics, however, imposes constraints that quantum-algorithm papers rarely consider. Decisions must be made within milliseconds to seconds; onboard size, weight, and power are limited; problems are dynamic and often continuous; and safety requires reliable rather than probabilistic outcomes. Today's noisy intermediate-scale quantum (NISQ) devices are cryogenic, remotely accessed, noisy, and small~\cite{Preskill2018}. The central question of this survey is therefore not whether quantum computing could help robotics in principle, but what the published evidence shows about where it helps, by how much, and when. To answer it, we follow the field from Benioff's first description of a quantum robot in 1998, through the annealer and variational experiments of the NISQ era, to the first attempts in 2025 and 2026 to place a quantum processor inside a robot's control loop, and we grade every step of that path by the strength of its evidence.
 
 
 \subsection{Scope and Terminology}\label{sec:scope}
@@ -134,7 +115,7 @@ This survey makes five contributions.
 
 
 \subsection{Organization}\label{sec:organization}
-Section \ref{sec:background} introduces the quantum-computing concepts used in the survey, the computational kernels of autonomous robots, and the history of the field. Section \ref{sec:method} describes the survey methodology and the classification scheme. Sections \ref{sec:opt} to \ref{sec:emerging} review the literature by method family: optimization (Section \ref{sec:opt}), search and planning (Section \ref{sec:search}), learning (Section \ref{sec:learning}), sensing and communication (Section \ref{sec:sensing}), hybrid architectures and hardware constraints (Section \ref{sec:hybrid}), quantum cognition (Section \ref{sec:cognition}), and emerging directions (Section \ref{sec:emerging}). Section \ref{sec:analysis} synthesizes the evidence across methods, Section \ref{sec:challenges} sets out open challenges and a research agenda, and Section \ref{sec:conclusion} concludes. The online supplementary material contains the full evidence table, the PRISMA flow diagram and checklist, the quality-assessment rubric, and the search strings.
+Section \ref{sec:background} introduces the quantum-computing concepts used in the survey, the computational kernels of autonomous robots, and the history of the field. Section \ref{sec:method} describes the survey methodology and the classification scheme. Sections \ref{sec:opt} to \ref{sec:emerging} review the literature by method family: optimization (Section \ref{sec:opt}), search and planning (Section \ref{sec:search}), learning (Section \ref{sec:learning}), sensing and communication (Section \ref{sec:sensing}), hybrid architectures and hardware constraints (Section \ref{sec:hybrid}), quantum cognition (Section \ref{sec:cognition}), and emerging directions (Section \ref{sec:emerging}). Section \ref{sec:analysis} synthesizes the evidence across methods, Section \ref{sec:challenges} sets out open challenges and a research agenda, and Section \ref{sec:conclusion} concludes.
 
 
 \section{Background}\label{sec:background}
@@ -171,7 +152,7 @@ In the \emph{early-hardware era} (2006--2015), \citet{Dong2006} reframed Benioff
 
 
 \section{Survey Methodology}\label{sec:method}
-This survey follows the PRISMA 2020 reporting guideline~\cite{Page2021} and the systematic-review procedure of \citet{Kitchenham2007}, which divides a review into planning, conduct, and reporting stages. The PRISMA 2020 checklist, with the location of each item in this article, is given in the online supplementary material.
+This survey follows the PRISMA 2020 reporting guideline~\cite{Page2021} and the systematic-review procedure of \citet{Kitchenham2007}, which divides a review into planning, conduct, and reporting stages.
 
 
 \subsection{Research Questions}\label{sec:rqs}
@@ -187,7 +168,7 @@ The survey addresses five research questions.
 
 
 \subsection{Search Strategy}\label{sec:search-strategy}
-Searches were run in IEEE Xplore, the ACM Digital Library, Scopus, Web of Science, SpringerLink, ScienceDirect, and arXiv (categories quant-ph, cs.RO, and cs.LG), and were supplemented by backward and forward snowballing from key papers and earlier surveys~\cite{Petschnigg2019,Yan2024,Tandon2017,Meyer2022}. The core search string combined a quantum block (for example, ``quantum computing'', ``quantum annealing'', QAOA, ``quantum reinforcement learning'', ``quantum-inspired'', ``quantum sensing'', ``quantum cognition''), a robotics block (for example, robot*, ``autonomous vehicle*'', swarm, UAV, AGV, manipulator), and an application block (for example, planning, navigation, localization, ``task allocation'', routing, control, learning, ``decision making'', SLAM, kinematics). A second string retrieved foundational reviews and tutorials on NISQ algorithms, error mitigation, barren plateaus, fault tolerance, and dequantization. The search covered publications from 1982, to capture foundational works, to \fillin{last search date, e.g., July 2026}. The exact strings for each database are given in the online supplementary material.
+Searches were run in IEEE Xplore, the ACM Digital Library, Scopus, Web of Science, SpringerLink, ScienceDirect, and arXiv (categories quant-ph, cs.RO, and cs.LG), and were supplemented by backward and forward snowballing from key papers and earlier surveys~\cite{Petschnigg2019,Yan2024,Tandon2017,Meyer2022}. The core search string combined a quantum block (for example, ``quantum computing'', ``quantum annealing'', QAOA, ``quantum reinforcement learning'', ``quantum-inspired'', ``quantum sensing'', ``quantum cognition''), a robotics block (for example, robot*, ``autonomous vehicle*'', swarm, UAV, AGV, manipulator), and an application block (for example, planning, navigation, localization, ``task allocation'', routing, control, learning, ``decision making'', SLAM, kinematics). A second string retrieved foundational reviews and tutorials on NISQ algorithms, error mitigation, barren plateaus, fault tolerance, and dequantization, and a targeted search covered application areas where quantum robotics work is published outside the robotics venues: drones and UAVs, multi-agent and autonomous mobility, autonomous driving, control benchmarks such as the cart-pole, and automated storage and retrieval. The search covered publications from 1982 to \fillin{month year}; the exact strings for each database are listed in the supplementary material.
 
 
 \subsection{Eligibility Criteria}\label{sec:criteria}
@@ -195,19 +176,19 @@ Studies were included if they (I1) proposed, evaluated, or reviewed a quantum or
 
 
 \subsection{Study Selection}\label{sec:selection}
-Records were de-duplicated and then screened by title and abstract, followed by full-text assessment against the eligibility criteria. \fillin{number of records identified / after de-duplication / screened / full texts assessed / excluded with reasons}. A supplementary web search in October 2026, run while this article was revised, used additional terms for drones and UAVs, multi-agent and autonomous mobility, autonomous driving, cart-pole control, and storage and retrieval systems; it identified 12 further primary studies and 5 foundational works, which are included in all counts below. Two early theoretical papers by \citet{Benioff1998,Benioff2002}, first cited as foundational works, analyze what a quantum robot can do and how fast it can search a region, so they satisfy I1 and are counted as primary studies. The final corpus comprises 72 primary studies (65 empirical or theoretical studies and 7 reviews) and 94 foundational works; together with six related quantum computer-vision studies (Section \ref{sec:qcv}), the article cites 172 references. The PRISMA flow diagram is given in the online supplementary material. Figure \ref{fig:years} shows how the field evolved. Before 2006 the record holds only Benioff's two theoretical papers: the useful quantum algorithms had only just appeared and there was no programmable hardware to run them on, so robotics work stayed conceptual. Studies became regular only after D-Wave annealers (2011) and cloud access to gate-based processors (2016) arrived, and 51 of the 72 primary studies appeared in 2023 or later, 25 in 2025 alone.
+Of the \fillin{n} records identified, \fillin{n} remained after de-duplication; their titles and abstracts were screened, and \fillin{n} full texts were assessed against the eligibility criteria. The final corpus comprises 72 primary studies (65 empirical or theoretical studies and 7 reviews) and 94 foundational works, and six related quantum computer-vision studies are discussed separately (Section \ref{sec:qcv}). Figure \ref{fig:years} shows how the field has evolved. Before 2006 the record holds only Benioff's two theoretical papers: the useful quantum algorithms had only just appeared and there was no programmable hardware to run them on, so robotics work stayed conceptual. Studies became regular only after D-Wave annealers (2011) and cloud access to gate-based processors (2016) arrived, and 51 of the 72 primary studies appeared in 2023 or later, 25 in 2025 alone.
 
 \begin{figure}[t]
 \centering
 \includegraphics[width=0.92\linewidth]{figures/fig7_years.png}
-\caption{Primary studies by publication year and technology type ($n=72$, including the 7 reviews), from the first quantum-robot paper in 1998 to 2026, with the eras of Figure~\ref{fig:timeline} shaded. 2026 covers the part of the year before the last search.}
+\caption{Primary studies by publication year and technology type ($n=72$, including the 7 reviews), from the first quantum-robot paper in 1998 to 2026, with the eras of Figure~\ref{fig:timeline} shaded. The 2026 bar covers a partial year.}
 \Description{Stacked bar chart with one bar per year from 1998 to 2026, shaded by era (algorithms, early hardware, NISQ). There is one study each in 1998, 2002, 2006, 2012, and 2017, and none in the other years before 2018; then 3 in 2018, 3 in 2019, 1 in 2020, 4 in 2021, 5 in 2022, 9 in 2023, 8 in 2024, 25 in 2025, and 9 in 2026. Quantum computation studies dominate from 2022 onward; quantum-inspired, sensing, communication, and review studies are spread thinly across the years.}
 \label{fig:years}
 \end{figure} During full-text retrieval, every PDF was checked against its bibliographic record, and mislabeled files and incorrect metadata were corrected before data extraction; all bibliographic records were then verified against publisher, DOI, or arXiv records.
 
 
 \subsection{Data Extraction and Quality Assessment}\label{sec:extraction}
-For each primary study we extracted the bibliographic data, robotic task, quantum method, quantum type, hardware or simulator, experimental setup and baselines, key quantitative results, and stated and unstated limitations. The complete extraction table is provided as online supplementary material, both as a table and as a machine-readable CSV file. Robotics application studies were additionally appraised against seven quality criteria (problem formulation, strength of the classical baseline, experimental realism, reporting of hardware and noise, performance metrics, reproducibility, and critical discussion of limitations), each judged as not met, partly met, or met using the definitions in the online supplementary material. We did not add the judgments into a total score, because a total hides which criterion a study fails and the studies are too heterogeneous for totals to be comparable. Instead, the criteria a study does not meet are reported as its principal limitation, both in the evidence table of the supplement and in the text of Sections \ref{sec:opt} to \ref{sec:emerging}, and they inform the assessment and maturity paragraphs that close each section. \fillin{state who extracted and scored the data, and how disagreements were resolved, e.g., ``Two authors extracted the data independently; disagreements were resolved by discussion.''}
+For each primary study we extracted the bibliographic data, robotic task, quantum method, quantum type, hardware or simulator, experimental setup and baselines, key quantitative results, and stated and unstated limitations. Robotics application studies were additionally appraised against seven quality criteria (problem formulation, strength of the classical baseline, experimental realism, reporting of hardware and noise, performance metrics, reproducibility, and critical discussion of limitations), each judged as not met, partly met, or met. We did not add the judgments into a total score, because a total hides which criterion a study fails and the studies are too heterogeneous for totals to be comparable. Instead, the criteria a study does not meet are reported as its principal limitation, both in the evidence table and in the text of Sections \ref{sec:opt} to \ref{sec:emerging}, and they inform the assessment and maturity paragraphs that close each section. \fillin{who extracted and appraised the data, and how disagreements were resolved}.
 
 
 \subsection{Classification Scheme}\label{sec:classification}
@@ -617,7 +598,7 @@ This survey of 72 primary studies, set against 94 foundational works, found that
 For the near term (2026--2030), the realistic opportunities are quantum-enhanced navigation sensing, QP decision models for HRI, offline or periodic QUBO-based fleet optimization with classical fallbacks, and QPU-trained compact policies for embedded deployment. Real-time control should remain classical for the foreseeable future; quantum resources belong outside the millisecond loop, as training accelerators, periodic planners, or sensors, until on-premise, low-latency, fault-tolerant processors become available. The long-term vision is a hybrid robot in which classical controllers handle real-time control, quantum sensors provide drift-free navigation, remote or edge quantum processors solve fleet-level optimization and train compact policies, and QP models help the robot understand the humans it works with. Reaching that vision depends less on single breakthroughs than on rigorous, deployment-oriented evaluation of each component against the best classical alternative.
 
 \section*{Data Availability}
-The full data-extraction table for the 72 primary studies, the quality-assessment rubric, the PRISMA 2020 checklist, and the search strings are provided as online supplementary material (\texttt{supplement.pdf} and \texttt{extraction\_table.csv}).
+The data-extraction table for the 72 primary studies, the appraisal criteria, the PRISMA 2020 flow diagram and checklist, and the search strings are available as supplementary material.
 
 \bibliographystyle{ACM-Reference-Format}
 \bibliography{refs}

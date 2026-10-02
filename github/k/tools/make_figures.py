@@ -7,20 +7,17 @@ Run from github/k:  python3 tools/make_figures.py
 """
 import collections
 import csv
+import os
 import re
+import sys
 
-import matplotlib
-matplotlib.use('Agg')
-import matplotlib.pyplot as plt
-from matplotlib.patches import FancyBboxPatch
+sys.path.insert(0, os.path.dirname(__file__))
+from figstyle import plt, style_axes, INK, MUTED, GRID, COLORS  # noqa: E402
 
 OUT = 'Survey1_CSUR_LaTeX_Overleaf/figures/'
 FOUNDATIONAL = 94
 CATS = ['Quantum computation (incl. cognition models)', 'Quantum-inspired (classical hardware)',
         'Quantum sensing', 'Quantum communication', 'Review']
-COLORS = ['#2a78d6', '#eb6834', '#1baf7a', '#eda100', '#b4b4b0']
-INK, MUTED, GRID, AXIS = '#222222', '#555555', '#e4e4e0', '#b8b8b4'
-plt.rcParams.update({'font.family': 'DejaVu Sans', 'font.size': 11})
 
 rows = list(csv.DictReader(open('extraction_table.csv', encoding='utf-8-sig')))
 
@@ -39,12 +36,7 @@ def category(r):
 
 
 def style(ax):
-    for side in ('top', 'right'):
-        ax.spines[side].set_visible(False)
-    for side in ('left', 'bottom'):
-        ax.spines[side].set_color(AXIS)
-    ax.tick_params(colors=MUTED)
-    ax.set_axisbelow(True)
+    style_axes(ax)
 
 
 # --- publication years: one bar per year from the first primary study, eras shaded ---
@@ -55,11 +47,11 @@ for r in rows:
     counts[category(r)][yrs.index(int(re.search(r'\[(\d{4})', r['Study']).group(1)))] += 1
 fig, ax = plt.subplots(figsize=(10, 4.6), dpi=220)
 for (a, b, label), fill in zip([(1994, 2005, 'Algorithms'), (2006, 2015, 'Early hardware'), (2016, 2026, 'NISQ era')],
-                               ['#f5f4f0', '#eef2f9', '#f5f4f0']):
+                               ['#f4f4f2', '#fbfbfa', '#f4f4f2']):
     lo, hi = max(a, first) - first - 0.5, b - first + 0.5
     ax.axvspan(lo, hi, color=fill, zorder=0)
     ax.text((lo + hi) / 2, 1.0, label, transform=ax.get_xaxis_transform(), ha='center', va='bottom',
-            fontsize=10.5, color='#21375f', weight='bold')
+            fontsize=10.5, color='#2b2b2b', weight='bold')
 bottom = [0] * len(yrs)
 x = list(range(len(yrs)))
 for c, col in zip(CATS, COLORS):
@@ -94,7 +86,7 @@ fig, ax = plt.subplots(figsize=(10, 5), dpi=200)
 y = list(range(6))[::-1]
 left = [0] * 6
 for c, col in zip(CATS[:4], COLORS[:4]):
-    ax.barh(y, ev[c], left=left, color=col, height=0.58, edgecolor='white', linewidth=1.5, label=c, zorder=3)
+    ax.barh(y, ev[c], left=left, color=col, height=0.58, edgecolor='white', linewidth=0.8, label=c, zorder=3)
     left = [a + b for a, b in zip(left, ev[c])]
 for yi, t in zip(y, left):
     ax.text(t + 0.4, yi, str(t), va='center', color=INK, fontsize=12)
@@ -112,42 +104,42 @@ plt.close(fig)
 
 # --- PRISMA flow ---
 n_rev = len(rows) - len(studies)
-fig, ax = plt.subplots(figsize=(8.5, 7.5), dpi=200)
-ax.set_xlim(0, 17)
-ax.set_ylim(0, 15)
+fig = plt.figure(figsize=(7.4, 5.0))
+ax = fig.add_axes([0, 0, 1, 1])
+ax.set_xlim(0, 7.4)
+ax.set_ylim(0, 5.0)
 ax.axis('off')
-NAVY, BLUE, GREY = '#21375f', '#2a78d6', '#9a9a96'
+EDGE, SIDE = '#3a3a3a', '#e6e6e3'
 
 
-def box(x, y, w, h, text, edge):
-    ax.add_patch(FancyBboxPatch((x, y), w, h, boxstyle='round,pad=0.02,rounding_size=0.25',
-                                fc='white', ec=edge, lw=2))
-    ax.text(x + w / 2, y + h / 2, text, ha='center', va='center', fontsize=11, color=INK, linespacing=1.4)
+def box(x, y, w, h, text, edge=EDGE):
+    ax.add_patch(plt.Rectangle((x, y), w, h, fc='white', ec=edge, lw=0.9))
+    ax.text(x + w / 2, y + h / 2, text, ha='center', va='center', fontsize=9.5, color=INK, linespacing=1.35)
 
 
 def arrow(x1, y1, x2, y2):
-    ax.annotate('', xy=(x2, y2), xytext=(x1, y1), arrowprops=dict(arrowstyle='-|>', color='#555555', lw=2))
+    ax.annotate('', xy=(x2, y2), xytext=(x1, y1),
+                arrowprops=dict(arrowstyle='-|>,head_length=0.4,head_width=0.2', color='#4a4a4a', lw=0.9))
 
 
-for (y0, h, label) in [(11.7, 2.8, 'Identification'), (5.9, 5.5, 'Screening'), (0.3, 5.3, 'Included')]:
-    ax.add_patch(plt.Rectangle((0.2, y0), 0.9, h, color=NAVY))
-    ax.text(0.65, y0 + h / 2, label, rotation=90, ha='center', va='center', color='white', fontsize=12, weight='bold')
-box(1.7, 12.0, 6.8, 2.0, 'Records identified from databases\n(IEEE Xplore, ACM DL, Scopus, WoS,\nSpringerLink, ScienceDirect, arXiv)\nn = ____', BLUE)
-box(9.8, 11.8, 6.9, 2.4, 'Duplicates removed n = ____\nAdded by snowballing n = ____\nAdded by web search (Oct 2026) n = 12', GREY)
-box(1.7, 8.9, 6.8, 1.9, 'Records screened\n(title and abstract)\nn = ____', BLUE)
-box(9.8, 8.9, 6.9, 1.9, 'Records excluded\nn = ____', GREY)
-box(1.7, 6.2, 6.8, 1.9, 'Reports assessed for eligibility\n(full text)\nn = ____', BLUE)
-box(9.8, 5.9, 6.9, 2.5, 'Reports excluded, with reasons:\nmetaphorical "quantum" n = ____\nno robotic relevance n = ____\nduplicate / earlier version n = ____\nother n = ____', GREY)
-box(1.7, 0.7, 6.8, 2.6, f'Primary studies included\nn = {len(rows)}\n({len(studies)} studies + {n_rev} reviews;\n{FOUNDATIONAL} foundational refs cited separately)', BLUE)
-arrow(5.1, 12.0, 5.1, 10.85)
-arrow(5.1, 8.9, 5.1, 8.15)
-arrow(5.1, 6.2, 5.1, 3.35)
-for yy in (13.0, 9.85, 7.15):
-    arrow(8.5, yy, 9.75, yy)
-fig.tight_layout()
+for (y0, h, label) in [(3.75, 1.15, 'Identification'), (1.45, 2.2, 'Screening'), (0.1, 1.25, 'Included')]:
+    ax.add_patch(plt.Rectangle((0.08, y0), 0.32, h, fc=SIDE, ec='none'))
+    ax.text(0.24, y0 + h / 2, label, rotation=90, ha='center', va='center', fontsize=9.5, color=INK, weight='bold')
+box(0.6, 3.85, 3.0, 0.95, 'Records identified from databases\n(IEEE Xplore, ACM DL, Scopus, WoS,\nSpringerLink, ScienceDirect, arXiv)\nn = ____')
+box(4.2, 3.85, 3.1, 0.95, 'Duplicates removed n = ____\nAdded by snowballing n = ____\nAdded by targeted search n = 12', edge='#8a8a8a')
+box(0.6, 2.75, 3.0, 0.7, 'Records screened (title and abstract)\nn = ____')
+box(4.2, 2.75, 3.1, 0.7, 'Records excluded\nn = ____', edge='#8a8a8a')
+box(0.6, 1.55, 3.0, 0.8, 'Reports assessed for eligibility\n(full text)\nn = ____')
+box(4.2, 1.45, 3.1, 1.0, 'Reports excluded, with reasons:\nmetaphorical "quantum" n = ____\nno robotic relevance n = ____\nduplicate or earlier version n = ____', edge='#8a8a8a')
+box(0.6, 0.2, 3.0, 1.0, f'Primary studies included: n = {len(rows)}\n({len(studies)} studies and {n_rev} reviews)\n'
+    f'Foundational works cited: {FOUNDATIONAL}')
+arrow(2.1, 3.85, 2.1, 3.45)
+arrow(2.1, 2.75, 2.1, 2.35)
+arrow(2.1, 1.55, 2.1, 1.2)
+for yy in (4.32, 3.1, 1.95):
+    arrow(3.6, yy, 4.2, yy)
 fig.savefig(OUT + 'fig6_prisma.png')
 plt.close(fig)
-print('figures written')
 
 # --- timeline (Fig. 1): every milestone corresponds to a reference cited in Section 2.3 or later ---
 QC = [
@@ -198,8 +190,8 @@ ROB = [
 ]
 ERAS = [(1982, 1993, 'Theoretical\nfoundations'), (1994, 2005, 'Algorithms'),
         (2006, 2015, 'Early\nhardware'), (2016, 2026, 'NISQ era')]
-ERA_FILL = ['#eef2f9', '#f5f4f0', '#eef2f9', '#f5f4f0']
-NAVY_INK = '#21375f'
+ERA_FILL = ['#f4f4f2', '#fbfbfa', '#f4f4f2', '#fbfbfa']
+NAVY_INK = '#2b2b2b'
 years = sorted({y for y, _ in QC} | {y for y, _, _ in ROB})
 LINE = 0.2
 FS = 9.0

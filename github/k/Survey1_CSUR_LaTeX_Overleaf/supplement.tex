@@ -2,7 +2,7 @@
 %% Quantum Technologies for Autonomous Robotics: A Systematic Survey of Methods, Evidence, and Deployment Constraints
 \documentclass[acmsmall,screen,review]{acmart}
 \usepackage{array,booktabs,longtable,xcolor,pdflscape}
-\newcommand{\fillin}[1]{{\color{red}\bfseries [FILL: #1]}}
+\newcommand{\fillin}[1]{{\color{red}[#1]}}
 %% Extra stretch lets TeX avoid overfull lines around long words and \texttt names.
 \setlength{\emergencystretch}{1.5em}
 \setcopyright{none}
@@ -17,7 +17,7 @@
 \author{Dev Kunwar Singh Chauhan}
 \affiliation{\institution{Amrita Vishwa Vidyapeetham}\city{Chennai}\country{India}}
 \maketitle
-This supplement contains the evidence table for the 72 primary studies (Table~\ref{tab:evidence}), the PRISMA 2020 flow of records (Table~\ref{tab:flow}) and checklist (Table~\ref{tab:prisma}), the quality-assessment rubric (Table~\ref{tab:rubric}), and the databases and search strings (Table~\ref{tab:search}). The evidence table is also provided as \texttt{extraction\_table.csv}, which additionally records each study's quantum-execution tag (none, simulated, QPU, sensor or link hardware, or classical; Section 3.6 and Table 4 of the main article). Citations refer to the reference list of the main article.
+This supplement contains the evidence table for the 72 primary studies (Table~\ref{tab:evidence}), the PRISMA 2020 flow of records (Table~\ref{tab:flow}) and checklist (Table~\ref{tab:prisma}), the quality-assessment rubric (Table~\ref{tab:rubric}), and the databases and search strings (Table~\ref{tab:search}). A machine-readable version of the evidence table, which also records where the quantum component of each study was executed, accompanies this supplement. Citations refer to the reference list of the main article.
 
 {\scriptsize
 \begin{longtable}{@{}>{\raggedright\arraybackslash}p{0.120\dimexpr\linewidth-12\tabcolsep\relax}>{\raggedright\arraybackslash}p{0.140\dimexpr\linewidth-12\tabcolsep\relax}>{\raggedright\arraybackslash}p{0.180\dimexpr\linewidth-12\tabcolsep\relax}>{\raggedright\arraybackslash}p{0.170\dimexpr\linewidth-12\tabcolsep\relax}>{\raggedright\arraybackslash}p{0.210\dimexpr\linewidth-12\tabcolsep\relax}>{\raggedright\arraybackslash}p{0.180\dimexpr\linewidth-12\tabcolsep\relax}@{}}
@@ -105,7 +105,7 @@ This supplement contains the evidence table for the 72 primary studies (Table~\r
 \end{longtable}}
 
 \begin{table}[h]
-\caption{PRISMA 2020 flow of records (counts to be completed from the screening log).}
+\caption{PRISMA 2020 flow of records.}
 \label{tab:flow}
 \footnotesize
 \begin{tabular}{@{}>{\raggedright\arraybackslash}p{0.180\dimexpr\linewidth-4\tabcolsep\relax}>{\raggedright\arraybackslash}p{0.820\dimexpr\linewidth-4\tabcolsep\relax}@{}}
@@ -116,7 +116,7 @@ Identification & Records identified from databases: \fillin{n} (IEEE Xplore \fil
 Screening & Records screened by title and abstract: \fillin{n}; records excluded: \fillin{n}. \\
  & Reports sought for retrieval: \fillin{n}; reports not retrieved: \fillin{n}. \\
 Eligibility & Reports assessed in full text: \fillin{n}; reports excluded, with reasons: metaphorical use of ``quantum'' (E1) \fillin{n}; not in English (E2) \fillin{n}; duplicate or earlier version (E3) \fillin{n}; no robotic application (E4) \fillin{n}. \\
-Included & Primary studies: 72 (65 empirical or theoretical studies and 7 reviews), including 12 found by a supplementary web search in October 2026 and 2 early theoretical studies by Benioff reclassified from foundational works. Foundational works cited for context: 94. Related quantum computer-vision studies discussed but not graded (Section 10.4 of the main article): 6. Total references: 172. \\
+Included & Primary studies: 72 (65 empirical or theoretical studies and 7 reviews). Foundational works cited for context: 94. Related quantum computer-vision studies discussed but not graded (Section 10.4 of the main article): 6. Total references: 172. \\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -124,7 +124,7 @@ Included & Primary studies: 72 (65 empirical or theoretical studies and 7 review
 \begin{figure}[h]
 \centering
 \includegraphics[width=0.8\linewidth]{figures/fig6_prisma.png}
-\caption{PRISMA 2020 flow diagram. The counts (n = \_\_\_\_) are to be completed from the screening log (Table~\ref{tab:flow}).}
+\caption{PRISMA 2020 flow diagram (counts as in Table~\ref{tab:flow}).}
 \Description{PRISMA 2020 flow diagram with boxes for identification, screening, eligibility, and inclusion, ending with 72 primary studies and 94 foundational works.}
 \label{fig:prisma}
 \end{figure}
@@ -152,7 +152,7 @@ Included & Primary studies: 72 (65 empirical or theoretical studies and 7 review
 14 & Reporting bias assessment & Section 3.7 \\
 15 & Certainty assessment & Sections 11.2--11.3 \\
 16 & Study selection & Figure S1 \\
-17 & Study characteristics & Table S1; extraction\_table.csv \\
+17 & Study characteristics & Table S1 and the machine-readable evidence table \\
 18 & Risk of bias in studies & Limitation column of Table S1; Sections 4--10 \\
 19 & Results of individual studies & Sections 4--10; Table S1 \\
 20 & Results of syntheses & Section 11; Tables 2 and 3 \\
@@ -162,7 +162,7 @@ Included & Primary studies: 72 (65 empirical or theoretical studies and 7 review
 24 & Registration and protocol & \fillin{registration or protocol statement} \\
 25 & Support & \fillin{funding statement, or ``none''} \\
 26 & Competing interests & \fillin{declaration} \\
-27 & Availability of data, code, and materials & Table S1 and extraction\_table.csv are provided as supplementary material \\
+27 & Availability of data, code, and materials & Table S1 and the machine-readable evidence table \\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -201,6 +201,7 @@ Web of Science & TS=(core string); \fillin{n} hits \\
 SpringerLink, ScienceDirect & Core string in full text, restricted to articles and conference papers; \fillin{n} hits \\
 arXiv & Categories quant-ph, cs.RO, cs.LG; title and abstract terms from the core string; \fillin{n} hits \\
 Snowballing & Backward and forward citation search from \citet{Petschnigg2019}, \citet{Yan2024}, \citet{Meyer2022}, and \citet{Tandon2017}; \fillin{n} additional records \\
+Targeted search & Drones and UAVs, multi-agent and autonomous mobility, autonomous driving, control benchmarks (cart-pole), and automated storage and retrieval, each combined with the quantum block of the core string; 12 additional primary studies \\
 \bottomrule
 \end{tabular}
 \end{table}
