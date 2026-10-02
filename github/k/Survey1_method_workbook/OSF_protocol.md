@@ -240,5 +240,12 @@ algorithm. No meta-analysis (heterogeneous tasks, metrics, and baselines).
 **Data availability**
 Extraction table, quality appraisal, codebook, and search strings: [Zenodo DOI, once deposited].
 
-**Funding / conflicts**
-No external funding; carried out at Amrita Vishwa Vidyapeetham, Chennai. No competing interests.
+**Funding**
+This research received no external funding. It was carried out as part of the authors' work at
+Amrita Vishwa Vidyapeetham, Chennai, India.
+
+**Conflicts of interest**
+The authors declare no conflicts of interest. Neither author has financial ties to, or receives
+funding, equipment, or cloud credits from, any quantum-hardware or quantum-software company, and
+neither author is an author of any of the primary studies included in the review. No outcome of the
+review affects the authors' funding or opportunities.
