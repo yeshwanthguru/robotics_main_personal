@@ -164,6 +164,16 @@ extracted from each primary study (defined in the codebook of the data package):
 Deployment constraints (qubit counts, noise, latency, quantum-classical communication, size,
 weight, power, and cooling) are recorded where studies report them.
 
+**Additional variable(s) / covariate(s)**
+No formal covariates, moderators, or mediators were analyzed (descriptive review, no meta-analysis).
+Additional study characteristics recorded and used to describe or stratify the corpus:
+- Publication year (to describe the growth of the field over time).
+- Publication status (preprint vs. peer-reviewed), used when interpreting the strength of a claim.
+- Quantum hardware platform and vendor where reported (e.g., D-Wave annealer, IBM superconducting
+  processor), and problem size (number of robots, tasks, nodes, or qubits).
+- Availability of code or data (checked for studies whose full text was accessible).
+- Primary study vs. review of the topic (reviews are included but not graded on L1-L6).
+
 **Information sources**
 IEEE Xplore, ACM Digital Library, Scopus, Web of Science, SpringerLink, ScienceDirect, arXiv
 (quant-ph, cs.RO, cs.LG); backward and forward reference chasing from key papers and earlier
