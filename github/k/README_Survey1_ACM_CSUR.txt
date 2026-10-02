@@ -31,7 +31,9 @@ STRUCTURE (CSUR conventions)
   Body ~12,600 words; about 30 pages of main text in acmsmall + ~14 pages of references.
 
 BEFORE YOU SUBMIT (things only you can supply)
-  [ ] Authors, affiliations, ORCIDs, e-mails (main.tex "AUTHORS" block; docx title block).
+  [x] Authors: Yeshwanth Guru (g_yeshwanth@ch.students.amrita.edu) and Dev Kunwar Singh Chauhan
+      (c_devsingh@ch.amrita.edu), Amrita Vishwa Vidyapeetham, Chennai, India.
+  [ ] Add departments and ORCIDs in main.tex; update the docx title block and cover letter.
   [ ] Section 3.2: date of the last search.
   [ ] Section 3.4 and supplement Table S2 / Figure S1: PRISMA counts (records identified,
       duplicates, screened, full texts, exclusions by reason). These were not invented.

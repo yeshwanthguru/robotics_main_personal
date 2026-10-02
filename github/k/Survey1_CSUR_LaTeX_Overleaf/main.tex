@@ -34,20 +34,23 @@
 %% ---------------------------------------------------------------------------
 %% AUTHORS -- replace the placeholders. One \author block per author.
 %% ---------------------------------------------------------------------------
-\author{Firstname Lastname}
-\orcid{0000-0000-0000-0000}
-\email{author@institution.edu}
+%% Add \orcid{...} under each author if available, and the department
+%% (e.g. \department{...}) inside each \affiliation.
+\author{Yeshwanth Guru}
+\email{g_yeshwanth@ch.students.amrita.edu}
 \affiliation{%
-  \institution{Department, Institution}
-  \city{City}
-  \country{Country}}
+  \institution{Amrita Vishwa Vidyapeetham}
+  \city{Chennai}
+  \country{India}}
 
-%% \author{Second Author}
-%% \orcid{0000-0000-0000-0000}
-%% \email{second@institution.edu}
-%% \affiliation{\institution{Institution}\city{City}\country{Country}}
+\author{Dev Kunwar Singh Chauhan}
+\email{c_devsingh@ch.amrita.edu}
+\affiliation{%
+  \institution{Amrita Vishwa Vidyapeetham}
+  \city{Chennai}
+  \country{India}}
 
-\renewcommand{\shortauthors}{Lastname et al.}
+\renewcommand{\shortauthors}{Guru and Chauhan}
 \begin{abstract}
 Quantum computing promises speed-ups for optimization, search, sampling, and learning, which are the computational kernels that limit autonomous robots in large, uncertain, and dynamic environments. Claims about ``quantum robotics,'' however, range from asymptotic complexity results to small simulations and early hardware runs, which makes it difficult to judge what is usable today. This article presents a PRISMA 2020-guided systematic survey of 58 primary studies that apply quantum or quantum-inspired methods to robotic functions, set against 91 foundational works on quantum algorithms, hardware, cognition, and classical robotics and six related quantum computer-vision studies. We organize the field with a robotics-function taxonomy (optimization, planning, learning, sensing and communication, and decision-making), grade every study on a six-level evidence hierarchy from theoretical analysis to end-to-end deployment, record whether its quantum component ran on quantum hardware, in simulation, or not at all, and separate genuinely quantum results from quantum-inspired classical ones. No quantum computational method has yet shown an end-to-end advantage on a physical robot. Quantum annealing has routed fleets of up to 1,000 simulated vehicles after decomposition, but classical and quantum-inspired solvers match or beat it in head-to-head comparisons; quantum reinforcement learning consistently needs one to two orders of magnitude fewer trainable parameters, but not less training time or better policies; and cloud latency, noise, and trainability keep quantum processors out of real-time control loops. Quantum sensing and quantum communication are the only branches fielded on moving platforms. We identify quantum-probability models of human judgment as a hardware-light opportunity for human-robot interaction, propose reporting standards for quantum-robotics experiments, and derive a research agenda from the taxonomy.
 \end{abstract}
