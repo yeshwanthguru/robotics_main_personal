@@ -78,6 +78,34 @@ measured advantage) and reporting quality is appraised against seven criteria.
 **Discipline / Subjects**
 Engineering > Robotics; Computer science (if absent: Physical sciences > Quantum physics).
 
+**Background**
+Autonomous robots repeatedly solve hard computational problems under tight time budgets: they
+estimate their state from noisy sensors, plan motions, share tasks with other robots, and learn from
+limited experience. Multi-robot routing and task allocation are NP-hard, localization and
+belief-space planning scale with the state space, and reinforcement learning on physical robots is
+sample-inefficient. Quantum computing offers tools that target exactly these problems (Grover search,
+amplitude estimation, quantum annealing and QAOA for combinatorial optimization, and parameterized
+circuits as compact learners), and quantum sensors are beginning to improve inertial and magnetic
+navigation. Robots, however, need decisions within milliseconds to seconds under limits on size,
+weight, and power, whereas today's noisy intermediate-scale quantum (NISQ) processors are small,
+noisy, cryogenic, and usually reached through the cloud.
+
+Existing reviews of quantum robotics (Tandon et al. 2017; Petschnigg et al. 2019; Yan et al. 2024;
+Haldorai 2024; Udekwe et al. 2025; Fazilat et al. 2025; Nigatu et al. 2026) are mostly descriptive.
+They rarely grade the evidence behind a claim, seldom separate genuinely quantum results from
+quantum-inspired classical algorithms, and, because most predate the experimental work of the NISQ
+era, say little about quantum reinforcement learning on robot tasks, annealer-based fleet control,
+head-to-head comparisons with classical solvers, dequantization, error-mitigation costs, or measured
+cloud latency. Broader reviews of quantum computing, quantum machine learning, and quantum
+reinforcement learning do not address robots.
+
+This review aims to establish what the published evidence actually shows. It (1) maps quantum
+methods onto five robotic functions, (2) grades every primary study on one six-level evidence scale
+and records whether its quantum component ran on hardware, a simulator, or classical hardware,
+(3) separates genuinely quantum from quantum-inspired results, (4) tests the claims against the
+latency and hardware budgets of real robots, and (5) proposes a research agenda and a reporting
+checklist for quantum-robotics experiments.
+
 **Research questions**
 - RQ1. Which quantum methods have been applied to which robotic functions (optimization and planning;
   learning, including quantum machine learning and reinforcement learning; sensing and communication;
