@@ -14,14 +14,14 @@ FILES
                                         citation as a Mendeley citation field and the reference list as a
                                         Mendeley bibliography field (see "WORD + MENDELEY" below)
   Survey1_ACM_CSUR_Supplementary_Material.docx   Word version of the supplement
-  extraction_table.csv                  Data-extraction table for the 70 primary studies (supplementary data),
+  extraction_table.csv                  Data-extraction table for the 72 primary studies (supplementary data),
                                         including the quantum-execution tag of each study
   Survey1_CSUR_Cover_Letter.docx        Cover letter to the Editor-in-Chief
 
   Survey1_missed_papers.md              Literature cross-check (Oct 2026); all listed studies are now in the survey
   Survey1_candidate_refs.bib            BibTeX for those studies (already merged into refs.bib)
 
-  tools/make_figures.py                 Regenerates Figs. 2 and 5 and the PRISMA diagram from extraction_table.csv
+  tools/make_figures.py                 Regenerates Figs. 1, 2 and 5 and the PRISMA diagram (timeline milestones are listed in the script)
 
 WORD + MENDELEY
   1. In Mendeley Reference Manager, import Survey1_CSUR_LaTeX_Overleaf/refs.bib
