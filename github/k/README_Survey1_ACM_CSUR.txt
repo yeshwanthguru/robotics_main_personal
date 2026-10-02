@@ -66,8 +66,10 @@ BEFORE YOU SUBMIT (things only you can supply)
   [x] PRISMA reporting (Oct 2026): the per-stage record counts were never logged, so the paper
       now says so openly (Section 3.4, Section 3.7 "Selection and grading", Table S2, Figure S1)
       instead of leaving [n] blanks. Search window: 1982 to October 2026 (latest study August 2026).
-      Screening and grading are reported as done by the first author alone; protocol "not registered".
-      CHECK these statements are true. If Dev screened or graded anything, say so instead.
+      Screening and extraction by the first author; evidence levels and appraisal reviewed by the
+      second author (Dev, supervisor), disagreements resolved by discussion (confirmed Oct 2026).
+      Protocol "not registered". Inter-rater kappa still unmeasured: the blind Grading_Check below
+      would add it.
   [ ] OPTIONAL UPGRADE (strongly recommended before submission): re-run the searches in one day
       and log them in Survey1_method_workbook/Survey1_method_workbook.xlsx. With real counts and a
       second grader (kappa), the paper can report a full PRISMA flow - send me the workbook and I
