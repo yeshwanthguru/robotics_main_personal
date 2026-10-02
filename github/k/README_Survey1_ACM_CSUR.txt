@@ -57,6 +57,11 @@ STRUCTURE (CSUR conventions)
   Body ~12,600 words; about 30 pages of main text in acmsmall + ~14 pages of references.
 
 BEFORE YOU SUBMIT (things only you can supply)
+  [x] Abstract rewritten to CSUR rules (at most 100 words, no first person, no maths or citations):
+      98 words. Keywords: acronyms QAOA and NISQ spelled out.
+  [ ] Before submitting, note from the CSUR author guidelines: a rejected paper cannot be resubmitted
+      to CSUR for 12 months; ACM is fully open access since 2026, so check the APC or whether Amrita
+      is covered by ACM Open; you may list preferred AND non-preferred reviewers.
   [ ] *** PAGE LIMIT ***: CSUR author guidelines: long surveys "must not exceed 35 pages, including
       references" (dl.acm.org/journal/csur/author-guidelines). main.pdf is 47 pages (text and tables
       end on p. 37, references pp. 38-47). Either cut about 12 pages or move material to an

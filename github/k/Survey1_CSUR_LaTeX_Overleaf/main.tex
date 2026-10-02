@@ -41,7 +41,7 @@
 
 \renewcommand{\shortauthors}{Guru and Chauhan}
 \begin{abstract}
-Quantum computing promises speed-ups for optimization, search, sampling, and learning, the computations that hold autonomous robots back in large, uncertain environments. Yet claims for ``quantum robotics'' range from asymptotic complexity results to small simulations and a handful of hardware runs, and it is hard to tell what a robot could use today. This systematic survey, reported following PRISMA 2020 where it applies, examines 72 primary studies that apply quantum or quantum-inspired methods to robotic functions, set against 107 foundational works. We organize the field by robotic function (optimization, planning, learning, sensing and communication, and decision-making), grade every study on a six-level evidence hierarchy from theoretical analysis to end-to-end deployment, and record whether its quantum component ran on hardware, in simulation, or not at all. No quantum computational method has yet shown an end-to-end advantage on a physical robot. Quantum annealing has routed fleets of up to 1,000 simulated vehicles after decomposition, but classical and quantum-inspired solvers match or beat it whenever the two are compared directly. Quantum reinforcement learning reaches comparable returns with one to two orders of magnitude fewer parameters, but not shorter training, fewer samples, or better policies. Cloud latency, noise, and trainability keep quantum processors out of real-time control loops. Only quantum sensing and communication have been fielded on moving platforms, and the one field result showing a navigation advantage awaits replication. We identify quantum-probability models of human judgment as a hardware-light opportunity for human-robot interaction, propose reporting standards, and derive a research agenda.
+Quantum computing promises faster optimization, search, and learning for autonomous robots, but published claims mix theory, simulation, and small hardware runs. This systematic survey grades 72 primary studies on a six-level evidence scale and records whether each quantum component ran on hardware. No quantum computational method has shown an end-to-end advantage on a physical robot. Classical solvers match quantum annealing in direct comparisons, quantum reinforcement learning saves parameters but not training time, and latency keeps quantum processors out of control loops. Only quantum sensing and communication have reached moving platforms. Reporting standards and a research agenda are proposed.
 \end{abstract}
 
 \begin{CCSXML}
@@ -62,7 +62,7 @@ Quantum computing promises speed-ups for optimization, search, sampling, and lea
 \ccsdesc[300]{Computing methodologies~Planning and scheduling}
 \ccsdesc[300]{Computing methodologies~Machine learning}
 
-\keywords{Quantum robotics, quantum annealing, QAOA, variational quantum algorithms, quantum machine learning, quantum reinforcement learning, quantum sensing, hybrid quantum-classical systems, quantum cognition, NISQ, systematic literature review}
+\keywords{Quantum robotics, quantum annealing, quantum approximate optimization, variational quantum algorithms, quantum machine learning, quantum reinforcement learning, quantum sensing, hybrid quantum-classical systems, quantum cognition, noisy intermediate-scale quantum devices, evidence grading, systematic literature review}
 
 
 \maketitle
