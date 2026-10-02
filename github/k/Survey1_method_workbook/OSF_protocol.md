@@ -38,6 +38,24 @@ bias (quality) assessment; data analysis. Single choice: "Completed" / "Review c
 Free text: All stages completed; search closed October 2026; registered retrospectively before
 journal submission.
 
+**Review stages (free-text field; all stages already completed)**
+All stages below were completed before this retrospective registration.
+1. Preparation: research questions (RQ1-RQ5), eligibility criteria, six-level evidence scale,
+   execution tags, and extraction codebook defined.
+2. Search: seven databases (IEEE Xplore, ACM DL, Scopus, Web of Science, SpringerLink,
+   ScienceDirect, arXiv), backward and forward reference chasing, and targeted searches in
+   application areas; closed October 2026.
+3. Screening: title/abstract, then full text, against the eligibility criteria, by the first author.
+4. Extraction: by the first author, using the codebook; reviewed by the second author, with
+   disagreements resolved by discussion.
+5. Critical appraisal and evidence grading: seven appraisal criteria (met / partly met / not met);
+   each study assigned an evidence level (L1-L6) and a quantum-execution tag.
+6. Synthesis: narrative synthesis by robotic function; cross-tabulation of evidence level by
+   execution tag; latency analysis; fault-tolerant resource estimate. No meta-analysis.
+7. Reporting: manuscript prepared following PRISMA 2020.
+No separate pilot screening or pilot extraction stage was recorded, and there were no
+preregistration updates, because the protocol is registered after completion.
+
 **Type of review**
 Dropdown: Systematic review (not meta-analysis, not scoping, not rapid, not umbrella).
 Free-text version: Systematic review with narrative synthesis (no meta-analysis), reported following
