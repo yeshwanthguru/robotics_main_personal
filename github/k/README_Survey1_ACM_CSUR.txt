@@ -64,7 +64,7 @@ BEFORE YOU SUBMIT (things only you can supply)
   [x] Authors: Yeshwanth Guru (g_yeshwanth@ch.students.amrita.edu) and Dev Kunwar Singh Chauhan
       (c_devsingh@ch.amrita.edu), Amrita Vishwa Vidyapeetham, Chennai, India.
   [x] ORCIDs added: Yeshwanth 0009-0007-6353-4033, Dev 0000-0002-1466-4567.
-  [ ] Departments of both authors (title block, Word, cover letter).
+  [x] Department: Department of Mechanical Engineering for both authors (LaTeX, Word, cover letter).
   [ ] Cover letter lists Yeshwanth Guru as corresponding author - change if needed.
   [ ] Generative-AI use is no longer disclosed in the manuscript (acknowledgments removed).
       ACM policy requires disclosure: declare it in the submission system or cover letter.

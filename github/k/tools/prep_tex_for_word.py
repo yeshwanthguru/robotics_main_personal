@@ -12,12 +12,12 @@ s = open(src, encoding='utf-8').read()
 m = re.search(r'\\title(?:\[[^\]]*\])?\{(.*?)\}\n', s)
 title = m.group(1)
 authors = []
-for m in re.finditer(r'\\author\{(.*?)\}\s*\n\\email\{(.*?)\}\s*\n(?:\\orcid\{(.*?)\}\s*\n)?\\affiliation\{%?\s*\n?\s*\\institution\{(.*?)\}\s*\n?\s*\\city\{(.*?)\}\s*\n?\s*\\country\{(.*?)\}\}', s):
-    name, email, orcid, inst, city, country = m.groups()
-    authors.append(f'{name}, {inst}, {city}, {country} ({email}' + (f'; ORCID {orcid}' if orcid else '') + ')')
+for m in re.finditer(r'\\author\{(.*?)\}\s*\n\\email\{(.*?)\}\s*\n(?:\\orcid\{(.*?)\}\s*\n)?\\affiliation\{%?\s*\n?\s*(?:\\department\{(.*?)\}\s*\n?\s*)?\\institution\{(.*?)\}\s*\n?\s*\\city\{(.*?)\}\s*\n?\s*\\country\{(.*?)\}\}', s):
+    name, email, orcid, dept, inst, city, country = m.groups()
+    authors.append(f'{name}, ' + (f'{dept}, ' if dept else '') + f'{inst}, {city}, {country} ({email}' + (f'; ORCID {orcid}' if orcid else '') + ')')
 if not authors:
-    for m in re.finditer(r'\\author\{(.*?)\}\s*\n\\affiliation\{\\institution\{(.*?)\}\\city\{(.*?)\}\\country\{(.*?)\}\}', s):
-        authors.append('{}, {}, {}, {}'.format(*m.groups()))
+    for m in re.finditer(r'\\author\{(.*?)\}\s*\n\\affiliation\{(?:\\department\{(.*?)\})?\\institution\{(.*?)\}\\city\{(.*?)\}\\country\{(.*?)\}\}', s):
+        authors.append(', '.join(g for g in m.groups() if g))
 m = re.search(r'\\begin\{abstract\}(.*?)\\end\{abstract\}', s, re.S)
 abstract = m.group(1).strip() if m else ''
 m = re.search(r'\\keywords\{(.*?)\}\n', s)
