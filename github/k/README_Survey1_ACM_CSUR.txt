@@ -22,7 +22,7 @@ FILES
                                         including the quantum-execution tag of each study
   Survey1_CSUR_Cover_Letter.docx        Cover letter to the Editor-in-Chief
 
-  Survey1_missed_papers.md              Literature cross-check (Oct 2026); all listed studies are now in the survey
+  Survey1_method_workbook/              Search/screening workbook and targeted_search_record.md (provenance of the 12 targeted-search studies)
   Survey1_data_package/                 Archive-ready dataset: extraction table, codebook, search
                                         strings and README for a Zenodo deposit (DOI goes in Data Availability)
 
@@ -57,6 +57,10 @@ STRUCTURE (CSUR conventions)
   Body ~12,600 words; about 30 pages of main text in acmsmall + ~14 pages of references.
 
 BEFORE YOU SUBMIT (things only you can supply)
+  [ ] *** PAGE LIMIT ***: CSUR author guidelines: long surveys "must not exceed 35 pages, including
+      references" (dl.acm.org/journal/csur/author-guidelines). main.pdf is 47 pages (text and tables
+      end on p. 37, references pp. 38-47). Either cut about 12 pages or move material to an
+      electronic supplement and mark which pages form the 35 published pages.
   [x] Authors: Yeshwanth Guru (g_yeshwanth@ch.students.amrita.edu) and Dev Kunwar Singh Chauhan
       (c_devsingh@ch.amrita.edu), Amrita Vishwa Vidyapeetham, Chennai, India.
   [ ] Add departments and ORCIDs (main.tex, docx title block, cover letter).
@@ -87,12 +91,13 @@ BEFORE YOU SUBMIT (things only you can supply)
   [ ] Table 5 (studies run on a QPU): confirm the device, instance and baseline cells against
       the full texts, especially Windmann2023, Gerlach2025 and Antero2025.
   [x] Update the title in Survey1_ACM_CSUR_Manuscript.docx and the cover letter.
-  [ ] Funding and competing-interest statements (supplement checklist items 25-26, cover letter). The
+  [x] Competing interests: "The authors declare no competing interests" (checklist item 26, cover letter).
+  [ ] Funding statement (checklist item 25, cover letter). The
       acknowledgments section was removed at the authors' request.
   [ ] Cover letter: date and suggested reviewers.
   [ ] Deposit Survey1_data_package on Zenodo and paste the DOI into Data Availability.
-  [ ] Consider citing the published versions of Innan2025 (IEEE QAI 2025) and Wang2021
-      (J. Navigation 2023) instead of their preprints.
+  [x] Published versions checked (Oct 2026): Wang2021 now carries a note pointing to J. Navigation 76(1), 2023;
+      Innan2025 is still arXiv-only.
   [ ] Check the live CSUR author-guidelines page (dl.acm.org/journal/csur/author-guidelines)
       for the current length limit and whether anonymized review is required. If it is,
       add "anonymous" to the \documentclass options (and use "Anonymous author(s)" in Word).

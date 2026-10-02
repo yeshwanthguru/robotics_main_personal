@@ -1,5 +1,7 @@
 # Survey 1 — literature cross-check (October 2026)
 
+> Historical record (kept as provenance for the 12 studies added by the targeted search in Table S6 and Figure S1). The counts below are superseded: the survey now has 72 primary studies, 107 foundational works and 185 references.
+
 **Status: integrated.** All 12 studies in part A are now primary studies (70 in total) and the five ✔ items in part B are cited as foundational works (96). Counts, Tables 2–4, Figs. 2 and 5, the PRISMA diagram, the supplement and `extraction_table.csv` are updated.
 
 Web search across every branch of the taxonomy, compared against the 155 entries in
