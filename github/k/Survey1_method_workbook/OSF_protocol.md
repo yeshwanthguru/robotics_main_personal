@@ -177,16 +177,13 @@ Additional study characteristics recorded and used to describe or stratify the c
 **Software**
 - Database web interfaces (IEEE Xplore, ACM Digital Library, Scopus, Web of Science, SpringerLink,
   ScienceDirect, arXiv) for searching and exporting records.
-- Mendeley Reference Manager [CHECK version] for storing references, removing duplicates, and citing.
-- Microsoft Excel [CHECK version] (Survey1_method_workbook.xlsx) for screening decisions, data
+- Mendeley Reference Manager 2.149.0 for storing references, removing duplicates, and citing.
+- Microsoft Excel 2024 (Survey1_method_workbook.xlsx) for screening decisions, data
   extraction, quality appraisal, and evidence grading; exported to CSV (UTF-8) for sharing.
 - Python 3.11 with matplotlib 3.11 and NumPy for counts, cross-tabulations, and figures.
 - LaTeX (pdfTeX, TeX Live 2023; ACM acmart class) on Overleaf for the manuscript; pandoc 3.1.3 for
   the Word version.
 - Git and GitHub (private repository) for version control of the manuscript, data, and decisions.
-- Generative AI assistant (Claude, Anthropic) used for language editing, formatting, and checking
-  consistency between text and tables; it did not screen studies, assign evidence levels, or make
-  appraisal judgments. [CHECK this matches how you used it.]
 Operating system: [CHECK, e.g., Windows 11].
 
 **Information sources**
