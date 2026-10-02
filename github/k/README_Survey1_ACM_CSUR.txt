@@ -65,7 +65,7 @@ BEFORE YOU SUBMIT (things only you can supply)
   [ ] Section 3.5: who extracted/scored the data and how disagreements were resolved.
   [ ] Quality appraisal is reported qualitatively (unmet criteria = Limitation column of
       Table S1). If you did score studies 0/1/2, restore the scores in supplement Table S3.
-  [ ] Update the title in Survey1_ACM_CSUR_Manuscript.docx and the cover letter.
+  [x] Update the title in Survey1_ACM_CSUR_Manuscript.docx and the cover letter.
   [ ] Funding, competing-interest statement, protocol registration (or say none). The
       acknowledgments section was removed at the authors' request.
   [ ] Cover letter: date and suggested reviewers.
