@@ -10,13 +10,30 @@ FILES
       refs.bib                          155 verified BibTeX entries (full author names, DOIs)
       figures/                          Figures 1-6 + PRISMA flow diagram (PNG); fig7_years.png is
                                         generated from extraction_table.csv
-  Survey1_ACM_CSUR_Manuscript.docx      Word version of the same manuscript, in acmsmall page layout
+  Survey1_ACM_CSUR_Manuscript.docx      Word version generated from main.tex (tools/build_word.sh), with every
+                                        citation as a Mendeley citation field and the reference list as a
+                                        Mendeley bibliography field (see "WORD + MENDELEY" below)
   Survey1_ACM_CSUR_Supplementary_Material.docx   Word version of the supplement
   extraction_table.csv                  Data-extraction table for the 58 primary studies (supplementary data),
                                         including the quantum-execution tag of each study
   Survey1_CSUR_Cover_Letter.docx        Cover letter to the Editor-in-Chief
 
-HOW TO PRODUCE THE SUBMISSION PDF (recommended route)
+  Survey1_missed_papers.md              Literature cross-check (Oct 2026): studies not yet in the survey
+  Survey1_candidate_refs.bib            BibTeX for those studies, ready to merge into refs.bib
+
+WORD + MENDELEY
+  1. In Mendeley Reference Manager, import Survey1_CSUR_LaTeX_Overleaf/refs.bib
+     (File > Import > BibTeX) so the library holds the same 155 references.
+  2. Open Survey1_ACM_CSUR_Manuscript.docx in Word with the Mendeley Cite add-in. The
+     citations are Mendeley Desktop-style fields carrying full reference data; if Mendeley
+     Cite asks to convert legacy citations, accept. Choose a citation style (e.g.
+     "Association for Computing Machinery") and refresh to restyle citations and references.
+  3. Narrative citations (\citet, e.g. "Clark et al. (2019) asked ...") are rendered in
+     narrative form now, but a Mendeley refresh turns them into parenthetical citations;
+     re-type the author names in front of those citations if needed.
+  4. To regenerate the Word file after editing main.tex: run tools/build_word.sh from this
+     folder (needs pandoc >= 3).
+ (recommended route)
   1. overleaf.com -> New Project -> Upload Project -> select Survey1_CSUR_LaTeX_Overleaf.zip
   2. Set main.tex as the main document and compile (pdfLaTeX). acmart and
      ACM-Reference-Format.bst are pre-installed on Overleaf.
