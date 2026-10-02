@@ -12,14 +12,35 @@ Quantum Technologies for Autonomous Robotics: A Systematic Survey of Methods, Ev
 Yeshwanth Guru (ORCID 0009-0007-6353-4033); Dev Kunwar Singh Chauhan (ORCID 0000-0002-1466-4567).
 Department of Mechanical Engineering, Amrita Vishwa Vidyapeetham, Chennai, India.
 
-**Registration timing (state this honestly)**
-This protocol is registered retrospectively, after the review was completed (corpus closed in
-October 2026). It records the methods as they were applied, so that readers can check the review
-against them.
+**Contributors (OSF project > Contributors)**
+Yeshwanth Guru (Admin, bibliographic) first; Dev Kunwar Singh Chauhan (Read + Write, bibliographic)
+second. Add Dev to the project before starting the registration. Link both ORCIDs to the OSF profiles.
+
+**License**
+CC-By Attribution 4.0 International (not "No Derivatives", not "Non-Commercial").
+Copyright holders: Yeshwanth Guru, Dev Kunwar Singh Chauhan. Year: 2026.
+
+**Description / Summary**
+Protocol for a systematic survey of quantum technologies applied to autonomous robots (optimization
+and planning, learning, sensing and communication, decision-making and reasoning). The survey grades
+72 primary studies on a six-level evidence scale (L1 argued to L6 deployed with measured advantage)
+and appraises reporting quality against seven criteria. Registered retrospectively after the review
+was completed (corpus closed October 2026). Authors: Yeshwanth Guru and Dev Kunwar Singh Chauhan,
+Department of Mechanical Engineering, Amrita Vishwa Vidyapeetham, Chennai, India.
+
+**Registration timing / Stage of review (state this honestly)**
+Review completed. Registered retrospectively after the corpus was closed (October 2026), to document
+the methods as applied, so that readers can check the review against them.
+If asked "Has data collection started?": Yes, completed.
 
 **Type of review**
-Systematic review of the literature in computing and robotics, reported following PRISMA 2020
-where it applies.
+Dropdown: Systematic review (not meta-analysis, not scoping, not rapid, not umbrella).
+Free-text version: Systematic review with narrative synthesis (no meta-analysis), reported following
+PRISMA 2020 where applicable. Evidence is graded on a six-level scale (L1 argued to L6 deployed with
+measured advantage) and reporting quality is appraised against seven criteria.
+
+**Discipline / Subjects**
+Engineering > Robotics; Computer science (if absent: Physical sciences > Quantum physics).
 
 **Research questions**
 - RQ1. Which quantum methods have been applied to which robotic functions (optimization and planning;
