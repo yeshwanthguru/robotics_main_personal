@@ -66,6 +66,9 @@ published review against them.
 2026-06-01 (approximate: the review started in June 2026; the exact day was not recorded).
 End of search: October 2026.
 
+**End date**
+2026-10-02 (review completed; manuscript ready for submission).
+
 **Type of review**
 Dropdown: Systematic review (not meta-analysis, not scoping, not rapid, not umbrella).
 Free-text version: Systematic review with narrative synthesis (no meta-analysis), reported following
