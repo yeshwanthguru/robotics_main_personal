@@ -1,6 +1,6 @@
 SURVEY 1 – ACM COMPUTING SURVEYS (CSUR) SUBMISSION PACKAGE
 Quantum Technologies for Autonomous Robotics: A Systematic Survey of Methods, Evidence, and Deployment Constraints
-(retitled from "Quantum Computing for ..."; the .docx manuscript and cover letter still carry the old title)
+(retitled from "Quantum Computing for ..."; title and authors are updated in all .docx files)
 =====================================================================================================
 
 FILES
@@ -8,7 +8,8 @@ FILES
       main.tex                          Manuscript (\documentclass[acmsmall,screen,review]{acmart})
       supplement.tex                    Online supplementary material
       refs.bib                          155 verified BibTeX entries (full author names, DOIs)
-      figures/                          Figures 1-5 + PRISMA flow diagram (300 dpi PNG)
+      figures/                          Figures 1-6 + PRISMA flow diagram (PNG); fig7_years.png is
+                                        generated from extraction_table.csv
   Survey1_ACM_CSUR_Manuscript.docx      Word version of the same manuscript, in acmsmall page layout
   Survey1_ACM_CSUR_Supplementary_Material.docx   Word version of the supplement
   extraction_table.csv                  Data-extraction table for the 58 primary studies (supplementary data),
@@ -33,7 +34,12 @@ STRUCTURE (CSUR conventions)
 BEFORE YOU SUBMIT (things only you can supply)
   [x] Authors: Yeshwanth Guru (g_yeshwanth@ch.students.amrita.edu) and Dev Kunwar Singh Chauhan
       (c_devsingh@ch.amrita.edu), Amrita Vishwa Vidyapeetham, Chennai, India.
-  [ ] Add departments and ORCIDs in main.tex; update the docx title block and cover letter.
+  [ ] Add departments and ORCIDs (main.tex, docx title block, cover letter).
+  [ ] The Word manuscript has the new title, authors and AI-use disclosure, but NOT the
+      body changes of the review revision (Table 4, Fig. 2, Section 10.4, rewording).
+      The LaTeX source is the authoritative version.
+  [ ] Cover letter lists Yeshwanth Guru as corresponding author - change if needed.
+  [x] Generative-AI use is disclosed in the acknowledgments, as ACM policy requires.
   [ ] Section 3.2: date of the last search.
   [ ] Section 3.4 and supplement Table S2 / Figure S1: PRISMA counts (records identified,
       duplicates, screened, full texts, exclusions by reason). These were not invented.
@@ -42,7 +48,7 @@ BEFORE YOU SUBMIT (things only you can supply)
       Table S1). If you did score studies 0/1/2, restore the scores in supplement Table S3.
   [ ] Update the title in Survey1_ACM_CSUR_Manuscript.docx and the cover letter.
   [ ] Acknowledgments / funding, competing-interest statement, protocol registration (or say none).
-  [ ] Cover letter: date, suggested reviewers, corresponding-author details.
+  [ ] Cover letter: date and suggested reviewers.
   [ ] Check the live CSUR author-guidelines page (dl.acm.org/journal/csur/author-guidelines)
       for the current length limit and whether anonymized review is required. If it is,
       add "anonymous" to the \documentclass options (and use "Anonymous author(s)" in Word).
