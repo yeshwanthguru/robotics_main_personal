@@ -1,0 +1,278 @@
+MISSING PAPERS FROM YOUR REFERENCE LIST
+=========================================
+Generated: September 14, 2026
+Total Missing: 28 of 61 papers (45.9%)
+
+Note: Some papers may have been recently downloaded; this list reflects
+papers NOT found in the folder during the latest scan.
+
+═══════════════════════════════════════════════════════════════════════════════
+
+CRITICAL PRIORITY - DIRECT ROBOTICS & QUANTUM (3 papers)
+═════════════════════════════════════════════════════════
+
+[2]   LaValle, Steven M.
+      Title: Planning Algorithms
+      Year: 1998
+      Publisher: Cambridge University Press
+      Type: Textbook
+      Relevance: Robot motion planning fundamentals - baseline for what quantum could improve
+
+[3]   Karaman, Sertac & Frazzoli, Emilio
+      Title: Sampling-based algorithms for optimal motion planning
+      Journal: International Journal of Robotics Research
+      Year: 2011, Volume 30, No. 7, Pages 846-894
+      Relevance: RRT and sampling algorithms - direct quantum speedup targets
+
+[37]  Guerreschi, Gian Giacomo & Carr, Alexander W.
+      Title: Performance characterization of a quantum approximate optimization algorithm
+      Source: arXiv:1811.08716
+      Year: 2018
+      Relevance: ⚠️ ESSENTIAL - Empirical proof of whether QAOA actually works for optimization
+
+
+HIGH PRIORITY - QUANTUM FOUNDATIONS & CONTROL (5 papers)
+═════════════════════════════════════════════════════════
+
+[8]   Dong, Daoyi; Chen, Chunlin; Li, Hanxiong; Tarn, Tzyh-Jong
+      Title: Quantum control theory and applications
+      Journal: IEEE Transactions on Automatic Control
+      Year: 2010, Volume 55, No. 10, Pages 2271-2285
+      Relevance: Quantum control systems - direct application to quantum robot control
+
+[13]  Terhal, Barbara M.
+      Title: Quantum error correction for quantum memories
+      Journal: Reviews of Modern Physics
+      Year: 2015, Volume 87, Pages 307
+      Relevance: ⚠️ CRITICAL LIMITATION - Error correction overhead in current quantum computers
+
+[14]  Fowler, Austin G.; Mariantoni, Matteo; Martinis, John M.; Cleland, Andrew N.
+      Title: Surface codes: Towards practical large-scale quantum computation
+      Journal: Physical Review A
+      Year: 2012, Volume 86, Pages 032324
+      Relevance: Practical error correction for scalable quantum computers
+
+[6]   Yan, Fei; Iliyasu, Abdullah M.; Li, Na; Hirota, Kaoru
+      Title: Quantum robotics: A review of emerging trends
+      Journal: Quantum Machine Intelligence
+      Year: 2024, Volume 6, No. 2, Pages 86
+      Relevance: ⭐ Recent quantum robotics survey - directly addresses your paper's topic
+
+[7]   Lamm, Jonas
+      Title: Quantum Computing for Business
+      Publisher: Packt Publishing
+      Year: 2021
+      Type: Practical guide
+      Relevance: Applied quantum computing - realistic implementation considerations
+
+
+IMPORTANT - QAOA & OPTIMIZATION (2 papers)
+═════════════════════════════════════════
+
+[16]  Hadfield, Stuart; Wang, Zhihui; O'Gorman, Bryan; et al.
+      Title: From the Ising model to Ising machines and quantum annealing algorithms
+      Journal: Frontiers in Physics
+      Year: 2019, Volume 7, Pages 26
+      Relevance: QAOA foundations - connecting Ising problems to robot scheduling
+
+[17]  Zhou, Leo; Wang, Sheng T.; Choi, Soonwon; Pichler, Hannes; Lukin, Mikhail D.
+      Title: Quantum approximate optimization algorithm: Performance, mechanism, and implementation on near-term devices
+      Journal: Physical Review X
+      Year: 2020, Volume 10, Pages 021067
+      Relevance: QAOA performance analysis - empirical results on current hardware
+
+
+QUANTUM COGNITION & DECISION-MAKING (8 papers)
+═══════════════════════════════════════════════
+
+[46]  Widdows, Dominic; Rani, Priyanka; Pothos, Emmanuel M.
+      Title: Quantum models of language and cognition
+      Journal: Oxford Review of Educational Psychology
+      Year: 2023, Volume 49, No. 2, Pages 156-180
+      Relevance: Quantum cognition in language - applicable to robot semantic understanding
+
+[48]  Moreira, Catarina
+      Title: Towards contextual quantum-like theories
+      Source: arXiv:1709.05652
+      Year: 2017
+      Relevance: Theoretical foundations of quantum cognition - contextuality in robot decisions
+
+[50]  Pothos, Emmanuel M. & Busemeyer, Jerome R.
+      Title: A quantum probability explanation of violations of expected utility in economics
+      Journal: Proceedings of the Royal Society B
+      Year: 2009, Volume 276, No. 1665, Pages 2171-2178
+      Relevance: Quantum probability in decision-making - robot utility functions
+
+[51]  Wang, Zheng; Solloway, Timothy; Shiffrin, Richard M.; Busemeyer, Jerome R.
+      Title: Stimulus-query independence in question-order effects
+      Journal: Proceedings of the National Academy of Sciences
+      Year: 2014, Volume 111, No. 26, Pages 9567-9572
+      Relevance: Order-dependent decision-making - contextuality in robot sensing
+
+[52]  Pothos, Emmanuel M. & Busemeyer, Jerome R.
+      Title: Can quantum probability provide a new direction for cognitive modeling?
+      Journal: Behavioral and Brain Sciences
+      Year: 2013, Volume 36, No. 3, Pages 255-274
+      Relevance: Review of quantum cognition paradigm - robot decision architectures
+
+[53]  Busemeyer, Jerome R. & Townsend, James T.
+      Title: Decision field theory: A dynamic-cognitive approach to decision making
+      Journal: Psychological Review
+      Year: 1993, Volume 100, No. 3, Pages 432-459
+      Relevance: Classic decision theory - foundation for quantum decision models in robots
+
+[54]  Trueblood, Jennifer S. & Busemeyer, Jerome R.
+      Title: A quantum probability account of order effects in inference
+      Journal: Cognitive Science
+      Year: 2011, Volume 35, No. 8, Pages 1518-1552
+      Relevance: Quantum inference models - applicable to robot perception and reasoning
+
+[56]  Aerts, Diederik; D'Hondt, Elke; Gabora, Liane
+      Title: Why the conjunction fallacy is not a fallacy
+      Journal: Theory and Decision
+      Year: 2000, Volume 29, No. 3, Pages 229-241
+      Relevance: Quantum probability logic - for robot probabilistic reasoning
+
+
+DEEP LEARNING & MACHINE LEARNING (4 papers)
+════════════════════════════════════════════
+
+[25]  Henderson, Peter; Islam, Riashat; Bachman, Philip; Pineau, Joelle; Precup, Doina; Mnih, Volodymyr
+      Title: Deep reinforcement learning that matters
+      Conference: AAAI
+      Year: 2018, Pages 3207-3214
+      Relevance: Deep RL reproducibility - baseline for quantum RL robot agents
+
+[26]  Alcazar, Jorge; Jiao, Juan; Gonzalez, Sergio; Arenas, Carlos
+      Title: Evaluating deep learning for robot manipulation
+      Journal: IEEE Robotics and Automation Letters
+      Year: 2022, Volume 7, No. 2, Pages 5631-5638
+      Relevance: Deep learning in robotics - comparison with quantum approaches
+
+[31]  Wiebe, Nathan; Kapoor, Ashish; Svore, Krysta M.
+      Title: Quantum deep learning
+      Source: arXiv:1412.3489
+      Year: 2015 (preprint)
+      Relevance: Early quantum deep learning work - hybrid quantum-classical networks for robots
+
+[42]  Liu, Ming-Hao; Liu, Songfeng; Sun, Hang
+      Title: Quantum machine learning: A classical perspective
+      Journal: IEEE Transactions on Neural Networks and Learning Systems
+      Year: 2020, Volume 31, No. 2, Pages 426-442
+      Relevance: Classical understanding of QML - for comparing quantum vs classical robot learning
+
+
+MULTI-AGENT & DISTRIBUTED SYSTEMS (3 papers)
+═════════════════════════════════════════════
+
+[38]  Mannone, Giandomenico; Spehner, Dominique; Karimipour, Vahid
+      Title: Distributed quantum computing
+      Journal: Quantum Science and Technology
+      Year: 2023, Volume 8, No. 1, Pages 014001
+      Relevance: Multi-processor quantum systems - relevant for swarm robotics
+
+[39]  Mannone, Giandomenico; Biamonte, Jacob; Friesteim, Paul
+      Title: Quantum architectures and computation
+      Journal: Reviews of Modern Physics
+      Year: 2025 (most recent)
+      Relevance: Latest quantum architecture developments - future hardware for robot quantum processors
+
+[40]  Yun, Ran; Chen, Yue; Huang, Zhen
+      Title: Multi-agent reinforcement learning for cooperative control
+      Journal: IEEE Transactions on Cybernetics
+      Year: 2022, Volume 52, No. 8, Pages 7732-7745
+      Relevance: Multi-robot coordination algorithms - quantum speedups for swarm robotics
+
+
+ADVANCED TOPICS & CRITICAL PERSPECTIVES (5 papers)
+═══════════════════════════════════════════════════
+
+[43]  Lei, Shuai; Reiher, Markus; Zhang, Wei
+      Title: Quantum computing for chemistry and materials science
+      Journal: Nature Reviews Chemistry
+      Year: 2018, Volume 2, Pages 0038
+      Relevance: Materials science applications - relevant for quantum-engineered robot components
+
+[58]  Murphy, Kevin P.
+      Title: Machine Learning: A Probabilistic Perspective
+      Publisher: MIT Press
+      Year: 2012
+      Type: Textbook
+      Relevance: Classical ML foundations - comparison baseline for quantum ML in robots
+
+[59]  Tang, Yunchao
+      Title: A non-exponential quantum query complexity for the adversary bound
+      Source: arXiv:2001.03935
+      Year: 2020
+      Relevance: Theoretical critique - understanding quantum advantage limits for robotics
+
+[60]  Aaronson, Scott
+      Title: Read the fine print
+      Journal: Nature Physics
+      Year: 2015, Volume 11, Pages 291-293
+      Relevance: ⚠️ CRITICAL - Skeptical perspective on quantum advantage claims (important for credibility)
+
+[61]  Cerezo, Marco; Sone, Akira; Volkoff, Tyson; Cincio, Lukasz; Coles, Patrick J.
+      Title: Cost-function-dependent barren plateaus in shallow parametrized quantum circuits
+      Journal: Nature Communications
+      Year: 2021, Volume 12, Pages 1791
+      Relevance: Another barren plateau result - practical limitation of quantum NN training
+
+
+═══════════════════════════════════════════════════════════════════════════════
+
+SUMMARY BY IMPACT
+═════════════════
+
+ESSENTIAL (Cannot write credible paper without):
+- [37] Guerreschi & Carr - QAOA Performance = ONLY 1 PAPER
+- [60] Aaronson - Critical perspective = 1 PAPER
+- [13] Terhal - Error correction = 1 PAPER
+
+HIGHLY RECOMMENDED (Strengthen major sections):
+- [8]  Quantum control theory
+- [6]  Quantum robotics review
+- [2]  Planning algorithms
+- [3]  Sampling-based planning
+- [16] QAOA foundations
+- [17] QAOA empirical results
+- Quantum cognition set: [46], [48], [50], [51], [52], [53], [54], [56] = 8 papers
+
+SUPPORTING (Fill gaps, add depth):
+- [7]  Applied quantum computing
+- [14] Error correction implementation
+- [25] Deep RL benchmarking
+- [26] Deep learning robotics
+- [31] Quantum deep learning
+- [42] QML classical comparison
+- [38] Distributed quantum
+- [39] New quantum architectures
+- [40] Multi-agent RL
+- [43] Quantum materials
+- [58] ML foundations
+- [59] Quantum complexity theory
+- [61] Barren plateaus
+
+═══════════════════════════════════════════════════════════════════════════════
+
+ACTION ITEMS
+════════════
+
+1. URGENT (Download within 1 week):
+   ✓ [37] - Guerreschi & Carr
+   ✓ [60] - Aaronson
+   ✓ [6]  - Yan et al. (2024 quantum robotics review)
+
+2. HIGH PRIORITY (Download within 2 weeks):
+   ✓ [2], [3] - Robot planning algorithms
+   ✓ [8], [13] - Quantum control & error correction
+   ✓ [16], [17] - QAOA performance analysis
+   ✓ [46], [48], [50], [51], [52], [53], [54], [56] - Quantum cognition papers (8 total)
+
+3. MEDIUM PRIORITY (For fuller paper):
+   ✓ [7], [14], [25], [26], [31], [42], [38], [39], [40]
+
+4. OPTIONAL (Reference/supporting material):
+   ✓ [43], [58], [59], [61]
+
+═══════════════════════════════════════════════════════════════════════════════

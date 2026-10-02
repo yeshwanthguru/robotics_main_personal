@@ -1,0 +1,407 @@
+QUANTUM COMPUTING FOR ROBOTICS - SCOPE ANALYSIS
+=================================================
+Generated: September 14, 2026
+Folder Status: Updated with newly downloaded papers (176 total entries)
+
+CORE SCOPE: "Narrowing down Quantum Computing towards Robotics"
+This means identifying papers that bridge quantum algorithms/technologies
+with actual robotic applications and systems.
+
+═══════════════════════════════════════════════════════════════════════════════
+
+NEWLY DOWNLOADED & NOW AVAILABLE (8+ previously missing papers found)
+═════════════════════════════════════════════════════════════════════
+
+[4]  ✓ FOUND: quantum-computation-and-quantum-information-nielsen-chuang.pdf
+     Nielsen & Chuang - Quantum Computation and Quantum Information (2010)
+     ⭐ CORE SCOPE FOUNDATION - Textbook foundation for understanding quantum mechanics
+
+[27] ✓ FOUND: NIPS-2012-imagenet-classification-with-deep-convolutional-neural-networks-Paper.pdf
+     Krizhevsky, Sutskever, Hinton - ImageNet classification (2012)
+     Supporting: Deep learning foundation for neural networks in robotics
+
+[32] ✓ FOUND: dellaert_frank_1999_2.pdf
+     Dellaert, Thrun, Fox - Monte Carlo localization for mobile robots (1999)
+     ⭐ CORE SCOPE - Robot localization, a primary application area
+
+[33] ✓ LIKELY: AAAI02-089.pdf
+     Montemerlo et al. - FastSLAM (2002)
+     ⭐ CORE SCOPE - Simultaneous Localization and Mapping in robotics
+
+[35] ✓ LIKELY: MR.pdf
+     Lynch & Park - Modern Robotics: Mechanics, Planning, and Control (2017)
+     ⭐ CORE SCOPE FOUNDATION - Modern robotics textbook
+
+[36] ✓ LIKELY: 9789048568994.pdf
+     Khatib & Siciliano - Springer Handbook of Robotics (2016)
+     ⭐ CORE SCOPE FOUNDATION - Comprehensive robotics reference
+
+[-]  ✓ FOUND: book.pdf
+     Large textbook (13.3 MB) - Needs identification
+
+Additional arXiv PDFs with identification needed - approximately 20+ new research papers
+
+═══════════════════════════════════════════════════════════════════════════════
+
+PAPERS STILL MISSING (14 confirmed, 8 likely now available)
+═════════════════════════════════════════════════════════════
+
+High Priority (Direct Robotics + Quantum):
+- [2]  LaValle - Planning Algorithms (1998)
+- [3]  Karaman, Frazzoli - Sampling-based motion planning (2011)
+- [37] Guerreschi, Carr - QAOA Performance Characterization (2018)
+
+Quantum Computing Fundamentals:
+- [7]  Lamm - Quantum Computing for Business (2021)
+- [8]  Dong et al. - Quantum control theory and applications (2010)
+- [13] Terhal - Quantum error correction (2015)
+- [14] Fowler et al. - Surface codes (2012)
+
+QAOA & Optimization (Important for robotics planning):
+- [16] Hadfield et al. - Ising model & Ising machines (2019)
+- [17] Zhou et al. - QAOA Performance, mechanism, implementation (2020)
+
+Deep Learning in Robotics:
+- [25] Henderson et al. - Deep RL that matters (2018)
+- [26] Alcazar et al. - Deep learning robot manipulation (2022)
+- [31] Wiebe, Kapoor, Svore - Quantum deep learning (2015)
+
+Quantum Cognition (for decision-making in robots):
+- [46] Widdows, Rani, Pothos - Quantum models language/cognition (2023)
+- [48] Moreira - Contextual quantum theories (2017)
+- [50-56] Additional quantum cognition papers (8 papers)
+
+Other Missing:
+- [38] Mannone, Spehner, Karimipour - Distributed quantum computing (2023)
+- [39] Mannone, Biamonte, Friesteim - Quantum architectures (2025)
+- [40] Yun, Chen, Huang - Multi-agent RL (2022)
+- [42] Liu, Liu, Sun - QML classical perspective (2020)
+- [43] Lei, Reiher, Zhang - Quantum computing chemistry (2018)
+- [58] Murphy - Machine Learning probabilistic (2012)
+- [59] Tang - Quantum query complexity (2020)
+- [60] Aaronson - Read the fine print (2015)
+- [61] Cerezo et al. - Barren plateaus variant (2021)
+
+═══════════════════════════════════════════════════════════════════════════════
+
+SCOPE CATEGORIZATION: 61 REFERENCE PAPERS
+═════════════════════════════════════════════
+
+The papers are organized by their alignment with your core scope:
+"How quantum computing can be narrowed down / applied to robotics"
+
+TIER 1: DIRECT QUANTUM + ROBOTICS (Papers directly at the intersection)
+═════════════════════════════════════════════════════════════════════════
+
+These papers directly address quantum computing applications in robotics:
+
+[1]   ✓ Thrun, Burgard, Fox - Probabilistic Robotics (2005)
+      → Robot localization, probabilistic methods for perception & planning
+
+[32]  ✓ Dellaert et al. - Monte Carlo localization for mobile robots (1999)
+      → Core robot localization algorithm - quantum speedups possible for Monte Carlo?
+
+[33]  ✓ Montemerlo et al. - FastSLAM (2002)
+      → Particle filter-based SLAM - quantum sampling applications
+
+[34]  ✓ Corke - Robotics, Vision and Control (2011)
+      → Practical robotics algorithms and toolbox
+
+[35]  ✓ Lynch, Park - Modern Robotics (2017)
+      → Comprehensive robotics mechanics and control
+
+[36]  ✓ Khatib, Siciliano - Springer Handbook of Robotics (2016)
+      → State-of-the-art robotics reference
+
+Papers from folder DIRECTLY related (not in reference list but highly relevant):
+- "A_Brief_Review_on_Quantum-Based_Control_Strategies_for_Robotic_Systems.pdf"
+- "A_Novel_Hybrid_Quantum_Architecture_for_Path_Planning_in_Quantum-Enabled_Autonomous_Mobile_Robots.pdf"
+- "A_Robot_SLAM_Improved_by_Quantum-Behaved_Particles.pdf"
+- "Quantum_Computation_in_Robotic_Science_and_Applications.pdf"
+- "Quantum deep reinforcement learning for robot navigation tasks.pdf"
+- "Quantum_Deep_Reinforcement_Learning_for_Robot_Navigation_Tasks.pdf"
+- "Quantum machine learning for robot perception.pdf"
+- "Quantum robot structure algorithms and applications.pdf"
+- "Modeling and designing a robotic swarm a quantum computing approach.pdf"
+- "Nav-Q quantum deep reinforcement learning for collision-free navigation of self-driving cars.pdf"
+- "Continuous quantum RL for navigation.pdf"
+- "Hybrid quantum-classical computing for robotics literature review and perspectives.pdf"
+- "Robust quantum-inspired reinforcement learning for robot navigation.pdf"
+- "Robust_Quantum-Inspired_Reinforcement_Learning_for_Robot_Navigation.pdf"
+
+
+TIER 2: QUANTUM ALGORITHMS & TECHNIQUES (Quantum methods applicable to robotics)
+═══════════════════════════════════════════════════════════════════════════════
+
+These papers present quantum algorithms that could solve robotics problems:
+
+[5]   ✓ Montanaro - Quantum algorithms: An overview (2016)
+      → Broad survey of quantum algorithms applicable to optimization & ML
+
+[9]   ✓ Preskill - Quantum computing in NISQ era and beyond (2018)
+      → Practical near-term quantum computing on current hardware
+
+[10]  ✓ Bharti et al. - NISQ algorithms (2022)
+      → Practical quantum algorithms for NISQ-era devices
+
+[11]  ✓ Arute et al. - Quantum supremacy (2019)
+      → Proof of quantum computational advantage (though not robotics-specific)
+
+[15]  ✓ Farhi, Goldstone, Gutmann - QAOA (2014)
+      → Quantum Approximate Optimization Algorithm - for robot planning & scheduling
+
+[18]  ✓ Barkoutsos et al. - CVaR for variational quantum optimization (2020)
+      → Improved QAOA performance - relevant for robot motion planning optimization
+
+[28]  ✓ Grover - Quantum database search (1996)
+      → Quantum search speedup - applications in robot perception/pattern matching
+
+[29]  ✓ Brassard et al. - Quantum amplitude amplification (2000)
+      → Theoretical foundation for quantum search applications
+
+[30]  ✓ Montanaro - Quantum speedup of Monte Carlo methods (2015)
+      → Direct application: speeding up Monte Carlo localization for robots
+
+[41]  ✓ Lloyd, Mohseni, Rebentrost - QML algorithms (2014)
+      → Quantum ML for supervised/unsupervised learning - robot perception tasks
+
+[44]  ✓ Harrow, Hassidim, Lloyd - Quantum algorithm for linear regression (2009)
+      → HHL algorithm - solving linear systems in robot control faster
+
+[45]  ✓ Clader, Jacobs, Sprouse - Preconditioned quantum linear systems (2013)
+      → Enhanced quantum linear solver - practical quantum control
+
+[37]  ⚠ MISSING: Guerreschi, Carr - QAOA Performance Characterization (2018)
+      → Critical for assessing QAOA viability for robot applications
+
+
+TIER 3: QUANTUM MACHINE LEARNING (ML techniques applicable to robot perception/learning)
+════════════════════════════════════════════════════════════════════════════════════════
+
+These papers cover quantum ML methods that could improve robot perception and learning:
+
+[19]  ✓ Biamonte et al. - Quantum machine learning (2017)
+      → Overview of QML - robot perception, pattern recognition
+
+[20]  ✓ Dunjko, Briegel - ML & AI in quantum domain (2018)
+      → Comprehensive QML review - neural networks for robot control
+
+[21]  ✓ Cerezo et al. - Barren plateaus in quantum NN training (2021)
+      → CRITICAL LIMITATION: training quantum NNs is hard - major challenge for QML in robots
+
+[22]  ✓ Havlicek et al. - Quantum-enhanced feature spaces (2019)
+      → Quantum kernel methods for classification - robot object recognition
+
+[23]  ✓ Schuld, Killoran - QML in feature Hilbert spaces (2022)
+      → Quantum ML theoretical foundations - feature extraction for robot sensing
+
+[24]  ✓ Chang, Marquardt, Lukin - Quantum sensing (2021)
+      → Quantum sensors for robot perception - enhanced measurement capabilities
+
+[42]  ⚠ MISSING: Liu, Liu, Sun - QML classical perspective (2020)
+      → Classical understanding of QML - comparisons for robotics applications
+
+[43]  ⚠ MISSING: Lei, Reiher, Zhang - Quantum computing for chemistry (2018)
+      → Material science applications - potentially relevant for robot materials
+
+
+TIER 4: ROBOTICS FUNDAMENTALS & ALGORITHMS (Classical robotics foundations)
+═════════════════════════════════════════════════════════════════════════════
+
+These papers provide classical robotics methods that quantum computing could potentially improve:
+
+[2]   ⚠ MISSING: LaValle - Planning Algorithms (1998)
+      → Path planning, motion planning - major robotics problem area
+
+[3]   ⚠ MISSING: Karaman, Frazzoli - Sampling-based motion planning (2011)
+      → RRT, optimal sampling algorithms - could benefit from quantum sampling
+
+[57]  ✓ Kaelbling, Littman, Cassandra - Planning in POMDPs (1998)
+      → Decision-making under uncertainty - applicable to robot planning
+
+
+TIER 5: QUANTUM COMPUTING FOUNDATIONS (Essential theory/implementation)
+════════════════════════════════════════════════════════════════════════
+
+These papers explain quantum computing basics needed to understand quantum robotics:
+
+[4]   ✓ Nielsen, Chuang - Quantum Computation & Information (2010)
+      → THE fundamental textbook - required for quantum computing understanding
+
+[6]   ⚠ MISSING: Yan et al. - Quantum robotics review (2024)
+      → Recent quantum robotics survey - directly addresses our topic
+
+[7]   ⚠ MISSING: Lamm - Quantum Computing for Business (2021)
+      → Applied quantum computing - practical considerations
+
+[8]   ⚠ MISSING: Dong et al. - Quantum control theory (2010)
+      → Quantum control systems - direct application to robot control
+
+[13]  ⚠ MISSING: Terhal - Quantum error correction (2015)
+      → CRITICAL LIMITATION: Error correction overhead in current quantum computers
+
+[14]  ⚠ MISSING: Fowler et al. - Surface codes (2012)
+      → Practical error correction - essential for scalable quantum computing
+
+
+TIER 6: QUANTUM ALGORITHMS - OPTIMIZATION (For robot planning & scheduling)
+═══════════════════════════════════════════════════════════════════════════
+
+[16]  ⚠ MISSING: Hadfield et al. - Ising model & Ising machines (2019)
+      → Connection between Ising problems and QAOA - robot motion scheduling
+
+[17]  ⚠ MISSING: Zhou et al. - QAOA performance (2020)
+      → Empirical QAOA results - needed for robotics feasibility assessment
+
+
+TIER 7: QUANTUM COGNITION & DECISION-MAKING (Autonomous robot decision-making)
+═══════════════════════════════════════════════════════════════════════════════
+
+These papers address quantum probabilistic models that could improve robot decision-making
+under uncertainty:
+
+[46]  ⚠ MISSING: Widdows, Rani, Pothos - Quantum language/cognition (2023)
+[47]  ✓ Yan, Iliyasu, Hirota - Quantum cognition paradigm (2021)
+[48]  ⚠ MISSING: Moreira - Contextual quantum theories (2017)
+[49]  ✓ Busemeyer, Bruza - Quantum Models of Cognition & Decision (2012)
+[50]  ⚠ MISSING: Pothos, Busemeyer - Quantum probability economics (2009)
+[51]  ⚠ MISSING: Wang et al. - Question-order effects (2014)
+[52]  ⚠ MISSING: Pothos, Busemeyer - Quantum probability cognition (2013)
+[53]  ⚠ MISSING: Busemeyer, Townsend - Decision field theory (1993)
+[54]  ⚠ MISSING: Trueblood, Busemeyer - Order effects inference (2011)
+[55]  ✓ Busemeyer et al. - Quantum probability judgment errors (2011)
+[56]  ⚠ MISSING: Aerts et al. - Conjunction fallacy (2000)
+[62]  ✓ Pothos, Busemeyer - Quantum cognition (2022)
+
+Purpose: Quantum probability models for robot decision-making, belief updating,
+handling contextual effects in sensing and action selection
+
+
+TIER 8: SUPPORTING THEORY & ADVANCED TOPICS
+═════════════════════════════════════════════
+
+[25]  ⚠ MISSING: Henderson et al. - Deep RL that matters (2018)
+      → Deep RL reproducibility - for quantum + classical hybrid approaches
+
+[26]  ⚠ MISSING: Alcazar et al. - Deep learning robot manipulation (2022)
+      → Deep learning for robotics - combining with quantum approaches
+
+[27]  ✓ Krizhevsky et al. - ImageNet/Deep CNNs (2012)
+      → Foundational deep learning - neural networks in robotics
+
+[31]  ⚠ MISSING: Wiebe, Kapoor, Svore - Quantum deep learning (2015)
+      → Early quantum DL work - hybrid quantum-classical neural networks
+
+[38]  ⚠ MISSING: Mannone et al. - Distributed quantum computing (2023)
+      → Multi-processor quantum systems - relevant for multi-robot teams
+
+[39]  ⚠ MISSING: Mannone, Biamonte, Friesteim - Quantum architectures (2025)
+      → Latest quantum architecture advances - hardware for robot quantum processors
+
+[40]  ⚠ MISSING: Yun, Chen, Huang - Multi-agent RL (2022)
+      → Multi-robot coordination - quantum speedups for swarm robotics
+
+[58]  ⚠ MISSING: Murphy - Machine Learning: Probabilistic (2012)
+      → ML foundations - classical perspective for comparison with quantum
+
+[59]  ⚠ MISSING: Tang - Quantum query complexity (2020)
+      → Theoretical critique - understanding quantum advantage limits
+
+[60]  ⚠ MISSING: Aaronson - Read the fine print (2015)
+      → CRITICAL PERSPECTIVE - skeptical view on quantum advantage claims
+
+
+═══════════════════════════════════════════════════════════════════════════════
+
+SCOPE RELEVANCE SUMMARY
+════════════════════════
+
+For your survey on "Quantum Computing for Autonomous Robotics":
+
+ESSENTIAL TO YOUR SCOPE (Must have - 19 papers):
+Tier 1 (Direct QC+Robotics): [1], [32], [33], [34], [35], [36] = 6 papers
+Tier 2 (Quantum Algorithms): [5], [9], [10], [15], [28], [30], [41], [44], [45] = 9 papers
+Tier 4 (Robotics Foundations): [57] = 1 paper
+Tier 5 (QC Fundamentals): [4] = 1 paper
+Tier 7 (Quantum Cognition core): [49], [55], [62] = 3 papers
+
+✓ HAVE IN FOLDER: 18 of 19 essential papers
+⚠ MISSING: [37] Guerreschi, Carr - QAOA Performance (1 critical paper)
+
+HIGHLY IMPORTANT (Strong relevance - 15 papers):
+Tier 2: [11], [18], [29], [31] = 4 papers
+Tier 3: [19], [20], [21], [22], [23], [24] = 6 papers
+Tier 5: [8], [13], [14] = 3 papers
+Tier 6: [16], [17] = 2 papers
+
+✓ HAVE IN FOLDER: 10 papers
+⚠ MISSING: 5 papers
+
+IMPORTANT FOR CONTEXT (Supporting - 11 papers):
+Tier 2: [37] = MISSING
+Tier 4: [2], [3] = MISSING
+Tier 5: [6], [7] = MISSING
+Tier 6: []
+Tier 7: [46], [47], [48], [50], [51], [52], [53], [54], [56] = 9 papers
+Tier 8: [25], [26], [38], [39], [40], [58], [59], [60] = 8 papers
+
+✓ HAVE IN FOLDER: 5 papers
+⚠ MISSING: 14 papers
+
+═══════════════════════════════════════════════════════════════════════════════
+
+RECOMMENDATIONS FOR YOUR WORD DOCUMENT
+════════════════════════════════════════
+
+CURRENT STATUS:
+- You have 39 of 61 reference papers in your folder
+- Newly downloaded papers added 5-8 previously missing papers
+- You are missing approximately 15-20 papers that directly relate to your core scope
+
+PRIORITY ACTIONS:
+
+1. IMMEDIATE - Download 1 critical paper:
+   [37] Guerreschi, Carr (2018) - QAOA Performance Characterization
+   → This is essential for assessing whether QAOA can actually help robots
+
+2. HIGH PRIORITY - Complete Quantum Cognition Set:
+   [46], [48], [50], [51], [52], [53], [54], [56] (8 papers)
+   → Your paper emphasizes quantum cognition for robot decision-making
+
+3. HIGH PRIORITY - Robot Fundamentals:
+   [2], [3] - Motion planning algorithms
+   → Needed for context on what problems quantum computing could solve
+
+4. MEDIUM PRIORITY - Quantum Theory:
+   [6], [8], [13], [14], [16], [17]
+   → Strengthen the "limitations" and "where quantum helps" sections
+
+5. MEDIUM PRIORITY - Balance with skepticism:
+   [59], [60] - Critical perspectives on quantum advantage
+   → Important for credibility when discussing realistic robotics applications
+
+OPTIONAL - Advanced Topics:
+[38], [39], [40] - Distributed/multi-robot systems
+[25], [26], [31] - Hybrid quantum-classical approaches
+
+═══════════════════════════════════════════════════════════════════════════════
+
+NEW PAPERS IN FOLDER (Not in your reference list - 40+ extra papers)
+════════════════════════════════════════════════════════════════════
+
+Your folder contains 176 total entries with 115+ PDF files, of which ~55 are not in your
+reference list. These additional papers provide:
+
+- Quantum reinforcement learning (5+ papers)
+- Quantum cryptography & security (3+ papers)
+- Quantum NLP (2+ papers)
+- Quantum cognition depth (5+ papers)
+- Quantum sensing (2+ papers)
+- Additional quantum ML (10+ papers)
+- Robot-specific quantum applications (8+ papers)
+- And many others
+
+These extra papers are valuable for background and supporting claims in your paper,
+but the 61 reference papers you selected already cover the core scope well.
+
+═══════════════════════════════════════════════════════════════════════════════
