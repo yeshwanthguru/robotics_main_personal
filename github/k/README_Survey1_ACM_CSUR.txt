@@ -7,7 +7,7 @@ FILES
   Survey1_CSUR_LaTeX_Overleaf.zip       Official submission source (ACM acmart, acmsmall format)
       main.tex                          Manuscript (\documentclass[acmsmall,screen,review]{acmart})
       supplement.tex                    Online supplementary material
-      refs.bib                          182 verified BibTeX entries (full author names, DOIs)
+      refs.bib                          184 verified BibTeX entries (full author names, DOIs)
       figures/                          Figures 1-10 of the paper + PRISMA flow diagram (PNG); fig7_years.png
                                         is generated from extraction_table.csv; fig8-fig11 are redrawn
                                         "adapted from" schematics of methods in the cited studies (QUBO
@@ -31,7 +31,7 @@ FILES
 
 WORD + MENDELEY
   1. In Mendeley Reference Manager, import Survey1_CSUR_LaTeX_Overleaf/refs.bib
-     (File > Import > BibTeX) so the library holds the same 182 references.
+     (File > Import > BibTeX) so the library holds the same 184 references.
   2. Open Survey1_ACM_CSUR_Manuscript.docx in Word with the Mendeley Cite add-in. The
      citations are Mendeley Desktop-style fields carrying full reference data; if Mendeley
      Cite asks to convert legacy citations, accept. Choose a citation style (e.g.
@@ -67,8 +67,19 @@ BEFORE YOU SUBMIT (things only you can supply)
   [ ] Section 3.4 and supplement Table S2 / Figure S1: PRISMA counts (records identified,
       duplicates, screened, full texts, exclusions by reason). These were not invented.
   [ ] Section 3.5: who extracted/scored the data and how disagreements were resolved.
-  [ ] Quality appraisal is reported qualitatively (unmet criteria = Limitation column of
-      Table S1). If you did score studies 0/1/2, restore the scores in supplement Table S3.
+  [ ] Quality appraisal (supplement Table S5 and Survey1_data_package/quality_appraisal.csv):
+      Q1, Q2, Q3, Q5 and Q7 were drafted from the extraction table - check each against the
+      full text, and fill in Q4 (hardware and noise reporting) and Q6 (reproducibility: code,
+      data, parameters). The main text (Section 3.5) quotes counts from Q2 and Q3 (12 / 19 / 6
+      of 59): update them if your checks change any judgment.
+  [ ] Inter-rater reliability: have the second author grade a random 15-20 studies blind
+      (evidence level and Q1-Q7), report Cohen's kappa in Section 3.5, and say how
+      disagreements were resolved.
+  [ ] Section 11.6 resource estimate: the assumptions (10 us per Toffoli, 10 ns per cell,
+      1,000 Toffolis per qRAM call) are ours and stated in Table 6; check you are comfortable
+      defending them, or ask a quantum-compilation colleague to read the section.
+  [ ] Table 5 (studies run on a QPU): confirm the device, instance and baseline cells against
+      the full texts, especially Windmann2023, Gerlach2025 and Antero2025.
   [x] Update the title in Survey1_ACM_CSUR_Manuscript.docx and the cover letter.
   [ ] Funding, competing-interest statement, protocol registration (or say none). The
       acknowledgments section was removed at the authors' request.

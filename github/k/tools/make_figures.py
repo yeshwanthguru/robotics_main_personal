@@ -15,7 +15,7 @@ sys.path.insert(0, os.path.dirname(__file__))
 from figstyle import plt, style_axes, INK, MUTED, GRID, COLORS  # noqa: E402
 
 OUT = 'Survey1_CSUR_LaTeX_Overleaf/figures/'
-FOUNDATIONAL = 104
+FOUNDATIONAL = 106
 CATS = ['Quantum computation (incl. cognition models)', 'Quantum-inspired (classical hardware)',
         'Quantum sensing', 'Quantum communication', 'Review']
 
