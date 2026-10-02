@@ -249,3 +249,9 @@ The authors declare no conflicts of interest. Neither author has financial ties 
 funding, equipment, or cloud credits from, any quantum-hardware or quantum-software company, and
 neither author is an author of any of the primary studies included in the review. No outcome of the
 review affects the authors' funding or opportunities.
+
+**Overlapping authorships**
+None. Neither author (Yeshwanth Guru, Dev Kunwar Singh Chauhan) is an author or co-author of any of
+the 72 primary studies or of the 107 foundational works in the review; this was checked against the
+full reference list. Because there is no overlap, no reviewer had to be excluded from screening,
+data extraction, quality assessment, or synthesis of any study.
