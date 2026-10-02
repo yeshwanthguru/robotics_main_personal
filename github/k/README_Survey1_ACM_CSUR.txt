@@ -7,23 +7,25 @@ FILES
   Survey1_CSUR_LaTeX_Overleaf.zip       Official submission source (ACM acmart, acmsmall format)
       main.tex                          Manuscript (\documentclass[acmsmall,screen,review]{acmart})
       supplement.tex                    Online supplementary material
-      refs.bib                          155 verified BibTeX entries (full author names, DOIs)
+      refs.bib                          172 verified BibTeX entries (full author names, DOIs)
       figures/                          Figures 1-6 + PRISMA flow diagram (PNG); fig7_years.png is
                                         generated from extraction_table.csv
   Survey1_ACM_CSUR_Manuscript.docx      Word version generated from main.tex (tools/build_word.sh), with every
                                         citation as a Mendeley citation field and the reference list as a
                                         Mendeley bibliography field (see "WORD + MENDELEY" below)
   Survey1_ACM_CSUR_Supplementary_Material.docx   Word version of the supplement
-  extraction_table.csv                  Data-extraction table for the 58 primary studies (supplementary data),
+  extraction_table.csv                  Data-extraction table for the 70 primary studies (supplementary data),
                                         including the quantum-execution tag of each study
   Survey1_CSUR_Cover_Letter.docx        Cover letter to the Editor-in-Chief
 
-  Survey1_missed_papers.md              Literature cross-check (Oct 2026): studies not yet in the survey
-  Survey1_candidate_refs.bib            BibTeX for those studies, ready to merge into refs.bib
+  Survey1_missed_papers.md              Literature cross-check (Oct 2026); all listed studies are now in the survey
+  Survey1_candidate_refs.bib            BibTeX for those studies (already merged into refs.bib)
+
+  tools/make_figures.py                 Regenerates Figs. 2 and 5 and the PRISMA diagram from extraction_table.csv
 
 WORD + MENDELEY
   1. In Mendeley Reference Manager, import Survey1_CSUR_LaTeX_Overleaf/refs.bib
-     (File > Import > BibTeX) so the library holds the same 155 references.
+     (File > Import > BibTeX) so the library holds the same 172 references.
   2. Open Survey1_ACM_CSUR_Manuscript.docx in Word with the Mendeley Cite add-in. The
      citations are Mendeley Desktop-style fields carrying full reference data; if Mendeley
      Cite asks to convert legacy citations, accept. Choose a citation style (e.g.

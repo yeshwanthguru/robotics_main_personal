@@ -1,5 +1,7 @@
 # Survey 1 — literature cross-check (October 2026)
 
+**Status: integrated.** All 12 studies in part A are now primary studies (70 in total) and the five ✔ items in part B are cited as foundational works (96). Counts, Tables 2–4, Figs. 2 and 5, the PRISMA diagram, the supplement and `extraction_table.csv` are updated.
+
 Web search across every branch of the taxonomy, compared against the 155 entries in
 `refs.bib`. "In scope" means the study would satisfy inclusion criterion I1 (a quantum or
 quantum-inspired method applied to a robotic function). BibTeX for the entries marked ✔ is in
