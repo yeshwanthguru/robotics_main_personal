@@ -65,7 +65,7 @@ BEFORE YOU SUBMIT (things only you can supply)
       (c_devsingh@ch.amrita.edu), Amrita Vishwa Vidyapeetham, Chennai, India.
   [x] ORCIDs added: Yeshwanth 0009-0007-6353-4033, Dev 0000-0002-1466-4567.
   [x] Department: Department of Mechanical Engineering for both authors (LaTeX, Word, cover letter).
-  [ ] Cover letter lists Yeshwanth Guru as corresponding author - change if needed.
+  [ ] REMINDER: corresponding author not yet decided (cover letter currently lists Yeshwanth Guru).
   [ ] Generative-AI use is no longer disclosed in the manuscript (acknowledgments removed).
       ACM policy requires disclosure: declare it in the submission system or cover letter.
   [x] PRISMA reporting (Oct 2026): the per-stage record counts were never logged, so the paper
@@ -93,7 +93,8 @@ BEFORE YOU SUBMIT (things only you can supply)
       the full texts, especially Windmann2023, Gerlach2025 and Antero2025.
   [x] Update the title in Survey1_ACM_CSUR_Manuscript.docx and the cover letter.
   [x] Competing interests: "The authors declare no competing interests" (checklist item 26, cover letter).
-  [ ] Funding statement (checklist item 25, cover letter). The
+  [x] Funding: "This research received no external funding. It was carried out as part of the
+      authors' work at Amrita Vishwa Vidyapeetham, Chennai, India." (checklist item 25, cover letter). The
       acknowledgments section was removed at the authors' request.
   [ ] Cover letter: date and suggested reviewers.
   [ ] Deposit Survey1_data_package on Zenodo and paste the DOI into Data Availability.
