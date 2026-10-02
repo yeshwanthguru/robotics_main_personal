@@ -17,7 +17,9 @@ end
 
 local field_end = pandoc.RawInline('openxml', '<w:r><w:fldChar w:fldCharType="end"/></w:r>')
 
+local cap_prefix = ''
 function Meta(meta)
+  if meta['caption-prefix'] then cap_prefix = pandoc.utils.stringify(meta['caption-prefix']) end
   local path = meta['csl-items-file'] and pandoc.utils.stringify(meta['csl-items-file'])
   local fh = io.open(path, 'r')
   for _, it in ipairs(pandoc.json.decode(fh:read('a'), false)) do items[it.id] = it end
@@ -72,7 +74,7 @@ local function prefix(caption, label)
   end
   return caption
 end
-function Table(el) ntab = ntab + 1; el.caption = prefix(el.caption, 'Table ' .. ntab .. '.'); return el end
-function Figure(el) nfig = nfig + 1; el.caption = prefix(el.caption, 'Fig. ' .. nfig .. '.'); return el end
+function Table(el) ntab = ntab + 1; el.caption = prefix(el.caption, 'Table ' .. cap_prefix .. ntab .. '.'); return el end
+function Figure(el) nfig = nfig + 1; el.caption = prefix(el.caption, 'Fig. ' .. cap_prefix .. nfig .. '.'); return el end
 
 return { { Meta = Meta }, { Cite = Cite, Div = Div }, { Table = Table, Figure = Figure } }

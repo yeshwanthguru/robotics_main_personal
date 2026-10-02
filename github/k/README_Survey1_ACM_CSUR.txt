@@ -13,7 +13,8 @@ FILES
   Survey1_ACM_CSUR_Manuscript.docx      Word version generated from main.tex (tools/build_word.sh), with every
                                         citation as a Mendeley citation field and the reference list as a
                                         Mendeley bibliography field (see "WORD + MENDELEY" below)
-  Survey1_ACM_CSUR_Supplementary_Material.docx   Word version of the supplement
+  Survey1_ACM_CSUR_Supplementary_Material.docx   Word version of the supplement, generated from supplement.tex
+                                        with Mendeley citation fields (tools/build_word.sh)
   extraction_table.csv                  Data-extraction table for the 72 primary studies (supplementary data),
                                         including the quantum-execution tag of each study
   Survey1_CSUR_Cover_Letter.docx        Cover letter to the Editor-in-Chief
@@ -33,8 +34,8 @@ WORD + MENDELEY
   3. Narrative citations (\citet, e.g. "Clark et al. (2019) asked ...") are rendered in
      narrative form now, but a Mendeley refresh turns them into parenthetical citations;
      re-type the author names in front of those citations if needed.
-  4. To regenerate the Word file after editing main.tex: run tools/build_word.sh from this
-     folder (needs pandoc >= 3).
+  4. To regenerate both Word files after editing main.tex or supplement.tex: run
+     tools/build_word.sh from this folder (needs pandoc >= 3).
  (recommended route)
   1. overleaf.com -> New Project -> Upload Project -> select Survey1_CSUR_LaTeX_Overleaf.zip
   2. Set main.tex as the main document and compile (pdfLaTeX). acmart and
@@ -54,9 +55,6 @@ BEFORE YOU SUBMIT (things only you can supply)
   [x] Authors: Yeshwanth Guru (g_yeshwanth@ch.students.amrita.edu) and Dev Kunwar Singh Chauhan
       (c_devsingh@ch.amrita.edu), Amrita Vishwa Vidyapeetham, Chennai, India.
   [ ] Add departments and ORCIDs (main.tex, docx title block, cover letter).
-  [ ] The Word manuscript has the new title, authors and AI-use disclosure, but NOT the
-      body changes of the review revision (Table 4, Fig. 2, Section 10.4, rewording).
-      The LaTeX source is the authoritative version.
   [ ] Cover letter lists Yeshwanth Guru as corresponding author - change if needed.
   [ ] Generative-AI use is no longer disclosed in the manuscript (acknowledgments removed).
       ACM policy requires disclosure: declare it in the submission system or cover letter.
