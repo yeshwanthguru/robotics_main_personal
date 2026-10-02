@@ -186,6 +186,18 @@ Additional study characteristics recorded and used to describe or stratify the c
 - Git and GitHub (private repository) for version control of the manuscript, data, and decisions.
 Operating system: [CHECK, e.g., Windows 11].
 
+**Databases** (Search strategy section)
+1. IEEE Xplore Digital Library
+2. ACM Digital Library
+3. Scopus
+4. Web of Science Core Collection
+5. SpringerLink
+6. ScienceDirect
+7. arXiv (categories quant-ph, cs.RO, cs.LG)
+Supplemented by backward and forward citation searching from key surveys (Tandon et al. 2017;
+Petschnigg et al. 2019; Meyer et al. 2022; Yan et al. 2024) and by targeted searches in application
+areas where quantum-robotics work appears outside robotics venues. Coverage: 1982 to October 2026.
+
 **Information sources**
 IEEE Xplore, ACM Digital Library, Scopus, Web of Science, SpringerLink, ScienceDirect, arXiv
 (quant-ph, cs.RO, cs.LG); backward and forward reference chasing from key papers and earlier
