@@ -56,6 +56,12 @@ All stages below were completed before this retrospective registration.
 No separate pilot screening or pilot extraction stage was recorded, and there were no
 preregistration updates, because the protocol is registered after completion.
 
+**Current review stage**
+All stages (1-7) completed; the manuscript is ready for journal submission. This is a retrospective
+registration, not a preregistration, and it is the first and only registration of this review (no
+earlier versions or updates). It records the methods as applied so that readers can check the
+published review against them.
+
 **Type of review**
 Dropdown: Systematic review (not meta-analysis, not scoping, not rapid, not umbrella).
 Free-text version: Systematic review with narrative synthesis (no meta-analysis), reported following
