@@ -4,8 +4,7 @@
 
 Web search across every branch of the taxonomy, compared against the 155 entries in
 `refs.bib`. "In scope" means the study would satisfy inclusion criterion I1 (a quantum or
-quantum-inspired method applied to a robotic function). BibTeX for the entries marked ✔ is in
-`Survey1_candidate_refs.bib`; the others still need their metadata confirmed.
+quantum-inspired method applied to a robotic function). BibTeX for the entries marked ✔ has been merged into `refs.bib`.
 
 ## A. Likely in scope — would change counts or claims
 

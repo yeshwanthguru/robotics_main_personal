@@ -1,0 +1,10 @@
+# LaTeX build files (Overleaf and pdflatex regenerate them)
+*.aux
+*.bbl
+*.blg
+*.log
+*.out
+*.toc
+*.cut
+*.synctex.gz
+__pycache__/

@@ -15,7 +15,7 @@ sys.path.insert(0, os.path.dirname(__file__))
 from figstyle import plt, style_axes, INK, MUTED, GRID, COLORS  # noqa: E402
 
 OUT = 'Survey1_CSUR_LaTeX_Overleaf/figures/'
-FOUNDATIONAL = 94
+FOUNDATIONAL = 104
 CATS = ['Quantum computation (incl. cognition models)', 'Quantum-inspired (classical hardware)',
         'Quantum sensing', 'Quantum communication', 'Review']
 
@@ -156,6 +156,10 @@ QC = [
     (2018, 'NISQ era named (Preskill)'),
     (2019, 'Sycamore: beyond-classical sampling'),
     (2021, 'Dynamic circuits with real-time feedback'),
+    (2023, 'IBM: 127-qubit utility experiment'),
+    (2024, 'Logical-qubit processor; qLDPC codes'),
+    (2025, 'Error correction below threshold (Willow)'),
+    (2025, 'Annealer simulation claimed beyond classical'),
 ]
 C, I, S, M, R = CATS[0], CATS[1], CATS[2], CATS[3], CATS[4]
 ROB = [
@@ -233,7 +237,7 @@ ax.text(XQ, 0.27, 'Quantum computing', ha='right', va='center', fontsize=FS + 1.
 ax.text(XR, 0.27, 'Quantum robotics', ha='left', va='center', fontsize=FS + 1.5, weight='bold', color=NAVY_INK)
 handles = [plt.Line2D([], [], marker='o', ls='', color=COLORS[i], ms=5.5, label=CATS[i].split(' (')[0])
            for i in range(4)] + [plt.Line2D([], [], marker='o', ls='', color=COLORS[4], ms=5.5, label='Review / book')]
-ax.legend(handles=handles, loc='lower left', bbox_to_anchor=(0.06, 0.01), frameon=True, facecolor='white',
+ax.legend(handles=handles, loc='upper right', bbox_to_anchor=(0.97, 0.955), frameon=True, facecolor='white',
           edgecolor='#d8d8d4', fontsize=FS - 0.7, title='Robotics milestones', title_fontsize=FS - 0.7)
 fig.savefig(OUT + 'fig3_timeline.png')
 plt.close(fig)

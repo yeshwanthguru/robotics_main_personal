@@ -7,7 +7,7 @@ FILES
   Survey1_CSUR_LaTeX_Overleaf.zip       Official submission source (ACM acmart, acmsmall format)
       main.tex                          Manuscript (\documentclass[acmsmall,screen,review]{acmart})
       supplement.tex                    Online supplementary material
-      refs.bib                          172 verified BibTeX entries (full author names, DOIs)
+      refs.bib                          182 verified BibTeX entries (full author names, DOIs)
       figures/                          Figures 1-6 + PRISMA flow diagram (PNG); fig7_years.png is
                                         generated from extraction_table.csv
   Survey1_ACM_CSUR_Manuscript.docx      Word version generated from main.tex (tools/build_word.sh), with every
@@ -20,13 +20,14 @@ FILES
   Survey1_CSUR_Cover_Letter.docx        Cover letter to the Editor-in-Chief
 
   Survey1_missed_papers.md              Literature cross-check (Oct 2026); all listed studies are now in the survey
-  Survey1_candidate_refs.bib            BibTeX for those studies (already merged into refs.bib)
+  Survey1_data_package/                 Archive-ready dataset: extraction table, codebook, search
+                                        strings and README for a Zenodo deposit (DOI goes in Data Availability)
 
   tools/make_figures.py                 Regenerates Figs. 1, 2 and 5 and the PRISMA diagram (timeline milestones are listed in the script)
 
 WORD + MENDELEY
   1. In Mendeley Reference Manager, import Survey1_CSUR_LaTeX_Overleaf/refs.bib
-     (File > Import > BibTeX) so the library holds the same 172 references.
+     (File > Import > BibTeX) so the library holds the same 182 references.
   2. Open Survey1_ACM_CSUR_Manuscript.docx in Word with the Mendeley Cite add-in. The
      citations are Mendeley Desktop-style fields carrying full reference data; if Mendeley
      Cite asks to convert legacy citations, accept. Choose a citation style (e.g.
@@ -68,6 +69,9 @@ BEFORE YOU SUBMIT (things only you can supply)
   [ ] Funding, competing-interest statement, protocol registration (or say none). The
       acknowledgments section was removed at the authors' request.
   [ ] Cover letter: date and suggested reviewers.
+  [ ] Deposit Survey1_data_package on Zenodo and paste the DOI into Data Availability.
+  [ ] Consider citing the published versions of Innan2025 (IEEE QAI 2025) and Wang2021
+      (J. Navigation 2023) instead of their preprints.
   [ ] Check the live CSUR author-guidelines page (dl.acm.org/journal/csur/author-guidelines)
       for the current length limit and whether anonymized review is required. If it is,
       add "anonymous" to the \documentclass options (and use "Anonymous author(s)" in Word).
