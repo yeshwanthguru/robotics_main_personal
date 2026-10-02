@@ -7,7 +7,7 @@ FILES
   Survey1_CSUR_LaTeX_Overleaf.zip       Official submission source (ACM acmart, acmsmall format)
       main.tex                          Manuscript (\documentclass[acmsmall,screen,review]{acmart})
       supplement.tex                    Online supplementary material
-      refs.bib                          184 verified BibTeX entries (full author names, DOIs)
+      refs.bib                          185 verified BibTeX entries (full author names, DOIs)
       figures/                          Figures 1-10 of the paper + PRISMA flow diagram (PNG); fig7_years.png
                                         is generated from extraction_table.csv; fig8-fig11 are redrawn
                                         "adapted from" schematics of methods in the cited studies (QUBO
@@ -31,7 +31,7 @@ FILES
 
 WORD + MENDELEY
   1. In Mendeley Reference Manager, import Survey1_CSUR_LaTeX_Overleaf/refs.bib
-     (File > Import > BibTeX) so the library holds the same 184 references.
+     (File > Import > BibTeX) so the library holds the same 185 references.
   2. Open Survey1_ACM_CSUR_Manuscript.docx in Word with the Mendeley Cite add-in. The
      citations are Mendeley Desktop-style fields carrying full reference data; if Mendeley
      Cite asks to convert legacy citations, accept. Choose a citation style (e.g.

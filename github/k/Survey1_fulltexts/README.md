@@ -5,7 +5,9 @@ Copies of the cited papers found in `quantum_computing/`, renamed by their citat
 file name.
 
 - `primary/`: 68 of the 72 primary studies (Table S1).
-- `references/`: 72 of the 112 foundational and related works. `Busemeyer2012.pdf` and the
+- `references/`: 84 of the 113 foundational and related works. `Begusic2024.pdf` is the earlier arXiv
+  version (Begusic and Chan); the file named "Evidence for the utility..." in quantum_computing/ is
+  this rebuttal, not KimY2023, which is still missing. `Busemeyer2012.pdf` and the
   Nielsen and Chuang book are scanned (no text layer).
 - `index.csv`: every cited work, its group, and the source file it was copied from, or MISSING.
 
