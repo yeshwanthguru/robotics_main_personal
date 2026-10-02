@@ -63,10 +63,15 @@ BEFORE YOU SUBMIT (things only you can supply)
   [ ] Cover letter lists Yeshwanth Guru as corresponding author - change if needed.
   [ ] Generative-AI use is no longer disclosed in the manuscript (acknowledgments removed).
       ACM policy requires disclosure: declare it in the submission system or cover letter.
-  [ ] Section 3.2: date of the last search.
-  [ ] Section 3.4 and supplement Table S2 / Figure S1: PRISMA counts (records identified,
-      duplicates, screened, full texts, exclusions by reason). These were not invented.
-  [ ] Section 3.5: who extracted/scored the data and how disagreements were resolved.
+  [x] PRISMA reporting (Oct 2026): the per-stage record counts were never logged, so the paper
+      now says so openly (Section 3.4, Section 3.7 "Selection and grading", Table S2, Figure S1)
+      instead of leaving [n] blanks. Search window: 1982 to October 2026 (latest study August 2026).
+      Screening and grading are reported as done by the first author alone; protocol "not registered".
+      CHECK these statements are true. If Dev screened or graded anything, say so instead.
+  [ ] OPTIONAL UPGRADE (strongly recommended before submission): re-run the searches in one day
+      and log them in Survey1_method_workbook/Survey1_method_workbook.xlsx. With real counts and a
+      second grader (kappa), the paper can report a full PRISMA flow - send me the workbook and I
+      will put the numbers back in.
   [ ] Quality appraisal (supplement Table S5 and Survey1_data_package/quality_appraisal.csv):
       Q4 and Q6 judged from the full texts for 56 of the 59 studies; Q1, Q2, Q3, Q5 and Q7 were
       drafted from the extraction table - check them. Section 3.5 quotes 12 / 19 / 6 of 59
@@ -74,16 +79,13 @@ BEFORE YOU SUBMIT (things only you can supply)
   [ ] Full texts still missing: Yan2024 (review), Windmann2023, Mannone2023, Mannone2025.
       The last three have red Q4/Q6 cells in Table S5. See Survey1_fulltexts/index.csv for the
       40 cited references that are also still missing.
-  [ ] Inter-rater reliability: have the second author grade a random 15-20 studies blind
-      (evidence level and Q1-Q7), report Cohen's kappa in Section 3.5, and say how
-      disagreements were resolved.
   [ ] Section 11.6 resource estimate: the assumptions (10 us per Toffoli, 10 ns per cell,
       1,000 Toffolis per qRAM call) are ours and stated in Table 6; check you are comfortable
       defending them, or ask a quantum-compilation colleague to read the section.
   [ ] Table 5 (studies run on a QPU): confirm the device, instance and baseline cells against
       the full texts, especially Windmann2023, Gerlach2025 and Antero2025.
   [x] Update the title in Survey1_ACM_CSUR_Manuscript.docx and the cover letter.
-  [ ] Funding, competing-interest statement, protocol registration (or say none). The
+  [ ] Funding and competing-interest statements (supplement checklist items 25-26, cover letter). The
       acknowledgments section was removed at the authors' request.
   [ ] Cover letter: date and suggested reviewers.
   [ ] Deposit Survey1_data_package on Zenodo and paste the DOI into Data Availability.

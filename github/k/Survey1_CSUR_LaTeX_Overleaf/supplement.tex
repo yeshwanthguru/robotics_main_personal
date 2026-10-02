@@ -105,17 +105,14 @@ This supplement contains the evidence table for the 72 primary studies (Table~\r
 \end{longtable}}
 
 \begin{table}[h]
-\caption{PRISMA 2020 flow of records.}
+\caption{PRISMA 2020 flow of records. The searches were run iteratively and the number of records at each stage was not logged, so only the stages and the final counts are reported.}
 \label{tab:flow}
 \footnotesize
 \begin{tabular}{@{}>{\raggedright\arraybackslash}p{0.180\dimexpr\linewidth-4\tabcolsep\relax}>{\raggedright\arraybackslash}p{0.820\dimexpr\linewidth-4\tabcolsep\relax}@{}}
 \toprule
 \textbf{Stage} & \textbf{Records} \\ \midrule
-Identification & Records identified from databases: \fillin{n} (IEEE Xplore \fillin{n}; ACM DL \fillin{n}; Scopus \fillin{n}; Web of Science \fillin{n}; SpringerLink \fillin{n}; ScienceDirect \fillin{n}; arXiv \fillin{n}). Records from snowballing and other sources: \fillin{n}. \\
- & Records removed before screening (duplicates): \fillin{n}. \\
-Screening & Records screened by title and abstract: \fillin{n}; records excluded: \fillin{n}. \\
- & Reports sought for retrieval: \fillin{n}; reports not retrieved: \fillin{n}. \\
-Eligibility & Reports assessed in full text: \fillin{n}; reports excluded, with reasons: metaphorical use of ``quantum'' (E1) \fillin{n}; not in English (E2) \fillin{n}; duplicate or earlier version (E3) \fillin{n}; no robotic application (E4) \fillin{n}. \\
+Identification & Records identified from databases (IEEE Xplore, ACM DL, Scopus, Web of Science, SpringerLink, ScienceDirect, arXiv; strings in Table~\ref{tab:search}): not logged. Records from other methods: reference chasing (not counted separately) and targeted searches, which contributed 12 of the primary studies. \\
+Screening & Records screened on title and abstract, then reports assessed in full text, by one reviewer against criteria I1--I3 and E1--E4; the numbers excluded at each stage were not logged. Reasons for exclusion at full text: metaphorical use of ``quantum'' (E1), not in English (E2), duplicate or earlier version (E3), no robotic application (E4). \\
 Included & Primary studies: 72 (65 empirical or theoretical studies and 7 reviews). Foundational works cited for context: 106. Related quantum computer-vision studies discussed but not graded (Section 10.4 of the main article): 6. Total references: 184. \\
 \bottomrule
 \end{tabular}
@@ -124,7 +121,7 @@ Included & Primary studies: 72 (65 empirical or theoretical studies and 7 review
 \begin{figure}[h]
 \centering
 \includegraphics[width=0.8\linewidth]{figures/fig6_prisma.png}
-\caption{PRISMA 2020 flow diagram (counts as in Table~\ref{tab:flow}).}
+\caption{PRISMA 2020 flow diagram. Stages for which the number of records was not logged are marked as such (see Table~\ref{tab:flow}).}
 \Description{PRISMA 2020 flow diagram with boxes for identification, screening, eligibility, and inclusion, ending with 72 primary studies and 106 foundational works.}
 \label{fig:prisma}
 \end{figure}
@@ -153,13 +150,13 @@ Included & Primary studies: 72 (65 empirical or theoretical studies and 7 review
 15 & Certainty assessment & Sections 11.2--11.3 \\
 16 & Study selection & Figure S1 \\
 17 & Study characteristics & Table S1 and the machine-readable evidence table \\
-18 & Risk of bias in studies & Limitation column of Table S1; Sections 4--10 \\
+18 & Risk of bias in studies & Table~\ref{tab:appraisal}; Limitation column of Table S1; Sections 4--10 \\
 19 & Results of individual studies & Sections 4--10; Table S1 \\
 20 & Results of syntheses & Section 11; Tables 2 and 3 \\
 21 & Reporting biases & Section 3.7 \\
 22 & Certainty of evidence & Section 11.2 \\
 23 & Discussion & Sections 11--12 \\
-24 & Registration and protocol & \fillin{registration or protocol statement} \\
+24 & Registration and protocol & The review protocol was not registered \\
 25 & Support & \fillin{funding statement, or ``none''} \\
 26 & Competing interests & \fillin{declaration} \\
 27 & Availability of data, code, and materials & Table S1 and the machine-readable evidence table \\
@@ -266,13 +263,13 @@ Q7 Critical discussion & Absent & Brief & Explicit limitations and threats to va
 \textbf{Database or field} & \textbf{Search string (adapted to each database syntax)} \\ \midrule
 Core string & (``quantum computing'' OR ``quantum algorithm*'' OR ``quantum annealing'' OR QAOA OR ``variational quantum'' OR ``quantum machine learning'' OR ``quantum reinforcement learning'' OR ``quantum-inspired'' OR ``quantum sensing'' OR ``quantum cognition'' OR ``quantum probability'') AND (robot* OR ``autonomous vehicle*'' OR ``mobile robot*'' OR swarm OR UAV OR AGV OR manipulator) AND (planning OR navigation OR localization OR ``path planning'' OR ``task allocation'' OR routing OR control OR learning OR ``decision making'' OR SLAM OR kinematics) \\
 Foundations string & (``quantum computing'' OR ``quantum algorithm*'') AND (review OR survey OR tutorial) AND (NISQ OR ``error mitigation'' OR ``barren plateau*'' OR ``fault-tolerant'' OR dequantiz*) \\
-IEEE Xplore & Core string in All Metadata; 1982-\fillin{year}; \fillin{n} hits \\
-ACM Digital Library & Core string in Title, Abstract, Keywords; \fillin{n} hits \\
-Scopus & TITLE-ABS-KEY(core string); \fillin{n} hits \\
-Web of Science & TS=(core string); \fillin{n} hits \\
-SpringerLink, ScienceDirect & Core string in full text, restricted to articles and conference papers; \fillin{n} hits \\
-arXiv & Categories quant-ph, cs.RO, cs.LG; title and abstract terms from the core string; \fillin{n} hits \\
-Snowballing & Backward and forward citation search from \citet{Petschnigg2019}, \citet{Yan2024}, \citet{Meyer2022}, and \citet{Tandon2017}; \fillin{n} additional records \\
+IEEE Xplore & Core string in All Metadata; 1982 to October 2026 \\
+ACM Digital Library & Core string in Title, Abstract, Keywords \\
+Scopus & TITLE-ABS-KEY(core string) \\
+Web of Science & TS=(core string) \\
+SpringerLink, ScienceDirect & Core string in full text, restricted to articles and conference papers \\
+arXiv & Categories quant-ph, cs.RO, cs.LG; title and abstract terms from the core string \\
+Snowballing & Backward and forward citation search from \citet{Petschnigg2019}, \citet{Yan2024}, \citet{Meyer2022}, and \citet{Tandon2017} \\
 Targeted search & Drones and UAVs, multi-agent and autonomous mobility, autonomous driving, control benchmarks (cart-pole), and automated storage and retrieval, each combined with the quantum block of the core string; 12 additional primary studies \\
 \bottomrule
 \end{tabular}

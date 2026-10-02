@@ -2,7 +2,7 @@
 
 fig7_years.png    primary studies by publication year and technology type
 fig2_evidence.png evidence levels by technology type (reviews excluded)
-fig6_prisma.png   PRISMA 2020 flow diagram (screening counts left blank)
+fig6_prisma.png   PRISMA 2020 flow diagram (stages documented; record counts were not logged)
 Run from github/k:  python3 tools/make_figures.py
 """
 import collections
@@ -125,14 +125,14 @@ def arrow(x1, y1, x2, y2):
 for (y0, h, label) in [(3.75, 1.15, 'Identification'), (1.45, 2.2, 'Screening'), (0.1, 1.25, 'Included')]:
     ax.add_patch(plt.Rectangle((0.08, y0), 0.32, h, fc=SIDE, ec='none'))
     ax.text(0.24, y0 + h / 2, label, rotation=90, ha='center', va='center', fontsize=9.5, color=INK, weight='bold')
-box(0.6, 3.85, 3.0, 0.95, 'Records identified from databases\n(IEEE Xplore, ACM DL, Scopus, WoS,\nSpringerLink, ScienceDirect, arXiv)\nn = ____')
-box(4.2, 3.85, 3.1, 0.95, 'Duplicates removed n = ____\nAdded by snowballing n = ____\nAdded by targeted search n = 12', edge='#8a8a8a')
-box(0.6, 2.75, 3.0, 0.7, 'Records screened (title and abstract)\nn = ____')
-box(4.2, 2.75, 3.1, 0.7, 'Records excluded\nn = ____', edge='#8a8a8a')
-box(0.6, 1.55, 3.0, 0.8, 'Reports assessed for eligibility\n(full text)\nn = ____')
-box(4.2, 1.45, 3.1, 1.0, 'Reports excluded, with reasons:\nmetaphorical "quantum" n = ____\nno robotic relevance n = ____\nduplicate or earlier version n = ____', edge='#8a8a8a')
+box(0.6, 3.85, 3.0, 0.95, 'Records identified from databases\n(IEEE Xplore, ACM DL, Scopus, WoS,\nSpringerLink, ScienceDirect, arXiv)\ncounts not logged')
+box(4.2, 3.85, 3.1, 0.95, 'Records from other methods:\nreference chasing (not counted)\ntargeted search: 12 primary studies', edge='#8a8a8a')
+box(0.6, 2.75, 3.0, 0.7, 'Records screened on title and abstract\n(one reviewer; count not logged)')
+box(4.2, 2.75, 3.1, 0.7, 'Records excluded\n(count not logged)', edge='#8a8a8a')
+box(0.6, 1.55, 3.0, 0.8, 'Reports assessed in full text\nagainst criteria I1-I3 and E1-E4\n(count not logged)')
+box(4.2, 1.45, 3.1, 1.0, 'Reports excluded for: metaphorical\n"quantum" (E1), not in English (E2),\nduplicate or earlier version (E3),\nno robotic application (E4)', edge='#8a8a8a')
 box(0.6, 0.2, 3.0, 1.0, f'Primary studies included: n = {len(rows)}\n({len(studies)} studies and {n_rev} reviews)\n'
-    f'Foundational works cited: {FOUNDATIONAL}')
+    f'Foundational works cited: {FOUNDATIONAL}\nRelated computer-vision studies: 6')
 arrow(2.1, 3.85, 2.1, 3.45)
 arrow(2.1, 2.75, 2.1, 2.35)
 arrow(2.1, 1.55, 2.1, 1.2)
