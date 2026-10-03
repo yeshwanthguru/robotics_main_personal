@@ -693,6 +693,26 @@ Authors were not contacted, and missing information was not imputed.
 - Counts and percentages state their denominator (e.g., 14 of the 56 studies whose full texts could
   be checked released code or data).
 
+**Data validation**
+1. Source identity: every full text was matched against its bibliographic record; mislabeled files
+   and wrong metadata were corrected, and all references were verified against publisher, DOI, or
+   arXiv records.
+2. Versions: for each preprint, a published version was searched for; where one existed, the most
+   complete version was used (E3), and the publication status column records which version was
+   graded.
+3. Review: the second author checked every extracted value, level, tag, and appraisal judgment
+   against the source; errors were corrected by consensus.
+4. Triangulation with later work: claims of quantum advantage were checked against later studies
+   that reproduced or challenged them (e.g., classical simulation or dequantization results), and
+   such challenges are reported next to the original claim.
+5. Internal consistency: the counts in the text, tables, figures, and CSV files were cross-checked
+   against one another, and the figures were regenerated from the final data.
+Validity criteria: a data point is valid if it is traceable to a specific passage, table, or figure
+of the graded source. Values that could not be traced were removed or recorded as "not reported".
+Studies whose results were contradicted by later work were kept, with the contradiction reported,
+and their evidence level reflects only what they themselves demonstrated.
+Retractions: [CHECK: not systematically checked / checked against Retraction Watch on date].
+
 **Synthesis**
 Narrative synthesis structured by a robotics-function taxonomy; cross-tabulation of evidence level
 by execution tag; latency analysis; worked fault-tolerant resource estimate for one representative
