@@ -377,6 +377,9 @@ each study.
    works (I2/I3 only).
 4. Additional records from citation chasing and the targeted searches went through the same stages
    2-3 (human).
+5. Review by the second author (human): the second author reviewed the inclusion decisions and the
+   classification of every included record (primary study or foundational work); disagreements were
+   resolved by discussion.
 No automated or AI-based screening tool was used for inclusion decisions. Numbers excluded at each
 stage were not logged.
 
@@ -413,7 +416,8 @@ were prepared for other screeners. The screener applied the following decision r
 4. Treat "quantum-inspired" classical algorithms as in scope (I1) but tag them separately from
    genuinely quantum methods.
 5. When several versions of a study exist, keep the most complete one (usually the journal version).
-6. Discuss uncertain cases with the second author.
+6. Pass all inclusion decisions and classifications to the second author for review; resolve
+   disagreements by discussion.
 The eligibility criteria and the extraction codebook are in the data package (codebook.md).
 
 **Data extraction**
