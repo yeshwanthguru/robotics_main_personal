@@ -623,6 +623,21 @@ FAIR:
 row carries a DOI or arXiv identifier, so the data link to the sources, but the files are not
 published as linked data (RDF).
 
+**Miscellaneous extraction details**
+- Which studies received which steps: all 72 primary studies were extracted; the 7 reviews were
+  extracted but not assigned an evidence level; the 6 purely theoretical (L1) studies were graded
+  but not quality-appraised, leaving 59 appraised application studies.
+- Preprints: 16 primary studies were preprints when graded; the version available at the search
+  date was used, and the publication status column records this, so levels may change once these
+  studies are published.
+- Full-text access: for 3 studies (Windmann et al. 2023; Mannone et al. 2023; Mannone et al. 2025)
+  the full text was not yet available at registration; two appraisal criteria that need the full
+  text (hardware and noise reporting; reproducibility) will be completed when it is obtained, before
+  the dataset is published.
+- Code and data availability: checked for the 56 studies whose full texts could be examined.
+- Before extraction, every PDF was matched against its bibliographic record; mislabeled files and
+  wrong metadata were corrected.
+
 **Data extraction**
 Robotic task, quantum method and type, hardware or simulator, setup and baselines, key results,
 stated and unstated limitations — by the first author; reviewed by the second author, with
