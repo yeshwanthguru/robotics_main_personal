@@ -707,6 +707,8 @@ Authors were not contacted, and missing information was not imputed.
    such challenges are reported next to the original claim.
 5. Internal consistency: the counts in the text, tables, figures, and CSV files were cross-checked
    against one another, and the figures were regenerated from the final data.
+6. File checks: the shared CSV files were checked automatically for structure (every row has the
+   same number of columns) and for a DOI or arXiv identifier in every row; errors were corrected.
 Validity criteria: a data point is valid if it is traceable to a specific passage, table, or figure
 of the graded source. Values that could not be traced were removed or recorded as "not reported".
 Studies whose results were contradicted by later work were kept, with the contradiction reported,
