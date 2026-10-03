@@ -747,10 +747,46 @@ evidence levels of the studies behind it; results without a state-of-the-art cla
 (Q2) are not taken as evidence of advantage; and the appraisal summaries (number of studies meeting
 each criterion) are reported to show where the field's evidence is weakest.
 
-**Synthesis**
-Narrative synthesis structured by a robotics-function taxonomy; cross-tabulation of evidence level
-by execution tag; latency analysis; worked fault-tolerant resource estimate for one representative
-algorithm. No meta-analysis (heterogeneous tasks, metrics, and baselines).
+**Synthesis plan**
+Narrative synthesis, structured by the taxonomy; no meta-analysis, because tasks, metrics, and
+baselines are too heterogeneous to pool. No subgroup or moderator analyses, no statistical model,
+and no analysis code beyond the scripts that count studies and draw the figures.
+
+Tier 1, primary synthesis (answers RQ1-RQ3):
+1. Method-by-method synthesis: for each method family (quantum optimization; quantum search;
+   quantum learning; quantum sensing and communication; hybrid architectures; quantum cognition),
+   the studies are described with their robotic task, evidence level, execution tag, strongest
+   baseline, key result, and principal limitation (RQ1).
+2. Synthesis across robotic functions: for each of the five functions, the highest evidence level
+   reached, the number of studies at each level, and whether any genuinely quantum result has been
+   shown on hardware or on a robot (RQ1, RQ2).
+3. Evidence hierarchy: the distribution of studies over L1-L6, cross-tabulated with the execution
+   tag (RQ2).
+4. Claims versus evidence: each advantage claim is compared with its evidence level, its baseline
+   (Q2), and later classical-simulation or dequantization results, to separate genuinely quantum
+   benefits from quantum-inspired or removable ones (RQ3).
+
+Tier 2, cross-cutting analyses (answers RQ4):
+5. Latency gap: robot control and planning loop budgets compared with documented quantum
+   processing times (queueing, compilation, shots, optimizer iterations).
+6. Scalability: problem sizes reached on hardware compared with the sizes of real robot problems.
+7. Worked resource estimate: fault-tolerant resources and wall-clock time for one representative
+   algorithm (Grover-based localization), compared with the classical alternative.
+
+Tier 3, agenda (answers RQ5):
+8. Research agenda and reporting checklist derived from the gaps found in tiers 1-2, with directions
+   ordered by time horizon (near term to 2030, and beyond).
+
+Interpretation rules: a result counts as evidence of quantum advantage only if it was obtained on
+quantum hardware, against a state-of-the-art classical baseline, with end-to-end time reported;
+claims are always stated with the evidence levels behind them; conclusions resting on few studies,
+on preprints, or on a single unreplicated result are labelled as tentative.
+
+If parts of the plan cannot be executed: where a function has too few studies for a synthesis, it
+is described study by study and the gap is reported; where studies do not report the data needed
+for the latency or scalability analyses, documented platform figures are used and labelled as
+such; where the resource estimate cannot be made precise, it is presented as an order-of-magnitude
+estimate with its assumptions stated.
 
 **Data availability**
 Extraction table, quality appraisal, codebook, and search strings: [Zenodo DOI, once deposited].
