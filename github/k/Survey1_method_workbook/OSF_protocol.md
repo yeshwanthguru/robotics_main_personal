@@ -294,6 +294,9 @@ lower level when in doubt). Where a full text could not be obtained, the study w
 available record. Because no authors were contacted, there is no
 communication metadata to share.
 
+**Results of contacting authors**
+Not applicable: no authors were contacted, so there are no outcomes to report.
+
 **Inclusion and exclusion criteria** (wording follows Section 3.3 of the manuscript)
 Inclusion:
 - I1. Proposes, evaluates, or reviews a quantum or quantum-inspired method applied to a robotic
