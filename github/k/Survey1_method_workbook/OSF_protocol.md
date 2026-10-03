@@ -807,6 +807,13 @@ Conclusions follow these qualitative criteria:
 5. Saturation: no formal saturation criterion was used; the search closed in October 2026, before
    submission.
 
+**Synthesist blinding**
+No blinding was used. The synthesis was carried out by the two authors, who designed the review and
+knew its research questions; no external analyst was involved. To limit the resulting bias, the
+inference criteria for quantum advantage, deployment readiness, and robustness were applied to
+every study in the same way, each claim is reported with the evidence levels behind it, and all
+extracted data and judgments are published so that others can repeat the synthesis.
+
 **Data availability**
 Extraction table, quality appraisal, codebook, and search strings: [Zenodo DOI, once deposited].
 
