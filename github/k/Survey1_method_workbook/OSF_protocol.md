@@ -419,7 +419,7 @@ were prepared for other screeners. The screener applied the following decision r
 5. When several versions of a study exist, keep the most complete one (usually the journal version).
 6. Pass all inclusion decisions and classifications to the second author for review; resolve
    disagreements by discussion.
-The eligibility criteria and the extraction codebook are provided with the dataset (Zenodo).
+The eligibility criteria and the extraction codebook are provided with the dataset on Zenodo (https://doi.org/10.5281/zenodo.23116224).
 
 **Screening reliability**
 - De-duplication: one screener (first author), assisted by Mendeley's duplicate check.
@@ -467,7 +467,7 @@ studies and their evidence levels are reported with each claim.
   third reviewer was available.
 
 **Data management and sharing**
-Shared openly on Zenodo (DOI to be added), licence CC BY 4.0, no embargo or access conditions:
+Shared openly on Zenodo (https://doi.org/10.5281/zenodo.23116224), licence CC BY 4.0, no embargo or access conditions:
 - extraction_table.csv (CSV, UTF-8): every included primary study with its evidence level,
   execution tag, publication status, task, method, setup, key result, limitation, and DOI.
 - quality_appraisal.csv (CSV, UTF-8): the appraisal judgment for each appraised study on each of the
@@ -535,7 +535,7 @@ There was no separate training or reliability-verification stage.
 
 **Extractor instructions**
 The first author extracted the data and the second author reviewed it, so no separate written
-instructions were prepared beyond the codebook (provided with the dataset on Zenodo). The extractor
+instructions were prepared beyond the codebook (provided with the dataset on Zenodo, https://doi.org/10.5281/zenodo.23116224). The extractor
 followed these rules:
 1. Fill every column of the extraction table as defined in the codebook; record only what the study
    reports, and write "not reported" for missing details (hardware, shots, latency, code).
@@ -605,7 +605,7 @@ levels, if doubt remained, the lower level was assigned. No third reviewer was i
   simplest workable procedure.
 
 **Data management and sharing (extracted entities)**
-All extracted entities are shared on Zenodo (DOI to be added), licence CC BY 4.0, without embargo or
+All extracted entities are shared on Zenodo (https://doi.org/10.5281/zenodo.23116224), licence CC BY 4.0, without embargo or
 access conditions; the dataset is published no later than the submission of the article.
 Files: extraction_table.csv (all extracted entities, metadata, levels, and tags for every primary
 study; CSV, UTF-8), quality_appraisal.csv (appraisal judgments; CSV, UTF-8), codebook.md
@@ -904,7 +904,7 @@ the synthesis is narrative, so there is no statistical analysis script.
   table, reporting checklist, and roadmap are in the supplementary material.
 
 **Data availability**
-Extraction table, quality appraisal, codebook, and search strings: [Zenodo DOI, once deposited].
+Extraction table, quality appraisal, codebook, and search strings: Zenodo, https://doi.org/10.5281/zenodo.23116224.
 
 **Funding**
 This research received no external funding. It was carried out as part of the authors' work at
