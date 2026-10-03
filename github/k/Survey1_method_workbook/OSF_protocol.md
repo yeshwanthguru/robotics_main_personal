@@ -274,6 +274,18 @@ two ways after the database searches:
    flow diagram (supplementary Figure S1) and Table S6.
 No further validation (e.g., a predefined test set or measured recall) was performed.
 
+**Other search strategies**
+1. Ascendancy (backward citation searching): reference lists of earlier surveys (Tandon et al. 2017;
+   Petschnigg et al. 2019; Meyer et al. 2022; Yan et al. 2024) and of key included studies were
+   screened against the eligibility criteria.
+2. Descendancy (forward citation searching): studies citing the same surveys and key included
+   studies were screened, using the "cited by" function of [CHECK: e.g., Google Scholar / Scopus].
+3. Targeted searches: the quantum block of the core string combined with application areas where
+   quantum-robotics work appears outside robotics venues (drones and UAVs; multi-agent and
+   autonomous mobility; autonomous driving; control benchmarks (cart-pole); automated storage and
+   retrieval).
+Co-citation tools (e.g., CoCites) were not used.
+
 **Inclusion and exclusion criteria** (wording follows Section 3.3 of the manuscript)
 Inclusion:
 - I1. Proposes, evaluates, or reviews a quantum or quantum-inspired method applied to a robotic
