@@ -429,6 +429,12 @@ Screening was not independent: no round was carried out by two screeners working
 screener agreement could not be measured and no agreement statistic (e.g., Cohen's kappa) is
 reported. This is stated as a limitation in the article's threats to validity.
 
+**Screening reconciliation procedure**
+- De-duplication and title/abstract screening: one screener, so no reconciliation was needed.
+- Full-text screening: where the second author, reviewing the first author's inclusion decisions
+  and classifications, disagreed, the two authors discussed the record against the eligibility
+  criteria until they reached consensus. No third screener was involved.
+
 **Data extraction**
 Robotic task, quantum method and type, hardware or simulator, setup and baselines, key results,
 stated and unstated limitations — by the first author; reviewed by the second author, with
