@@ -829,6 +829,17 @@ the pre-specified inference criteria until they reached consensus. Where doubt r
 cautious interpretation was adopted (e.g., labelling a conclusion as tentative). No third person was
 involved.
 
+**Publication bias analyses**
+No statistical publication-bias analysis (e.g., funnel plots, Egger's test, trim-and-fill, PET-PEESE,
+selection models) was performed, because these methods need comparable effect sizes and there is
+no meta-analysis. Publication bias was addressed qualitatively: (1) preprints were included (16 of
+the 72 primary studies), which reduces dependence on what journals accept; (2) negative and null
+results found in the literature, such as classical solvers matching or beating quantum annealers,
+are reported alongside positive claims; (3) the threats-to-validity section states that publication
+bias probably favors positive results and that unpublished industrial work is missing; and
+(4) advantage claims are weighed by their evidence level and baseline rather than taken at face
+value.
+
 **Data availability**
 Extraction table, quality appraisal, codebook, and search strings: [Zenodo DOI, once deposited].
 
