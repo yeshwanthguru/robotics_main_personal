@@ -556,6 +556,13 @@ followed these rules:
 7. Grade the version kept after de-duplication and record its publication status.
 8. Pass the completed table to the second author for review; resolve disagreements by discussion.
 
+**Extractor masking**
+No masking was used. Both extractors are the authors of the review and knew its research questions
+throughout. To limit the resulting bias, extraction recorded only what each study reported, the
+evidence level and execution tag were defined by observable criteria (where the quantum component
+ran and on what platform) rather than by judgment of a study's claims, the lower level was assigned
+when in doubt, and all extracted data and judgments are published for checking.
+
 **Data extraction**
 Robotic task, quantum method and type, hardware or simulator, setup and baselines, key results,
 stated and unstated limitations — by the first author; reviewed by the second author, with
