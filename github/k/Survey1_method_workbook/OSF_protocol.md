@@ -228,17 +228,36 @@ IEEE Xplore, ACM Digital Library, Scopus, Web of Science, SpringerLink, ScienceD
 surveys; targeted searches in application areas where quantum-robotics work appears outside
 robotics venues. Coverage: 1982 to October 2026.
 
-**Search strings**
-- Core: ("quantum computing" OR "quantum algorithm*" OR "quantum annealing" OR QAOA OR "variational
-  quantum" OR "quantum machine learning" OR "quantum reinforcement learning" OR "quantum-inspired" OR
-  "quantum sensing" OR "quantum cognition" OR "quantum probability") AND (robot* OR "autonomous
-  vehicle*" OR "mobile robot*" OR swarm OR UAV OR AGV OR manipulator) AND (planning OR navigation OR
-  localization OR "path planning" OR "task allocation" OR routing OR control OR learning OR
-  "decision making" OR SLAM OR kinematics)
-- Foundations: ("quantum computing" OR "quantum algorithm*") AND (review OR survey OR tutorial) AND
-  (NISQ OR "error mitigation" OR "barren plateau*" OR "fault-tolerant" OR dequantiz*)
-- Targeted: drones and UAVs, multi-agent and autonomous mobility, autonomous driving, control
-  benchmarks (cart-pole), automated storage and retrieval — each combined with the quantum block.
+**Query strings** (as in supplementary Table S6; adapted to each database's syntax)
+Core string (CORE):
+("quantum computing" OR "quantum algorithm*" OR "quantum annealing" OR QAOA OR "variational quantum"
+OR "quantum machine learning" OR "quantum reinforcement learning" OR "quantum-inspired" OR "quantum
+sensing" OR "quantum cognition" OR "quantum probability") AND (robot* OR "autonomous vehicle*" OR
+"mobile robot*" OR swarm OR UAV OR AGV OR manipulator) AND (planning OR navigation OR localization OR
+"path planning" OR "task allocation" OR routing OR control OR learning OR "decision making" OR SLAM
+OR kinematics)
+
+Foundations string (FOUND):
+("quantum computing" OR "quantum algorithm*") AND (review OR survey OR tutorial) AND (NISQ OR "error
+mitigation" OR "barren plateau*" OR "fault-tolerant" OR dequantiz*)
+
+Per database / interface:
+1. IEEE Xplore / IEEE Xplore: CORE in "All Metadata"; years 1982 to 2026.
+2. ACM Digital Library / ACM DL: CORE in Title, Abstract, and Author Keywords.
+3. Scopus / Scopus: TITLE-ABS-KEY( CORE )
+4. Web of Science Core Collection / Web of Science: TS=( CORE )
+5. SpringerLink / SpringerLink: CORE in full text; content type Article and Conference Paper.
+6. ScienceDirect / ScienceDirect: CORE in full text; article types Research articles and
+   Conference papers. [CHECK: ScienceDirect allows at most 8 Boolean connectors per field and no
+   wildcards, so state how the string was shortened or split.]
+7. arXiv / arXiv advanced search: categories quant-ph, cs.RO, cs.LG; CORE terms in title and
+   abstract.
+Foundations string: run in [CHECK which databases].
+Targeted searches: the quantum block of CORE combined with each application area: drones and UAVs;
+multi-agent and autonomous mobility; autonomous driving; control benchmarks (cart-pole); automated
+storage and retrieval.
+Citation chasing: backward and forward from Tandon et al. 2017, Petschnigg et al. 2019,
+Meyer et al. 2022, and Yan et al. 2024.
 
 **Inclusion and exclusion criteria** (wording follows Section 3.3 of the manuscript)
 Inclusion:
