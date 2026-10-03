@@ -290,8 +290,8 @@ Co-citation tools (e.g., CoCites) were not used.
 Authors of included studies were not contacted. Data were extracted only from what each study
 reported; where a detail (e.g., hardware, number of shots, latency, or code availability) was not
 reported, it was recorded as not reported, and the evidence level was assigned conservatively (the
-lower level when in doubt). Studies whose full text could not be obtained were graded from the
-available record and are identified in the dataset. Because no authors were contacted, there is no
+lower level when in doubt). Where a full text could not be obtained, the study was assessed from the
+available record. Because no authors were contacted, there is no
 communication metadata to share.
 
 **Inclusion and exclusion criteria** (wording follows Section 3.3 of the manuscript)
