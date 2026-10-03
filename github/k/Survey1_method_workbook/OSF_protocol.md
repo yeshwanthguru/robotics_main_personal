@@ -420,6 +420,15 @@ were prepared for other screeners. The screener applied the following decision r
    disagreements by discussion.
 The eligibility criteria and the extraction codebook are provided with the dataset (Zenodo).
 
+**Screening reliability**
+- De-duplication: one screener (first author), assisted by Mendeley's duplicate check.
+- Title and abstract screening: one screener (first author).
+- Full-text screening: one screener (first author); the second author then reviewed the inclusion
+  decisions and classifications, and disagreements were resolved by discussion.
+Screening was not independent: no round was carried out by two screeners working separately, so
+screener agreement could not be measured and no agreement statistic (e.g., Cohen's kappa) is
+reported. This is stated as a limitation in the article's threats to validity.
+
 **Data extraction**
 Robotic task, quantum method and type, hardware or simulator, setup and baselines, key results,
 stated and unstated limitations — by the first author; reviewed by the second author, with
