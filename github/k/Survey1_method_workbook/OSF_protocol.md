@@ -386,6 +386,21 @@ No blinding was applied. During title and abstract screening, all bibliographic 
 article was visible. Blinding was not practical because screening was done in the reference manager
 and on publisher pages, where these fields are always shown.
 
+**Used exclusion criteria** (applied in this order; a record is excluded at the first one it meets)
+1. E3. Duplicate or earlier version of an included study (most complete version kept).
+2. E2. Not in English.
+3. E1. "Quantum" used only metaphorically (no quantum or quantum-inspired method).
+4. Out of scope: robots that manipulate quantum systems, or classical robotics used to build
+   quantum hardware.
+5. E4. Quantum communication without a robotic application.
+6. No robotic application (reformulated I1): the quantum or quantum-inspired method is not applied to
+   a robotic function (e.g., quantum computer vision without a robot); excluded from the primary
+   studies unless criterion 7 is not met.
+7. Not a foundational work (reformulated I2/I3): the record neither provides algorithms, hardware,
+   or theory on which the methods depend, nor supplies a classical baseline needed for comparison.
+A record not excluded by 1-5 that fails 6 but passes 7 is kept as a foundational work (not graded);
+a record that fails both 6 and 7 is excluded.
+
 **Data extraction**
 Robotic task, quantum method and type, hardware or simulator, setup and baselines, key results,
 stated and unstated limitations — by the first author; reviewed by the second author, with
