@@ -45,7 +45,8 @@ All stages below were completed before this retrospective registration.
 2. Search: seven databases (IEEE Xplore, ACM DL, Scopus, Web of Science, SpringerLink,
    ScienceDirect, arXiv), backward and forward reference chasing, and targeted searches in
    application areas; closed October 2026.
-3. Screening: title/abstract, then full text, against the eligibility criteria, by the first author.
+3. Screening: title/abstract, then full text, against the eligibility criteria, by the first author;
+   inclusion decisions reviewed by the second author.
 4. Extraction: by the first author, using the codebook; reviewed by the second author, with
    disagreements resolved by discussion.
 5. Critical appraisal and evidence grading: seven appraisal criteria (met / partly met / not met);
@@ -57,7 +58,7 @@ No separate pilot screening or pilot extraction stage was recorded, and there we
 preregistration updates, because the protocol is registered after completion.
 
 **Current review stage**
-All stages (1-7) completed; the manuscript is ready for journal submission. This is a retrospective
+All seven stages completed; the manuscript is ready for journal submission. This is a retrospective
 registration, not a preregistration, and it is the first and only registration of this review (no
 earlier versions or updates). It records the methods as applied so that readers can check the
 published review against them.
@@ -145,7 +146,7 @@ each claim was judged against its evidence level and baseline rather than its st
 **Dependent variable(s) / outcome(s) / main variables**
 This is a descriptive review, not a review of associations, so these are the main variables
 extracted from each primary study (defined in the codebook of the data package):
-1. Robotic function and task (optimization and planning; learning; sensing and communication;
+1. Robotic function and task (optimization; planning; learning; sensing and communication;
    decision-making and reasoning).
 2. Quantum method and technology type (e.g., quantum annealing, QAOA, Grover search, variational
    circuits, quantum reinforcement learning, quantum sensing, quantum key distribution,
