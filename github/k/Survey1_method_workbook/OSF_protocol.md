@@ -788,6 +788,25 @@ for the latency or scalability analyses, documented platform figures are used an
 such; where the resource estimate cannot be made precise, it is presented as an order-of-magnitude
 estimate with its assumptions stated.
 
+**Criteria for conclusions / inference criteria**
+No statistical criteria (effect size, significance level) apply, because there is no meta-analysis.
+Conclusions follow these qualitative criteria:
+1. Quantum advantage: a result is accepted as evidence of a quantum advantage for a robotic function
+   only if (a) the quantum component ran on quantum hardware (execution tag QPU or sensor/link
+   hardware), (b) it was compared with a state-of-the-art, tuned classical baseline (Q2 met), and
+   (c) the advantage holds end to end, including embedding, queueing, and post-processing time.
+   Results that fail (a) are reported as simulated or quantum-inspired; results that fail (b) or (c)
+   are reported as unconfirmed.
+2. Deployment readiness: a function is described as demonstrated on robots only if at least one
+   study reaches L5 (physical robot or vehicle), and as deployed only at L6.
+3. Robustness of a finding: a conclusion is stated firmly only if it rests on more than one
+   independent study and not solely on preprints; otherwise it is labelled tentative or as
+   awaiting replication.
+4. Dequantization: a claimed speed-up is not counted as quantum if a classical algorithm under the
+   same input assumptions matches it.
+5. Saturation: the search was considered complete when citation chasing and the targeted searches
+   in the main application areas no longer returned new eligible studies.
+
 **Data availability**
 Extraction table, quality appraisal, codebook, and search strings: [Zenodo DOI, once deposited].
 
