@@ -840,6 +840,22 @@ bias probably favors positive results and that unpublished industrial work is mi
 (4) advantage claims are weighed by their evidence level and baseline rather than taken at face
 value.
 
+**Sensitivity analyses / robustness checks**
+No statistical sensitivity analyses apply (no meta-analysis). Three robustness checks were made:
+1. Excluding preprints: the evidence distribution was recomputed without the 16 preprints (56 studies
+   remain: L1 6, L2 14, L3 19, L4 8, L5 3, L6 0, reviews 6). The main conclusion does not change: no
+   quantum computational method reaches a physical robot with a measured advantage in either set.
+   The only L6 study (quantum magnetic navigation) is a preprint, so the sensing result depends on a
+   single unreplicated preprint; this is stated in the article.
+2. Conservative grading: levels were assigned at the lower level when in doubt, so the reported
+   distribution is, if anything, a lower bound on the evidence; the conclusions about the absence of
+   end-to-end advantage would not be weakened by this choice.
+3. Resource estimate under favorable assumptions: the fault-tolerant estimate for Grover-based
+   localization was computed under two oracle-cost scenarios (table lookup and a hypothetical
+   logarithmic-time qRAM) and with an error-corrected gate time more optimistic than published
+   estimates (10 microseconds versus about 170 microseconds), so that the conclusion (no practical
+   advantage at realistic map sizes) holds even under assumptions that favor the quantum algorithm.
+
 **Data availability**
 Extraction table, quality appraisal, codebook, and search strings: [Zenodo DOI, once deposited].
 
