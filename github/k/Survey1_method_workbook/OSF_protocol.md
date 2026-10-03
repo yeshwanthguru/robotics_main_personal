@@ -532,6 +532,30 @@ quality_appraisal.csv)
    against the tables by the first author.
 There was no separate training or reliability-verification stage.
 
+**Extractor instructions**
+The first author extracted the data and the second author reviewed it, so no separate written
+instructions were prepared beyond the codebook (provided with the dataset on Zenodo). The extractor
+followed these rules:
+1. Fill every column of the extraction table as defined in the codebook; record only what the study
+   reports, and write "not reported" for missing details (hardware, shots, latency, code).
+2. Evidence level: assign the highest level the study's own evidence supports (L1 theory; L2
+   simulation; L3 part run on quantum hardware or a quantum sensor or link; L4 closed loop with a
+   robot or high-fidelity robot simulator; L5 physical robot, vehicle, or mechanical control system;
+   L6 end-to-end field deployment with a measured advantage over a classical baseline). When in
+   doubt, assign the lower level. Mark simulated robot environments "(sim.)", laboratory set-ups
+   "(lab)", and simulated circuits on real robot data "+ real data".
+3. Execution tag: record where the quantum component actually ran (none, simulated, QPU, sensor or
+   link hardware, classical); tag quantum-inspired algorithms on conventional hardware "classical",
+   whatever the paper calls them.
+4. Key result: report the main result in the study's own metric, together with the baseline it was
+   compared with; do not convert results to a common scale.
+5. Limitation: record the principal limitation, including any appraisal criterion not met.
+6. Appraisal: judge each application study on the seven criteria as met, partly met, or not met;
+   use "n/a" for hardware and noise reporting when the method runs on classical hardware; do not sum
+   the judgments into a score.
+7. Grade the version kept after de-duplication and record its publication status.
+8. Pass the completed table to the second author for review; resolve disagreements by discussion.
+
 **Data extraction**
 Robotic task, quantum method and type, hardware or simulator, setup and baselines, key results,
 stated and unstated limitations — by the first author; reviewed by the second author, with
