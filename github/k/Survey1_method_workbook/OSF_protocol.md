@@ -402,6 +402,20 @@ Records that pass 1-6 are kept: as primary studies if they apply a method to a r
 studies without a robotic application are not primary studies and are discussed, ungraded, in the
 supplementary material.
 
+**Screener instructions**
+Screening was done by a single screener (the first author), so no separate written instructions
+were prepared for other screeners. The screener applied the following decision rules:
+1. Apply the exclusion criteria in the listed order and record the first one met.
+2. At title and abstract stage, exclude only records that clearly meet an exclusion criterion; when
+   in doubt, keep the record for full-text screening.
+3. At full-text stage, decide inclusion and classify each included record as a primary study (I1)
+   or a foundational work (I2/I3).
+4. Treat "quantum-inspired" classical algorithms as in scope (I1) but tag them separately from
+   genuinely quantum methods.
+5. When several versions of a study exist, keep the most complete one (usually the journal version).
+6. Discuss uncertain cases with the second author.
+The eligibility criteria and the extraction codebook are in the data package (codebook.md).
+
 **Data extraction**
 Robotic task, quantum method and type, hardware or simulator, setup and baselines, key results,
 stated and unstated limitations — by the first author; reviewed by the second author, with
