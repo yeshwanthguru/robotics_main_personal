@@ -856,6 +856,31 @@ No statistical sensitivity analyses apply (no meta-analysis). Three robustness c
    estimates (10 microseconds versus about 170 microseconds), so that the conclusion (no practical
    advantage at realistic map sizes) holds even under assumptions that favor the quantum algorithm.
 
+**Synthesis procedure justification**
+- Transformations: results were kept in each study's own metric and not converted to effect sizes,
+  because the studies differ in task, metric, and baseline, and any common scale would rest on
+  assumptions the data cannot support. The transformations used (coding into the taxonomy, counts,
+  cross-tabulations) need no such assumptions; the latency comparison uses documented timescales,
+  and the resource estimate uses published fault-tolerance cost models, with its assumptions stated
+  and chosen to favor the quantum algorithm.
+- Data integrity and missing data: unreported details are recorded as "not reported" rather than
+  imputed, because missing reporting is itself one of the review's findings; bibliographic
+  verification, version checks, the retraction check, and automatic file checks make the shared data
+  traceable and usable.
+- Synthesis plan: a narrative synthesis structured by method family and robotic function is the
+  standard approach when studies are too heterogeneous to pool; the cross-cutting analyses
+  (latency, scalability, resource estimate) were added because these constraints decide whether a
+  quantum method can work on a robot, and individual studies rarely address them.
+- Inference criteria: requiring hardware execution, a state-of-the-art classical baseline, and
+  end-to-end timing before accepting an advantage reflects the main weaknesses of the literature
+  (simulated results, weak baselines, and ignored overheads), and the dequantization criterion
+  follows established results showing that some claimed quantum speed-ups vanish against the best
+  classical algorithms.
+- Blinding, reliability, and reconciliation: an external analyst was not available to a two-person
+  unfunded team; instead, the same written criteria were applied to every study, the second author
+  reviewed the synthesis, disagreements were resolved toward the more cautious interpretation, and
+  all data and judgments are published so the synthesis can be repeated.
+
 **Data availability**
 Extraction table, quality appraisal, codebook, and search strings: [Zenodo DOI, once deposited].
 
