@@ -240,12 +240,30 @@ robotics venues. Coverage: 1982 to October 2026.
 - Targeted: drones and UAVs, multi-agent and autonomous mobility, autonomous driving, control
   benchmarks (cart-pole), automated storage and retrieval — each combined with the quantum block.
 
-**Eligibility criteria**
-Include: (I1) proposes, evaluates, or reviews a quantum or quantum-inspired method applied to a
-robotic function [primary studies]; (I2) foundational algorithms, hardware, or theory; (I3) classical
-robotics baselines [I2/I3 = foundational works, not graded].
-Exclude: (E1) "quantum" used only metaphorically; (E2) not in English; (E3) duplicate or earlier
-version (most complete version kept); (E4) quantum communication without a robotic application.
+**Inclusion and exclusion criteria** (wording follows Section 3.3 of the manuscript)
+Inclusion:
+- I1. Proposes, evaluates, or reviews a quantum or quantum-inspired method applied to a robotic
+  function (primary studies; graded on L1-L6).
+- I2. Provides algorithms, hardware, or theory on which such methods depend (foundational works;
+  not graded).
+- I3. Supplies the classical baselines needed for comparison (foundational works; not graded).
+Exclusion:
+- E1. Uses "quantum" only metaphorically.
+- E2. Not in English.
+- E3. Duplicates an included study (the most complete version is kept, e.g., the journal version of
+  a conference paper or preprint).
+- E4. Addresses quantum communication without a robotic application.
+Scope boundaries: robots that manipulate quantum systems, and classical robotics used to build
+quantum hardware, are out of scope. Quantum computer-vision studies without a robotic application
+fail I1. No restriction on publication type (journal, conference, book chapter, preprint) or year
+(coverage 1982 to October 2026).
+
+Framework: no formal framework was used to set the criteria. The search query was built from three
+concept blocks that correspond to an adapted PICO structure: Intervention (quantum and
+quantum-inspired methods), Population (robots and autonomous systems), and Outcome/context (robotic
+functions such as planning, navigation, localization, task allocation, routing, control, learning,
+and decision-making). Comparison (classical baselines) was not a search block; it was extracted from
+each study.
 
 **Selection process**
 Title/abstract screening, then full-text assessment against the criteria, by the first author.
