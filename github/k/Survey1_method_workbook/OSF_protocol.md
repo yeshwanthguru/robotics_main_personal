@@ -418,7 +418,7 @@ were prepared for other screeners. The screener applied the following decision r
 5. When several versions of a study exist, keep the most complete one (usually the journal version).
 6. Pass all inclusion decisions and classifications to the second author for review; resolve
    disagreements by discussion.
-The eligibility criteria and the extraction codebook are in the data package (codebook.md).
+The eligibility criteria and the extraction codebook are provided with the dataset (Zenodo).
 
 **Data extraction**
 Robotic task, quantum method and type, hardware or simulator, setup and baselines, key results,
