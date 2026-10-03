@@ -24,6 +24,9 @@ m = re.search(r'\\keywords\{(.*?)\}\n', s)
 keywords = m.group(1) if m else ''
 
 body = s[s.index('\\maketitle') + len('\\maketitle'):s.index('\\bibliographystyle')]
+m = re.search(r'\\thanks\{(.*?)\}\n', s)
+if m:  # first-page funding footnote -> a Funding section before the references
+    body += '\n\\section*{Funding}\n' + m.group(1) + '\n'
 body = body.replace('\\begin{acks}', '\\section*{Acknowledgments}').replace('\\end{acks}', '')
 body = re.sub(r'\\Description\{.*?\}\n', '', body)
 # >{\raggedright\arraybackslash}p{0.160\dimexpr\linewidth-16\tabcolsep\relax} -> p{0.160\linewidth}
