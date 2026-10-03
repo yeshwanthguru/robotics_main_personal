@@ -435,6 +435,16 @@ reported. This is stated as a limitation in the article's threats to validity.
   and classifications, disagreed, the two authors discussed the record against the eligibility
   criteria until they reached consensus. No third screener was involved.
 
+**Sampling and sample size**
+No sampling was used: all sources that passed screening were kept. The final corpus is 72 primary
+studies (65 empirical or theoretical studies and 7 reviews) and 107 foundational works. All 72
+primary studies were extracted and classified; the 65 non-review studies were assigned an evidence
+level (L1-L6), and the 59 application studies (excluding six purely theoretical L1 studies) were
+quality-appraised. No sample-size or power analysis applies, because the synthesis is narrative and
+no statistical test or meta-analysis was performed. Where a function or method is supported by only
+a few studies, or only by low evidence levels, conclusions are stated as tentative and the number of
+studies and their evidence levels are reported with each claim.
+
 **Data extraction**
 Robotic task, quantum method and type, hardware or simulator, setup and baselines, key results,
 stated and unstated limitations — by the first author; reviewed by the second author, with
