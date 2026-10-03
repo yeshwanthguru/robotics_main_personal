@@ -718,6 +718,35 @@ Retractions: on 3 October 2026, the DOIs (148) and titles of all 185 references,
 primary studies, were matched against the full Retraction Watch Database (Crossref open dataset,
 72,870 records, current to 22 September 2026); none had been retracted.
 
+**Quality assessment**
+Standard tools (Cochrane Risk of Bias, GRADE, GRADE-CERQual) were not used, because they are designed
+for clinical trials and health evidence and do not fit theoretical, simulation, and hardware
+studies in computing and robotics. Quality was instead assessed on two levels:
+1. Strength of evidence (per study): every non-review primary study was placed on a six-level
+   evidence scale (L1 argued; L2 simulated; L3 run on quantum hardware; L4 closed loop with a robot
+   or robot simulator; L5 physical robot or vehicle; L6 end-to-end deployment with a measured
+   advantage over a classical baseline), with a quantum-execution tag recording where the quantum
+   component ran. This plays the role GRADE plays in health reviews: it states how far each result
+   is from a deployed, validated benefit.
+2. Risk of bias and reporting quality (per study): each of the 59 application studies was appraised
+   against a seven-criterion rubric (supplementary Table S4), each judged not met, partly met, or met:
+   Q1 problem formulation (task unclear / simplified without justification / fully specified);
+   Q2 classical baseline (none / basic or untuned / state-of-the-art and tuned);
+   Q3 experimental realism (theory or toy example / simulation or small QPU run / physical robot or
+   realistic field setting);
+   Q4 hardware and noise reporting (not reported / partly / device, qubits, shots, noise, and
+   mitigation reported);
+   Q5 performance metrics (qualitative only / task metric only / task metric plus runtime, latency,
+   or resources);
+   Q6 reproducibility (no details / partial parameters / code and data or full parameters);
+   Q7 critical discussion (absent / brief / explicit limitations and threats to validity).
+   Q4 is "n/a" for quantum-inspired methods on classical hardware.
+How quality is weighed in the synthesis: judgments are not summed into a score; the unmet criteria
+are reported as each study's principal limitation; each claim in the synthesis is stated with the
+evidence levels of the studies behind it; results without a state-of-the-art classical baseline
+(Q2) are not taken as evidence of advantage; and the appraisal summaries (number of studies meeting
+each criterion) are reported to show where the field's evidence is weakest.
+
 **Synthesis**
 Narrative synthesis structured by a robotics-function taxonomy; cross-tabulation of evidence level
 by execution tag; latency analysis; worked fault-tolerant resource estimate for one representative
