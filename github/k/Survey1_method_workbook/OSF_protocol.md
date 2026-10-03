@@ -573,6 +573,13 @@ No round was carried out independently by two extractors, so extractor agreement
 measured and no agreement statistic (e.g., Cohen's kappa) is reported. This is stated as a
 limitation in the article's threats to validity.
 
+**Extraction reconciliation procedure**
+Each round had one extractor, so there were no parallel extractions to reconcile. Where the second
+author, reviewing the extracted data, levels, tags, or appraisal judgments, disagreed with the
+first author, the two authors re-read the relevant part of the study and discussed it against the
+codebook until they reached consensus; the agreed value was entered in the table. For evidence
+levels, if doubt remained, the lower level was assigned. No third reviewer was involved.
+
 **Data extraction**
 Robotic task, quantum method and type, hardware or simulator, setup and baselines, key results,
 stated and unstated limitations — by the first author; reviewed by the second author, with
