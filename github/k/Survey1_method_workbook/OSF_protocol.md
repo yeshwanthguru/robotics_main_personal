@@ -460,7 +460,7 @@ studies and their evidence levels are reported with each claim.
   graded, so that the review can compare claims with the underlying algorithms and baselines.
 - Assurance: a single screener with review by the second author was a pragmatic choice for a
   two-person team without funding. Its cost is that screening reliability cannot be measured; this
-  is stated as a limitation, and every inclusion decision and judgment is published so readers can
+  is stated as a limitation, and every included study and its grading and appraisal are published so readers can
   check it.
 - Reconciliation: with two authors, discussion to consensus was the simplest workable procedure; no
   third reviewer was available.
