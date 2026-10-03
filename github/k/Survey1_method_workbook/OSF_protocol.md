@@ -892,6 +892,21 @@ narrative, so there is no statistical analysis script.
 [ALTERNATIVE if the scripts are not shared: "The figure scripts (Python) are available from the
 authors on request."]
 
+**Miscellaneous synthesis details**
+- The 7 reviews among the primary studies are used to position the survey (related work) and are
+  not counted in the evidence-level distribution.
+- The 107 foundational works are not graded; they provide the algorithms, hardware results,
+  dequantization results, and classical baselines against which the primary studies' claims are
+  judged.
+- Quantum sensing and communication are synthesized separately from quantum computation, because
+  their benefits come from quantum hardware in the sensor or link rather than from computation, and
+  mixing them would overstate the evidence for quantum computing on robots.
+- Directions with little or no graded evidence (emerging directions, and the integration of quantum
+  methods with robot foundation models and physical AI) are discussed in the research agenda and
+  the supplementary material, and are explicitly labelled as having no graded evidence.
+- Because of the page limit, the full emerging-directions discussion, method schematics, synthesis
+  table, reporting checklist, and roadmap are in the supplementary material.
+
 **Data availability**
 Extraction table, quality appraisal, codebook, and search strings: [Zenodo DOI, once deposited].
 
