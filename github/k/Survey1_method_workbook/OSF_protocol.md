@@ -516,6 +516,22 @@ quality_appraisal.csv)
    reproducibility including code or data availability, critical discussion), each met / partly
    met / not met.
 
+**Extraction stages**
+1. Primary data extraction (human): the first author read each included primary study in full and
+   recorded the entities listed above in the extraction table (Excel), following the codebook.
+2. Classification (human): the first author assigned each study an evidence level (L1-L6) and a
+   quantum-execution tag; when in doubt, the lower level was assigned.
+3. Quality appraisal (human): the first author judged each application study against the seven
+   appraisal criteria (met / partly met / not met).
+4. Review (human): the second author reviewed the extracted data, levels, tags, and appraisal
+   judgments sequentially (after the first author), and disagreements were resolved by discussion.
+5. Verification (human): every full text was checked against its bibliographic record, and all
+   references were verified against publisher, DOI, or arXiv records.
+6. Export (computer, supervised by a human): the final tables were exported to CSV; counts and
+   cross-tabulations for the figures and tables were computed with Python scripts and checked
+   against the tables by the first author.
+There was no separate training or reliability-verification stage.
+
 **Data extraction**
 Robotic task, quantum method and type, hardware or simulator, setup and baselines, key results,
 stated and unstated limitations — by the first author; reviewed by the second author, with
