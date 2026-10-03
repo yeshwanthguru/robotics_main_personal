@@ -27,22 +27,24 @@ function Meta(meta)
 end
 
 local counter = 0
+-- Same structure as Mendeley Desktop's legacy CSL fields (which Mendeley Cite converts):
+-- item ids numbered ITEM-1.. within each citation, itemData.id equal to that id,
+-- and only the citationItems / mendeley / properties / schema keys.
+local function copy(t) local r = {} for k, v in pairs(t) do r[k] = v end return r end
 function Cite(el)
   local cits = {}
-  for _, c in ipairs(el.citations) do
+  for n, c in ipairs(el.citations) do
     counter = counter + 1
-    local entry = { id = 'ITEM-' .. counter, itemData = items[c.id], isTemporary = false }
-    if c.mode == 'AuthorInText' then entry['suppress-author'] = false end
-    table.insert(cits, entry)
+    local iid = 'ITEM-' .. n
+    local data = copy(items[c.id])
+    data.id = iid
+    table.insert(cits, { id = iid, itemData = data })
   end
   local text = pandoc.utils.stringify(el.content)
   local payload = {
-    citationID = 'MENDELEY_CITATION_' .. counter,
     citationItems = cits,
-    properties = { noteIndex = 0 },
     mendeley = { formattedCitation = text, plainTextFormattedCitation = text, previouslyFormattedCitation = text },
-    isEdited = false,
-    manualOverride = { isManuallyOverridden = false, citeprocText = text, manualOverrideText = '' },
+    properties = { noteIndex = 0 },
     schema = 'https://github.com/citation-style-language/schema/raw/master/csl-citation.json',
   }
   local out = { field_begin('ADDIN CSL_CITATION ' .. pandoc.json.encode(payload)) }
