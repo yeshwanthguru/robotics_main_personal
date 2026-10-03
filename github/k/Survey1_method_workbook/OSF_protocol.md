@@ -366,9 +366,19 @@ functions such as planning, navigation, localization, task allocation, routing, 
 and decision-making). Comparison (classical baselines) was not a search block; it was extracted from
 each study.
 
-**Selection process**
-Title/abstract screening, then full-text assessment against the criteria, by the first author.
-Record counts per stage were not logged.
+**Screening stages**
+1. De-duplication (software, checked by a human): records from all sources merged in Mendeley
+   Reference Manager; duplicates removed with its duplicate check and confirmed by the first author;
+   for studies in several versions, the most complete version kept (E3).
+2. Title and abstract screening (human): the first author screened each record against criteria
+   I1-I3 and E1-E4; records that were clearly irrelevant were excluded, uncertain ones were kept.
+3. Full-text screening (human): the first author read the full text of the remaining records and
+   applied the criteria; included studies were classified as primary studies (I1) or foundational
+   works (I2/I3 only).
+4. Additional records from citation chasing and the targeted searches went through the same stages
+   2-3 (human).
+No automated or AI-based screening tool was used for inclusion decisions. Numbers excluded at each
+stage were not logged.
 
 **Data extraction**
 Robotic task, quantum method and type, hardware or simulator, setup and baselines, key results,
