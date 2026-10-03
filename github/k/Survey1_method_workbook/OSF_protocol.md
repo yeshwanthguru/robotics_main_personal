@@ -804,8 +804,8 @@ Conclusions follow these qualitative criteria:
    awaiting replication.
 4. Dequantization: a claimed speed-up is not counted as quantum if a classical algorithm under the
    same input assumptions matches it.
-5. Saturation: the search was considered complete when citation chasing and the targeted searches
-   in the main application areas no longer returned new eligible studies.
+5. Saturation: no formal saturation criterion was used; the search closed in October 2026, before
+   submission.
 
 **Data availability**
 Extraction table, quality appraisal, codebook, and search strings: [Zenodo DOI, once deposited].
