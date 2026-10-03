@@ -445,6 +445,26 @@ no statistical test or meta-analysis was performed. Where a function or method i
 a few studies, or only by low evidence levels, conclusions are stated as tentative and the number of
 studies and their evidence levels are reported with each claim.
 
+**Screening procedure justification**
+- Screening rounds: a two-stage process (title and abstract, then full text) is standard and was
+  proportionate to the size of the literature. Many studies use "quantum" loosely or bury the
+  robotic application in the body of the paper, so uncertain records were kept for full-text
+  reading rather than excluded early.
+- Blinding: not applied. Screening was done in a reference manager and on publisher pages that do
+  not hide authors, venues, or years, and the bias blinding guards against was addressed instead by
+  grading every included study on the same evidence scale and publishing all judgments.
+- Inclusion and exclusion criteria: inclusion was deliberately broad (genuinely quantum and
+  quantum-inspired methods, all publication types including preprints) because the field is young
+  and a narrower scope would miss much of its evidence; quantum-inspired results were then tagged
+  separately so they cannot be mistaken for quantum results. Foundational works were kept but not
+  graded, so that the review can compare claims with the underlying algorithms and baselines.
+- Assurance: a single screener with review by the second author was a pragmatic choice for a
+  two-person team without funding. Its cost is that screening reliability cannot be measured; this
+  is stated as a limitation, and every inclusion decision and judgment is published so readers can
+  check it.
+- Reconciliation: with two authors, discussion to consensus was the simplest workable procedure; no
+  third reviewer was available.
+
 **Data extraction**
 Robotic task, quantum method and type, hardware or simulator, setup and baselines, key results,
 stated and unstated limitations — by the first author; reviewed by the second author, with
