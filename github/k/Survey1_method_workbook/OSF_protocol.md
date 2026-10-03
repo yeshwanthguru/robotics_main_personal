@@ -259,6 +259,21 @@ storage and retrieval.
 Citation chasing: backward and forward from Tandon et al. 2017, Petschnigg et al. 2019,
 Meyer et al. 2022, and Yan et al. 2024.
 
+**Search validation procedure**
+No formal validation set of known studies was defined before the search. The search was checked in
+two ways after the database searches:
+1. Coverage of existing reviews: the reference lists of earlier quantum-robotics surveys (Tandon et
+   al. 2017; Petschnigg et al. 2019; Meyer et al. 2022; Yan et al. 2024) were screened through
+   backward and forward citation searching, to confirm that the relevant studies they cite were
+   found or added.
+2. Cross-check for missed studies (October 2026): a web search across every branch of the taxonomy
+   was compared against the reference list. It identified 12 additional primary studies, mostly in
+   application areas published outside robotics venues (drones and UAVs, autonomous mobility,
+   autonomous driving, control benchmarks, automated storage and retrieval). Targeted searches for
+   these areas were then run and the 12 studies were added; they are reported separately in the
+   flow diagram (supplementary Figure S1) and Table S6.
+No further validation (e.g., a predefined test set or measured recall) was performed.
+
 **Inclusion and exclusion criteria** (wording follows Section 3.3 of the manuscript)
 Inclusion:
 - I1. Proposes, evaluates, or reviews a quantum or quantum-inspired method applied to a robotic
