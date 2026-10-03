@@ -563,6 +563,16 @@ evidence level and execution tag were defined by observable criteria (where the 
 ran and on what platform) rather than by judgment of a study's claims, the lower level was assigned
 when in doubt, and all extracted data and judgments are published for checking.
 
+**Extraction reliability**
+- Primary data extraction: one extractor (first author).
+- Evidence levels and execution tags: assigned by one extractor (first author).
+- Quality appraisal: one extractor (first author).
+- Review: the second author reviewed all extracted data, levels, tags, and appraisal judgments
+  after the first author (sequential, not independent); disagreements were resolved by discussion.
+No round was carried out independently by two extractors, so extractor agreement could not be
+measured and no agreement statistic (e.g., Cohen's kappa) is reported. This is stated as a
+limitation in the article's threats to validity.
+
 **Data extraction**
 Robotic task, quantum method and type, hardware or simulator, setup and baselines, key results,
 stated and unstated limitations — by the first author; reviewed by the second author, with
