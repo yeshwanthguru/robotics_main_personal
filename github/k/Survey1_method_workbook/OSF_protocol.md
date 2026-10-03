@@ -208,6 +208,20 @@ areas where quantum-robotics work appears outside robotics venues. Coverage: 198
 7. arXiv: arXiv advanced search (arxiv.org)
 Subscription databases accessed through an institutional subscription; arXiv is open access.
 
+**Grey literature**
+- Preprints: arXiv was searched directly (categories quant-ph, cs.RO, cs.LG); preprints were
+  included and flagged by publication status, and the published version was used where one existed.
+- Conference proceedings: covered through IEEE Xplore, the ACM Digital Library, and SpringerLink,
+  which index the main robotics, quantum-computing, and evolutionary-computation conferences.
+- Citation chasing: backward and forward citation searching from key surveys and included studies,
+  which can surface preprints and proceedings papers not returned by the database searches.
+- Targeted searches in application areas (drones and UAVs, multi-agent and autonomous mobility,
+  autonomous driving, control benchmarks, automated storage and retrieval) where quantum-robotics
+  work appears outside robotics venues.
+Not searched systematically: dissertations and theses, university repositories, and government or
+industry reports. Industry announcements without a technical paper were not included as primary
+studies.
+
 **Information sources**
 IEEE Xplore, ACM Digital Library, Scopus, Web of Science, SpringerLink, ScienceDirect, arXiv
 (quant-ph, cs.RO, cs.LG); backward and forward reference chasing from key papers and earlier
