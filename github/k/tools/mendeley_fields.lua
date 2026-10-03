@@ -33,22 +33,38 @@ local counter = 0
 local function copy(t) local r = {} for k, v in pairs(t) do r[k] = v end return r end
 function Cite(el)
   local cits = {}
+  local text = pandoc.utils.stringify(el.content)
+  -- Narrative citation ("Gerlach et al. (2025)"): keep the author names as plain text
+  -- and put only the citation, with the author suppressed, in the field, so a numeric
+  -- style renders "Gerlach et al. [12]" instead of "[12]".
+  local lead
+  if #el.citations == 1 and el.citations[1].mode == 'AuthorInText' then
+    local a, rest = text:match('^(.-)%s(%(.*%))$')
+    if a then lead, text = a, rest end
+  end
   for n, c in ipairs(el.citations) do
     counter = counter + 1
     local iid = 'ITEM-' .. n
     local data = copy(items[c.id])
     data.id = iid
-    table.insert(cits, { id = iid, itemData = data })
+    local entry = { id = iid, itemData = data }
+    if lead then entry['suppress-author'] = true end
+    table.insert(cits, entry)
   end
-  local text = pandoc.utils.stringify(el.content)
   local payload = {
     citationItems = cits,
     mendeley = { formattedCitation = text, plainTextFormattedCitation = text, previouslyFormattedCitation = text },
     properties = { noteIndex = 0 },
     schema = 'https://github.com/citation-style-language/schema/raw/master/csl-citation.json',
   }
-  local out = { field_begin('ADDIN CSL_CITATION ' .. pandoc.json.encode(payload)) }
-  for _, i in ipairs(el.content) do table.insert(out, i) end
+  local out = {}
+  if lead then
+    table.insert(out, pandoc.Str(lead))
+    table.insert(out, pandoc.Space())
+  end
+  table.insert(out, field_begin('ADDIN CSL_CITATION ' .. pandoc.json.encode(payload)))
+  if lead then table.insert(out, pandoc.Str(text))
+  else for _, i in ipairs(el.content) do table.insert(out, i) end end
   table.insert(out, field_end)
   return out
 end
