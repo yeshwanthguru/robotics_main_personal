@@ -380,6 +380,12 @@ each study.
 No automated or AI-based screening tool was used for inclusion decisions. Numbers excluded at each
 stage were not logged.
 
+**Screened fields / blinding**
+No blinding was applied. During title and abstract screening, all bibliographic fields were visible
+(title, abstract, keywords, authors, venue, and year); during full-text screening, the complete
+article was visible. Blinding was not practical because screening was done in the reference manager
+and on publisher pages, where these fields are always shown.
+
 **Data extraction**
 Robotic task, quantum method and type, hardware or simulator, setup and baselines, key results,
 stated and unstated limitations — by the first author; reviewed by the second author, with
