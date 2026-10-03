@@ -580,6 +580,29 @@ first author, the two authors re-read the relevant part of the study and discuss
 codebook until they reached consensus; the agreed value was entered in the table. For evidence
 levels, if doubt remained, the lower level was assigned. No third reviewer was involved.
 
+**Extraction procedure justification**
+- Entities: each entity serves a research question. Robotic function, task, and method answer RQ1;
+  set-up, platform, evidence level, and execution tag answer RQ2; the execution tag and the
+  baseline comparison separate genuinely quantum from quantum-inspired or dequantizable results
+  (RQ3); deployment details (latency, shots, noise, size, weight, power, cooling) answer RQ4; and
+  key results, limitations, and appraisal judgments inform the agenda (RQ5). Metadata (year,
+  publication status) are needed because the field is young and many results are preprints.
+  Results were recorded in each study's own metric, not converted to effect sizes, because the
+  tasks and metrics differ too much to be put on one scale.
+- Evidence scale and execution tag: a single ordered scale lets very different studies (theory,
+  simulation, hardware runs, field trials) be compared, and recording where the quantum component
+  ran prevents simulated or quantum-inspired results from being read as quantum-hardware results.
+  The appraisal judgments are reported per criterion rather than summed, because a total score
+  would hide which criterion a study fails.
+- Extraction rounds: one extraction round followed by a review was proportionate for a two-person
+  team and a corpus of 72 primary studies.
+- Reliability assurance: sequential review by the second author, rather than independent double
+  extraction, was a pragmatic choice without funding or additional reviewers. Its cost is that
+  agreement cannot be measured; to compensate, the levels are defined by observable criteria, the
+  lower level is assigned when in doubt, and every extracted value and judgment is published.
+- Reconciliation: with two authors, discussion to consensus, with re-reading of the study, was the
+  simplest workable procedure.
+
 **Data extraction**
 Robotic task, quantum method and type, hardware or simulator, setup and baselines, key results,
 stated and unstated limitations — by the first author; reviewed by the second author, with
