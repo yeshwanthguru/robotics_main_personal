@@ -881,6 +881,17 @@ No statistical sensitivity analyses apply (no meta-analysis). Three robustness c
   reviewed the synthesis, disagreements were resolved toward the more cautious interpretation, and
   all data and judgments are published so the synthesis can be repeated.
 
+**Synthesis data management and sharing**
+Shared on Zenodo with the dataset (DOI to be added), licence CC BY 4.0, no embargo:
+- make_figures.py and figstyle.py (Python 3 scripts, plain text): read extraction_table.csv and
+  reproduce the counts, the evidence-level and publication-year figures, and the flow diagram.
+- The outputs of the synthesis are the article and its supplementary material (tables of counts,
+  cross-tabulations, appraisal summaries, synthesis table, reporting checklist, and roadmap).
+There are no separate analysis notes beyond the shared data files and the article; the synthesis is
+narrative, so there is no statistical analysis script.
+[ALTERNATIVE if the scripts are not shared: "The figure scripts (Python) are available from the
+authors on request."]
+
 **Data availability**
 Extraction table, quality appraisal, codebook, and search strings: [Zenodo DOI, once deposited].
 
