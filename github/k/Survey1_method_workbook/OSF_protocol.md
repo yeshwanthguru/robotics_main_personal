@@ -328,6 +328,19 @@ same strings, and any studies added will be reported separately with the new sea
   current as possible; given the field's pace, a conditional update is planned if the review is
   revised more than six months later.
 
+**Miscellaneous search strategy details**
+- Record counts: because the searches were run iteratively while the scope was refined, the number
+  of records returned by each database and the numbers excluded at each screening stage were not
+  logged. The flow diagram (supplementary Figure S1) therefore shows the stages followed and only
+  the counts that can be documented.
+- De-duplication: records from all sources were merged in Mendeley Reference Manager and duplicates
+  removed; where a study existed in several versions (preprint, conference, journal), the most
+  complete version was kept.
+- Record verification: every retrieved full text was checked against its bibliographic record;
+  mislabeled files and wrong metadata were corrected before extraction, and all references were
+  verified against publisher, DOI, or arXiv records.
+- Limits applied: English only; no restriction on publication type; coverage 1982 to October 2026.
+
 **Inclusion and exclusion criteria** (wording follows Section 3.3 of the manuscript)
 Inclusion:
 - I1. Proposes, evaluates, or reviews a quantum or quantum-inspired method applied to a robotic
