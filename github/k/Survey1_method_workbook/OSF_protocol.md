@@ -493,6 +493,29 @@ reference list.
 - The PRISMA flow diagram (supplementary Figure S1) shows the stages followed and the counts that
   can be documented.
 
+**Entities to extract** (Extraction section; columns of extraction_table.csv and
+quality_appraisal.csv)
+1. Metadata: study label (first author, year), year of publication, publication status (journal
+   article, conference paper, book or chapter, preprint), venue, and DOI or arXiv identifier.
+2. Study design and methods: robotic function and task; quantum technology and platform (e.g.,
+   quantum annealer, gate-based processor, quantum sensor, quantum link); quantum or
+   quantum-inspired method; experimental set-up (theory, simulation, hardware run, robot simulator,
+   physical robot, field trial); problem size (robots, tasks, nodes, qubits); data used; classical
+   baselines compared.
+3. Results: key quantitative or qualitative result as reported (e.g., solution quality, runtime,
+   success rate, parameter count, positioning error), and the comparison with the classical
+   baseline where reported. No effect sizes were computed, because studies use different tasks
+   and metrics.
+4. Deployment details where reported: hardware access (cloud or on-premise), latency, number of
+   shots, noise and error mitigation, size, weight, power, and cooling.
+5. Limitations: the principal limitation, stated or unstated.
+6. Derived classifications (assigned by the reviewers): evidence level (L1-L6) and quantum-execution
+   tag (none / simulated / QPU / sensor or link hardware / classical).
+7. Risk-of-bias / quality indicators: seven appraisal criteria (problem formulation, classical
+   baseline, experimental realism, hardware and noise reporting, performance metrics,
+   reproducibility including code or data availability, critical discussion), each met / partly
+   met / not met.
+
 **Data extraction**
 Robotic task, quantum method and type, hardware or simulator, setup and baselines, key results,
 stated and unstated limitations — by the first author; reviewed by the second author, with
