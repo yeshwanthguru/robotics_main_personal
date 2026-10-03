@@ -677,6 +677,22 @@ baselines. The extracted data were transformed as follows:
    physical resources and wall-clock time were estimated from published fault-tolerance cost
    models and compared with the classical alternative.
 
+**Missing data**
+Authors were not contacted, and missing information was not imputed.
+- Unreported details (e.g., hardware, number of shots, latency, noise, code availability) were
+  recorded as "not reported". Missing reporting is treated as a finding in itself: it lowers the
+  relevant quality-appraisal judgment (e.g., hardware and noise reporting, reproducibility) and is
+  counted in the appraisal summaries.
+- Evidence levels were assigned only from what was reported; when the information needed to place a
+  study at a higher level was missing, the lower level was assigned.
+- Where no classical baseline was reported, the study was recorded as having none, and no
+  comparison with classical methods was inferred.
+- Where a full text could not be obtained, the study was assessed from the available record, and
+  any appraisal criterion that could not be judged was left blank and reported as such rather than
+  guessed.
+- Counts and percentages state their denominator (e.g., 14 of the 56 studies whose full texts could
+  be checked released code or data).
+
 **Synthesis**
 Narrative synthesis structured by a robotics-function taxonomy; cross-tabulation of evidence level
 by execution tag; latency analysis; worked fault-tolerant resource estimate for one representative
