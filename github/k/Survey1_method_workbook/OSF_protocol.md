@@ -603,6 +603,26 @@ levels, if doubt remained, the lower level was assigned. No third reviewer was i
 - Reconciliation: with two authors, discussion to consensus, with re-reading of the study, was the
   simplest workable procedure.
 
+**Data management and sharing (extracted entities)**
+All extracted entities are shared on Zenodo (DOI to be added), licence CC BY 4.0, without embargo or
+access conditions; the dataset is published no later than the submission of the article.
+Files: extraction_table.csv (all extracted entities, metadata, levels, and tags for every primary
+study; CSV, UTF-8), quality_appraisal.csv (appraisal judgments; CSV, UTF-8), codebook.md
+(definitions of every column and code; Markdown), search_strings.md, and README.md. The working
+Excel file is not shared; the CSV files contain the same final data.
+FAIR:
+- Findable: persistent DOI from Zenodo, rich metadata (title, creators with ORCIDs, description,
+  keywords), and a link from the article's Data Availability section and from this registration.
+- Accessible: open access over HTTPS from Zenodo, with no login required; metadata remain available
+  even if files were withdrawn.
+- Interoperable: open, non-proprietary formats (CSV, Markdown); controlled vocabularies for evidence
+  level, execution tag, publication status, and appraisal judgments, defined in the codebook.
+- Reusable: CC BY 4.0 licence, codebook, provenance described in the README and the article, and
+  each study identified by its DOI or arXiv identifier.
+5-star open data: three stars (open licence, structured data, non-proprietary format); each study
+row carries a DOI or arXiv identifier, so the data link to the sources, but the files are not
+published as linked data (RDF).
+
 **Data extraction**
 Robotic task, quantum method and type, hardware or simulator, setup and baselines, key results,
 stated and unstated limitations — by the first author; reviewed by the second author, with
