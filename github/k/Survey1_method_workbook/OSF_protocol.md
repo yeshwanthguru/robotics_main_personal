@@ -658,11 +658,12 @@ met / met; not summed into a score.
 **Planned data transformations** (Synthesis and Quality Assessment section)
 No effect sizes were computed or converted, because the studies use different tasks, metrics, and
 baselines. The extracted data were transformed as follows:
-1. Recoding into the taxonomy: each study's robotic task was coded into one of the robotic
-   functions (optimization and planning; learning; sensing and communication; decision-making and
-   reasoning), and its method into a method family (quantum optimization and annealing; quantum
-   search and planning; quantum machine learning and reinforcement learning; quantum sensing and
-   communication; quantum-probability and cognition models; quantum-inspired classical methods).
+1. Recoding into the taxonomy: each study's robotic task was coded into one of five robotic
+   functions (optimization; planning; learning; sensing and communication; decision-making and
+   reasoning), and its method into a method family (quantum optimization; quantum search; quantum
+   learning, including machine learning and reinforcement learning; quantum sensing and
+   communication; hybrid quantum-classical architectures; quantum cognition and quantum-probability
+   models), with quantum-inspired classical methods tagged separately.
 2. Counting: numbers of studies per evidence level, per execution tag, per robotic function, per
    method family, per publication year, and per publication status.
 3. Cross-tabulation: evidence level by execution tag, to show how many results at each level used
