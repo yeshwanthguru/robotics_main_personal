@@ -304,6 +304,30 @@ primary studies appeared in 2025 alone), so if the review is revised more than s
 search closed, or if reviewers ask, the database searches will be re-run from October 2026 with the
 same strings, and any studies added will be reported separately with the new search date.
 
+**Search strategy justification**
+- Databases: quantum robotics sits between robotics, computer science, and physics, so the search
+  combined the main engineering and computing publishers (IEEE Xplore, ACM Digital Library,
+  SpringerLink, ScienceDirect), two multidisciplinary indexes (Scopus, Web of Science) to catch work
+  in physics and general-science journals, and arXiv, because many key quantum-computing results
+  appear first, or only, as preprints.
+- Interfaces: each database was searched through its own publisher interface, which gives the full
+  field and filter options; no aggregator was needed.
+- Grey literature: arXiv was included because the field is young and fast moving (16 primary
+  studies were preprints when graded). Conference proceedings were covered because robotics and
+  quantum computing publish heavily at conferences. Theses and industry reports were not searched
+  systematically because they rarely report enough technical detail to grade; this is a stated
+  limitation.
+- Query strings: the field's terminology is loose ("quantum", "quantum-inspired", "quantum-like"),
+  so the strings were deliberately broad, combining a quantum-methods block, a robot block, and a
+  robotic-function block, and were refined iteratively as the scope settled. Because broad strings
+  still missed work published outside robotics venues, citation chasing and targeted searches in
+  application areas were added.
+- Author contact: authors were not contacted because the review grades what each study reports; an
+  unreported detail is itself a reporting finding, and studies were graded conservatively.
+- Expiration: the search closed in October 2026, immediately before submission, so the corpus is as
+  current as possible; given the field's pace, a conditional update is planned if the review is
+  revised more than six months later.
+
 **Inclusion and exclusion criteria** (wording follows Section 3.3 of the manuscript)
 Inclusion:
 - I1. Proposes, evaluates, or reviews a quantum or quantum-inspired method applied to a robotic
