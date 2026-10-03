@@ -711,7 +711,9 @@ Validity criteria: a data point is valid if it is traceable to a specific passag
 of the graded source. Values that could not be traced were removed or recorded as "not reported".
 Studies whose results were contradicted by later work were kept, with the contradiction reported,
 and their evidence level reflects only what they themselves demonstrated.
-Retractions: [CHECK: not systematically checked / checked against Retraction Watch on date].
+Retractions: on 3 October 2026, the DOIs (148) and titles of all 185 references, including the 72
+primary studies, were matched against the full Retraction Watch Database (Crossref open dataset,
+72,870 records, current to 22 September 2026); none had been retracted.
 
 **Synthesis**
 Narrative synthesis structured by a robotics-function taxonomy; cross-tabulation of evidence level
