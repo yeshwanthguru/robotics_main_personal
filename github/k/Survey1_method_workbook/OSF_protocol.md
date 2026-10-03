@@ -297,6 +297,13 @@ communication metadata to share.
 **Results of contacting authors**
 Not applicable: no authors were contacted, so there are no outcomes to report.
 
+**Search expiration and repetition**
+This is not a living review, and no repeat search is planned. The search closed in October 2026, and
+the evidence levels describe the literature at that date. The field moves quickly (25 of the 72
+primary studies appeared in 2025 alone), so if the review is revised more than six months after the
+search closed, or if reviewers ask, the database searches will be re-run from October 2026 with the
+same strings, and any studies added will be reported separately with the new search date.
+
 **Inclusion and exclusion criteria** (wording follows Section 3.3 of the manuscript)
 Inclusion:
 - I1. Proposes, evaluates, or reviews a quantum or quantum-inspired method applied to a robotic
