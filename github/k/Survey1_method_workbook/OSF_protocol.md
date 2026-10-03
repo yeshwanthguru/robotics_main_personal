@@ -206,8 +206,7 @@ areas where quantum-robotics work appears outside robotics venues. Coverage: 198
 5. SpringerLink: SpringerLink, Springer Nature (link.springer.com)
 6. ScienceDirect: ScienceDirect, Elsevier (sciencedirect.com)
 7. arXiv: arXiv advanced search (arxiv.org)
-Subscription databases accessed through the Amrita Vishwa Vidyapeetham institutional subscription;
-arXiv is open access.
+Subscription databases accessed through an institutional subscription; arXiv is open access.
 
 **Information sources**
 IEEE Xplore, ACM Digital Library, Scopus, Web of Science, SpringerLink, ScienceDirect, arXiv
