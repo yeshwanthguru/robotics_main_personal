@@ -286,6 +286,14 @@ No further validation (e.g., a predefined test set or measured recall) was perfo
    retrieval).
 Co-citation tools (e.g., CoCites) were not used.
 
+**Procedures to contact authors**
+Authors of included studies were not contacted. Data were extracted only from what each study
+reported; where a detail (e.g., hardware, number of shots, latency, or code availability) was not
+reported, it was recorded as not reported, and the evidence level was assigned conservatively (the
+lower level when in doubt). Studies whose full text could not be obtained were graded from the
+available record and are identified in the dataset. Because no authors were contacted, there is no
+communication metadata to share.
+
 **Inclusion and exclusion criteria** (wording follows Section 3.3 of the manuscript)
 Inclusion:
 - I1. Proposes, evaluates, or reviews a quantum or quantum-inspired method applied to a robotic
