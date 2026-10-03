@@ -393,13 +393,14 @@ and on publisher pages, where these fields are always shown.
 4. Out of scope: robots that manipulate quantum systems, or classical robotics used to build
    quantum hardware.
 5. E4. Quantum communication without a robotic application.
-6. No robotic application (reformulated I1): the quantum or quantum-inspired method is not applied to
-   a robotic function (e.g., quantum computer vision without a robot); excluded from the primary
-   studies unless criterion 7 is not met.
-7. Not a foundational work (reformulated I2/I3): the record neither provides algorithms, hardware,
-   or theory on which the methods depend, nor supplies a classical baseline needed for comparison.
-A record not excluded by 1-5 that fails 6 but passes 7 is kept as a foundational work (not graded);
-a record that fails both 6 and 7 is excluded.
+6. No robotic application AND not foundational (reformulated I1-I3): the record does not apply a
+   quantum or quantum-inspired method to a robotic function, does not provide algorithms, hardware,
+   or theory on which such methods depend, and does not supply a classical baseline needed for
+   comparison.
+Records that pass 1-6 are kept: as primary studies if they apply a method to a robotic function
+(I1, graded L1-L6), otherwise as foundational works (I2/I3, not graded). Quantum computer-vision
+studies without a robotic application are not primary studies and are discussed, ungraded, in the
+supplementary material.
 
 **Data extraction**
 Robotic task, quantum method and type, hardware or simulator, setup and baselines, key results,
