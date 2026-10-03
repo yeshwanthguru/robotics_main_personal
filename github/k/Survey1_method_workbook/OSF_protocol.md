@@ -655,6 +655,27 @@ Seven criteria (problem formulation, classical baseline, experimental realism, h
 reporting, performance metrics, reproducibility, critical discussion), each judged not met / partly
 met / met; not summed into a score.
 
+**Planned data transformations** (Synthesis and Quality Assessment section)
+No effect sizes were computed or converted, because the studies use different tasks, metrics, and
+baselines. The extracted data were transformed as follows:
+1. Recoding into the taxonomy: each study's robotic task was coded into one of the robotic
+   functions (optimization and planning; learning; sensing and communication; decision-making and
+   reasoning), and its method into a method family (quantum optimization and annealing; quantum
+   search and planning; quantum machine learning and reinforcement learning; quantum sensing and
+   communication; quantum-probability and cognition models; quantum-inspired classical methods).
+2. Counting: numbers of studies per evidence level, per execution tag, per robotic function, per
+   method family, per publication year, and per publication status.
+3. Cross-tabulation: evidence level by execution tag, to show how many results at each level used
+   quantum hardware, simulation, or classical hardware.
+4. Appraisal summaries: for each of the seven criteria, the number of appraised studies judged met,
+   partly met, and not met (no total score per study).
+5. Timescales: reported or documented latencies (control and planning loop rates, cloud queueing,
+   compilation, shots, optimizer iterations) placed on one time axis to compare quantum processing
+   times with robot loop budgets.
+6. Resource estimate: for one representative algorithm (Grover-based localization), logical and
+   physical resources and wall-clock time were estimated from published fault-tolerance cost
+   models and compared with the classical alternative.
+
 **Synthesis**
 Narrative synthesis structured by a robotics-function taxonomy; cross-tabulation of evidence level
 by execution tag; latency analysis; worked fault-tolerant resource estimate for one representative
