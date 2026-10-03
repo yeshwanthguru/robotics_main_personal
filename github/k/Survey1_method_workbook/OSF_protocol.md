@@ -198,6 +198,17 @@ Supplemented by backward and forward citation searching from key surveys (Tandon
 Petschnigg et al. 2019; Meyer et al. 2022; Yan et al. 2024) and by targeted searches in application
 areas where quantum-robotics work appears outside robotics venues. Coverage: 1982 to October 2026.
 
+**Interfaces**
+1. IEEE Xplore Digital Library: IEEE Xplore (ieeexplore.ieee.org)
+2. ACM Digital Library: ACM Digital Library (dl.acm.org)
+3. Scopus: Scopus, Elsevier (scopus.com)
+4. Web of Science Core Collection: Web of Science, Clarivate (webofscience.com)
+5. SpringerLink: SpringerLink, Springer Nature (link.springer.com)
+6. ScienceDirect: ScienceDirect, Elsevier (sciencedirect.com)
+7. arXiv: arXiv advanced search (arxiv.org)
+Subscription databases accessed through the Amrita Vishwa Vidyapeetham institutional subscription;
+arXiv is open access.
+
 **Information sources**
 IEEE Xplore, ACM Digital Library, Scopus, Web of Science, SpringerLink, ScienceDirect, arXiv
 (quant-ph, cs.RO, cs.LG); backward and forward reference chasing from key papers and earlier
