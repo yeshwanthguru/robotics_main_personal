@@ -465,6 +465,22 @@ studies and their evidence levels are reported with each claim.
 - Reconciliation: with two authors, discussion to consensus was the simplest workable procedure; no
   third reviewer was available.
 
+**Data management and sharing**
+Shared openly on Zenodo (DOI to be added), licence CC BY 4.0, no embargo or access conditions:
+- extraction_table.csv (CSV, UTF-8): every included primary study with its evidence level,
+  execution tag, publication status, task, method, setup, key result, limitation, and DOI.
+- quality_appraisal.csv (CSV, UTF-8): the appraisal judgment for each appraised study on each of the
+  seven criteria.
+- codebook.md (Markdown): definitions of all columns and codes.
+- search_strings.md (Markdown): databases, fields, and query strings.
+- README.md (Markdown): description of the files.
+The same files are submitted with the article as supplementary material.
+Not shared: (1) the raw records returned by each database search, because they were not exported
+and saved at each search; (2) the screening decisions on excluded records, because exclusions were
+not logged; and (3) full texts of the included studies, because of publishers' copyright. The full
+bibliographic records of all included studies and foundational works are given in the article's
+reference list.
+
 **Data extraction**
 Robotic task, quantum method and type, hardware or simulator, setup and baselines, key results,
 stated and unstated limitations — by the first author; reviewed by the second author, with
