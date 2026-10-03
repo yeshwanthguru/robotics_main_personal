@@ -481,6 +481,18 @@ not logged; and (3) full texts of the included studies, because of publishers' c
 bibliographic records of all included studies and foundational works are given in the article's
 reference list.
 
+**Miscellaneous screening details**
+- Screening and search were iterative: the scope and strings were refined while records were being
+  screened, and new records found by citation chasing or targeted searches were screened as they
+  appeared, until the corpus closed in October 2026.
+- Records excluded at full text fell under E1 (metaphorical use of "quantum"), E2 (not in English),
+  E3 (duplicate or earlier version), or E4 (no robotic application); their numbers were not logged.
+- Six quantum computer-vision studies without a robotic application were excluded from the primary
+  studies (they fail I1) but are discussed, ungraded, in the supplementary material, so readers can
+  see the boundary of the inclusion criteria.
+- The PRISMA flow diagram (supplementary Figure S1) shows the stages followed and the counts that
+  can be documented.
+
 **Data extraction**
 Robotic task, quantum method and type, hardware or simulator, setup and baselines, key results,
 stated and unstated limitations — by the first author; reviewed by the second author, with
