@@ -3,7 +3,7 @@
 Strips ACM-only front-matter commands, moves title/authors/abstract into a
 YAML metadata block, and normalises the table column specs.
 """
-import re, sys, json
+import re, sys, json, os
 
 src, out_tex, out_yaml = sys.argv[1:4]
 prefix = sys.argv[4] if len(sys.argv) > 4 else ''   # 'S' for the supplement
@@ -29,6 +29,9 @@ if m:  # first-page funding footnote -> a Funding section before the references
     body += '\n\\section*{Funding}\n' + m.group(1) + '\n'
 body = body.replace('\\begin{acks}', '\\section*{Acknowledgments}').replace('\\end{acks}', '')
 body = re.sub(r'\\Description\{.*?\}\n', '', body)
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from inline_math_unicode import convert as inline_math
+body = inline_math(body)
 # >{\raggedright\arraybackslash}p{0.160\dimexpr\linewidth-16\tabcolsep\relax} -> p{0.160\linewidth}
 body = re.sub(r'>\{\\raggedright\\arraybackslash\}p\{([0-9.]+)\\dimexpr[^}]*\}', r'p{\1\\linewidth}', body)
 body = re.sub(r'\\fillin\{([^{}]*)\}', r'[\1]', body)
