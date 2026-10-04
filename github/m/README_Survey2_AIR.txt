@@ -34,7 +34,8 @@ FILES
                                        full text in the repository and the 22 new candidates (this environment
                                        cannot download papers: publisher sites are blocked by its network policy)
   Survey2_source_drafts/               Paper write-ups (source of the extraction data) and the earliest full draft
-  tools/                               make_figures.py (Fig 7 evidence, Fig S1 PRISMA), make_supplement.py
+  tools/                               make_schematics.py (Figs 1-6, 8, 9), make_figures.py (Fig 7 evidence,
+                                       Fig S1 PRISMA), figstyle.py (shared style), make_supplement.py
                                        (supplement.tex from the CSVs), build_word.sh (all Word files)
 
 HOW TO PRODUCE THE SUBMISSION PDF
@@ -44,6 +45,11 @@ HOW TO PRODUCE THE SUBMISSION PDF
   sh tools/build_word.sh.
 
 WHAT CHANGED (October 2026)
+  - All ten figures redrawn by script in a plain journal style: drawn at the printed width (372 pt) with
+    Latin Modern text matching the manuscript, thin outlines, white/grey fills, one muted accent colour,
+    600 dpi; no flat colour blocks or slide-style graphics. Content and numbers unchanged (Fig 9 re-run:
+    30 seeds, same values as Table C1; raw runs in Survey2_data_package/figure_data/). Fig 2 caption now
+    says solid/dashed path instead of blue/orange.
   - Devil's-advocate fixes: title now says "Quantum-Like" (the review's own term for its core; "quantum-
     inspired" is a different class); Section 1.4 states that robots are the motivating case but only 17 of
     67 studies; a one-rule I1/E5 boundary with the borderline case flagged (Daglarli2025, Online Resource 3);
