@@ -26,6 +26,7 @@ FILES
                                        Survey2_method_workbook.xlsx (search log, screening, PRISMA counts, kappa)
   Survey2_fulltexts/                   PRIVATE: PDFs of cited works found in the repo, named by key (17 of 67
                                        application studies; 57 other works); index.csv lists what is missing
+  Survey2_source_drafts/               Paper write-ups (source of the extraction data) and the earliest full draft
   tools/                               make_figures.py (Fig 8 evidence, Fig S1 PRISMA), make_supplement.py
                                        (supplement.tex from the CSVs), build_word.sh (all Word files)
 
