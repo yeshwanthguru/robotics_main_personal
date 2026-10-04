@@ -4,6 +4,7 @@ Run from github/m:  python3 tools/make_supplement.py
 Then compile:       cd Survey2_AIR_LaTeX_Overleaf && pdflatex supplement && bibtex supplement && pdflatex supplement && pdflatex supplement
 """
 import csv
+import re
 import os
 
 HERE = os.path.dirname(os.path.abspath(__file__))
@@ -11,11 +12,11 @@ ROOT = os.path.dirname(HERE)
 DATA = os.path.join(ROOT, 'Survey2_data_package')
 OUT = os.path.join(ROOT, 'Survey2_AIR_LaTeX_Overleaf', 'supplement.tex')
 
-TITLE = ('Quantum Cognition for Robot Decision-Making: A Systematic Review of Quantum-Like Models '
-         'for Autonomous Agents')
+TITLE = ('Quantum-Inspired Cognition and Decision-Making for Autonomous Agents, from Robotics to AI/ML '
+         'Systems: A Systematic Review')
 AUTHORS = 'Yeshwanth Guru and Dev Kunwar Singh Chauhan'
 
-UNI = {'×': r'$\times$', '≈': r'$\approx$', '≤': r'$\leq$', '≥': r'$\geq$',
+UNI = {'\u00b0': r'\textdegree{}', '\u00b2': r'$^2$', '\u2074': r'$^4$', '\u207f': r'$^n$', '\u2227': r'$\wedge$', '×': r'$\times$', '≈': r'$\approx$', '≤': r'$\leq$', '≥': r'$\geq$',
        'ε': r'$\varepsilon$', '–': '--', '—': '---', '‘': '`', '’': "'",
        '“': '``', '”': "''", '…': r'\ldots{}', '→': r'$\rightarrow$',
        '±': r'$\pm$', '−': '$-$', 'σ': r'$\sigma$', 'γ': r'$\gamma$',
@@ -31,8 +32,12 @@ def tex(s):
         s = s.replace(a, b)
     s = s.replace(r'\textbackslash\{\}', r'\textbackslash{}')
     s = s.replace('|', r'$|$')
+    for _g, _n in [('\u03be','xi'),('\u03b1','alpha'),('\u03b2','beta'),('\u03b4','delta'),('\u03bb','lambda'),('\u03c6','phi'),('\u03c9','omega'),('\u03b7','eta'),('\u03ba','kappa'),('\u03c4','tau'),('\u0394','Delta'),('\u03a8','Psi'),('\u03a6','Phi'),('\u03a9','Omega'),('\u039b','Lambda'),('\u03b6','zeta'),('\u03bd','nu'),('\u03c7','chi')]:
+        s = s.replace(_g, '$\\' + _n + '$')
     s = s.replace('P\u0304', r'$\bar{P}$')
-    return ''.join(UNI.get(c, c) for c in s)
+    s = ''.join(UNI.get(c, c) for c in s)
+    s = re.sub(r'\$\^(\w)\$\$\^(\w)\$', r'$^{\1\2}$', s)   # e.g. 2⁴ⁿ -> $^{4n}$
+    return s.replace('$$', ' ')   # adjacent inline maths would read as display maths in pandoc
 
 
 def read(name):
@@ -69,7 +74,7 @@ Department of Mechanical Engineering, Amrita Vishwa Vidyapeetham, Chennai, India
 Artificial Intelligence Review
 \end{center}
 
-\noindent This resource contains the data-extraction table of the ''' + str(len(apps)) + r''' application studies (Table~S1), the PRISMA 2020 checklist (Table~S2), the flow of records (Table~S3 and Figure~S1), the quality-appraisal criteria and judgements (Tables~S4 and S5), the search strategy and the record of the targeted search (Table~S6), the studies excluded under criterion E5 (Table~S7), a glossary of symbols (Table~S8) and the classification of the ''' + str(len(theory)) + r''' theory and evidence studies (Table~S9). Section numbers refer to the main article. Tables~S1 and S5 are also provided as CSV files (Online Resources 3 and 4). Evidence levels: E1 conceptual; E2 formal model; E3 human data; E4 simulation or benchmark; E5 physical system; E6 field deployment.
+\noindent This resource contains the data-extraction table of the ''' + str(len(apps)) + r''' application studies (Table~S1), the PRISMA 2020 checklist (Table~S2), the flow of records (Table~S3 and Figure~S1), the quality-appraisal criteria and judgements (Tables~S4 and S5), the search strategy and the record of the targeted search (Table~S6), the studies excluded under criterion E5 (Table~S7), the classification of the ''' + str(len(theory)) + r''' theory and evidence studies (Table~S8) and a summary of every graded study (Section~S9). The glossary of symbols is in the main article (Table~3). Section numbers refer to the main article. Tables~S1 and S5 are also provided as CSV files (Online Resources 3 and 4). Evidence levels: E1 conceptual; E2 formal model; E3 human data; E4 simulation or benchmark; E5 physical system; E6 field deployment.
 ''')
 
 # Table S1
@@ -101,31 +106,31 @@ prisma = [
     ('1', 'Title', 'Title page (identified as a systematic review)'),
     ('2', 'Abstract', 'Abstract (unstructured, as required by the journal)'),
     ('3', 'Rationale', 'Sections 1.1--1.4'),
-    ('4', 'Objectives', 'Section 2.1 (RQ1--RQ5)'),
-    ('5', 'Eligibility criteria', 'Section 2.3 (I1--I3, E1--E6)'),
-    ('6', 'Information sources', 'Section 2.2; Table S6 (sources and dates)'),
-    ('7', 'Search strategy', 'Section 2.2; Table S6 (concept blocks of stage 3; exact queries of stage 4)'),
-    ('8', 'Selection process', 'Section 2.4'),
-    ('9', 'Data collection process', 'Section 2.5'),
-    ('10a', 'Data items (outcomes)', 'Section 2.5; Table S1; Online Resource 3'),
-    ('10b', 'Data items (other variables)', 'Sections 2.5 and 2.6 (model type, domain, publication status, basis)'),
-    ('11', 'Study risk of bias assessment', 'Section 2.5 (criteria Q1--Q7); Tables S4 and S5'),
-    ('12', 'Effect measures', 'Not applicable: heterogeneous tasks and metrics; no pooled effect (Section 2.6)'),
-    ('13a--f', 'Synthesis methods', 'Narrative synthesis by domain and evidence level (Sections 2.6 and 14.1); meta-analysis, heterogeneity and sensitivity analyses not applicable'),
-    ('14', 'Reporting bias assessment', 'Section 2.6 (threats to validity: publication bias)'),
-    ('15', 'Certainty assessment', 'Section 2.6 (evidence levels E1--E6, Table 2)'),
-    ('16a', 'Study selection', 'Sections 2.2--2.4; Figure S1; Table S3'),
-    ('16b', 'Excluded studies', 'Section 2.3; Tables S6 and S7'),
+    ('4', 'Objectives', 'Section 1.5.1 (RQ1--RQ5)'),
+    ('5', 'Eligibility criteria', 'Section 1.5.3 (I1--I3, E1--E6)'),
+    ('6', 'Information sources', 'Section 1.5.2; Table S6 (sources and dates)'),
+    ('7', 'Search strategy', 'Section 1.5.2; Table S6 (concept blocks of stage 3; exact queries of stage 4)'),
+    ('8', 'Selection process', 'Section 1.5.4'),
+    ('9', 'Data collection process', 'Section 1.5.5'),
+    ('10a', 'Data items (outcomes)', 'Section 1.5.5; Table S1; Online Resource 3'),
+    ('10b', 'Data items (other variables)', 'Sections 1.5.5 and 1.5.6 (model type, domain, publication status, basis)'),
+    ('11', 'Study risk of bias assessment', 'Section 1.5.5 (criteria Q1--Q7); Tables S4 and S5'),
+    ('12', 'Effect measures', 'Not applicable: heterogeneous tasks and metrics; no pooled effect (Section 1.5.6)'),
+    ('13a--f', 'Synthesis methods', 'Narrative synthesis by domain and evidence level (Sections 1.5.6 and 13.3); meta-analysis, heterogeneity and sensitivity analyses not applicable'),
+    ('14', 'Reporting bias assessment', 'Section 1.5.6 (threats to validity: publication bias)'),
+    ('15', 'Certainty assessment', 'Section 1.5.6 (evidence levels E1--E6, Table 1)'),
+    ('16a', 'Study selection', 'Sections 1.5.2--1.5.4; Figure S1; Table S3'),
+    ('16b', 'Excluded studies', 'Section 1.5.3; Tables S6 and S7'),
     ('17', 'Study characteristics', 'Table S1; Online Resource 3'),
-    ('18', 'Risk of bias in studies', 'Section 14.1; Table S5; Online Resource 4'),
-    ('19', 'Results of individual studies', 'Table S1; Sections 7--13'),
-    ('20a--d', 'Results of syntheses', 'Sections 5 and 7--13; Section 14.1 and Figure 8'),
-    ('21', 'Reporting biases', 'Section 2.6'),
-    ('22', 'Certainty of evidence', 'Section 14.1; Table 2'),
-    ('23a--d', 'Discussion', 'Sections 14--15 and 18; limitations of the review in Section 2.6'),
-    ('24a', 'Registration', 'Section 2 (retrospective OSF registration)'),
-    ('24b', 'Protocol', 'Section 2 (OSF registration)'),
-    ('24c', 'Amendments', 'Sections 2.2 and 2.3: criterion E5 and the stage 4 search were added after the first corpus was assembled'),
+    ('18', 'Risk of bias in studies', 'Section 13.3; Table S5; Online Resource 4'),
+    ('19', 'Results of individual studies', 'Table S1; Section S9; Sections 5--12'),
+    ('20a--d', 'Results of syntheses', 'Sections 5--12; Section 13.3 and Figure 7'),
+    ('21', 'Reporting biases', 'Section 1.5.6'),
+    ('22', 'Certainty of evidence', 'Section 13.3; Table 1'),
+    ('23a--d', 'Discussion', 'Sections 13--15, 17, 18 and 24; limitations of the review in Section 1.5.6'),
+    ('24a', 'Registration', 'Section 1.5 (retrospective OSF registration)'),
+    ('24b', 'Protocol', 'Section 1.5 (OSF registration)'),
+    ('24c', 'Amendments', 'Sections 1.5.2 and 1.5.3: criterion E5 and the stage 4 search were added after the first corpus was assembled'),
     ('25', 'Support', 'Declarations (no external funding)'),
     ('26', 'Competing interests', 'Declarations'),
     ('27', 'Availability of data, code and other materials', 'Declarations; Online Resources 2--4'),
@@ -263,50 +268,62 @@ for k, m in e5:
     w(r'\citet{%s} & %s \\' % (k, m))
 w(r'\end{longtable}')
 
-# Table S8 glossary
-gl = [(r'$|\psi\rangle$, $\langle\psi|$', 'State vector (ket) and its conjugate transpose (bra)'),
-      (r'$\langle\phi|\psi\rangle$', 'Inner product'),
-      (r'$\rho$', r'Density matrix (mixed state); $\mathrm{tr}\,\rho = 1$, $\rho \succeq 0$'),
-      (r'$P_A$', "Projector onto the ``yes'' subspace of question A"),
-      (r'$I - P_A$', "Projector onto the ``no'' subspace"),
-      (r'$[A, B] = AB - BA$', 'Commutator; zero for compatible questions'),
-      (r'$\lVert P|\psi\rangle\rVert^2$', 'Born-rule probability'),
-      (r'$U(t) = \exp(-iHt)$', 'Unitary evolution generated by Hamiltonian $H$'),
-      (r'$L_k$, $\gamma_k$', 'Lindblad (jump) operators and rates in open-system models'),
-      (r'$\otimes$', 'Tensor product of spaces or states'),
-      (r'$\theta$', 'Interference phase between two branches'),
-      ('QQ', 'Quantum question equality'),
-      ('QLBN', 'Quantum-like Bayesian network'),
-      ('QRL, QiRL', 'Quantum and quantum-inspired reinforcement learning'),
-      ('PQC, VQC', 'Parametrised and variational quantum circuit'),
-      ('PS', 'Projective simulation'),
-      ('CbD', 'Contextuality-by-default'),
-      ('POVM', 'Positive-operator-valued measure (generalised measurement)'),
-      ('QPU', 'Quantum processing unit')]
-w(r'''
-\begin{longtable}{@{}P{4.2cm}P{12.1cm}@{}}
-\caption{Glossary of symbols and notation.}\label{tab:S8}\\
-\toprule \textbf{Symbol} & \textbf{Meaning} \\ \midrule \endfirsthead
-\bottomrule \endfoot
-''')
-for a, b in gl:
-    w(r'%s & %s \\' % (a, b))
-w(r'\end{longtable}')
-
-# Table S9 theory
+# Table S8 theory
 w(r'''
 \footnotesize
 \begin{longtable}{@{}P{3.6cm}P{0.7cm}P{4.6cm}P{6.2cm}P{1.1cm}@{}}
-\caption{Theory and evidence studies ($n = ''' + str(len(theory)) + r'''$), graded on the evidence scale: phenomenon, key result and basis of extraction.}\label{tab:S9}\\
+\caption{Theory and evidence studies ($n = ''' + str(len(theory)) + r'''$), graded on the evidence scale: phenomenon, key result and basis of extraction.}\label{tab:S8}\\
 \toprule \textbf{Study} & \textbf{Level} & \textbf{Phenomenon} & \textbf{Key result} & \textbf{Basis} \\ \midrule \endfirsthead
 \toprule \textbf{Study} & \textbf{Level} & \textbf{Phenomenon} & \textbf{Key result} & \textbf{Basis} \\ \midrule \endhead
 \bottomrule \endfoot
 ''')
 for r in theory:
     w(r'\citet{%s} & %s & %s & %s & %s \\' % (r['Key'], r['Evidence level'], tex(r['Phenomenon']), tex(r['Key result']), r['Basis']))
-w(r'''\end{longtable}
-\normalsize
+w(r'\end{longtable}')
+w(r'\normalsize')
 
+# Section S9: study summaries (from the paper write-ups, Survey2_source_drafts/)
+summ = {r['Key']: r for r in read('study_summaries.csv')}
+
+
+def cite_text(txt):
+    parts = re.split(r'((?:\[CITE:\w+\]\s*)+)', txt)
+    out = []
+    for i, part in enumerate(parts):
+        keys = re.findall(r'\[CITE:(\w+)\]', part)
+        if keys:
+            prev = ''.join(parts[:i]).rstrip()
+            cmd = r'\citet{%s}' if (prev == '' or prev.endswith('.')) and len(keys) == 1 else r'\citep{%s}'
+            out.append(cmd % ','.join(keys) + (' ' if part.endswith(' ') else ''))
+        else:
+            out.append(tex(part))
+    return ''.join(out)
+
+
+w(r'\section*{S9 Study summaries}')
+w(r'\noindent One summary per graded study: the %d application studies, grouped by domain as in Table~S1, '
+  r'and the %d theory and evidence studies. The level, the model type and the basis of each summary (full text or '
+  r'abstract) are given in brackets; summaries based on an abstract should be read with that limitation. The same '
+  r'text, with summaries of the reviews and background works, is in the data package (study\_summaries.csv).'
+  % (len(apps), len(theory)))
+DOMAINS = ['Decision models and networks', 'ML, NLP and IR', 'Deep learning and LLMs',
+           'Reinforcement learning and agent learning', 'Robots and embodied agents',
+           'Multi-agent systems and teams', 'Human-AI trust']
+w(r'\subsection*{S9.1 Application studies}')
+for dom in DOMAINS:
+    w(r'\subsubsection*{%s}' % tex(dom))
+    for r in apps:
+        if r['Domain'] == dom:
+            sm = summ[r['Key']]
+            w(r'\paragraph{%s (%s; %s; %s).} %s' % (tex(r['Study']), r['Evidence level'], tex(r['Model type']),
+                                                      sm['Basis'].lower(), cite_text(sm['Summary_keyed'])) + '\n')
+w(r'\subsection*{S9.2 Theory and evidence studies}')
+for r in theory:
+    sm = summ[r['Key']]
+    w(r'\paragraph{%s (%s; %s).} %s' % (tex(r['Study']), r['Evidence level'], sm['Basis'].lower(),
+                                         cite_text(sm['Summary_keyed'])) + '\n')
+
+w(r'''
 \bibliographystyle{plainnat}
 \bibliography{refs}
 \end{document}

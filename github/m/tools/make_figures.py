@@ -1,6 +1,6 @@
 """Regenerate the data-driven figures of Survey 2 from the data package.
 
-Fig8_evidence.png  evidence levels of the graded studies by domain (main article, Figure 8)
+Fig7_evidence.png  evidence levels of the graded studies by domain (main article, Figure 7)
 FigS1_prisma.png   flow of records (Online Resource 1, Figure S1)
 
 Run from github/m:  python3 tools/make_figures.py
@@ -73,7 +73,7 @@ def evidence_figure():
     handles = [plt.Rectangle((0, 0), 1, 1, color=c) for c in COLORS]
     ax.legend(handles, LABELS, loc='lower right', frameon=False, fontsize=8.5)
     fig.tight_layout()
-    fig.savefig(os.path.join(FIG, 'Fig8_evidence.png'))
+    fig.savefig(os.path.join(FIG, 'Fig7_evidence.png'))
     plt.close(fig)
 
 

@@ -33,6 +33,7 @@ if not prefix:
         app = app.replace('\\end{appendices}', '')
         parts = re.split(r'(\\section\{[^}]*\}|\\subsection\{[^}]*\})', app)
         letter, sub, outp = '@', 0, []
+        ntab, applabels = {}, {}
         for part in parts:
             m = re.match(r'\\(sub)?section\{([^}]*)\}', part)
             if m and not m.group(1):
@@ -41,12 +42,24 @@ if not prefix:
             elif m:
                 sub += 1
                 part = '\\subsection*{%s.%d %s}' % (letter, sub, m.group(2))
+            else:   # appendix tables are numbered C1, C2, ... as in the PDF; the Lua filter reads the marker
+                def mark(t, letter=letter):
+                    ntab[letter] = ntab.get(letter, 0) + 1
+                    num = '%s%d' % (letter, ntab[letter])
+                    lab = re.search(r'\\label\{(tab:[^}]*)\}', t.group(0))
+                    if lab:
+                        applabels[lab.group(1)] = num
+                    return t.group(0).replace('\\caption{', '\\caption{APPNUM%sAPPNUM ' % num, 1)
+                part = re.sub(r'\\begin\{table\}.*?\\end\{table\}', mark, part, flags=re.S)
             outp.append(part)
         body = head + ''.join(outp)
+        for lab, num in applabels.items():
+            body = body.replace('\\ref{%s}' % lab, num)
     body = re.sub(r'\\bmhead\{(.*?)\}', r'\\subsection*{\1}', body)
+    body = re.sub(r'\\surveypart\{(.*?)\}', r'\\section*{\1}', body)  # Part A-E headings
 else:
-    title = ('Online Resource 1. Supplementary material for \u201cQuantum Cognition for Robot Decision-Making: '
-             'A Systematic Review of Quantum-Like Models for Autonomous Agents\u201d')
+    title = ('Online Resource 1. Supplementary material for \u201cQuantum-Inspired Cognition and Decision-Making for '
+             'Autonomous Agents, from Robotics to AI/ML Systems: A Systematic Review\u201d')
     abstract, keywords = '', ''
     body = s[s.index('\\end{center}') + len('\\end{center}'):s.index('\\bibliographystyle')]
     body = re.sub(r'\\begin\{landscape\}|\\end\{landscape\}|\\footnotesize|\\normalsize', '', body)

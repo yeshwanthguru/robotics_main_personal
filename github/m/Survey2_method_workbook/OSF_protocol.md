@@ -6,7 +6,7 @@ form, in the same order as for Survey 1. Items marked **[CHECK]** need a fact on
 ---
 
 **Title**
-Quantum Cognition for Robot Decision-Making: A Systematic Review of Quantum-Like Models for Autonomous Agents — review protocol
+Quantum-Inspired Cognition and Decision-Making for Autonomous Agents, from Robotics to AI/ML Systems: A Systematic Review — review protocol
 
 **Authors**
 Yeshwanth Guru (ORCID 0009-0007-6353-4033); Dev Kunwar Singh Chauhan (ORCID 0000-0002-1466-4567).
@@ -86,7 +86,7 @@ multi-agent and human–machine teams, and trust in AI. Existing reviews cover t
 quantum-computing side, but none grades how far the evidence for these applications goes. This
 review fills that gap.
 
-**Primary research question(s)** (wording identical to Section 2.1 of the manuscript)
+**Primary research question(s)** (wording identical to Section 1.5.1 of the manuscript)
 RQ1: Which quantum-like, quantum-inspired and quantum-circuit models of cognition and decision have
 been applied to autonomous agents, and to which agent functions (perception and fusion,
 decision-making and planning, learning, embodied and social behaviour, multi-agent coordination, and
@@ -183,7 +183,7 @@ reviews were therefore used instead of engineering databases alone.
 **Miscellaneous search strategy details**
 The search was iterative; the scope was refined while records were screened.
 
-**Inclusion and exclusion criteria** (as Section 2.3 of the manuscript)
+**Inclusion and exclusion criteria** (as Section 1.5.3 of the manuscript)
 Included: (I1) proposes, evaluates or reviews a quantum-like, quantum-inspired or quantum-circuit
 model of cognition, decision or learning applied to an artificial agent, an ML or AI system, or
 human–AI or human–robot interaction (application studies); (I2) theory, empirical tests or critiques

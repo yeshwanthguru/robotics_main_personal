@@ -1,4 +1,4 @@
-\begin{thebibliography}{154}
+\begin{thebibliography}{160}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -118,6 +118,12 @@ Irina Basieva, V{\'\i}ctor~H. Cervantes, Ehtibar~N. Dzhafarov, and Andrei
 \newblock \emph{Journal of Experimental Psychology: General}, 148\penalty0
   (11):\penalty0 1925--1937, 2019.
 \newblock \doi{10.1037/xge0000585}.
+
+\bibitem[Benioff(1998)]{Benioff1998}
+Paul Benioff.
+\newblock Quantum robots and environments.
+\newblock \emph{Physical Review A}, 58\penalty0 (2):\penalty0 893--904, 1998.
+\newblock \doi{10.1103/PhysRevA.58.893}.
 
 \bibitem[Blutner et~al.(2013)Blutner, Pothos, and Bruza]{Blutner2013}
 Reinhard Blutner, Emmanuel~M. Pothos, and Peter Bruza.
@@ -304,6 +310,12 @@ Berardina~Nadja De~Carolis, C.~Loglisci, G.~Palestra, and S.~Violante.
   USA, 2025. ACM.
 \newblock \doi{10.1145/3708319.3735545}.
 
+\bibitem[Dong et~al.(2006)Dong, Chen, Zhang, and Chen]{Dong2006}
+Daoyi Dong, Chunlin Chen, Chenbin Zhang, and Zonghai Chen.
+\newblock Quantum robot: Structure, algorithms and applications.
+\newblock \emph{Robotica}, 24\penalty0 (4):\penalty0 513--521, 2006.
+\newblock \doi{10.1017/S0263574705002596}.
+
 \bibitem[Dong et~al.(2008)Dong, Chen, Li, and Tarn]{Dong2008}
 Daoyi Dong, Chunlin Chen, Hanxiong Li, and Tzyh-Jong Tarn.
 \newblock Quantum reinforcement learning.
@@ -332,6 +344,13 @@ Ehtibar~N. Dzhafarov, Ru~Zhang, and Janne Kujala.
   Mathematical, Physical and Engineering Sciences}, 374\penalty0
   (2058):\penalty0 20150099, 2016.
 \newblock \doi{10.1098/rsta.2015.0099}.
+
+\bibitem[Eisert et~al.(1999)Eisert, Wilkens, and Lewenstein]{Eisert1999}
+Jens Eisert, Martin Wilkens, and Maciej Lewenstein.
+\newblock Quantum games and quantum strategies.
+\newblock \emph{Physical Review Letters}, 83\penalty0 (15):\penalty0
+  3077--3080, 1999.
+\newblock \doi{10.1103/PhysRevLett.83.3077}.
 
 \bibitem[Epping et~al.(2023)Epping, Kvam, Pleskac, and Busemeyer]{Epping2023}
 Gunnar~P. Epping, Peter~D. Kvam, Timothy~J. Pleskac, and Jerome~R. Busemeyer.
@@ -859,6 +878,13 @@ Luisa Roeder, Pamela Hoyte, Johan van~der Meer, L.~Fell, P.~Johnston, G.~Kerr,
 \newblock \emph{Entropy}, 25\penalty0 (9):\penalty0 1362, 2023.
 \newblock \doi{10.3390/e25091362}.
 
+\bibitem[Shafir and Tversky(1992)]{Shafir1992}
+Eldar Shafir and Amos Tversky.
+\newblock Thinking through uncertainty: Nonconsequential reasoning and choice.
+\newblock \emph{Cognitive Psychology}, 24\penalty0 (4):\penalty0 449--474,
+  1992.
+\newblock \doi{10.1016/0010-0285(92)90015-T}.
+
 \bibitem[She et~al.(2021)She, Han, and Liu]{She2021}
 Lulu She, Shilian Han, and Xinwang Liu.
 \newblock Application of quantum-like {Bayesian} network and belief entropy for
@@ -927,6 +953,14 @@ Jennifer~S. Trueblood, James~M. Yearsley, and Emmanuel~M. Pothos.
 \newblock \emph{Journal of Experimental Psychology: General}, 146\penalty0
   (9):\penalty0 1307--1341, 2017.
 \newblock \doi{10.1037/xge0000326}.
+
+\bibitem[Tversky and Kahneman(1983)]{Tversky1983}
+Amos Tversky and Daniel Kahneman.
+\newblock Extensional versus intuitive reasoning: The conjunction fallacy in
+  probability judgment.
+\newblock \emph{Psychological Review}, 90\penalty0 (4):\penalty0 293--315,
+  1983.
+\newblock \doi{10.1037/0033-295X.90.4.293}.
 
 \bibitem[Uprety et~al.(2024)Uprety, Liu, Jaiswal, and Song]{Uprety2024}
 Sagar Uprety, Haiming Liu, Amit~Kumar Jaiswal, and Dawei Song.
@@ -1042,6 +1076,13 @@ Fei Yan, Abdullah~M. Iliyasu, and Kaoru Hirota.
 \newblock \emph{Electronics}, 10\penalty0 (2):\penalty0 100,
   2021{\natexlab{b}}.
 \newblock \doi{10.3390/electronics10020100}.
+
+\bibitem[Yan et~al.(2021{\natexlab{c}})Yan, Iliyasu, and Hirota]{Yan2021b}
+Fei Yan, Abdullah~M. Iliyasu, and Kaoru Hirota.
+\newblock Emotion space modelling for social robots.
+\newblock \emph{Engineering Applications of Artificial Intelligence},
+  100:\penalty0 104178, 2021{\natexlab{c}}.
+\newblock \doi{10.1016/j.engappai.2021.104178}.
 
 \bibitem[Yearsley(2017)]{Yearsley2017}
 James~M. Yearsley.

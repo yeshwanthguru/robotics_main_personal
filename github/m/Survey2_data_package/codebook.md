@@ -41,3 +41,15 @@ Codes: M met; P partly met; N not met; ? not assessable without the full text. T
 
 Study, Key, Evidence level (as above), Phenomenon, Method, Setup and data, Key result, Limitation,
 Basis and DOI or identifier, defined as for the extraction table.
+
+## study_summaries.csv (209 rows)
+
+| Column | Definition |
+|---|---|
+| Key | BibTeX key in refs.bib |
+| Study | Author(s) and year |
+| Group | application; theory and evidence; review; background; excluded (E5) |
+| Basis | Full text or Abstract: the source the summary was written from |
+| Summary | Plain-text summary (problem, method, setup, main result, limitation where reported) |
+| Summary_keyed | The same text with cited works marked `[CITE:key]`, used to typeset Section S9 of Online Resource 1 |
+| Verification_note | Empty if the summary was checked against the source; otherwise what still needs checking |
