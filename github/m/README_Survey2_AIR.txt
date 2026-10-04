@@ -9,7 +9,7 @@ FILES
   Survey2_AIR_LaTeX_Overleaf.zip       Submission source: main.tex (Springer Nature sn-jnl, sn-basic author-year),
                                        supplement.tex (Online Resource 1), refs.bib (212 entries), figures/
                                        (Fig1-Fig9 numbered as in the paper, FigS1 PRISMA flow), sn-jnl.cls, bst/
-  Survey2_AIR_LaTeX_Overleaf/main.pdf  Compiled manuscript (74 pages incl. references); supplement.pdf (53 pages)
+  Survey2_AIR_LaTeX_Overleaf/main.pdf  Compiled manuscript (78 pages incl. references); supplement.pdf (53 pages)
   Survey2_AIR_Manuscript.docx          Word review copy of the manuscript (citations as plain text)
   Survey2_AIR_Online_Resource_1.pdf/.docx   Supplement: Table S1 extraction table (67 studies), S2 PRISMA
                                        checklist, S3 + Fig S1 flow of records, S4-S5 appraisal criteria and
@@ -30,6 +30,9 @@ FILES
   Survey2_reference_list.md            Every cited work (212) with group, evidence level and full-text status;
                                        download checklist (137 missing PDFs) and the 21 new papers found by the
                                        literature check of 4 Oct 2026 (not yet added; decide after reading)
+  Survey2_download_links.md            Clickable DOI/arXiv/Google Scholar links for the 137 cited works without a
+                                       full text in the repository and the 22 new candidates (this environment
+                                       cannot download papers: publisher sites are blocked by its network policy)
   Survey2_source_drafts/               Paper write-ups (source of the extraction data) and the earliest full draft
   tools/                               make_figures.py (Fig 7 evidence, Fig S1 PRISMA), make_supplement.py
                                        (supplement.tex from the CSVs), build_word.sh (all Word files)
@@ -41,6 +44,16 @@ HOW TO PRODUCE THE SUBMISSION PDF
   sh tools/build_word.sh.
 
 WHAT CHANGED (October 2026)
+  - Evidence-based framing: headings that promised more than the evidence shows were reworded (Section 5.6
+    "Where Quantum Models Outperform ..., and Where They Do Not"; 9.2, 10.3, 14.2, 16.2); the thesis that
+    quantum cognition is the hardware-free quantum route whose value is representational, not computational,
+    is stated in Sections 1.3, 2.5.4 and 25.2.
+  - Tier 1 (Section 6) deepened to the deepest tier, with Table 4 (models, strongest evidence, agent
+    studies and gap per function); Sections 10.1, 10.3, 21.4, 24 (Table 10, open problems with a first
+    experiment each) and 25.1 (answers to RQ1-RQ5) expanded. All new statements come from the data package.
+  - References: Maksymov2025 -> Maksymov2026 (Springer book, 2026); Busemeyer2012 notes the 2024 2nd edition.
+  - Word build: section cross-references are now resolved before pandoc (forward references used to print
+    as "[sec:...]"), and tables use relative column widths (absolute widths made pandoc drop text).
   - Restructured to the authors' outline (Part A Foundations 1-4, Part B Theory 5-7, Part C Applications and
     Validation 8-16, Part D Grounding 17-20, Part E Integration and Future 21-25, Appendices A-E), keeping all
     systematic-review content: methods in Section 1.5, evidence levels Table 1, glossary Table 3 (Section 4.4),

@@ -46,10 +46,10 @@ Priority A = should be added (clear fit, fills a gap); B = likely add after read
 | N20 | C | Probably E5 (quantum computation for inference) | Recursive quantum-classical hybrid Bayesian-network inference with quantum decision networks (2025), European Physical Journal Special Topics — this is a description, not the exact title; find title, authors and DOI | As above; record as an E5 exclusion |
 | N21 | C | Check E5 (variational circuit) | Singh, J., Bhangu, K. S., Alkhanifer, A., Alzubi, A. A. and Ali, F. (2025). *Quantum neural networks for multimodal sentiment, emotion, and sarcasm analysis*. Alexandria Engineering Journal 124, 170–187 | VQE-trained quantum neural network; probably quantum ML as accelerator (E5) |
 
-**Cited entries to update**
+**Cited entries updated**
 
-- `Maksymov2025` (cited as an arXiv preprint) — Now a Springer book: Maksymov, I. S. (2026). *Cognition in Superposition: Quantum Models in AI, Economics, Defence, Gaming and Collective Behaviour*. Springer, Cham. doi:10.1007/978-3-032-25965-3. Relevant chapters: 4 Quantum Perception; 6 Quantum-Cognitive Artificial Neural Networks; 9 Neuromorphic Implementation of Quantum-Cognitive Models; 11 Quantum Cognition and Quantum Mind. Update the bib entry (title now says "Economics" instead of "Finance").
-- `Busemeyer2012` — The text mentions the second edition; add Busemeyer, J. R. and Bruza, P. D. (2024). *Quantum Models of Cognition and Decision*, 2nd edn. Cambridge University Press — or cite the 2nd edition only.
+- `Maksymov2026` (was `Maksymov2025`) — Done 4 Oct 2026: now cited as the Springer book (2026), doi:10.1007/978-3-032-25965-3; the repository PDF is the arXiv preprint.
+- `Busemeyer2012` — Done 4 Oct 2026: the entry carries a note on the 2024 second edition, and the text says so (Section 2.3).
 
 **Found and judged out of scope**
 
@@ -375,7 +375,7 @@ Group: A application study, T theory and evidence study, Rv review, B background
 | 126 | `Luckcuck2019` | Luckcuck et al. | 2019 | Formal Specification and Verification of Autonomous Robotic Systems: A Survey | ACM Computing Surveys 52(5), 100:1–100:41 | doi:10.1145/3342355 | B · no |
 | 127 | `Lukac2007` | Lukac and Perkowski | 2007 | Quantum Mechanical Model of Emotional Robot Behaviors | Proceedings of the 37th International Symposium on Multiple-Valued Logic (ISMVL 2007) | — | A · E2 · no |
 | 128 | `Maksimovic2025` | Maksimovic and Maksymov | 2025 | Quantum-Cognitive Neural Networks: Assessing Confidence and Uncertainty with Human Decision-Making Simulations | Big Data and Cognitive Computing 9(1), 12 | doi:10.3390/bdcc9010012 | A · E4 · no |
-| 129 | `Maksymov2025` | Maksymov | 2025 | Cognition in superposition: quantum models in AI, finance, defence, gaming and collective behaviour | arXiv preprint | arXiv:2508.20098 | Rv · yes |
+| 129 | `Maksymov2026` | Maksymov | 2026 | Cognition in Superposition: Quantum Models in AI, Economics, Defence, Gaming and Collective Behaviour | Springer | doi:10.1007/978-3-032-25965-3 | Rv · yes |
 | 130 | `Mannone2022` | Mannone, Seidita and Chella | 2022 | Categories, Quantum Computing, and Swarm Robotics: A Case Study | Mathematics 10(3), 372 | doi:10.3390/math10030372 | E5 · yes · also S1 |
 | 131 | `Mannone2024` | Mannone et al. | 2024 | Modeling Robotic Thinking and Creativity: A Classic–Quantum Dialogue | Mathematics 12(5), 642 | doi:10.3390/math12050642 | A · E2 · no |
 | 132 | `MartinezMartinez2016` | Martínez-Martínez and Sánchez-Burillo | 2016 | Quantum Stochastic Walks on Networks for Decision-Making | Scientific Reports 6, 23812 | doi:10.1038/srep23812 | T · E2 · no |

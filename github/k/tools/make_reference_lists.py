@@ -134,8 +134,8 @@ NEW = [
  ('C', 'Check E5 (variational circuit)', 'Singh, J., Bhangu, K. S., Alkhanifer, A., Alzubi, A. A. and Ali, F. (2025). *Quantum neural networks for multimodal sentiment, emotion, and sarcasm analysis*. Alexandria Engineering Journal 124, 170–187', 'VQE-trained quantum neural network; probably quantum ML as accelerator (E5)'),
 ]
 UPDATE = [
- ('`Maksymov2025` (cited as an arXiv preprint)', 'Now a Springer book: Maksymov, I. S. (2026). *Cognition in Superposition: Quantum Models in AI, Economics, Defence, Gaming and Collective Behaviour*. Springer, Cham. doi:10.1007/978-3-032-25965-3. Relevant chapters: 4 Quantum Perception; 6 Quantum-Cognitive Artificial Neural Networks; 9 Neuromorphic Implementation of Quantum-Cognitive Models; 11 Quantum Cognition and Quantum Mind. Update the bib entry (title now says "Economics" instead of "Finance").'),
- ('`Busemeyer2012`', 'The text mentions the second edition; add Busemeyer, J. R. and Bruza, P. D. (2024). *Quantum Models of Cognition and Decision*, 2nd edn. Cambridge University Press — or cite the 2nd edition only.'),
+ ('`Maksymov2026` (was `Maksymov2025`)', 'Done 4 Oct 2026: now cited as the Springer book (2026), doi:10.1007/978-3-032-25965-3; the repository PDF is the arXiv preprint.'),
+ ('`Busemeyer2012`', 'Done 4 Oct 2026: the entry carries a note on the 2024 second edition, and the text says so (Section 2.3).'),
 ]
 CHECKED_OUT = ['arXiv:2512.20654 Q-RUN, quantum-inspired data re-uploading networks (generic ML, no cognition or decision model)',
  'arXiv:2601.18953, 2603.25138, 2602.12464, 2412.18208, 2507.01691 (reinforcement learning *for* or *on* quantum devices: quantum computation, Survey 1 territory)',
@@ -168,7 +168,7 @@ w('| # | Priority | Proposed group | Reference | Why it matters |'); w('|---|---
 for i, (p, gr, c, why) in enumerate(sorted(NEW, key=lambda x: x[0]), 1):
     w('| N%d | %s | %s | %s | %s |' % (i, p, gr, esc(c), esc(why)))
 w('')
-w('**Cited entries to update**')
+w('**Cited entries updated**')
 w('')
 for a, b in UPDATE: w('- %s — %s' % (a, b))
 w('')

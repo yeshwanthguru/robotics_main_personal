@@ -28,6 +28,21 @@ if not prefix:
     abstract = re.search(r'\\abstract\{(.*?)\}\n', s, re.S).group(1).strip()
     keywords = re.search(r'\\keywords\{(.*?)\}\n', s).group(1)
     body = s[s.index('\\maketitle') + len('\\maketitle'):s.index('\\bibliography{refs}')]
+    # Resolve \ref to section and appendix labels here: pandoc resolves them in one pass,
+    # so references to later sections would otherwise print as "[sec:...]".
+    secnum, cnt, inapp = {}, [0, 0, 0], False
+    for m in re.finditer(r'\\begin\{appendices\}|\\(section|subsection|subsubsection)(\*?)\{|\\label\{((?:sec|app):[^}]*)\}', body):
+        if m.group(0).startswith('\\begin'):
+            inapp, cnt = True, [0, 0, 0]; continue
+        if m.group(1):
+            if m.group(2): continue
+            lvl = ['section', 'subsection', 'subsubsection'].index(m.group(1))
+            cnt[lvl] += 1
+            for j in range(lvl + 1, 3): cnt[j] = 0
+            continue
+        top = chr(64 + cnt[0]) if inapp else str(cnt[0])
+        secnum[m.group(3)] = '.'.join([top] + [str(c) for c in cnt[1:] if c])
+    body = re.sub(r'\\ref\{((?:sec|app):[^}]*)\}', lambda m: secnum.get(m.group(1), m.group(0)), body)
     if '\\begin{appendices}' in body:   # number appendix headings A, A.1, B, ... as in the PDF
         head, app = body.split('\\begin{appendices}', 1)
         app = app.replace('\\end{appendices}', '')
