@@ -43,6 +43,8 @@ WHAT CHANGED (October 2026)
     systematic-review content: methods in Section 1.5, evidence levels Table 1, glossary Table 3 (Section 4.4),
     evidence map and quality in Section 13.3, case studies and the RL experiment in Section 16, code in
     Appendix B, raw results in Appendix C, protocols and checklist in Appendix D.
+  - Scope (Section 1.4) states that quantum-inspired optimisation heuristics (quantum-behaved PSO, quantum-inspired
+    evolutionary algorithms for path planning, scheduling, SLAM) are outside this review; Survey 1 summarises them.
   - Content of the two source drafts (Survey2_source_drafts/) carried into the manuscript, Online Resource 1
     (Section S9, summary of every graded study) and Survey2_data_package/study_summaries.csv.
   - "Classical Approach (Deep Q-Learning)" in the outline is titled "(Q-Learning)" in Section 16.3, because the
