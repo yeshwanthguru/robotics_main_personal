@@ -30,13 +30,13 @@ def links(f, title):
     return ' · '.join(out)
 ORDER = ['application', 'theory and evidence', 'review', 'background', 'method']
 TITLE = {'application': 'Application studies — download first (needed for the quality appraisal)',
-         'theory and evidence': 'Theory and evidence studies', 'review': 'Reviews', 'background': 'Background works (books are often not downloadable: check your library)',
+         'theory and evidence': 'Theory and evidence studies', 'review': 'Reviews', 'background': 'Background works (books may need library access)',
          'method': 'Method references'}
 missing = [k for k, r in idx.items() if r[col] == 'MISSING' and k != 'Guru2026']
 L = ['# Survey 2 — papers to download manually', '',
-     'This environment cannot download papers: its network policy blocks publisher sites, doi.org, arXiv, PubMed Central and the open-access APIs. '
-     'Download each paper yourself, save it as `<key>.pdf` in `github/m/Survey2_fulltexts/primary/` (application studies) or `references/` (all others), and tell me: '
-     'I will update `index.csv`, re-check the extraction from the full text and fill the appraisal cells that need it.', '',
+     'Cited works whose full text is not yet in the repository, and the new candidates from the literature check. '
+     'Save each paper as `<key>.pdf` in `github/m/Survey2_fulltexts/primary/` (application studies) or `references/` (all others), '
+     'then update `index.csv`, re-check the extraction against the full text and complete the appraisal cells that need it.', '',
      'Each entry has a DOI or arXiv link where one exists, and always a Google Scholar search (the Scholar result often has a free PDF on the right).', '',
      '| Group | Missing |', '|---|---|']
 for g in ORDER:

@@ -1,7 +1,7 @@
 # OSF registration text — Survey 2 (retrospective)
 
 Paste each section into the matching field of the OSF "Generalized Systematic Review Registration"
-form, in the same order as for Survey 1. Items marked **[CHECK]** need a fact only you know.
+form, in the same order as for Survey 1. Items marked **[CHECK]** need information from the authors.
 
 ---
 

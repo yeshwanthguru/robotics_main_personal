@@ -160,7 +160,7 @@ w('%d works are cited in both Survey 1 and Survey 2 (marked "also S1"); download
 w('')
 w('## 1. Literature check of 4 October 2026: papers not yet in Survey 2')
 w('')
-w('I ran 22 topic searches (plus a look-up of the details of each hit) covering quantum cognition for robots and autonomous agents, quantum-like Bayesian networks, LLM order effects and contextuality, human–AI trust, quantum-inspired RL, projective simulation, quantum-inspired deep learning and NLP, swarms and teams, emotion models, open-system and quantum-walk decision models, and recent reviews. Records already cited were checked by title against refs.bib. Publisher and arXiv pages could not be opened in this environment, so details come from search-result metadata: verify each one before citing.')
+w('A literature check on 4 October 2026 ran 22 topic searches, each followed by a look-up of the bibliographic details of every hit, covering quantum cognition for robots and autonomous agents, quantum-like Bayesian networks, LLM order effects and contextuality, human–AI trust, quantum-inspired RL, projective simulation, quantum-inspired deep learning and NLP, swarms and teams, emotion models, open-system and quantum-walk decision models, and recent reviews. Records already cited were matched by title against refs.bib. Details of the new records come from search-result metadata and must be confirmed against the papers before citing.')
 w('')
 w('Priority A = should be added (clear fit, fills a gap); B = likely add after reading; C = record as an exclusion. Adding any of them changes the counts (67 application, 71 theory studies), the PRISMA flow and the tables, so decide after reading the full texts.')
 w('')

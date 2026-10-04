@@ -1,6 +1,6 @@
 # Survey 2 — papers to download manually
 
-This environment cannot download papers: its network policy blocks publisher sites, doi.org, arXiv, PubMed Central and the open-access APIs. Download each paper yourself, save it as `<key>.pdf` in `github/m/Survey2_fulltexts/primary/` (application studies) or `references/` (all others), and tell me: I will update `index.csv`, re-check the extraction from the full text and fill the appraisal cells that need it.
+Cited works whose full text is not yet in the repository, and the new candidates from the literature check. Save each paper as `<key>.pdf` in `github/m/Survey2_fulltexts/primary/` (application studies) or `references/` (all others), then update `index.csv`, re-check the extraction against the full text and complete the appraisal cells that need it.
 
 Each entry has a DOI or arXiv link where one exists, and always a Google Scholar search (the Scholar result often has a free PDF on the right).
 
@@ -132,7 +132,7 @@ Each entry has a DOI or arXiv link where one exists, and always a Google Scholar
 - [ ] `Yan2021b` — Yan, Iliyasu and Hirota (2021). *Emotion Space Modelling for Social Robots*. Engineering Applications of Artificial Intelligence 100, 104178. [DOI](https://doi.org/10.1016/j.engappai.2021.104178) · [Scholar](https://scholar.google.com/scholar?q=Emotion+Space+Modelling+for+Social+Robots)
 - [ ] `Yan2024` — Yan et al. (2024). *Quantum robotics: a review of emerging trends*. Quantum Machine Intelligence 6(2), 86. [DOI](https://doi.org/10.1007/s42484-024-00225-5) · [Scholar](https://scholar.google.com/scholar?q=Quantum+robotics%3A+a+review+of+emerging+trends)
 
-## Background works (books are often not downloadable: check your library) (27)
+## Background works (books may need library access) (27)
 
 - [ ] `Bergholm2018` — Bergholm et al. (2018). *PennyLane: Automatic differentiation of hybrid quantum-classical computations*. arXiv preprint. [arXiv](https://arxiv.org/abs/1811.04968) · [PDF](https://arxiv.org/pdf/1811.04968) · [Scholar](https://scholar.google.com/scholar?q=PennyLane%3A+Automatic+differentiation+of+hybrid+quantum-classical+computations)
 - [ ] `Biamonte2017` — Biamonte et al. (2017). *Quantum machine learning*. Nature 549(7671), 195–202. [DOI](https://doi.org/10.1038/nature23474) · [Scholar](https://scholar.google.com/scholar?q=Quantum+machine+learning)

@@ -31,8 +31,7 @@ FILES
                                        download checklist (137 missing PDFs) and the 21 new papers found by the
                                        literature check of 4 Oct 2026 (not yet added; decide after reading)
   Survey2_download_links.md            Clickable DOI/arXiv/Google Scholar links for the 137 cited works without a
-                                       full text in the repository and the 22 new candidates (this environment
-                                       cannot download papers: publisher sites are blocked by its network policy)
+                                       full text in the repository and the 22 new candidates
   Survey2_source_drafts/               Paper write-ups (source of the extraction data) and the earliest full draft
   tools/                               make_schematics.py (Figs 1-6, 8, 9), make_figures.py (Fig 7 evidence,
                                        Fig S1 PRISMA), figstyle.py (shared style), make_supplement.py
@@ -50,7 +49,7 @@ WHAT CHANGED (October 2026)
     600 dpi; no flat colour blocks or slide-style graphics. Content and numbers unchanged (Fig 9 re-run:
     30 seeds, same values as Table C1; raw runs in Survey2_data_package/figure_data/). Fig 2 caption now
     says solid/dashed path instead of blue/orange.
-  - Devil's-advocate fixes: title now says "Quantum-Like" (the review's own term for its core; "quantum-
+  - Reviewer-style fixes: title now says "Quantum-Like" (the review's own term for its core; "quantum-
     inspired" is a different class); Section 1.4 states that robots are the motivating case but only 17 of
     67 studies; a one-rule I1/E5 boundary with the borderline case flagged (Daglarli2025, Online Resource 3);
     a sensitivity check without the 11 representation-only ML/NLP models (conclusions unchanged); the
@@ -110,7 +109,7 @@ BEFORE YOU SUBMIT (red [FILL] in the PDF; yellow in the Word files)
   [ ] Code repository URL and licence (Appendix B and Code availability), or delete those two [FILL]s.
   [ ] Cover letter: date and suggested reviewers. REMINDER: corresponding author still undecided (set to Yeshwanth).
   [ ] Full texts: 50 of the 67 application studies were extracted from abstracts (Survey2_fulltexts/README.md
-      lists them). Upload any you can get; with the PDF I can re-check the extraction and fill the Q6 "?" cells.
+      lists them). Add each PDF to the repository, then re-check the extraction and fill the Q6 "?" cells.
   [ ] Five records from the targeted search could not be retrieved (targeted_search_record.md); check them.
   [ ] Companion reference (Guru2026): update the note to "under review" once Survey 1 is submitted.
   [ ] Declare generative-AI assistance as the journal requires (Springer: in the Methods section or

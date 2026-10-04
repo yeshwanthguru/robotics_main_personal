@@ -1,9 +1,8 @@
 # Survey 2 — targeted search record (stage 4)
 
 Run on **4 October 2026** with a general web search engine (results are US-indexed). Scholarly
-databases and publisher sites (Scopus, Web of Science, arXiv, Semantic Scholar, Crossref) could not be
-queried directly from the environment used, so each candidate was checked by follow-up verification
-searches. Records already in the corpus are not listed as new.
+databases and publisher sites (Scopus, Web of Science, arXiv, Semantic Scholar, Crossref) were not
+queried directly, so each candidate was checked by follow-up verification searches. Records already in the corpus are not listed as new.
 
 ## Topic queries
 
