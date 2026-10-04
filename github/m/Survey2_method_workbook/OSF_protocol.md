@@ -6,7 +6,7 @@ form, in the same order as for Survey 1. Items marked **[CHECK]** need a fact on
 ---
 
 **Title**
-Quantum-Inspired Cognition and Decision-Making for Autonomous Agents, from Robotics to AI/ML Systems: A Systematic Review — review protocol
+Quantum-Like Cognition and Decision-Making for Autonomous Agents, from Robotics to AI/ML Systems: A Systematic Review — review protocol
 
 **Authors**
 Yeshwanth Guru (ORCID 0009-0007-6353-4033); Dev Kunwar Singh Chauhan (ORCID 0000-0002-1466-4567).

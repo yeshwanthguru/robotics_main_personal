@@ -146,7 +146,7 @@ L = []
 w = L.append
 w('# Survey 2 — reference list (Artificial Intelligence Review)')
 w('')
-w('**Quantum-Inspired Cognition and Decision-Making for Autonomous Agents, from Robotics to AI/ML Systems: A Systematic Review**  ')
+w('**Quantum-Like Cognition and Decision-Making for Autonomous Agents, from Robotics to AI/ML Systems: A Systematic Review**  ')
 w('Yeshwanth Guru and Dev Kunwar Singh Chauhan · generated 4 October 2026 from `Survey2_AIR_LaTeX_Overleaf/refs.bib`, `Survey2_fulltexts/index.csv` and the data package')
 w('')
 g = collections.Counter(idx2.get(k, {}).get('Group', '?') for k in bib2)

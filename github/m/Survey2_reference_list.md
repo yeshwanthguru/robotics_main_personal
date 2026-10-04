@@ -1,6 +1,6 @@
 # Survey 2 — reference list (Artificial Intelligence Review)
 
-**Quantum-Inspired Cognition and Decision-Making for Autonomous Agents, from Robotics to AI/ML Systems: A Systematic Review**  
+**Quantum-Like Cognition and Decision-Making for Autonomous Agents, from Robotics to AI/ML Systems: A Systematic Review**  
 Yeshwanth Guru and Dev Kunwar Singh Chauhan · generated 4 October 2026 from `Survey2_AIR_LaTeX_Overleaf/refs.bib`, `Survey2_fulltexts/index.csv` and the data package
 
 | Group | Cited | Full text missing |

@@ -12,7 +12,7 @@ ROOT = os.path.dirname(HERE)
 DATA = os.path.join(ROOT, 'Survey2_data_package')
 OUT = os.path.join(ROOT, 'Survey2_AIR_LaTeX_Overleaf', 'supplement.tex')
 
-TITLE = ('Quantum-Inspired Cognition and Decision-Making for Autonomous Agents, from Robotics to AI/ML '
+TITLE = ('Quantum-Like Cognition and Decision-Making for Autonomous Agents, from Robotics to AI/ML '
          'Systems: A Systematic Review')
 AUTHORS = 'Yeshwanth Guru and Dev Kunwar Singh Chauhan'
 

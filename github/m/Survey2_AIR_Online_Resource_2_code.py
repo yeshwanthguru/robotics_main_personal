@@ -1,4 +1,4 @@
-"""Online Resource 2 for "Quantum-Inspired Cognition and Decision-Making for Autonomous Agents, from Robotics to
+"""Online Resource 2 for "Quantum-Like Cognition and Decision-Making for Autonomous Agents, from Robotics to
 AI/ML Systems: A Systematic Review" (Artificial Intelligence Review). Authors: Yeshwanth Guru and Dev Kunwar Singh Chauhan.
 Reproduces the worked examples (Table C2) and the illustrative RL experiment (Section 16.3, Table C1, Fig. 9).
 Pure NumPy; runs on any laptop.  Usage:  python3 Survey2_AIR_Online_Resource_2_code.py [--rl]"""

@@ -5,7 +5,7 @@ Create a **new** Zenodo upload (do not add these files to the Survey 1 record).
 **Upload type / Resource type:** Dataset
 
 **Title:**
-Data for "Quantum-Inspired Cognition and Decision-Making for Autonomous Agents, from Robotics to AI/ML Systems: A Systematic Review"
+Data for "Quantum-Like Cognition and Decision-Making for Autonomous Agents, from Robotics to AI/ML Systems: A Systematic Review"
 
 **Creators:**
 - Guru, Yeshwanth — Department of Mechanical Engineering, Amrita Vishwa Vidyapeetham, Chennai, India — ORCID 0009-0007-6353-4033

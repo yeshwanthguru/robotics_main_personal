@@ -73,7 +73,7 @@ if not prefix:
     body = re.sub(r'\\bmhead\{(.*?)\}', r'\\subsection*{\1}', body)
     body = re.sub(r'\\surveypart\{(.*?)\}', r'\\section*{\1}', body)  # Part A-E headings
 else:
-    title = ('Online Resource 1. Supplementary material for \u201cQuantum-Inspired Cognition and Decision-Making for '
+    title = ('Online Resource 1. Supplementary material for \u201cQuantum-Like Cognition and Decision-Making for '
              'Autonomous Agents, from Robotics to AI/ML Systems: A Systematic Review\u201d')
     abstract, keywords = '', ''
     body = s[s.index('\\end{center}') + len('\\end{center}'):s.index('\\bibliographystyle')]

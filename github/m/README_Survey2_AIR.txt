@@ -1,5 +1,5 @@
 SURVEY 2 – ARTIFICIAL INTELLIGENCE REVIEW (SPRINGER NATURE) SUBMISSION PACKAGE
-Quantum-Inspired Cognition and Decision-Making for Autonomous Agents, from Robotics to AI/ML Systems:
+Quantum-Like Cognition and Decision-Making for Autonomous Agents, from Robotics to AI/ML Systems:
 A Systematic Review
 (structure follows the authors' outline: Parts A-E, Sections 1-25, Appendices A-E; a PRISMA 2020
 systematic review prepared the same way as Survey 1, with the methods in Section 1.5)
@@ -9,7 +9,7 @@ FILES
   Survey2_AIR_LaTeX_Overleaf.zip       Submission source: main.tex (Springer Nature sn-jnl, sn-basic author-year),
                                        supplement.tex (Online Resource 1), refs.bib (212 entries), figures/
                                        (Fig1-Fig9 numbered as in the paper, FigS1 PRISMA flow), sn-jnl.cls, bst/
-  Survey2_AIR_LaTeX_Overleaf/main.pdf  Compiled manuscript (78 pages incl. references); supplement.pdf (53 pages)
+  Survey2_AIR_LaTeX_Overleaf/main.pdf  Compiled manuscript (80 pages incl. references); supplement.pdf (53 pages)
   Survey2_AIR_Manuscript.docx          Word review copy of the manuscript (citations as plain text)
   Survey2_AIR_Online_Resource_1.pdf/.docx   Supplement: Table S1 extraction table (67 studies), S2 PRISMA
                                        checklist, S3 + Fig S1 flow of records, S4-S5 appraisal criteria and
@@ -44,6 +44,16 @@ HOW TO PRODUCE THE SUBMISSION PDF
   sh tools/build_word.sh.
 
 WHAT CHANGED (October 2026)
+  - Devil's-advocate fixes: title now says "Quantum-Like" (the review's own term for its core; "quantum-
+    inspired" is a different class); Section 1.4 states that robots are the motivating case but only 17 of
+    67 studies; a one-rule I1/E5 boundary with the borderline case flagged (Daglarli2025, Online Resource 3);
+    a sensitivity check without the 11 representation-only ML/NLP models (conclusions unchanged); the
+    E1-E6 scale is justified and a second-rater sample is planned ([FILL] kappa); section roles stated
+    (13 vs 23; 15 vs 22 vs 24); Case Studies 1-2 labelled worked examples and Case Study 3's limits stated;
+    circuit-RL claim now rests on primary sources, not only the companion; Khrennikov2026 added to Table 9.
+  - Summaries checked against full texts in the repository: Lanza2020/2021 (IBM Quantum Experience
+    hardware; 10^6 simulated measurements), Ho2022 (design only), Lawless2023, Humr2025, vanderMeer2025
+    (34 participants of the earlier study) now marked "Full text".
   - Evidence-based framing: headings that promised more than the evidence shows were reworded (Section 5.6
     "Where Quantum Models Outperform ..., and Where They Do Not"; 9.2, 10.3, 14.2, 16.2); the thesis that
     quantum cognition is the hardware-free quantum route whose value is representational, not computational,
@@ -82,6 +92,10 @@ WHAT CHANGED (October 2026)
   - RL experiment re-run: all values of Table C1 reproduced (one total corrected from 8,162 to 8,163).
 
 BEFORE YOU SUBMIT (red [FILL] in the PDF; yellow in the Word files)
+  [ ] Second rater: independently re-grade a random 20% sample (28 of the 138 graded studies: evidence level
+      and Q1-Q7) and report Cohen's kappa in Section 1.5.6 (red [FILL]). Ask the professor or a colleague.
+  [ ] Essalmi2026: the full text is in Survey2_fulltexts/primary but the extraction used the abstract;
+      re-extract from the PDF (counts "16 of 67 from full text" become 17).
   [ ] Professor to confirm: "the second author reviewed the inclusion decisions, evidence levels and appraisal
       judgements; disagreements were resolved by discussion" (Section 1.5.4), and the CRediT roles.
   [ ] OSF: register Survey 2 retrospectively from Survey2_method_workbook/OSF_protocol.md (new OSF project);

@@ -1,4 +1,4 @@
-# Data for "Quantum-Inspired Cognition and Decision-Making for Autonomous Agents, from Robotics to AI/ML Systems: A Systematic Review"
+# Data for "Quantum-Like Cognition and Decision-Making for Autonomous Agents, from Robotics to AI/ML Systems: A Systematic Review"
 
 Authors: Yeshwanth Guru and Dev Kunwar Singh Chauhan, Department of Mechanical Engineering,
 Amrita Vishwa Vidyapeetham, Chennai, India.
