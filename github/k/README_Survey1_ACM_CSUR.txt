@@ -26,6 +26,14 @@ FILES
   Survey1_data_package/                 Supplementary data: extraction table, quality appraisal, codebook, search
                                         strings and README (upload with the submission; Zenodo optional)
 
+  Survey1_reference_list.md             Every cited work (185) with venue, DOI/arXiv, group, evidence level and
+                                        full-text status; download checklist (30 missing PDFs); the 12 candidates
+  Survey1_method_workbook/candidate_studies_assessment.md   Candidates pending the supervisor: 5 include,
+                                        4 exclude, 3 not yet assessed (from the authors' literature database)
+  Survey1_method_workbook/Survey1_database_update.csv   Rows for the authors' literature database: 45 cited
+                                        works missing from it (ADD), 19 corrections (CORRECT), 3 candidates
+  tools/make_reference_lists.py         Regenerates both surveys' reference lists (with tools/biblib.py)
+  tools/make_database_update.py         Regenerates Survey1_database_update.csv
   tools/make_figures.py                 Regenerates the data-driven figures (timeline, yearly counts, evidence) and the PRISMA diagram
   tools/make_schematics.py              Redraws the schematic figures (taxonomy, architecture, latency, fig8-fig11)
 

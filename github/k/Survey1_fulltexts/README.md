@@ -18,5 +18,11 @@ Missing primary studies (4): Yan2024, Windmann2023, Mannone2023, Mannone2025
   decision). `include/` holds the five proposed inclusions and `exclude/` the four rejected ones. The
   decisions and gradings are in `Survey1_method_workbook/candidate_studies_assessment.md`.
 
+Note on file names in `quantum_computing/`: "Modeling and designing a robotic swarm a quantum
+computing approach.pdf" is actually arXiv:2509.08002 (Mannone et al., the preprint of
+`Mannone2025b`); the real `Mannone2023` paper is still missing. Candidates 10–12 of
+`candidate_studies_assessment.md` (Tang 2024, Liu 2020, the NV-centre preprint) have no full text in
+the repository yet.
+
 These are publisher copies for private reference only: keep the repository private and do not
 include this folder in the submission package.

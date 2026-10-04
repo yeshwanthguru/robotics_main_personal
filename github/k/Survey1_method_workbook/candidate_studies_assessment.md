@@ -20,11 +20,14 @@ quantum-execution tag, and appraisal items Q1–Q7 (M = met, P = partly met, N =
 | 7 | Gandhudi et al. 2026, QAQL for remaining useful life | Exclude: I1, no robot | – | – |
 | 8 | Kong et al. 2026, UAV swarm quantum annealing | Exclude: E2, Chinese full text | – | – |
 | 9 | van der Meer et al. 2025, quantum-like trust dynamics | Exclude: I1, no robot | – | – |
+| 10 | Tang et al. 2024, CIM for AGV scheduling | Not assessed: full text needed | – | – |
+| 11 | Liu et al. 2020, drone-based entanglement distribution | Not assessed: full text needed | – | – |
+| 12 | NV-centre magnetometers for GPS-denied UAV control (preprint) | Not assessed: full text needed | – | – |
 
 Also checked and **already in the corpus**: Otani2025, Lokossou2025, Innan2025 (the gradings in
 `extraction_table.csv` match the papers).
 
-Still to check: the JNEP 2025 AMR task-allocation paper.
+Still to check: the JNEP 2025 AMR task-allocation paper and candidates 10–12 (Section 5).
 
 ## 2. Included candidates
 
@@ -127,3 +130,22 @@ Places to update: abstract, Table 1, Contributions, Section 3.4 (PRISMA counts),
 (text, evidence figure, hardware table), levels table, Conclusion, Data Availability, Tables S1/S5,
 `extraction_table.csv` (both copies), the Word master copy, and the Zenodo package. Keep the PDF at
 35 pages or fewer.
+
+## 5. Candidates from the authors' literature database (added 4 October 2026)
+
+Found by comparing the authors' reading database with `refs.bib`: on topic for Survey 1 but never
+cited, and no full text in the repository, so they cannot be graded yet. Download them, then assess
+them with the same criteria as Sections 2–3.
+
+| # | Reference (from the database; verify) | Likely fit | What to check |
+|---|---|---|---|
+| 10 | Tang et al. 2024, "Quantum computing for several AGV scheduling models", *Scientific Reports* 14, 12205 | Fleets and AGVs (Section 4); coherent Ising machine, so quantum-inspired hardware rather than a QPU | Whether the CIM counts as quantum execution under our tags; reported ~92% time saving on small instances only |
+| 11 | Liu, H.-Y. et al. 2020, "Drone-based entanglement distribution towards mobile quantum networks", *National Science Review* | Quantum communication between robots; precursor of `Liu2021` (PRL 2021, already L5) | Whether it adds evidence beyond `Liu2021` or is cited only as background |
+| 12 | "NV-centre magnetometers for GPS-denied UAV control", Research Square preprint, 2025 (authors unknown) | Quantum navigation sensors, next to `Wang2023` | Authors and whether it has been peer reviewed (flag it as a preprint) |
+
+Also from the database: Lawless 2020 ("Quantum-like interdependence theory advances A-HMTs") belongs
+to Survey 2 (cited there as `Lawless2020`); it is not a Survey 1 candidate.
+
+If candidates 10–12 were all included as primary studies, the primary, graded and refs.bib counts in
+Section 4 would each rise by 3 more; the level counts depend on their assessment.
+The database corrections and the 43 missing rows are in `Survey1_database_update.csv`.

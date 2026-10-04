@@ -10,7 +10,7 @@ Yeshwanth Guru and Dev Kunwar Singh Chauhan · generated 4 October 2026 from `Su
 | Other references (reviews, background, methods) | 113 |
 | Full text in the repository | 155 |
 | **Full text missing (to download)** | **30** |
-| Candidate studies awaiting the supervisor (not yet cited) | 9 (5 include, 4 exclude) |
+| Candidate studies awaiting the supervisor (not yet cited) | 12 (5 include, 4 exclude, 3 not yet assessed) |
 
 Full texts are in `github/k/Survey1_fulltexts/` (private: never upload with the submission).
 
@@ -69,8 +69,11 @@ Not cited yet. Full texts are already in `github/k/Survey1_fulltexts/candidates/
 | 7 | Gandhudi et al. 2026, QAQL for remaining useful life | Exclude: no robot | `candidates/exclude/Gandhudi2026_QAQL_RUL.pdf` |
 | 8 | Kong et al. 2026, UAV swarm quantum annealing | Exclude: Chinese full text | `candidates/exclude/Kong2026_UAV_swarm_QA_Chinese.pdf` |
 | 9 | van der Meer et al. 2025, quantum-like trust dynamics | Exclude: no robot (cited in Survey 2) | `candidates/exclude/vanderMeer2025_trust_QRW.pdf` |
+| 10 | Tang et al. 2024, CIM for AGV scheduling models, Sci. Rep. 14:12205 | Not assessed (from your database) | not in repo — download |
+| 11 | Liu, H.-Y. et al. 2020, drone-based entanglement distribution, Natl Sci. Rev. | Not assessed (from your database) | not in repo — download |
+| 12 | NV-centre magnetometers for GPS-denied UAV control, Research Square preprint 2025 | Not assessed (from your database) | not in repo — download |
 
-Still to check: the JNEP 2025 AMR task-allocation paper.
+Still to check: the JNEP 2025 AMR task-allocation paper. Candidates 10–12 came from your literature database (see `Survey1_method_workbook/Survey1_database_update.csv` for the database corrections).
 
 ## 3. All cited works (185)
 
@@ -116,7 +119,7 @@ Group: P = primary study, R = other reference; "also S2" = also cited in Survey 
 | 35 | `Clark2019` | Clark et al. | 2019 | Towards real time multi-robot routing using quantum computing technologies | Proceedings of the International Conference on High Performance Computing in Asia-Pacific Region (HPC Asia 2019) | doi:10.1145/3293320.3293333 | P · L3 · yes |
 | 36 | `Conrad2025` | Conrad et al. | 2025 | Drone- and Vehicle-Based Quantum Key Distribution | arXiv preprint | doi:10.48550/arXiv.2505.17587 | P · L5 · yes |
 | 37 | `Corcoles2021` | Córcoles et al. | 2021 | Exploiting dynamic quantum circuits in a quantum algorithm with superconducting qubits | Physical Review Letters 127(10), 100501 | doi:10.1103/PhysRevLett.127.100501 | R · yes |
-| 38 | `Daglarli2025` | Daglarli | 2025 | A Generative Neuro-Cognitive Architecture Using Quantum Algorithms for the Autonomous Behavior of a Smart Agent in a Simulation Environment | Computers, Materials & Continua 84(3) | doi:10.32604/cmc.2025.065572 | P · yes · also S2 |
+| 38 | `Daglarli2025` | Daglarli | 2025 | A Generative Neuro-Cognitive Architecture Using Quantum Algorithms for the Autonomous Behavior of a Smart Agent in a Simulation Environment | Computers, Materials & Continua 84(3) | doi:10.32604/cmc.2025.065572 | P · L2 · yes · also S2 |
 | 39 | `DeCarolis2025` | De Carolis et al. | 2025 | Quantum-Enhanced Social Robotics: The QUADRI Project | Adjunct Proceedings of the 33rd ACM Conference on User Modeling, Adaptation and Personalization (UMAP Adjunct '25) | doi:10.1145/3708319.3735545 | P · L1 · yes · also S2 |
 | 40 | `Degen2017` | Degen, Reinhard and Cappellaro | 2017 | Quantum Sensing | Reviews of Modern Physics 89(3), 035002 | doi:10.1103/RevModPhys.89.035002 | R · yes |
 | 41 | `Dellaert1999` | Dellaert et al. | 1999 | Monte Carlo Localization for Mobile Robots | Proceedings of the 1999 IEEE International Conference on Robotics and Automation (ICRA) | doi:10.1109/ROBOT.1999.772544 | R · yes |
@@ -127,7 +130,7 @@ Group: P = primary study, R = other reference; "also S2" = also cited in Survey 
 | 46 | `Dong2006` | Dong et al. | 2006 | Quantum Robot: Structure, Algorithms and Applications | Robotica 24(4), 513–521 | doi:10.1017/S0263574705002596 | P · L2 · yes · also S2 |
 | 47 | `Dong2008` | Dong et al. | 2008 | Quantum Reinforcement Learning | IEEE Transactions on Systems, Man, and Cybernetics, Part B (Cybernetics) 38(5), 1207–1220 | doi:10.1109/TSMCB.2008.925743 | R · no · also S2 |
 | 48 | `Dong2012` | Dong et al. | 2012 | Robust Quantum-Inspired Reinforcement Learning for Robot Navigation | IEEE/ASME Transactions on Mechatronics 17(1), 86–97 | doi:10.1109/TMECH.2010.2090896 | P · L5 · yes · also S2 |
-| 49 | `Dragan2025` | Dragan et al. | 2025 | Continuous Quantum Reinforcement Learning for Robot Navigation | Proceedings of the 17th International Conference on Agents and Artificial Intelligence (ICAART 2025) | doi:10.5220/0013371800003890 | P · yes |
+| 49 | `Dragan2025` | Dragan et al. | 2025 | Continuous Quantum Reinforcement Learning for Robot Navigation | Proceedings of the 17th International Conference on Agents and Artificial Intelligence (ICAART 2025) | doi:10.5220/0013371800003890 | P · L4 (sim.) · yes |
 | 50 | `Dunjko2018` | Dunjko and Briegel | 2018 | Machine Learning & Artificial Intelligence in the Quantum Domain: A Review of Recent Progress | Reports on Progress in Physics 81(7), 074001 | doi:10.1088/1361-6633/aab406 | R · yes · also S2 |
 | 51 | `Endo2021` | Endo et al. | 2021 | Hybrid quantum-classical algorithms and quantum error mitigation | Journal of the Physical Society of Japan 90(3), 032001 | doi:10.7566/JPSJ.90.032001 | R · yes |
 | 52 | `Essalmi2026` | Essalmi, Garrido and Nashashibi | 2026 | Multi-Player, Multi-Strategy Quantum Game Model for Interaction-Aware Decision-Making in Automated Driving | arXiv preprint | arXiv:2602.03571 | P · L2 · yes · also S2 |
@@ -234,7 +237,7 @@ Group: P = primary study, R = other reference; "also S2" = also cited in Survey 
 | 153 | `Siciliano2016` | Siciliano and Khatib | 2016 | Springer Handbook of Robotics | Springer | doi:10.1007/978-3-319-32552-1 | R · yes |
 | 154 | `Sinha2023` | Sinha, Macaluso and Klusch | 2025 | Nav-Q: Quantum Deep Reinforcement Learning for Collision-Free Navigation of Self-Driving Cars | Quantum Machine Intelligence 7, 19 | doi:10.1007/s42484-024-00226-4 | P · L4 (sim.) · yes · also S2 |
 | 155 | `Skolik2022` | Skolik, Jerbi and Dunjko | 2022 | Quantum Agents in the Gym: A Variational Quantum Algorithm for Deep Q-Learning | Quantum 6, 720 | doi:10.22331/q-2022-05-24-720 | R · yes · also S2 |
-| 156 | `Smierzchalski2024` | 'Smierzchalski et al. | 2024 | Hybrid quantum-classical computation for automatic guided vehicles scheduling | Scientific Reports 14, 21809 | doi:10.1038/s41598-024-72101-y | P · yes |
+| 156 | `Smierzchalski2024` | 'Smierzchalski et al. | 2024 | Hybrid quantum-classical computation for automatic guided vehicles scheduling | Scientific Reports 14, 21809 | doi:10.1038/s41598-024-72101-y | P · L3 · yes |
 | 157 | `Sun2025` | Sun et al. | 2025 | First Experience with Real-Time Control Using Simulated VQC-Based Quantum Policies | QML@QCE 2025 workshop | arXiv:2508.01690 | P · L5 · yes |
 | 158 | `Sutton2018` | Sutton and Barto | 2018 | Reinforcement Learning: An Introduction | MIT Press | ISBN 978-0-262-03924-6 | R · yes · also S2 |
 | 159 | `Taghavi2025` | Taghavi and Farnoosh | 2025 | Quantum Computing and Neuromorphic Computing for Safe, Reliable, and Explainable Multi-Agent Reinforcement Learning: Optimal Control in Autonomous Robotics | Iran Journal of Computer Science 8(4), 2139–2155 | doi:10.1007/s42044-025-00306-z | P · L4 (sim.) · yes |
