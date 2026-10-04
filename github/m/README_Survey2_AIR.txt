@@ -1,66 +1,70 @@
 SURVEY 2 – ARTIFICIAL INTELLIGENCE REVIEW (SPRINGER NATURE) SUBMISSION PACKAGE
-Quantum-like cognition and decision-making for autonomous agents: a survey from robotics to machine learning
-=================================================================================================
+Quantum Cognition for Robot Decision-Making: A Systematic Review of Quantum-Like Models for Autonomous Agents
+(retitled from "Quantum-like cognition and decision-making for autonomous agents: a survey from robotics to
+machine learning"; now a PRISMA 2020 systematic review, prepared the same way as Survey 1)
+=============================================================================================================
 
 FILES
-  Survey2_AIR_LaTeX_Overleaf.zip          Submission source: main.tex (Springer Nature template, sn-basic
-                                          author-year references), refs.bib (205 entries), figures/ (9 PNG, 300 dpi)
-  Survey2_AIR_Manuscript.docx             Word version of the same manuscript (A4, 1.5 spacing, line numbers)
-  Survey2_AIR_Online_Resource_1.pdf/.docx Supplement: Table S1 (74 application studies classified), Table S2 (glossary)
-  Survey2_AIR_Online_Resource_2_code.py   Python code reproducing every worked example and the RL experiment
-  Survey2_AIR_Online_Resource_3_classification.csv   Table S1 as CSV
-  Survey2_AIR_Cover_Letter.docx           Cover letter to the Editor-in-Chief
+  Survey2_AIR_LaTeX_Overleaf.zip       Submission source: main.tex (Springer Nature sn-jnl, sn-basic author-year),
+                                       supplement.tex (Online Resource 1), refs.bib (212 entries), figures/
+                                       (Fig1-Fig9 numbered as in the paper, FigS1 PRISMA flow), sn-jnl.cls, bst/
+  Survey2_AIR_LaTeX_Overleaf/main.pdf  Compiled manuscript (65 pages incl. references); supplement.pdf (24 pages)
+  Survey2_AIR_Manuscript.docx          Word review copy of the manuscript (citations as plain text)
+  Survey2_AIR_Online_Resource_1.pdf/.docx   Supplement: Table S1 extraction table (67 studies), S2 PRISMA
+                                       checklist, S3 + Fig S1 flow of records, S4-S5 appraisal criteria and
+                                       judgements (61 studies), S6 search record, S7 E5 exclusions, S8 glossary,
+                                       S9 theory and evidence studies (71)
+  Survey2_AIR_Online_Resource_2_code.py   Reproduces the worked examples; "--rl" reruns the RL experiment (Table B1)
+  Survey2_AIR_Online_Resource_3_extraction_table.csv   Table S1 as CSV
+  Survey2_AIR_Online_Resource_4_quality_appraisal.csv  Table S5 as CSV
+  Survey2_AIR_Cover_Letter.docx        Cover letter to the Editor-in-Chief (mentions the companion review)
+  Survey2_Word_for_Mendeley/           Yellow cite-by-hand Word files + reference lookup (see its README)
+  Survey2_data_package/                extraction_table.csv, quality_appraisal.csv, theory_evidence_studies.csv,
+                                       codebook.md, search_strings.md, README.md (upload to Zenodo)
+  Survey2_method_workbook/             OSF_protocol.md (field-by-field OSF text), Zenodo_description.md,
+                                       targeted_search_record.md, retraction_check_list.md,
+                                       Survey2_method_workbook.xlsx (search log, screening, PRISMA counts, kappa)
+  Survey2_fulltexts/                   PRIVATE: PDFs of cited works found in the repo, named by key (17 of 67
+                                       application studies; 57 other works); index.csv lists what is missing
+  tools/                               make_figures.py (Fig 8 evidence, Fig S1 PRISMA), make_supplement.py
+                                       (supplement.tex from the CSVs), build_word.sh (all Word files)
 
 HOW TO PRODUCE THE SUBMISSION PDF
-  The Springer Nature class file (sn-jnl.cls) is not part of standard TeX distributions, so:
-  1. On Overleaf, open the template gallery and start a project from
-     "Springer Nature LaTeX Template" (it contains sn-jnl.cls and the sn-*.bst files).
-  2. Delete its sample .tex/.bib files, then upload the contents of Survey2_AIR_LaTeX_Overleaf.zip
-     (main.tex, refs.bib and the figures folder) into that project.
-  3. Set main.tex as the main document and compile (pdfLaTeX).
-  Alternatively, download the template zip from Springer Nature's LaTeX author support page and put
-  sn-jnl.cls and sn-basic.bst next to main.tex.
-  Springer journals also accept Word: Survey2_AIR_Manuscript.docx carries the identical text.
+  Overleaf > New Project > Upload Project > Survey2_AIR_LaTeX_Overleaf.zip; main document main.tex (pdfLaTeX);
+  compile supplement.tex the same way. Locally: pdflatex main; bibtex main; pdflatex main; pdflatex main.
+  After editing a CSV in Survey2_data_package: python3 tools/make_supplement.py; python3 tools/make_figures.py;
+  sh tools/build_word.sh.
 
-WHAT WAS CHANGED FROM THE EARLIER SURVEY 2 DRAFT
-  - Restructured into a journal review: Introduction (with related-survey table and contributions),
-    Review methodology (+ threats to validity), History, Mathematical foundations, Core phenomena and
-    evidence, Framework, seven application sections, Synthesis and comparison with classical models,
-    Limitations, Ethics, Biological grounding, Research agenda, Conclusion, Declarations, Appendices A–B.
-  - Removed "Part"/"Tier" labels, references to "Survey 1", and lab-specific placeholders.
-  - Abstract cut to 214 words (Springer limit 150–250); 6 keywords (Springer 4–6).
-  - Mandatory Springer "Declarations" section added (funding, competing interests, ethics, consent,
-    data, materials, code, author contributions).
-  - The long evidence table moved to Online Resource 1; code moved to Online Resource 2.
-  - Author-year citations; all 205 references cited in the text. Body ≈ 14,400 words, 9 figures, 9 tables.
+WHAT CHANGED (October 2026)
+  - Systematic review: research questions RQ1-RQ5, four-stage search (incl. a logged targeted search on
+    4 Oct 2026), eligibility criteria I1-I3 / E1-E6, selection, extraction, seven-criterion quality appraisal,
+    evidence levels E1-E6, threats to validity, PRISMA 2020 checklist and flow diagram.
+  - No Survey 1 content: new criterion E5 moves 11 quantum-computing studies (variational-circuit RL, QMARL,
+    Grover planning, swarm circuits, quantum communication) out of the primary studies; they are cited once
+    and listed in Table S7. Survey 1 is cited as the companion review (Guru2026). Text overlap with Survey 1
+    checked: under 1%, method boilerplate only, which was reworded.
+  - Four studies added by the targeted search: Kak 2018, Hoorn and Ho 2019, Essalmi et al. 2026,
+    Nebli et al. 2026. Application studies: 74 -> 67; evidence levels E1 6, E2 18, E3 9, E4 29, E5 5, E6 0.
+  - Authors, affiliation, e-mails, funding, competing interests and CRediT roles filled in.
+  - All pseudo-maths (\ensuremath fragments that printed "|" as a dash) rewritten as proper LaTeX maths.
+  - Abstract 247 words (limit 150-250); 6 keywords (limit 4-6).
+  - Retraction check: all 212 references against Retraction Watch (22 Sep 2026): none retracted.
+  - RL experiment re-run: all values of Table B1 reproduced (one total corrected from 8,162 to 8,163).
 
-BEFORE YOU SUBMIT (only you can supply these; red [FILL: …] in the PDF, yellow in Word)
-  [ ] Authors, affiliations, corresponding e-mail, ORCIDs.
-  [ ] Section 2: date of the final search and database-level hit counts.
-  [ ] Declarations: funding, competing interests, author contributions (CRediT); repository URL and
-      licence for the code; acknowledgements (or delete the heading).
-  [ ] Cover letter: date, suggested reviewers, corresponding-author details.
-  [ ] Check the live submission guidelines (link.springer.com/journal/10462/submission-guidelines) –
-      I could not open that page (rate-limited), so length, open-access/APC terms and any review-article
-      requirements should be confirmed there.
-  [ ] About 92 of the 205 works were classified from abstracts in the earlier draft; read the full text of
-      any study you discuss in detail (see the earlier write-ups file, which marks each one).
-  [ ] The RL experiment (Section 10.5, Appendix B) is illustrative and run for this survey; rerun it with
-      Online Resource 2 before submission.
-
-REFERENCE VERIFICATION
-  All 205 references were checked; 147 were confirmed online or against your PDFs. Corrections include:
-  Cerezo2021 DOI (…21728-w), Uprety2021 → 2020 (ACM Comput. Surv. 53(5):98), Sinha2023 → Quantum Mach.
-  Intell. 7:19 (2025), Khrennikov2023b → R. Soc. Open Sci. 11:231953 (2024), Ozawa2021, Fuyama2025,
-  Busemeyer2025, Yukalov2016, Khrennikov2025c, Henderson2018, Aerts2011c now cite the published versions;
-  Huang2025c DOI completed from your PDF (10.1109/QCE65121.2025.10486).
-  Could not be confirmed online in this session (session web-search limit reached) – please spot-check:
-    Gao2025 (Eng. Appl. Artif. Intell. 157:111368) – NOT FOUND in any index; verify the DOI or drop it.
-    Epping2023 – the journal version could not be found; a CogSci 2022 paper with the same title exists.
-    Details (volume/pages/DOI) taken from the earlier verified list for: Aerts2011b, Aerts2017b,
-    Trueblood2017b, Kellen2018, Moreira2014, Moreira2017a, Meghdadi2022, Widdows2003, Lo2025, Dong2012,
-    Jerbi2021, Hohenfeld2024, Lukac2007, Hangl2016, Lanza2021, Yan2021c, Chella2022, Song2022, Widdows2023,
-    Mannone2024, Daglarli2025, DeCarolis2025, Chella2026, Eisert1999, MartinezMartinez2016, Yukalov2018,
-    Ried2019, Khoshnoud2020, LopezIncera2020, Lawless2020, Waddup2021, Yukalov2023, Essalmi2025,
-    Lawless2025, Dreossi2019, Humr2023, Humr2025, Humr2026, Bergholm2018, Broughton2020, Khrennikov2025a,
-    Khrennikov2022, Chen2024, Yan2024, Huang2025b, Maksymov2025, Khrennikov2026 and standard textbooks.
+BEFORE YOU SUBMIT (red [FILL] in the PDF; yellow in the Word files)
+  [ ] Professor to confirm: "the second author reviewed the inclusion decisions, evidence levels and appraisal
+      judgements; disagreements were resolved by discussion" (Section 2.4), and the CRediT roles.
+  [ ] OSF: register Survey 2 retrospectively from Survey2_method_workbook/OSF_protocol.md (new OSF project);
+      fill the [CHECK] items (start month); put the OSF DOI in Section 2.
+  [ ] Zenodo: new upload from Survey2_data_package (Zenodo_description.md); put the DOI in Data availability.
+  [ ] Code repository URL and licence (Section 18.3 and Code availability), or delete those two [FILL]s.
+  [ ] Cover letter: date and suggested reviewers. REMINDER: corresponding author still undecided (set to Yeshwanth).
+  [ ] Full texts: 50 of the 67 application studies were extracted from abstracts (Survey2_fulltexts/README.md
+      lists them). Upload any you can get; with the PDF I can re-check the extraction and fill the Q6 "?" cells.
+  [ ] Five records from the targeted search could not be retrieved (targeted_search_record.md); check them.
+  [ ] Companion reference (Guru2026): update the note to "under review" once Survey 1 is submitted.
+  [ ] Declare generative-AI assistance as the journal requires (Springer: in the Methods section or
+      acknowledgements; check the current AIR policy).
+  [ ] Check the live AIR submission guidelines (abstract 150-250 words and 4-6 keywords were confirmed; AIR is
+      fully open access since 2024, so check the APC or institutional agreement).
+  [ ] Optional: blind re-grading of the 20 studies in the workbook's Grading_Check sheet for a kappa value.

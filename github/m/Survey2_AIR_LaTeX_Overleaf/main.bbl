@@ -1,4 +1,4 @@
-\begin{thebibliography}{205}
+\begin{thebibliography}{212}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{{#1}}
 \providecommand{\urlprefix}{URL }
@@ -348,6 +348,11 @@ Essalmi K, Garrido F, Nashashibi F (2025) Quantum game models for
   interaction-aware decision-making in automated driving. ArXiv preprint,
   {\href{https://arxiv.org/abs/2509.01582}{{arXiv:2509.01582}}}
 
+\bibitem[{Essalmi et~al.(2026)Essalmi, Garrido, and Nashashibi}]{Essalmi2026}
+Essalmi K, Garrido F, Nashashibi F (2026) Multi-player, multi-strategy quantum
+  game model for interaction-aware decision-making in automated driving. ArXiv
+  preprint, {\href{https://arxiv.org/abs/2602.03571}{{arXiv:2602.03571}}}
+
 \bibitem[{Fisher(2015)}]{Fisher2015}
 Fisher MPA (2015) Quantum cognition: The possibility of processing with nuclear
   spins in the brain. Annals of Physics 362:593--602.
@@ -392,6 +397,11 @@ Gkoumas D, Li Q, Dehdashti S, et~al (2021) Quantum cognitively motivated
   Conference on Artificial Intelligence, pp 827--835,
   \doi{10.1609/aaai.v35i1.16165}
 
+\bibitem[{Guru and Chauhan(2026)}]{Guru2026}
+Guru Y, Chauhan DKS (2026) Quantum technologies for autonomous robotics: A
+  systematic survey of methods, evidence, and deployment constraints. Companion
+  manuscript, prepared for ACM Computing Surveys
+
 \bibitem[{Hameroff and Penrose(2014)}]{Hameroff2014}
 Hameroff S, Penrose R (2014) Consciousness in the universe: A review of the
   `{Orch OR}' theory. Physics of Life Reviews 11(1):39--78.
@@ -428,6 +438,10 @@ Ho JKW, Hoorn JF (2022) Quantum affective processes for multidimensional
 Hohenfeld H, Heimann D, Wiebe F, et~al (2024) Quantum deep reinforcement
   learning for robot navigation tasks. IEEE Access 12:87217--87236.
   \doi{10.1109/ACCESS.2024.3417808}
+
+\bibitem[{Hoorn and Ho(2019)}]{Hoorn2019}
+Hoorn JF, Ho JKW (2019) Robot affect: the amygdala as {Bloch} sphere. ArXiv
+  preprint, {\href{https://arxiv.org/abs/1911.12128}{{arXiv:1911.12128}}}
 
 \bibitem[{Huang et~al.(2025{\natexlab{a}})Huang, Busemeyer, Ebelt, and
   Pothos}]{Huang2025a}
@@ -476,6 +490,10 @@ Imannezhad P, Pothos EM, Wills AJ (2026) Divergent patterns of probabilistic
 Jerbi S, Gyurik C, Marshall SC, et~al (2021) Parametrized quantum policies for
   reinforcement learning. In: Advances in Neural Information Processing
   Systems, {\href{https://arxiv.org/abs/2103.05577}{{arXiv:2103.05577}}}
+
+\bibitem[{Kak(2018)}]{Kak2018}
+Kak S (2018) Order effects for queries in intelligent systems. ArXiv preprint,
+  {\href{https://arxiv.org/abs/1804.02759}{{arXiv:1804.02759}}}
 
 \bibitem[{Kalman(1960)}]{Kalman1960}
 Kalman RE (1960) A new approach to linear filtering and prediction problems.
@@ -556,6 +574,11 @@ Khrennikov A, Ozawa M, Benninger F, et~al (2025{\natexlab{b}}) Coupling
   quantum-like cognition with the neuronal networks within generalized
   probability theory. Journal of Mathematical Psychology 125:102923.
   \doi{10.1016/j.jmp.2025.102923}
+
+\bibitem[{Kitchenham and Charters(2007)}]{Kitchenham2007}
+Kitchenham B, Charters S (2007) Guidelines for performing systematic literature
+  reviews in software engineering. EBSE Technical Report EBSE-2007-01, Keele
+  University and Durham University, version 2.3
 
 \bibitem[{Kong et~al.(2026)Kong, Xue, Wang, and Xu}]{Kong2026}
 Kong D, Xue K, Wang P, et~al (2026) Emergence of longitudinal queues in group
@@ -762,6 +785,11 @@ Nausheen F, Ahmed K, Khan MI, et~al (2025) Quantum natural language processing:
   A comprehensive review of models, methods, and applications.
   {\href{https://arxiv.org/abs/2504.09909}{{arXiv:2504.09909}}}
 
+\bibitem[{Nebli et~al.(2026)Nebli, Saadatdoorabi, and Yam}]{Nebli2026}
+Nebli A, Saadatdoorabi H, Yam K (2026) Deep sequence modeling with quantum
+  dynamics: Language as a wave function. ArXiv preprint,
+  {\href{https://arxiv.org/abs/2602.22255}{{arXiv:2602.22255}}}
+
 \bibitem[{von Neumann(1932)}]{vonNeumann1932}
 von Neumann J (1932) Mathematische {Grundlagen} der {Quantenmechanik}.
   Springer, Berlin, english translation: \emph{Mathematical Foundations of
@@ -778,6 +806,14 @@ Ozawa M, Khrennikov A (2021) Modeling combination of question order effect,
   response replicability effect, and {QQ}-equality with quantum instruments.
   Journal of Mathematical Psychology 100:102491.
   \doi{10.1016/j.jmp.2020.102491}
+
+\bibitem[{Page et~al.(2021)Page, McKenzie, Bossuyt, Boutron, Hoffmann, Mulrow,
+  Shamseer, Tetzlaff, Akl, Brennan, Chou, Glanville, Grimshaw,
+  Hr{\'o}bjartsson, Lalu, Li, Loder, Mayo-Wilson, McDonald, McGuinness,
+  Stewart, Thomas, Tricco, Welch, Whiting, and Moher}]{Page2021}
+Page MJ, McKenzie JE, Bossuyt PM, et~al (2021) The {PRISMA} 2020 statement: an
+  updated guideline for reporting systematic reviews. BMJ 372:n71.
+  \doi{10.1136/bmj.n71}
 
 \bibitem[{Paparo et~al.(2014)Paparo, Dunjko, Makmal, Martin-Delgado, and
   Briegel}]{Paparo2014}

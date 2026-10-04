@@ -1,5 +1,7 @@
-"""Online Resource 2 for "Quantum-like cognition and decision-making for autonomous agents: a survey" (Artificial Intelligence Review).
-Reproduces the worked examples (Table 9) and the illustrative RL experiment (Table 8, Fig. 6). Pure NumPy; runs on any laptop."""
+"""Online Resource 2 for "Quantum Cognition for Robot Decision-Making: A Systematic Review of Quantum-Like Models
+for Autonomous Agents" (Artificial Intelligence Review). Authors: Yeshwanth Guru and Dev Kunwar Singh Chauhan.
+Reproduces the worked examples (Table B2) and the illustrative RL experiment (Section 10.5, Table B1, Fig. 6).
+Pure NumPy; runs on any laptop.  Usage:  python3 Survey2_AIR_Online_Resource_2_code.py [--rl]"""
 import numpy as np
 
 def proj(theta):
@@ -43,7 +45,7 @@ def interference(pD_knownD=0.97, pD_knownC=0.84, pD_unknown=0.63, prior=0.5):
     return dict(classical=classical, observed=pD_unknown, interference=interf,
                 cos_theta=cos_theta, theta_deg=float(np.degrees(np.arccos(cos_theta))))
 
-# ---------- Example 4: classical vs quantum-like fusion of two cues (Case study 16.1)
+# ---------- Example 4: classical vs quantum-like fusion of two cues (Section 14.4)
 def kalman_fusion(z1=2.10, r1=0.04, z2=1.90, r2=0.09):
     """Static two-sensor fusion = one Kalman update with prior from sensor 1."""
     k = r1 / (r1 + r2); x = z1 + k * (z2 - z1); p = (1 - k) * r1
@@ -56,14 +58,14 @@ def qlbn_two_cues(pH_given_c1=0.80, pH_given_c2=0.30, w1=0.5, theta_deg=0.0):
     interf = 2 * np.sqrt(w1 * pH_given_c1 * (1 - w1) * pH_given_c2) * np.cos(np.deg2rad(theta_deg))
     return dict(classical=classical, quantum_like=classical + interf)
 
-# ---------- Example 5: order-dependent labelling (Case study 16.2)
+# ---------- Example 5: order-dependent labelling (Section 14.5)
 def label_order(theta_img=np.deg2rad(35), theta_cat=np.deg2rad(0), theta_wild=np.deg2rad(60)):
     psi = np.array([np.cos(theta_img), np.sin(theta_img)])
     C, W = proj(theta_cat), proj(theta_wild)
     return dict(p_cat=float(psi @ C @ psi), p_wild=float(psi @ W @ psi),
                 cat_then_wild=seq_prob(psi, C, W), wild_then_cat=seq_prob(psi, W, C))
 
-# ---------- Example 6: small RL experiment (Case study 16.3)
+# ---------- Example 6: small RL experiment (Section 10.5)
 class Grid:
     """6x6 grid, start (0,0), goal (5,5) reward 1 +- noise, step cost -0.01, 4 walls."""
     def __init__(s, n=6, noise=0.0, rng=None):
@@ -127,3 +129,14 @@ if __name__ == '__main__':
                kalman=kalman_fusion(), qlbn=[qlbn_two_cues(theta_deg=t) for t in (60, 90, 120)],
                label=label_order())
     print(json.dumps(res, indent=1, default=float))
+    import sys
+    if '--rl' in sys.argv:                         # Table B1: about 5-10 minutes
+        for (kind, noise), runs in rl_experiment().items():
+            final = runs[:, -50:].mean(1)
+            conv = []
+            for r in runs:
+                ma = np.convolve(r, np.ones(10) / 10, 'valid'); hit = np.flatnonzero(ma <= 15)
+                if len(hit): conv.append(hit[0] + 10)
+            print(f"{kind:8s} noise={noise}: final {final.mean():.1f} +- {final.std():.1f}; "
+                  f"convergence {np.mean(conv):.0f} +- {np.std(conv):.0f} ({len(conv)}/30 seeds); "
+                  f"total steps {runs.sum(1).mean():.0f}")
