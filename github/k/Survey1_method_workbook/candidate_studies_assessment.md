@@ -137,7 +137,7 @@ Found by comparing the authors' reading database with `refs.bib`: on topic for S
 cited, and no full text in the repository, so they cannot be graded yet. Download them, then assess
 them with the same criteria as Sections 2–3.
 
-| # | Reference (from the database; verify) | Likely fit | What to check |
+| # | Reference (from the database; details to be confirmed) | Likely fit | What to check |
 |---|---|---|---|
 | 10 | Tang et al. 2024, "Quantum computing for several AGV scheduling models", *Scientific Reports* 14, 12205 | Fleets and AGVs (Section 4); coherent Ising machine, so quantum-inspired hardware rather than a QPU | Whether the CIM counts as quantum execution under our tags; reported ~92% time saving on small instances only |
 | 11 | Liu, H.-Y. et al. 2020, "Drone-based entanglement distribution towards mobile quantum networks", *National Science Review* | Quantum communication between robots; precursor of `Liu2021` (PRL 2021, already L5) | Whether it adds evidence beyond `Liu2021` or is cited only as background |

@@ -96,7 +96,7 @@ WHAT CHANGED (October 2026)
   - Retraction check: all 212 references against Retraction Watch (22 Sep 2026): none retracted.
   - RL experiment re-run: all values of Table C1 reproduced (one total corrected from 8,162 to 8,163).
 
-BEFORE YOU SUBMIT (red [FILL] in the PDF; yellow in the Word files)
+BEFORE SUBMISSION (red [FILL] in the PDF; yellow in the Word files)
   [ ] Second rater: independently re-grade a random 20% sample (28 of the 138 graded studies: evidence level
       and Q1-Q7) and report Cohen's kappa in Section 1.5.6 (red [FILL]). Ask the professor or a colleague.
   [ ] Essalmi2026: the full text is in Survey2_fulltexts/primary but the extraction used the abstract;

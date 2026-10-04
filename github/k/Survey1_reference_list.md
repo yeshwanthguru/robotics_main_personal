@@ -69,11 +69,11 @@ Not cited yet. Full texts are already in `github/k/Survey1_fulltexts/candidates/
 | 7 | Gandhudi et al. 2026, QAQL for remaining useful life | Exclude: no robot | `candidates/exclude/Gandhudi2026_QAQL_RUL.pdf` |
 | 8 | Kong et al. 2026, UAV swarm quantum annealing | Exclude: Chinese full text | `candidates/exclude/Kong2026_UAV_swarm_QA_Chinese.pdf` |
 | 9 | van der Meer et al. 2025, quantum-like trust dynamics | Exclude: no robot (cited in Survey 2) | `candidates/exclude/vanderMeer2025_trust_QRW.pdf` |
-| 10 | Tang et al. 2024, CIM for AGV scheduling models, Sci. Rep. 14:12205 | Not assessed (from your database) | not in repo — download |
-| 11 | Liu, H.-Y. et al. 2020, drone-based entanglement distribution, Natl Sci. Rev. | Not assessed (from your database) | not in repo — download |
-| 12 | NV-centre magnetometers for GPS-denied UAV control, Research Square preprint 2025 | Not assessed (from your database) | not in repo — download |
+| 10 | Tang et al. 2024, CIM for AGV scheduling models, Sci. Rep. 14:12205 | Not assessed (from the authors' literature database) | not in repo — download |
+| 11 | Liu, H.-Y. et al. 2020, drone-based entanglement distribution, Natl Sci. Rev. | Not assessed (from the authors' literature database) | not in repo — download |
+| 12 | NV-centre magnetometers for GPS-denied UAV control, Research Square preprint 2025 | Not assessed (from the authors' literature database) | not in repo — download |
 
-Still to check: the JNEP 2025 AMR task-allocation paper. Candidates 10–12 came from your literature database (see `Survey1_method_workbook/Survey1_database_update.csv` for the database corrections).
+Still to check: the JNEP 2025 AMR task-allocation paper. Candidates 10–12 came from the authors' literature database (see `Survey1_method_workbook/Survey1_database_update.csv` for the database corrections).
 
 ## 3. All cited works (185)
 

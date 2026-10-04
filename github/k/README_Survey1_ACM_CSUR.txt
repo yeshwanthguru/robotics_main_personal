@@ -64,12 +64,12 @@ STRUCTURE (CSUR conventions)
   data-availability statement; detailed tables moved to the online supplement.
   Body ~12,600 words; about 30 pages of main text in acmsmall + ~14 pages of references.
 
-BEFORE YOU SUBMIT (things only you can supply)
+BEFORE SUBMISSION (items only the authors can supply)
   [x] Abstract rewritten to CSUR rules (at most 100 words, no first person, no maths or citations):
       98 words. Keywords: acronyms QAOA and NISQ spelled out.
   [ ] Before submitting, note from the CSUR author guidelines: a rejected paper cannot be resubmitted
       to CSUR for 12 months; ACM is fully open access since 2026, so check the APC or whether Amrita
-      is covered by ACM Open; you may list preferred AND non-preferred reviewers.
+      is covered by ACM Open; preferred AND non-preferred reviewers may be listed.
   [x] PAGE LIMIT met (Oct 2026): main.pdf is 34 pages including references (CSUR limit 35).
       Moved to the supplement (electronic supplement, published alongside): Emerging Directions
       (short summary kept as Section 10), method schematics (Figs. S2-S5), synthesis table (S7),
@@ -102,7 +102,7 @@ BEFORE YOU SUBMIT (things only you can supply)
       The last three have red Q4/Q6 cells in Table S5. See Survey1_fulltexts/index.csv for the
       40 cited references that are also still missing.
   [ ] Section 11.6 resource estimate: the assumptions (10 us per Toffoli, 10 ns per cell,
-      1,000 Toffolis per qRAM call) are ours and stated in Table 6; check you are comfortable
+      1,000 Toffolis per qRAM call) are ours and stated in Table 6; check that the authors are comfortable
       defending them, or ask a quantum-compilation colleague to read the section.
   [ ] Table 5 (studies run on a QPU): confirm the device, instance and baseline cells against
       the full texts, especially Windmann2023, Gerlach2025 and Antero2025.

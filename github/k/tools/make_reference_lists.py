@@ -76,12 +76,12 @@ for i, (s, d, ft) in enumerate([
     ('Gandhudi et al. 2026, QAQL for remaining useful life', 'Exclude: no robot', 'candidates/exclude/Gandhudi2026_QAQL_RUL.pdf'),
     ('Kong et al. 2026, UAV swarm quantum annealing', 'Exclude: Chinese full text', 'candidates/exclude/Kong2026_UAV_swarm_QA_Chinese.pdf'),
     ('van der Meer et al. 2025, quantum-like trust dynamics', 'Exclude: no robot (cited in Survey 2)', 'candidates/exclude/vanderMeer2025_trust_QRW.pdf'),
-    ('Tang et al. 2024, CIM for AGV scheduling models, Sci. Rep. 14:12205', 'Not assessed (from your database)', 'not in repo — download'),
-    ('Liu, H.-Y. et al. 2020, drone-based entanglement distribution, Natl Sci. Rev.', 'Not assessed (from your database)', 'not in repo — download'),
-    ('NV-centre magnetometers for GPS-denied UAV control, Research Square preprint 2025', 'Not assessed (from your database)', 'not in repo — download')], 1):
+    ('Tang et al. 2024, CIM for AGV scheduling models, Sci. Rep. 14:12205', 'Not assessed (from the authors\' literature database)', 'not in repo — download'),
+    ('Liu, H.-Y. et al. 2020, drone-based entanglement distribution, Natl Sci. Rev.', 'Not assessed (from the authors\' literature database)', 'not in repo — download'),
+    ('NV-centre magnetometers for GPS-denied UAV control, Research Square preprint 2025', 'Not assessed (from the authors\' literature database)', 'not in repo — download')], 1):
     w('| %d | %s | %s | %s |' % (i, s, d, ft if ft.startswith('not') else '`'+ft+'`'))
 w('')
-w('Still to check: the JNEP 2025 AMR task-allocation paper. Candidates 10–12 came from your literature database (see `Survey1_method_workbook/Survey1_database_update.csv` for the database corrections).')
+w('Still to check: the JNEP 2025 AMR task-allocation paper. Candidates 10–12 came from the authors\' literature database (see `Survey1_method_workbook/Survey1_database_update.csv` for the database corrections).')
 w('')
 w('## 3. All cited works (%d)' % len(bib1))
 w('')
@@ -113,10 +113,10 @@ NEW = [
  # (priority, group, citation, why)
  ('A', 'Application (I1) – circuit design', 'Romeo, F. and Settino, J. (2026). *Extreme Quantum Cognition Machines for Deliberative Decision Making*. arXiv:2603.05430', 'Quantum-cognition learning architecture for decisions with noisy and contradictory data'),
  ('A', 'Application (I1) – multi-agent', 'Beuria, J., Chaurasiya, M. and Behera, L. (2025). *Collective motion using quantum-like entanglement of neighbours in perceptual space*. Proc. R. Soc. A 481, 20250489 (arXiv:2409.18985)', 'Quantum-like perception model for swarm collective motion; recovers the Vicsek model (Section 12)'),
- ('A', 'Application (I1) – multi-agent', '*Non-Markovian Collective Motion from Self-Regulated Perceptual Dynamics* (2025). arXiv:2510.23688 — authors to verify (probably the same IIT Mandi group)', 'Open-quantum-system perception and self registers for swarm agents'),
- ('A', 'Application (I1) – multi-agent', '*Self-Healing Coordination in Cognitive Swarm Agents with Bloch-Type Perceptual Memory* (2026). arXiv:2607.11960 — authors to verify', 'Follow-up on quantum-like perceptual memory for swarm coordination'),
+ ('A', 'Application (I1) – multi-agent', '*Non-Markovian Collective Motion from Self-Regulated Perceptual Dynamics* (2025). arXiv:2510.23688 — authors to be confirmed (probably the same IIT Mandi group)', 'Open-quantum-system perception and self registers for swarm agents'),
+ ('A', 'Application (I1) – multi-agent', '*Self-Healing Coordination in Cognitive Swarm Agents with Bloch-Type Perceptual Memory* (2026). arXiv:2607.11960 — authors to be confirmed', 'Follow-up on quantum-like perceptual memory for swarm coordination'),
  ('A', 'Application (I1) – deep learning', 'Chen, Y., Yan, K., Pan, Y. and Dong, D. (2025). *QiNN-QJ: A Quantum-inspired Neural Network with Quantum Jump for Multimodal Sentiment Analysis*. arXiv:2510.27091', 'Quantum-inspired multimodal fusion with learned Hamiltonian and Lindblad operators (Sections 8–9)'),
- ('A', 'Application (I1) – deep learning', 'Liu, Y. et al. (2023). *A Quantum Probability Driven Framework for Joint Multi-Modal Sarcasm, Sentiment and Emotion Analysis*. arXiv:2306.03650 — author list to verify', 'Quantum-probability multimodal decision fusion (same line as Li2021a/b, Gkoumas2021)'),
+ ('A', 'Application (I1) – deep learning', 'Liu, Y. et al. (2023). *A Quantum Probability Driven Framework for Joint Multi-Modal Sarcasm, Sentiment and Emotion Analysis*. arXiv:2306.03650 — author list to be confirmed', 'Quantum-probability multimodal decision fusion (same line as Li2021a/b, Gkoumas2021)'),
  ('A', 'Application (I1) – human–machine', 'Snow, L., Jain, S. and Krishnamurthy, V. (2022). *Lyapunov based Stochastic Stability of a Quantum Decision System for Human-Machine Interaction*. arXiv:2205.12378 (related version arXiv:2204.00059; check the published venue)', 'Controls a Lindbladian (quantum) human decision model in a human–machine loop'),
  ('A', 'Application (I1) – LLMs', 'Agostino, C. J., Le Thien, Q., Apsel, M., Pak, D., Lesyk, E. and Majumdar, A. (2025). *A quantum semantic framework for natural language processing*. arXiv:2506.10077', 'Semantic Bell (CHSH) test on LLM agents; values above the classical bound reported (Section 9.3)'),
  ('A', 'Application (I1) – LLMs', "Agostino, C. J., Le Thien, Q., D'Souza, N. and van der Elst, L. (2026). *The production of meaning in the processing of natural language*. arXiv:2603.20381", 'Contextuality in LLM interpretation of ambiguous expressions'),
@@ -129,7 +129,7 @@ NEW = [
  ('A', 'Theory and evidence (I2)', 'Li, J.-A., Dong, D., Wei, Z. et al. (2020). *Quantum reinforcement learning during human decision-making*. Nature Human Behaviour 4, 294–307. doi:10.1038/s41562-019-0804-2', 'Quantum RL fitted to human Iowa Gambling Task and fMRI data — direct human evidence for Section 10 and Case Study 3'),
  ('A', 'Theory and evidence (I2)', 'Chen, M., Ferro, G. M., Sornette, D. and Lorenzo, S. (2022). *On the use of discrete-time quantum walks in decision theory*. PLOS ONE 17(8), e0273551. doi:10.1371/journal.pone.0273551', 'Quantum-walk models of choice and confidence (Sections 5 and 21)'),
  ('B', 'Theory and evidence (I2)', 'Edwards, D. J. (2025). *Further N-Frame networking dynamics of conscious observer-self agents via a functional contextual interface ... in humans and AI*. Frontiers in Computational Neuroscience. doi:10.3389/fncom.2025.1551960', 'Theoretical model of decision fallacies for humans and AI; low evidence level'),
- ('C', 'Probably E5 (quantum computation for inference)', '*Hybrid quantum-classical multi-agent decision-making framework based on hierarchical Bayesian networks in the NISQ era* (2025). Chinese Physics B 34(12), 120304. doi:10.1088/1674-1056/adefd7 — authors to verify', 'Quantum circuits speed up Bayesian-network inference; record as an E5 exclusion (Table S7)'),
+ ('C', 'Probably E5 (quantum computation for inference)', '*Hybrid quantum-classical multi-agent decision-making framework based on hierarchical Bayesian networks in the NISQ era* (2025). Chinese Physics B 34(12), 120304. doi:10.1088/1674-1056/adefd7 — authors to be confirmed', 'Quantum circuits speed up Bayesian-network inference; record as an E5 exclusion (Table S7)'),
  ('C', 'Probably E5 (quantum computation for inference)', 'Recursive quantum-classical hybrid Bayesian-network inference with quantum decision networks (2025), European Physical Journal Special Topics — this is a description, not the exact title; find title, authors and DOI', 'As above; record as an E5 exclusion'),
  ('C', 'Check E5 (variational circuit)', 'Singh, J., Bhangu, K. S., Alkhanifer, A., Alzubi, A. A. and Ali, F. (2025). *Quantum neural networks for multimodal sentiment, emotion, and sarcasm analysis*. Alexandria Engineering Journal 124, 170–187', 'VQE-trained quantum neural network; probably quantum ML as accelerator (E5)'),
 ]

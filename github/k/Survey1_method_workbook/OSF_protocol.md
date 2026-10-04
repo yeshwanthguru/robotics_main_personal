@@ -1,7 +1,7 @@
 # OSF registration text — Survey 1 (retrospective)
 
 Paste each section into the matching field of the OSF "Generalized Systematic Review Registration"
-form (or into a single description field if you use "Open-Ended Registration").
+form (or into a single description field if "Open-Ended Registration" is used).
 
 ---
 
