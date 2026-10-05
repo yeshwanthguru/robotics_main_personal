@@ -1,0 +1,15 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below, together with the original papers of the models used."
+title: "qlcog: quantum-like models of cognition and decision with classical baselines and Qiskit circuits"
+version: 1.0.0
+date-released: 2026-10-05
+license: MIT
+authors:
+  - family-names: Guru
+    given-names: Yeshwanth
+    orcid: "https://orcid.org/0009-0007-6353-4033"
+    affiliation: "Department of Mechanical Engineering, Amrita Vishwa Vidyapeetham, Chennai, India"
+  - family-names: Chauhan
+    given-names: Dev Kunwar Singh
+    orcid: "https://orcid.org/0000-0002-1466-4567"
+    affiliation: "Department of Mechanical Engineering, Amrita Vishwa Vidyapeetham, Chennai, India"
