@@ -1,10 +1,19 @@
-# qlcog — quantum-like models of cognition and decision
+# quantum-cognition-robotics
 
-`qlcog` is a Python package of **quantum-like (quantum-probability) models** of human judgement and
+[![tests](https://github.com/yeshwanthguru/quantum-cognition-robotics/actions/workflows/tests.yml/badge.svg)](https://github.com/yeshwanthguru/quantum-cognition-robotics/actions/workflows/tests.yml)
+[![License: Apache 2.0](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](LICENSE)
+![Python](https://img.shields.io/badge/python-3.10%2B-blue)
+![Qiskit](https://img.shields.io/badge/Qiskit-2.x-6929C4)
+
+**Quantum-like models of human judgement, decision and trust for robots, AI agents and behavioural
+research — with classical baselines and Qiskit circuits.**
+
+`qlcog` (the Python package in this repository) is a library of **quantum-like (quantum-probability) models** of human judgement and
 decision, each paired with the **classical models it must beat**, a common fitting and comparison
 interface, and **Qiskit circuits** that run the same models on simulators and on IBM Quantum or Amazon
-Braket hardware. It is domain-agnostic: the same models apply to surveys, finance, medicine, consumer
-research, human–computer interaction, AI evaluation and robotics.
+Braket hardware. It was built for robots and agents that ask people questions, elicit preferences and track trust,
+and it is domain-agnostic: the same models apply to surveys, finance, medicine, consumer research,
+human–computer interaction and AI evaluation.
 
 > Quantum-like models use the mathematics of quantum probability (vectors, projections, interference)
 > to describe judgements. They run on ordinary computers and make no claim that the brain is a quantum
@@ -13,6 +22,7 @@ research, human–computer interaction, AI evaluation and robotics.
 ## Contents
 
 - [Model families](#model-families)
+- [For robotics](#for-robotics)
 - [Installation](#installation)
 - [Quick start](#quick-start)
 - [Design of the package](#design-of-the-package)
@@ -36,13 +46,45 @@ research, human–computer interaction, AI evaluation and robotics.
 | `contextuality` | Is there one joint distribution? | CHSH, Contextuality-by-Default criterion | (classical bounds) | yes | [link](src/qlcog/families/contextuality/README.md) |
 | `similarity` | Asymmetric similarity | `QuantumSimilarityModel` | biased geometric (Nosofsky), geometric | yes | [link](src/qlcog/families/similarity/README.md) |
 
+## For robotics
+
+`qlcog.applications.robotics` packages the models for human–robot interaction
+([README](src/qlcog/applications/README.md)):
+
+- **Question domains**: object clarification, trust and hand-over, preference elicitation (for
+  reward learning), each with quantum-like, anchoring and Bayesian populations.
+- **Questioning designs**: how a robot should ask to recover what people think before its own
+  questions influence them (fixed order, reversed-order probe, split order).
+- **Trust protocol**: does asking "do you trust me?" change trust? Markov versus open-system dynamics.
+- **`HumanModelEnsemble`**: competing human models weighted by evidence, returning a predicted answer
+  distribution and its uncertainty (entropy plus model disagreement, in bits). Pass it to a planner or
+  to a learned orchestrator as a confidence signal, e.g. to decide when to ask for help.
+
+```python
+from qlcog.applications.robotics import HumanModelEnsemble
+from qlcog.families.order_effects import QuantumOrderModel4D, BayesOrderModel, AnchoringOrderModel
+ens = HumanModelEnsemble([QuantumOrderModel4D, BayesOrderModel, AnchoringOrderModel]).update(counts)
+p, uncertainty = ens.predict('AB')
+```
+
+The models are plain NumPy and run in microseconds, so they fit on a single-board computer next to
+ROS 2 or LeRobot nodes; the circuits are optional.
+
 Circuits and backends are documented in [src/qlcog/circuits/README.md](src/qlcog/circuits/README.md);
 worked examples by domain in [examples/README.md](examples/README.md).
 
 ## Installation
 
 ```bash
-cd github/qlcog
+pip install "qlcog @ git+https://github.com/yeshwanthguru/quantum-cognition-robotics"            # core
+pip install "qlcog[all] @ git+https://github.com/yeshwanthguru/quantum-cognition-robotics"       # + Qiskit, IBM, Braket
+```
+
+From a clone:
+
+```bash
+git clone https://github.com/yeshwanthguru/quantum-cognition-robotics
+cd quantum-cognition-robotics
 pip install -e .                 # core: numpy, scipy
 pip install -e ".[qiskit]"       # + Qiskit and Aer (circuits, local simulation, IBM fake-backend noise)
 pip install -e ".[cloud]"        # + IBM Qiskit Runtime and Amazon Braket SDK (hardware)
@@ -84,9 +126,10 @@ src/qlcog/
                model.py    Model base class and Param (kinds: prob, angle, real, positive, bounded)
                fit.py      fit, compare (AIC/BIC), recovery (model-recovery study), kl, tvd
   families/    one subpackage per family: models.py, __init__.py, README.md
+  applications/robotics.py   human-robot question domains, questioning designs, trust, model ensemble
   circuits/    builders.py (circuits + decoders), backends.py (run on Aer, IBM, Braket)
   data/        published aggregate data sets
-examples/      eleven domain examples
+examples/      twelve domain examples
 tests/         unit tests for core, families and circuits
 ```
 
@@ -141,7 +184,7 @@ Kahneman, 1983). Every other data set in the examples is simulated and labelled 
 ## Testing
 
 ```bash
-python3 -m pytest -q tests        # 18 tests: core, all eight families, circuits on Aer and Braket
+python3 -m pytest -q tests        # 19 tests: core, all eight families, robotics, circuits on Aer and Braket
 ```
 
 The circuit tests check every builder against its analytic model (statevector-exact for the
@@ -159,10 +202,13 @@ post-selection circuits).
 ## Citing and licence
 
 If you use `qlcog`, please cite the package (see `CITATION.cff`) and the original papers of the models
-you use (listed in each family README). Released under the MIT licence (`LICENSE`).
+you use (listed in each family README). Released under the Apache License 2.0 (`LICENSE`, `NOTICE`),
+which permits commercial and research use and includes an explicit patent grant. Contributions are
+welcome: see `CONTRIBUTING.md`.
 
 Authors: Yeshwanth Guru (ORCID 0009-0007-6353-4033) and Dev Kunwar Singh Chauhan
 (ORCID 0000-0002-1466-4567), Department of Mechanical Engineering, Amrita Vishwa Vidyapeetham, Chennai,
-India. Related work in this repository: the systematic reviews in `github/k`, `github/m` and `github/s`,
-and the robot-questioning model paper in `github/model`, which applies the `order_effects` and
-`dynamics` families to human–robot interaction.
+India. Companion manuscripts (in preparation): a systematic review of quantum-like cognition for
+autonomous agents, a systematic review of meta-learning orchestration on resource-constrained robots,
+and "Order-Aware Human Models for Robot Questioning and Trust", whose simulations use the robotics
+application of this library.

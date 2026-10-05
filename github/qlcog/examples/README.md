@@ -16,3 +16,4 @@ a minute. Only the data in `qlcog.data` are human data; every simulated data set
 | `09_similarity_asymmetry.py` | Marketing, linguistics | similarity | Asymmetric similarity: quantum versus biased and symmetric geometric models |
 | `10_circuits_quickstart.py` | – | all | Circuit versus model on Aer, FakeTorino noise and Braket |
 | `11_cloud_run.py` | – | order effects | Running on IBM Quantum or Amazon Braket hardware (`--dry-run` for local) |
+| `12_robot_questioning_trust.py` | Robotics / HRI | robotics application | Questioning designs, human-model ensemble with uncertainty, trust question effect |

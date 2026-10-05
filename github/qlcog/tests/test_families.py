@@ -100,3 +100,18 @@ def test_similarity_asymmetry():
     pairs = [('K', 'C'), ('C', 'K')]
     assert abs(asymmetry(QuantumSimilarityModel(concepts=['K', 'C'], ranks={'C': 2}).predict(pairs), 'K', 'C')) > 0.01
     assert abs(asymmetry(GeometricModel(concepts=['K', 'C']).predict(pairs), 'K', 'C')) < 1e-12
+
+
+def test_robotics_application():
+    from qlcog.applications.robotics import domain_models, estimate_unprimed_rates, HumanModelEnsemble, HRI_DOMAINS
+    from qlcog.families.order_effects import QuantumOrderModel4D, BayesOrderModel, rates
+    for d in HRI_DOMAINS:
+        m = domain_models(d)
+        r_ql, r_an = rates(m['QL'].predict()), rates(m['Anchoring'].predict())
+        assert np.allclose(r_ql[:2], r_an[:2], atol=0.01)
+    rng = np.random.default_rng(0); gen = domain_models('object_clarification')['QL']
+    a, b = estimate_unprimed_rates('split', gen, 4000, rng)
+    assert abs(b - gen.predict()['BA'][:2].sum()) < 0.05
+    ens = HumanModelEnsemble([QuantumOrderModel4D, BayesOrderModel]).update(gen.sample(None, 500, rng))
+    p, unc = ens.predict('AB')
+    assert np.isclose(p.sum(), 1) and np.isclose(sum(s['weight'] for s in ens.summary()), 1) and unc['total_bits'] > 0

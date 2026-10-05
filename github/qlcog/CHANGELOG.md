@@ -16,4 +16,8 @@ First release.
   symmetric geometric).
 - Circuits for every family except decision, in dynamic and deferred-measurement forms; `run()` for
   Aer, IBM fake-backend noise models, Braket local simulators, IBM Quantum and Amazon Braket hardware.
-- Published aggregate data sets, eleven domain examples and 18 tests.
+- Robotics application: human-robot question domains, questioning designs, trust protocol and an
+  evidence-weighted human-model ensemble with uncertainty output.
+- Published aggregate data sets, twelve domain examples and 19 tests; continuous integration on
+  Python 3.10-3.12.
+- Licence: Apache-2.0.

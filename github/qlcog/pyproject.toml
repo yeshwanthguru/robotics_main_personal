@@ -8,21 +8,26 @@ version = "1.0.0"
 description = "Quantum-like models of cognition and decision with classical baselines and Qiskit circuits"
 readme = "README.md"
 requires-python = ">=3.10"
-license = {text = "MIT"}
+license = {text = "Apache-2.0"}
 authors = [
   {name = "Yeshwanth Guru", email = "g_yeshwanth@ch.students.amrita.edu"},
   {name = "Dev Kunwar Singh Chauhan", email = "c_devsingh@ch.amrita.edu"},
 ]
-keywords = ["quantum cognition", "quantum probability", "decision making", "order effects",
+keywords = ["quantum cognition", "robotics", "human-robot interaction", "quantum probability", "decision making", "order effects",
             "Bayesian networks", "qiskit", "cognitive modelling"]
 classifiers = [
   "Programming Language :: Python :: 3",
-  "License :: OSI Approved :: MIT License",
+  "License :: OSI Approved :: Apache Software License",
   "Topic :: Scientific/Engineering :: Artificial Intelligence",
   "Topic :: Scientific/Engineering :: Physics",
+  "Topic :: Scientific/Engineering :: Human Machine Interfaces",
   "Intended Audience :: Science/Research",
 ]
 dependencies = ["numpy>=1.24", "scipy>=1.10"]
+
+[project.urls]
+Homepage = "https://github.com/yeshwanthguru/quantum-cognition-robotics"
+Issues = "https://github.com/yeshwanthguru/quantum-cognition-robotics/issues"
 
 [project.optional-dependencies]
 qiskit = ["qiskit>=2.0", "qiskit-aer>=0.17", "qiskit-ibm-runtime>=0.40"]

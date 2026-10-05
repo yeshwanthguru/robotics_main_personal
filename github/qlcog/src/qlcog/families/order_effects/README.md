@@ -58,7 +58,7 @@ state follows the Lüders rule. 3D models use 2 system qubits; the 4D model also
 ## Limitations
 
 - Aggregate fitting assumes a homogeneous population; individual differences can hide or mimic the
-  structure (see the model paper in `github/model`).
+  structure (see the companion paper "Order-Aware Human Models for Robot Questioning and Trust").
 - Standard projective models do not reproduce response replicability together with order effects
   (Khrennikov et al., 2014).
 - The QQ equality alone does not prove quantum-like processing. Boyer-Kassem, Duchêne and Guerci (2016)
