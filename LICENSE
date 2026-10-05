@@ -1,0 +1,45 @@
+Copyright (c) 2026 Yeshwanth Guru. All rights reserved.
+
+1. Scope
+
+This licence covers the original material in this repository: manuscripts and drafts, review
+protocols, extraction and appraisal data, workbooks, notes, figures, presentations, source code and
+results written or produced by Yeshwanth Guru (together, "the Work").
+
+2. No permission granted
+
+No permission is granted to copy, reproduce, modify, distribute, publish, sublicense, sell, or use
+the Work, in whole or in part, for any purpose, without prior written permission from the copyright
+holder. Access to this repository does not grant any licence, express or implied.
+
+Requests for permission: Yeshwanth Guru, Department of Mechanical Engineering, Amrita Vishwa
+Vidyapeetham, Chennai, India (ORCID 0009-0007-6353-4033).
+
+3. Jointly authored manuscripts
+
+Manuscripts with more than one author are the joint work of the authors listed on them, and
+copyright in them is held jointly by those authors. Their use requires the permission of all listed
+authors. On publication, copyright in a manuscript may pass to the publisher under its agreement,
+which then governs that manuscript.
+
+4. Third-party material (excluded)
+
+Published papers, books, preprints and other documents by other authors that are stored in this
+repository for private study and literature review (for example, the PDF files under
+quantum_computing/, phd/ and the Survey1_fulltexts, Survey2_fulltexts and Survey3_fulltexts
+folders under github/) are NOT part of the Work
+and are NOT licensed by this file. They remain the property of their authors and publishers, are
+kept for private research use only, and must not be redistributed from this repository. Cited data
+and quotations remain subject to the rights of their sources.
+
+5. Separately released software
+
+The Python package qlcog is released separately under the Apache License 2.0 at
+https://github.com/yeshwanthguru/quantum-cognition-robotics. That release is governed by its own
+licence and is not restricted by this file.
+
+6. Disclaimer
+
+The Work is provided "as is", without warranty of any kind, express or implied. In no event shall the
+copyright holder be liable for any claim, damages or other liability arising from, out of or in
+connection with the Work or its use.
