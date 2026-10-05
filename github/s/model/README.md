@@ -92,7 +92,7 @@ python3 cloud/braket_run.py --device arn:aws:braket:::device/quantum-simulator/a
 python3 cloud/braket_run.py --device arn:aws:braket:us-east-1::device/qpu/ionq/Forte-1 --shots 1000
 ```
 QPU runs are billed; check the current price list first. Results are written to `results/cloud/`
-and can be added to Fig. 7 and Table V of the paper. Report hardware results exactly as measured,
+and can be added to Fig. 7 and Table II of the paper. Report hardware results exactly as measured,
 with backend, date and job id.
 
 Quantum hardware is not needed to use the model: the analytic version runs in microseconds on a
@@ -110,4 +110,5 @@ help-seeking decisions: if asking changes trust, asking is an action with a cost
 
 ## 8. Results and conclusion
 
-See `paper/main.tex` (Sections V–VII) and `results/`. A summary is in `RESULTS.md`.
+See `RESULTS.md` for the summary and final conclusion, `paper/main.tex` (Sections V–VII) for the full
+results, and `results/` for the raw numbers.

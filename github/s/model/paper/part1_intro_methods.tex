@@ -11,7 +11,13 @@ This paper asks three questions. Can a quantum-like model of a person's answers 
 \item a test against two published data sets (the Clinton--Gore poll and the Prisoner's Dilemma disjunction effect~\cite{Shafir1992});
 \item quantum-circuit versions of both models, verified on simulators and under the noise models of current IBM quantum processors, with scripts for IBM Quantum and Amazon Braket.
 \end{itemize}
-The model also supplies a confidence signal for the learned orchestrator reviewed in a companion survey~\cite{Guru2026s3}: the predictive uncertainty about a person's answer or trust (Section \ref{sec:robot}).
+Fig. \ref{fig:framework} summarizes the approach. The model also supplies a confidence signal for the learned orchestrator reviewed in a companion survey~\cite{Guru2026s3}: the predictive uncertainty about a person's answer or trust (Section \ref{sec:robot}).
+
+\begin{figure*}[!t]
+\centering
+\includegraphics[width=\textwidth]{figures/Fig1_framework.png}
+\caption{Approach. The robot's questions and its hand-over outcomes act on the person's belief state; competing human models (quantum-like, Bayesian, anchoring; open-system and Markov trust) predict the answers and their uncertainty, which the robot uses to choose and order its questions and passes to its orchestrator as a confidence signal. The models run analytically on a CPU or as quantum circuits.}\label{fig:framework}
+\end{figure*}
 
 
 \section{Background}\label{sec:background}
@@ -30,7 +36,10 @@ Trust in automation grows with reliable performance and falls after failures~\ci
 \subsection{Quantum-Like Question Model}\label{sec:ql}
 The person's belief is a unit vector $\psi\in\mathbb{R}^3$, and a yes answer to question $q$ is a projector $P_q$ onto either the ray of a unit vector $u_q$ (rank 1) or the plane orthogonal to it (rank 2). Answering applies the L\"uders rule~\cite{Busemeyer2012}: $p(\text{yes})=\|P_q\psi\|^2$, after which $\psi\leftarrow P_q\psi/\|P_q\psi\|$ (and the complement for no). Up to a rotation, the model has three angles,
 \begin{equation}
-\psi=e_1,\ u_A=(\cos a,\sin a,0),\ u_B=(\cos b,\sin b\cos g,\sin b\sin g),
+\begin{aligned}
+\psi&=e_1,\quad u_A=(\cos a,\sin a,0),\\
+u_B&=(\cos b,\sin b\cos g,\sin b\sin g),
+\end{aligned}
 \end{equation}
 plus the discrete ranks of the two yes subspaces. A two-dimensional model has only two effective parameters and cannot fit the Clinton--Gore pattern: when half the respondents answer the first question with yes, it forces the second-position rate to 0.5. The three-dimensional model with ranks (1, 2) fits it (Section \ref{sec:lit}).
 
@@ -57,7 +66,7 @@ Three domains fix a pair of questions and the size of the order effect (Fig. \re
 
 \textit{Experiment 2 (cross-order prediction).} Training data are $N$ people answering A then B ($N$ = 400 or 4,000) plus a probe of $N/10$ answering B then A. Each model predicts the B-first answer distribution; the score is the Kullback--Leibler divergence from the generator's true B-first distribution (median over 30 repetitions).
 
-\textit{Experiment 3 (questioning design).} The robot must learn the first-position (``unprimed'') yes rates $\pi_A$ and $\pi_B$ from 400 people who each answer both questions. Designs: a fixed order AB with $\pi_B$ read from the second answers, as a robot that ignores order effects would do; a probe of 10\% or 30\% of people answering B first, with a model fitted to all answers; and a split design (half each order) using only first answers, which needs no model. With the order fixed, $\pi_B$ is not identifiable under the QL model: two parameter sets reproduce the AB answers exactly but imply different $\pi_B$ (for object clarification, 0.525 and 0.678); the probe resolves this. Score: root mean square error (RMSE) of $\pi_B$ over 30 repetitions.
+\textit{Experiment 3 (questioning design).} The robot must learn the first-position (``unprimed'') yes rates $\pi_A$ and $\pi_B$ from 400 people who each answer both questions. Designs: a fixed order AB with $\pi_B$ read from the second answers, as a robot that ignores order effects would do; a probe of 10\% or 30\% of people answering B first, with a model fitted to all answers; and a split design (half each order) using only first answers, which needs no model. With the order fixed, $\pi_B$ is not identifiable under the QL model: two parameter sets reproduce the AB answers exactly but imply different $\pi_B$ (for object clarification, 0.525 and 0.678); the probe resolves this. Score: root-mean-square error (RMSE) of $\pi_B$ over 30 repetitions.
 
 \textit{Experiment 4 (trust).} Six hand-overs with outcomes (1, 1, 0, 1, 0, 1). In condition C0 the robot asks about trust only after the sixth hand-over; in C1 also after the third. The generators are the open-system model ($\phi_0=1.6$, $\alpha_s=0.8$, $\alpha_f=1.2$, $\gamma=0.3$; illustrative values) and the Markov model that best matches it. Both models are fitted to C0 and C1 answers with 100, 400 or 1,600 people per condition and compared by BIC. A robot that has only C1 data (it always asks midway) predicts the trust it would have found without the midway question; the RMSE of that prediction measures the cost of assuming that asking has no effect. 30 repetitions.
 

@@ -54,7 +54,7 @@ report while the journal paper is under review (check each venue's dual-submissi
 1. Run `python3 experiments/run_all.py` with `QLMODEL_REPS=30` (or more) and check that the numbers in
    `paper/main.tex` match `results/*.json` (the paper quotes them directly).
 2. Optional but valuable: run the circuits on real hardware (Section 6 of `README.md`) and add the
-   hardware row to Table V and Fig. 7. Hardware results must be reported as measured, with the
+   hardware row to Table II and Fig. 7. Hardware results must be reported as measured, with the
    backend name, date, job id and calibration data.
 3. Fill the `[FILL]` fields in `paper/main.tex` (acknowledgment, funding, biographies).
 4. Decide on the statement on the use of generative AI tools required by the journal.

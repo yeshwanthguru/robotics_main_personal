@@ -77,7 +77,8 @@ def fig_cross_order():
             ax.bar(x + (i - 1.5) * w, v, w, color=mc[m], edgecolor=INK, lw=0.4, label=m)
         ax.set_xticks(x); ax.set_xticklabels(gens, fontsize=6.6, rotation=20); ax.set_yscale('log')
         s, n = cond.split('|'); ax.set_title('%s, %s' % ('no ind. diff.' if s == 'sd=0.0' else 'ind. diff.', n.replace('N=', 'N = ')), fontsize=7.2, loc='left')
-    axs[0].set_ylabel('KL divergence, B-first\nanswers (median)'); axs[0].legend(fontsize=6.0, frameon=False, loc='upper left')
+    axs[0].set_ylabel('KL divergence, B-first\nanswers (median)')
+    h, l = axs[0].get_legend_handles_labels(); fig.legend(h, l, fontsize=6.6, frameon=False, ncol=4, loc='lower center', bbox_to_anchor=(0.5, 1.0))
     save(fig, 'Fig4_cross_order.png')
 
 
@@ -95,7 +96,8 @@ def fig_planning():
             ax.bar(x + (i - 2.5) * w, v, w, color=c, edgecolor=INK, lw=0.4, label=lab)
         ax.set_xticks(x); ax.set_xticklabels([g + ' gen.' for g in gens], fontsize=6.8)
         ax.set_title('(a) Homogeneous population' if sd == 'sd=0.0' else '(b) Individual differences (sd 0.1)', fontsize=7.6, loc='left')
-    axs[0].set_ylabel('RMSE of $\\pi_B$ (400 people)'); axs[1].legend(fontsize=6.0, frameon=False, ncol=2, loc='upper right')
+    axs[0].set_ylabel('RMSE of $\\pi_B$ (400 people)')
+    h, l = axs[0].get_legend_handles_labels(); fig.legend(h, l, fontsize=6.6, frameon=False, ncol=3, loc='lower center', bbox_to_anchor=(0.5, 1.0))
     save(fig, 'Fig5_planning.png')
 
 
@@ -138,7 +140,7 @@ def fig_circuits():
     for ax in axs: ax.set_yticks(y); ax.set_yticklabels(short, fontsize=6.8)
     axs[1].axvline(0, color=INK, lw=0.6, ls=':'); axs[1].set_yticklabels([])
     axs[0].set_xlabel('Total variation distance to the analytic model'); axs[1].set_xlabel('QQ value from circuit output')
-    axs[0].legend(fontsize=6.2, frameon=False, loc='lower right'); axs[0].set_title('(a) Distortion of answer distributions', fontsize=7.6, loc='left')
+    h, l = axs[0].get_legend_handles_labels(); fig.legend(h, l, fontsize=6.6, frameon=False, ncol=3, loc='lower center', bbox_to_anchor=(0.5, 1.0)); axs[0].set_title('(a) Distortion of answer distributions', fontsize=7.6, loc='left')
     axs[1].set_title('(b) QQ equality under noise', fontsize=7.6, loc='left')
     save(fig, 'Fig7_circuits.png')
 
