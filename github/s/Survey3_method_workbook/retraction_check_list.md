@@ -1,6 +1,6 @@
 # Retraction check list (Survey 3)
 
-Result (4 October 2026): all 180 references of Survey 3 (15 with a DOI; titles for all) were matched automatically against the full
+Result (5 October 2026): all 185 references of Survey 3 (16 with a DOI; titles for all) were matched automatically against the full
 Retraction Watch Database (Crossref open dataset, https://gitlab.com/crossref/retraction-watch-data,
 72,870 records, latest retraction date 2026-09-22). No match: none of the cited works has been retracted.
 

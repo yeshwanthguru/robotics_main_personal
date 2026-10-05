@@ -1,0 +1,186 @@
+﻿Citation key,Group,Evidence level,Title,File (or MISSING)
+Ahn2022,primary,E4,"Do as I can, not as I say: grounding language in robotic affordances",MISSING
+Huang2022b,primary,E4,Inner monologue: embodied reasoning through planning with language models,MISSING
+Huang2022a,primary,E3,Language models as zero-shot planners: extracting actionable knowledge for embodied agents,MISSING
+Shah2022,primary,E4,"LM-Nav: robotic navigation with large pre-trained models of language, vision, and action",MISSING
+Liang2023,primary,E4,Code as policies: language model programs for embodied control,MISSING
+Driess2023,primary,E4,PaLM-E: an embodied multimodal language model,MISSING
+Yao2023a,primary,E3,ReAct: synergizing reasoning and acting in language models,MISSING
+Schick2023,primary,E3,Toolformer: language models can teach themselves to use tools,MISSING
+Shinn2023,primary,E3,Reflexion: language agents with verbal reinforcement learning,MISSING
+Singh2023,primary,E4,ProgPrompt: generating situated robot task plans using large language models,MISSING
+Huang2023a,primary,E4,VoxPoser: composable 3D value maps for robotic manipulation with language models,MISSING
+Yu2023,primary,E4,Language to rewards for robotic skill synthesis,MISSING
+Song2023,primary,E3,LLM-Planner: few-shot grounded planning for embodied agents with large language models,MISSING
+Yao2023b,primary,E2,Tree of thoughts: deliberate problem solving with large language models,MISSING
+Ren2023,primary,E4,Robots that ask for help: uncertainty alignment for large language model planners,MISSING
+Chen2023b,primary,E3,FireAct: toward language agent fine-tuning,MISSING
+Wang2024a,primary,E3,Voyager: an open-ended embodied agent with large language models,MISSING
+Liang2024,primary,E3,Introspective planning: aligning robots' uncertainty with inherent task ambiguity,MISSING
+Wang2024c,primary,E3,Probabilistically correct language-based multi-robot planning using conformal prediction,MISSING
+Dalal2024,primary,E3,Plan-Seq-Learn: language model guided RL for solving long horizon robotics tasks,MISSING
+Zeng2024,primary,E3,AgentTuning: enabling generalized agent abilities for LLMs,MISSING
+Yao2024,primary,E3,Retroformer: retrospective large language agents with policy gradient optimization,MISSING
+Zhai2024,primary,E3,Fine-tuning large vision-language models as decision-making agents via reinforcement learning,MISSING
+Radford2021,primary,E3,Learning transferable visual models from natural language supervision,MISSING
+Shridhar2021,primary,E4,CLIPort: what and where pathways for robotic manipulation,MISSING
+Reed2022,primary,E4,A generalist agent,MISSING
+Shridhar2022,primary,E4,Perceiver-Actor: a multi-task transformer for robotic manipulation,MISSING
+Brohan2023a,primary,E5,RT-1: Robotics Transformer for real-world control at scale,MISSING
+Brohan2023b,primary,E4,RT-2: vision-language-action models transfer web knowledge to robotic control,MISSING
+Jiang2023,primary,E3,VIMA: general robot manipulation with multimodal prompts,MISSING
+Kim2024,primary,E5,OpenVLA: an open-source vision-language-action model,MISSING
+Octo2024,primary,E5,Octo: an open-source generalist robot policy,MISSING
+Black2024,primary,E5,$pi_0$: a vision-language-action flow model for general robot control,MISSING
+Bousmalis2023,primary,E5,RoboCat: a self-improving generalist agent for robotic manipulation,MISSING
+Li2024a,primary,E3,Vision-language foundation models as effective robot imitators,MISSING
+Liu2024a,primary,E4,RoboMamba: efficient vision-language-action model for robotic reasoning and manipulation,MISSING
+Shukor2025,primary,E4,SmolVLA: a vision-language-action model for affordable and efficient robotics,MISSING
+Wen2025,primary,E4,"TinyVLA: towards fast, data-efficient vision-language-action models for robotic manipulation",MISSING
+Budzianowski2025,primary,E2,EdgeVLA: efficient vision-language-action models,MISSING
+Kim2025,primary,E4,Fine-tuning vision-language-action models: optimizing speed and success,MISSING
+Pertsch2025,primary,E4,FAST: efficient action tokenization for vision-language-action models,MISSING
+Wang2025a,primary,E4,BitVLA: 1-bit vision-language-action models for robotics manipulation,MISSING
+Ravichandran2025,primary,E4,Distilling on-device language models for robot planning with minimal human intervention,MISSING
+Yu2025,review,R,A survey on efficient vision-language-action models,MISSING
+Zhang2026a,primary,E3,QuantVLA: scale-calibrated post-training quantization for vision-language-action models,MISSING
+Gal2016,primary,E2,Dropout as a Bayesian approximation: representing model uncertainty in deep learning,MISSING
+Lakshminarayanan2017,primary,E2,Simple and scalable predictive uncertainty estimation using deep ensembles,MISSING
+Kendall2017,primary,E2,What uncertainties do we need in Bayesian deep learning for computer vision?,MISSING
+Guo2017,primary,E2,On calibration of modern neural networks,MISSING
+Hendrycks2017,primary,E2,A baseline for detecting misclassified and out-of-distribution examples in neural networks,MISSING
+Sensoy2018,primary,E2,Evidential deep learning to quantify classification uncertainty,MISSING
+Amini2020,primary,E2,Deep evidential regression,MISSING
+Gawlikowski2023,review,R,A survey of uncertainty in deep neural networks,MISSING
+Ren2024,primary,E4,Explore until confident: efficient exploration for embodied question answering,MISSING
+Mnih2015,primary,E3,Human-level control through deep reinforcement learning,MISSING
+Osband2016,primary,E3,Deep exploration via bootstrapped DQN,MISSING
+Schulman2017,primary,E3,Proximal policy optimization algorithms,MISSING
+Andrychowicz2017,primary,E4,Hindsight experience replay,MISSING
+Haarnoja2018,primary,E3,Soft actor-critic: off-policy maximum entropy deep reinforcement learning with a stochastic actor,MISSING
+Fujimoto2018,primary,E3,Addressing function approximation error in actor-critic methods,MISSING
+Kalashnikov2018,primary,E5,QT-Opt: scalable deep reinforcement learning for vision-based robotic manipulation,MISSING
+Burda2019,primary,E3,Exploration by random network distillation,MISSING
+Kumar2020,primary,E3,Conservative Q-learning for offline reinforcement learning,MISSING
+Hafner2023,primary,E3,Mastering diverse control tasks through world models,MISSING
+Yuan2025,primary,E3,Policy decorator: model-agnostic online refinement for large policy model,MISSING
+Ankile2025,primary,E3,From imitation to refinement – residual RL for precise assembly,MISSING
+Wagenmaker2025,primary,E4,Steering your diffusion policy with latent space reinforcement learning,MISSING
+Mark2025,primary,E4,Policy agnostic RL: offline RL and online RL fine-tuning of any class and backbone,MISSING
+Chen2025,primary,E4,ConRFT: a reinforced fine-tuning method for VLA models via consistency policy,MISSING
+Lu2025,primary,E3,VLA-RL: towards masterful and general robotic manipulation with scalable reinforcement learning,MISSING
+Li2026,primary,E4,SimpleVLA-RL: scaling VLA training via reinforcement learning,MISSING
+Ross2011,primary,E2,A reduction of imitation learning and structured prediction to no-regret online learning,MISSING
+Ho2016,primary,E3,Generative adversarial imitation learning,MISSING
+Duan2017,primary,E3,One-shot imitation learning,MISSING
+Osa2018,review,R,An algorithmic perspective on imitation learning,MISSING
+Lynch2019,primary,E3,Learning latent plans from play,MISSING
+Florence2021,primary,E4,Implicit behavioral cloning,MISSING
+Jang2021,primary,E5,BC-Z: zero-shot task generalization with robotic imitation learning,MISSING
+Chi2023,primary,E4,Diffusion policy: visuomotor policy learning via action diffusion,MISSING
+Zhao2023,primary,E4,Learning fine-grained bimanual manipulation with low-cost hardware,MISSING
+Wu2024,primary,E3,Uncertainty-aware deployment of pre-trained language-conditioned imitation learning policies,MISSING
+Bongard2006,primary,E4,Resilient machines through continuous self-modeling,MISSING
+Cully2015,primary,E4,Robots that can adapt like animals,MISSING
+Tobin2017,primary,E4,Domain randomization for transferring deep neural networks from simulation to the real world,MISSING
+Khalastchi2018,review,R,On fault detection and diagnosis in robotic systems,MISSING
+Nagabandi2019,primary,E4,"Learning to adapt in dynamic, real-world environments through meta-reinforcement learning",MISSING
+Pang2021,review,R,Deep learning for anomaly detection: a review,MISSING
+Kumar2021,primary,E4,RMA: rapid motor adaptation for legged robots,MISSING
+Liu2023c,primary,E4,REFLECT: summarizing robot experiences for failure explanation and correction,MISSING
+Agia2024,primary,E4,Unpacking failure modes of generative policies: runtime monitoring of consistency and progress,MISSING
+Sinha2024,primary,E3,Real-time anomaly detection and reactive planning with large language models,MISSING
+Shi2024,primary,E4,Yell at your robot: improving on-the-fly from language corrections,MISSING
+Duan2025,primary,E4,AHA: a vision-language-model for detecting and reasoning over failures in robotic manipulation,MISSING
+Ye2025,primary,E4,RoboFAC: a comprehensive framework for robotic failure analysis and correction,MISSING
+Romer2025,primary,E4,Failure prediction at runtime for generative robot policies,MISSING
+Xu2025,primary,E4,Can we detect failures without failure data? Uncertainty-aware runtime failure detection for imitation learning policies,MISSING
+Gu2025,primary,E4,SAFE: multitask failure detection for vision-language-action models,MISSING
+Duan2016,primary,E3,RL$^2$: fast reinforcement learning via slow reinforcement learning,MISSING
+Andrychowicz2016,primary,E2,Learning to learn by gradient descent by gradient descent,MISSING
+Finn2017,primary,E3,Model-agnostic meta-learning for fast adaptation of deep networks,MISSING
+Snell2017,primary,E3,Prototypical networks for few-shot learning,MISSING
+Nichol2018,primary,E2,On first-order meta-learning algorithms,MISSING
+Yu2019,primary,E3,Meta-World: a benchmark and evaluation for multi-task and meta reinforcement learning,MISSING
+Rakelly2019,primary,E3,Efficient off-policy meta-reinforcement learning via probabilistic context variables,MISSING
+Zintgraf2020,primary,E3,VariBAD: a very good method for Bayes-adaptive deep RL via meta-learning,MISSING
+Hospedales2022,review,R,Meta-learning in neural networks: a survey,MISSING
+Zhu2025,primary,E4,Efficient continual adaptation of pretrained robotic policy with online meta-learned adapters,MISSING
+McMahan2017,primary,E3,Communication-efficient learning of deep networks from decentralized data,MISSING
+Kendall2018,primary,E3,Multi-task learning using uncertainty to weigh losses for scene geometry and semantics,MISSING
+Baltrusaitis2019,review,R,Multimodal machine learning: a survey and taxonomy,MISSING
+Li2020,primary,E2,Federated optimization in heterogeneous networks,MISSING
+Kairouz2021,review,R,Advances and open problems in federated learning,MISSING
+Qi2021,review,R,"Federated reinforcement learning: techniques, applications, and open challenges",MISSING
+Han2021,primary,E3,Trusted multi-view classification,MISSING
+Han2022a,primary,E3,Trusted multi-view classification with dynamic evidential fusion,MISSING
+Han2022b,primary,E3,Multimodal dynamics: dynamical fusion for trustworthy multimodal classification,MISSING
+Lindemann2023,primary,E3,Safe planning in dynamic environments using conformal prediction,MISSING
+Zollo2025,primary,E3,Confidence calibration in vision-language-action models,MISSING
+Romer2026a,primary,E3,Uncertainty quantification for flow-based vision-language-action models,MISSING
+Yuan2026,primary,E4,"When to act, ask, or learn: uncertainty-aware policy steering",MISSING
+Schaul2016,primary,E3,Prioritized experience replay,MISSING
+Rusu2016,primary,E3,Progressive neural networks,MISSING
+Kirkpatrick2017,primary,E3,Overcoming catastrophic forgetting in neural networks,MISSING
+LopezPaz2017,primary,E3,Gradient episodic memory for continual learning,MISSING
+Rebuffi2017,primary,E3,iCaRL: incremental classifier and representation learning,MISSING
+Houlsby2019,primary,E3,Parameter-efficient transfer learning for NLP,MISSING
+Rolnick2019,primary,E3,Experience replay for continual learning,MISSING
+Cai2020,primary,E3,"TinyTL: reduce memory, not parameters for efficient on-device learning",MISSING
+Lin2020,primary,E3,MCUNet: tiny deep learning on IoT devices,MISSING
+Li2021,primary,E3,Prefix-tuning: optimizing continuous prompts for generation,MISSING
+Hu2022,primary,E3,LoRA: low-rank adaptation of large language models,MISSING
+Lin2022,primary,E3,On-device training under 256KB memory,MISSING
+Liu2022,primary,E3,Few-shot parameter-efficient fine-tuning is better and cheaper than in-context learning,MISSING
+DeLange2022,review,R,A continual learning survey: defying forgetting in classification tasks,MISSING
+Dettmers2023,primary,E3,QLoRA: efficient finetuning of quantized LLMs,MISSING
+Liu2023,primary,E4,Robot learning on the job: human-in-the-loop autonomy and learning during deployment,MISSING
+Liu2023b,primary,E3,LIBERO: benchmarking knowledge transfer for lifelong robot learning,MISSING
+Zhu2023,software,S,PockEngine: sparse and efficient fine-tuning in a pocket,MISSING
+Malladi2023,primary,E3,Fine-tuning language models with just forward passes,MISSING
+Liu2024b,primary,E3,TAIL: task-specific adapters for imitation learning with large pretrained models,MISSING
+Wan2024,primary,E4,LOTUS: continual imitation learning for robot manipulation through unsupervised skill discovery,MISSING
+Li2025,primary,E3,MobiLLM: enabling LLM fine-tuning on the mobile device via server assisted side tuning,MISSING
+Romer2026b,primary,E3,CLARE: continual learning for vision-language-action models via autonomous adapter routing and expansion,MISSING
+Jacobs1991,primary,E2,Adaptive mixtures of local experts,MISSING
+Bengio2015,primary,E3,Conditional computation in neural networks for faster models,MISSING
+Graves2016,primary,E3,Adaptive computation time for recurrent neural networks,MISSING
+Shazeer2017,primary,E3,Outrageously large neural networks: the sparsely-gated mixture-of-experts layer,MISSING
+Rosenbaum2018,primary,E3,Routing networks: adaptive selection of non-linear functions for multi-task learning,MISSING
+Riquelme2021,primary,E3,Scaling vision with sparse mixture of experts,MISSING
+Hoque2021,primary,E4,ThriftyDAgger: budget-aware novelty and risk gating for interactive imitation learning,MISSING
+Fedus2022,primary,E3,Switch transformers: scaling to trillion parameter models with simple and efficient sparsity,MISSING
+Puigcerver2024,primary,E3,From sparse to soft mixtures of experts,MISSING
+Wang2024b,primary,E4,"Sparse diffusion policy: a sparse, reusable, and flexible policy for robot learning",MISSING
+Chen2024,primary,E3,FrugalGPT: how to use large language models while reducing cost and improving performance,MISSING
+Ding2024,primary,E3,Hybrid LLM: cost-efficient and quality-aware query routing,MISSING
+Aggarwal2024,primary,E3,AutoMix: automatically mixing language models,MISSING
+Yue2024,primary,E3,DeeR-VLA: dynamic inference of multimodal large language models for efficient robot execution,MISSING
+Reuss2025,primary,E3,Efficient diffusion transformer policies with mixture of expert denoisers for multitask learning,MISSING
+Huang2025,primary,E4,MoE-Loco: mixture of experts for multitask locomotion,MISSING
+Ong2025,primary,E3,RouteLLM: learning to route LLMs with preference data,MISSING
+SMP2026,primary,E4,Abstracting robot manipulation skills via mixture-of-experts diffusion policies,MISSING
+Liu2026,primary,E3,When should a robot think? Resource-aware reasoning via reinforcement learning for embodied robotic decision-making,MISSING
+Zhang2026b,primary,E4,MoLe-VLA: dynamic layer-skipping vision language action model via mixture-of-layers for efficient robot manipulation,MISSING
+James2020,software,S,RLBench: the robot learning benchmark & learning environment,MISSING
+Mandlekar2021,primary,E4,What matters in learning from offline human demonstrations for robot manipulation,MISSING
+Mees2022,software,S,CALVIN: a benchmark for language-conditioned policy learning for long-horizon robot manipulation tasks,MISSING
+Kemp2022,primary,E4,"The design of Stretch: a compact, lightweight mobile manipulator for indoor human environments",MISSING
+Fu2024,primary,E4,Mobile ALOHA: learning bimanual mobile manipulation with low-cost whole-body teleoperation,MISSING
+Cadene2024,software,S,LeRobot: state-of-the-art machine learning for real-world robotics in PyTorch,MISSING
+OXE2024,primary,E5,Open X-Embodiment: robotic learning datasets and RT-X models,MISSING
+KressGazit2024,primary,E4,Robot learning as an empirical science: best practices for policy evaluation,MISSING
+Snyder2025,primary,E4,Is your imitation learning policy better than mine? Policy comparison with near-optimal stopping,MISSING
+TRI2025,primary,E5,A careful examination of large behavior models for multitask dexterous manipulation,MISSING
+Cadene2026,software,S,LeRobot: an open-source library for end-to-end robot learning,MISSING
+Garcia2015,review,R,A comprehensive survey on safe reinforcement learning,MISSING
+Alshiekh2018,primary,E2,Safe reinforcement learning via shielding,MISSING
+Phan2020,primary,E3,Neural simplex architecture,MISSING
+Brunke2022,review,R,Safe learning in robotics: from learning-based control to safe reinforcement learning,MISSING
+Wabersich2023,review,R,"Data-driven safety filters: Hamilton-Jacobi reachability, control barrier functions, and predictive methods for uncertain systems",MISSING
+Hsu2024,review,R,The safety filter: a unified view of safety-critical control in autonomous systems,MISSING
+Page2021,method,,The PRISMA 2020 statement: an updated guideline for reporting systematic reviews,references/Page2021.pdf
+Kitchenham2007,method,,Guidelines for performing Systematic Literature Reviews in Software Engineering,references/Kitchenham2007.pdf
+Guru2026a,companion,,"Quantum Technologies for Autonomous Robotics: A Systematic Survey of Methods, Evidence, and Deployment Constraints",not applicable
+Guru2026b,companion,,"Quantum-Like Cognition and Decision-Making for Autonomous Agents, from Robotics to AI/ML Systems: A Systematic Review",not applicable
+Guru2026c,companion,,"Order-Aware Human Models for Robot Questioning and Trust: A Quantum-Like Model with Classical Baselines, Simulation Studies and Quantum-Circuit Execution",not applicable

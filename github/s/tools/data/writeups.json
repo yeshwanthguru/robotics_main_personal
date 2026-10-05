@@ -539,7 +539,7 @@
    "Setup and data": "Atari, image captioning, dialogue, real-robot block stacking, among others.",
    "Key result": "One network performs diverse tasks including real-robot block stacking (no numbers in abstract).",
    "Limitation": "Specialist-level performance not reached on all tasks; large model; not open.",
-   "Edge footprint": "Reported model around 1.2B parameters (from memory); too slow for real-time control on Pi CPU.",
+   "Edge footprint": "Reported model around 1.2B parameters (not stated in the abstract); too slow for real-time control on Pi CPU.",
    "Role in the framework": "Competing approach: monolithic generalist versus modality orchestration."
   },
   "key": "Reed2022",
@@ -623,7 +623,7 @@
    "Setup and data": "VIMA-Bench simulation: thousands of procedurally generated tabletop tasks, 600K+ expert trajectories, four-level generalisation protocol.",
    "Key result": "Up to 2.9× zero-shot success over alternatives; 2.7× better with 10× less data.",
    "Limitation": "Simulation only; high-level action primitives.",
-   "Edge footprint": "Model sizes range to a few hundred million parameters (from memory); GPU inference; small variants possibly edge-feasible.",
+   "Edge footprint": "Model sizes range to a few hundred million parameters (not stated in the abstract); GPU inference; small variants possibly edge-feasible.",
    "Role in the framework": "Evaluation reference: prompt-conditioned imitation and generalisation protocol."
   },
   "key": "Jiang2023",
@@ -665,7 +665,7 @@
    "Setup and data": "800k trajectories; experiments across 9 robotic platforms.",
    "Key result": "Effective fine-tuning to new observation/action spaces within a few hours on consumer GPUs (9 platforms).",
    "Limitation": "GPU needed for fine-tuning; zero-shot performance platform-dependent.",
-   "Edge footprint": "Smaller than 7B VLAs (tens of millions of parameters, from memory); inference plausible on embedded GPU, marginal on Pi 5 CPU.",
+   "Edge footprint": "Smaller than 7B VLAs (tens of millions of parameters, not stated in the abstract); inference plausible on embedded GPU, marginal on Pi 5 CPU.",
    "Role in the framework": "Baseline to beat / component to reuse: open policy initialisation for imitation modality."
   },
   "key": "Octo2024",
