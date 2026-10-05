@@ -52,7 +52,7 @@ def fit(name, data, restarts=12, rng=None):
     best, build = None, None
     for ranks in (RANKS if name == 'QL' else [None]):
         b = builder(name, ranks)
-        for _ in range(restarts if name != 'QL' else max(3, restarts // 4)):
+        for _ in range(restarts):          # for QL: restarts per rank combination
             x0 = rng.uniform(0, np.pi, k) if name == 'QL' else rng.normal(0, 1, k)
             r = minimize(lambda x: -loglik(b(x), data), x0, method='Nelder-Mead',
                          options=dict(maxiter=4000, xatol=1e-7, fatol=1e-9))

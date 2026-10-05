@@ -1,0 +1,52 @@
+%% =============================================================================
+%% Order-Aware Human Models for Robot Questioning and Trust
+%% Target: IEEE Transactions on Cognitive and Developmental Systems (IEEEtran journal)
+%% Compile: pdflatex main; bibtex main; pdflatex main; pdflatex main
+%% Numbers come from ../results/*.json; figures from ../tools/make_figures.py.
+%% =============================================================================
+\documentclass[journal]{IEEEtran}
+\usepackage{cite}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{xcolor}
+\usepackage{url}
+\usepackage[hidelinks]{hyperref}
+\newcommand{\fillin}[1]{{\color{red}\bfseries [FILL: #1]}}
+
+\begin{document}
+\title{Order-Aware Human Models for Robot Questioning and Trust: A Quantum-Like Model With Classical Baselines, Simulation Studies and Quantum-Circuit Execution}
+
+\author{Yeshwanth~Guru and~Dev~Kunwar~Singh~Chauhan%
+\thanks{Y. Guru and D. K. S. Chauhan are with the Department of Mechanical Engineering, Amrita School of Engineering, Amrita Vishwa Vidyapeetham, Chennai 601103, India (e-mail: g\_yeshwanth@ch.students.amrita.edu; c\_devsingh@ch.amrita.edu). Corresponding author: Yeshwanth Guru. ORCID: Y. Guru 0009-0007-6353-4033; D. K. S. Chauhan 0000-0002-1466-4567.}%
+\thanks{Manuscript received \fillin{date}.}}
+
+\markboth{IEEE Transactions on Cognitive and Developmental Systems}%
+{Guru and Chauhan: Order-Aware Human Models for Robot Questioning and Trust}
+
+\maketitle
+
+\input{abstract}
+
+\input{part1_intro_methods}
+
+\input{part2_results}
+
+\section*{Data and Code Availability}
+All code, simulation results and figure scripts are in the project repository (folder \texttt{model}) and will be archived on Zenodo \fillin{Zenodo DOI}. The only human data used are the published aggregate proportions cited in Section \ref{sec:lit}.
+
+\section*{Acknowledgment}
+\fillin{acknowledgments and funding, or delete this section}
+
+\bibliographystyle{IEEEtran}
+\bibliography{refs}
+
+\begin{IEEEbiographynophoto}{Yeshwanth Guru}
+\fillin{biography}
+\end{IEEEbiographynophoto}
+
+\begin{IEEEbiographynophoto}{Dev Kunwar Singh Chauhan}
+\fillin{biography}
+\end{IEEEbiographynophoto}
+\end{document}
