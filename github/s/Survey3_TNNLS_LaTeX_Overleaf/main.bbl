@@ -101,6 +101,21 @@ R.~Cadene, S.~Alibert, A.~Soare \emph{et~al.}, ``Lerobot: state-of-the-art
   \url{https://github.com/huggingface/lerobot}
 \BIBentrySTDinterwordspacing
 
+\bibitem{Guru2026c}
+Y.~Guru and D.~K.~S. Chauhan, ``Order-aware human models for robot questioning
+  and trust: A quantum-like model with classical baselines, simulation studies
+  and quantum-circuit execution,'' 2026, companion manuscript, in preparation.
+
+\bibitem{Guru2026a}
+------, ``Quantum technologies for autonomous robotics: A systematic survey of
+  methods, evidence, and deployment constraints,'' 2026, companion manuscript,
+  prepared for ACM Computing Surveys.
+
+\bibitem{Guru2026b}
+------, ``Quantum-like cognition and decision-making for autonomous agents,
+  from robotics to {AI/ML} systems: A systematic review,'' 2026, companion
+  manuscript, prepared for Artificial Intelligence Review.
+
 \bibitem{Gawlikowski2023}
 J.~Gawlikowski, C.~Tassi, M.~Ali \emph{et~al.}, ``A survey of uncertainty in
   deep neural networks,'' \emph{Artificial Intelligence Review, 56(Suppl 1),
@@ -160,6 +175,20 @@ G.~Pang, C.~Shen, L.~Cao, and A.~van~den Hengel, ``Deep learning for anomaly
 Z.~Yu, B.~Wang, P.~Zeng \emph{et~al.}, ``A survey on efficient
   vision-language-action models,'' 2025.
 
+\bibitem{Page2021}
+M.~J. Page, J.~E. McKenzie, P.~M. Bossuyt, I.~Boutron, T.~C. Hoffmann, C.~D.
+  Mulrow, L.~Shamseer, J.~M. Tetzlaff, E.~A. Akl, S.~E. Brennan, R.~Chou,
+  J.~Glanville, J.~M. Grimshaw, A.~Hr{\'o}bjartsson, M.~M. Lalu, T.~Li, E.~W.
+  Loder, E.~Mayo-Wilson, S.~McDonald, L.~A. McGuinness, L.~A. Stewart,
+  J.~Thomas, A.~C. Tricco, V.~A. Welch, P.~Whiting, and D.~Moher, ``The
+  {PRISMA} 2020 statement: an updated guideline for reporting systematic
+  reviews,'' \emph{BMJ}, vol. 372, p. n71, 2021.
+
+\bibitem{Kitchenham2007}
+B.~Kitchenham and S.~Charters, ``Guidelines for performing systematic
+  literature reviews in software engineering,'' Keele University and Durham
+  University, Tech. Rep. EBSE-2007-01, 2007.
+
 \bibitem{Alshiekh2018}
 M.~Alshiekh, R.~Bloem, R.~Ehlers \emph{et~al.}, ``Safe reinforcement learning
   via shielding,'' in \emph{Proc. AAAI Conference on Artificial Intelligence
@@ -189,6 +218,41 @@ R.~Huang, S.~Zhu, Y.~Du, and H.~Zhao, ``Moe-loco: mixture of experts for
 D.~Kalashnikov, A.~Irpan, P.~Pastor \emph{et~al.}, ``Qt-opt: scalable deep
   reinforcement learning for vision-based robotic manipulation,'' in
   \emph{Conference on Robot Learning (CoRL 2018)}, 2018.
+
+\bibitem{Andrychowicz2017}
+M.~Andrychowicz, F.~Wolski, A.~Ray \emph{et~al.}, ``Hindsight experience
+  replay,'' in \emph{Advances in Neural Information Processing Systems 30
+  (NeurIPS 2017)}, 2017.
+
+\bibitem{Nagabandi2019}
+A.~Nagabandi, I.~Clavera, S.~Liu \emph{et~al.}, ``Learning to adapt in dynamic,
+  real-world environments through meta-reinforcement learning,'' in \emph{Int.
+  Conf. on Learning Representations (ICLR 2019)}, 2019.
+
+\bibitem{Hoque2021}
+R.~Hoque, A.~Balakrishna, E.~Novoseller \emph{et~al.}, ``Thriftydagger:
+  budget-aware novelty and risk gating for interactive imitation learning,'' in
+  \emph{Conference on Robot Learning (CoRL 2021)}, 2021.
+
+\bibitem{Xu2025}
+C.~Xu, T.~Nguyen, E.~Dixon \emph{et~al.}, ``Can we detect failures without
+  failure data? uncertainty-aware runtime failure detection for imitation
+  learning policies,'' in \emph{Robotics: Science and Systems (RSS 2025)},
+  2025.
+
+\bibitem{Gu2025}
+Q.~Gu, Y.~Ju, S.~Sun \emph{et~al.}, ``Safe: multitask failure detection for
+  vision-language-action models,'' in \emph{Advances in Neural Information
+  Processing Systems 38 (NeurIPS 2025)}, 2025.
+
+\bibitem{Ren2023}
+A.~Ren, A.~Dixit, A.~Bodrova \emph{et~al.}, ``Robots that ask for help:
+  uncertainty alignment for large language model planners,'' in
+  \emph{Conference on Robot Learning (CoRL 2023)}, 2023.
+
+\bibitem{Yuan2026}
+J.~Yuan, Y.~Wu, and A.~Bajcsy, ``When to act, ask, or learn: uncertainty-aware
+  policy steering,'' in \emph{Robotics: Science and Systems (RSS 2026)}, 2026.
 
 \bibitem{Radford2021}
 A.~Radford, J.~Kim, C.~Hallacy \emph{et~al.}, ``Learning transferable visual
@@ -238,11 +302,6 @@ P.~Florence, C.~Lynch, A.~Zeng \emph{et~al.}, ``Implicit behavioral cloning,''
 J.~Bongard, V.~Zykov, and H.~Lipson, ``Resilient machines through continuous
   self-modeling,'' \emph{Science}, vol. 314, no. 5802, pp. 1118--1121, 2006.
 
-\bibitem{Nagabandi2019}
-A.~Nagabandi, I.~Clavera, S.~Liu \emph{et~al.}, ``Learning to adapt in dynamic,
-  real-world environments through meta-reinforcement learning,'' in \emph{Int.
-  Conf. on Learning Representations (ICLR 2019)}, 2019.
-
 \bibitem{Guo2017}
 C.~Guo, G.~Pleiss, Y.~Sun, and K.~Weinberger, ``On calibration of modern neural
   networks,'' in \emph{Int. Conf. on Machine Learning (ICML 2017), PMLR 70},
@@ -273,11 +332,6 @@ L.~Ankile, A.~Simeonov, I.~Shenfeld \emph{et~al.}, ``From imitation to
 A.~Wagenmaker, M.~Nakamoto, Y.~Zhang \emph{et~al.}, ``Steering your diffusion
   policy with latent space reinforcement learning,'' 2025.
 
-\bibitem{Hoque2021}
-R.~Hoque, A.~Balakrishna, E.~Novoseller \emph{et~al.}, ``Thriftydagger:
-  budget-aware novelty and risk gating for interactive imitation learning,'' in
-  \emph{Conference on Robot Learning (CoRL 2021)}, 2021.
-
 \bibitem{Osband2016}
 I.~Osband, C.~Blundell, A.~Pritzel, and B.~Van~Roy, ``Deep exploration via
   bootstrapped dqn,'' in \emph{Advances in Neural Information Processing
@@ -287,12 +341,6 @@ I.~Osband, C.~Blundell, A.~Pritzel, and B.~Van~Roy, ``Deep exploration via
 Y.~Burda, H.~Edwards, A.~Storkey, and O.~Klimov, ``Exploration by random
   network distillation,'' in \emph{Int. Conf. on Learning Representations (ICLR
   2019)}, 2019.
-
-\bibitem{Xu2025}
-C.~Xu, T.~Nguyen, E.~Dixon \emph{et~al.}, ``Can we detect failures without
-  failure data? uncertainty-aware runtime failure detection for imitation
-  learning policies,'' in \emph{Robotics: Science and Systems (RSS 2025)},
-  2025.
 
 \bibitem{Romer2025}
 R.~R{\"o}mer, A.~Kobras, L.~Worbis, and A.~Schoellig, ``Failure prediction at
@@ -387,11 +435,6 @@ Y.~Zhai, H.~Bai, Z.~Lin \emph{et~al.}, ``Fine-tuning large vision-language
   \emph{Advances in Neural Information Processing Systems 37 (NeurIPS 2024)},
   2024.
 
-\bibitem{Ren2023}
-A.~Ren, A.~Dixit, A.~Bodrova \emph{et~al.}, ``Robots that ask for help:
-  uncertainty alignment for large language model planners,'' in
-  \emph{Conference on Robot Learning (CoRL 2023)}, 2023.
-
 \bibitem{Liang2024}
 K.~Liang, Z.~Zhang, and J.~Fisac, ``Introspective planning: aligning robots'
   uncertainty with inherent task ambiguity,'' in \emph{Advances in Neural
@@ -410,10 +453,6 @@ A.~Ren, J.~Clark, A.~Dixit \emph{et~al.}, ``Explore until confident: efficient
 J.~Liu, P.~Zhao, Z.~Kong \emph{et~al.}, ``When should a robot think?
   resource-aware reasoning via reinforcement learning for embodied robotic
   decision-making,'' 2026.
-
-\bibitem{Yuan2026}
-J.~Yuan, Y.~Wu, and A.~Bajcsy, ``When to act, ask, or learn: uncertainty-aware
-  policy steering,'' in \emph{Robotics: Science and Systems (RSS 2026)}, 2026.
 
 \bibitem{Sinha2024}
 R.~Sinha, A.~Elhafsi, C.~Agia \emph{et~al.}, ``Real-time anomaly detection and
@@ -540,11 +579,6 @@ A.~Amini, W.~Schwarting, A.~Soleimany, and D.~Rus, ``Deep evidential
 T.~Zollo and R.~Zemel, ``Confidence calibration in vision-language-action
   models,'' 2025.
 
-\bibitem{Andrychowicz2017}
-M.~Andrychowicz, F.~Wolski, A.~Ray \emph{et~al.}, ``Hindsight experience
-  replay,'' in \emph{Advances in Neural Information Processing Systems 30
-  (NeurIPS 2017)}, 2017.
-
 \bibitem{Kumar2020}
 A.~Kumar, A.~Zhou, G.~Tucker, and S.~Levine, ``Conservative q-learning for
   offline reinforcement learning,'' in \emph{Advances in Neural Information
@@ -596,11 +630,6 @@ J.~Duan, W.~Pumacay, N.~Kumar \emph{et~al.}, ``Aha: a vision-language-model for
 \bibitem{Ye2025}
 Z.~Ye, W.~Lu, M.~Ye, T.~Lin, S.~Yang, J.~Yan, and B.~Zhao, ``Robofac: a
   comprehensive framework for robotic failure analysis and correction,'' 2025.
-
-\bibitem{Gu2025}
-Q.~Gu, Y.~Ju, S.~Sun \emph{et~al.}, ``Safe: multitask failure detection for
-  vision-language-action models,'' in \emph{Advances in Neural Information
-  Processing Systems 38 (NeurIPS 2025)}, 2025.
 
 \bibitem{Shi2024}
 L.~Shi, Z.~Hu, T.~Zhao \emph{et~al.}, ``Yell at your robot: improving

@@ -1,9 +1,10 @@
 %% =============================================================================
-%% Adaptive Orchestration of Learning Modalities for Embodied Agents on Edge
-%% Hardware: A Survey
+%% Meta-Learning Orchestration of Learning Modalities on Resource-Constrained
+%% Robots: A Systematic Review
 %% Target journal: IEEE Transactions on Neural Networks and Learning Systems
 %% Template: IEEEtran (journal mode), IEEE reference style (IEEEtran.bst).
 %% Compile: pdflatex main; bibtex main; pdflatex main; pdflatex main
+%% Figures are drawn by ../tools/make_figures.py; counts come from ../Survey3_data_package.
 %% =============================================================================
 \documentclass[journal]{IEEEtran}
 \usepackage{cite}
@@ -17,75 +18,101 @@
 \usepackage[hidelinks]{hyperref}
 %% [FILL: ...] marks text the authors must complete before submission.
 \newcommand{\fillin}[1]{{\color{red}\bfseries [FILL: #1]}}
-\hyphenation{op-tical net-works semi-conduc-tor}
+\hyphenation{op-tical net-works semi-conduc-tor orch-es-tra-tor}
 
 \begin{document}
-\title{Adaptive Orchestration of Learning Modalities for Embodied Agents on Edge Hardware: A Survey}
+\title{Meta-Learning Orchestration of Learning Modalities on Resource-Constrained Robots: A Systematic Review}
 
-%% ---------------------------------------------------------------------------
-%% AUTHORS -- replace the placeholders. IEEE requires full names, membership
-%% grades (if any), affiliations in the \thanks footnote, and biographies.
-%% ---------------------------------------------------------------------------
-\author{Firstname~Lastname,~\IEEEmembership{Student Member,~IEEE,}
-        and~Second~Author,~\IEEEmembership{Member,~IEEE}%
-\thanks{F. Lastname and S. Author are with the Department of ..., Institution, City, Country (e-mail: author@institution.edu).}%
-\thanks{Manuscript received Month DD, 2026; revised Month DD, 2026.}}
+\author{Yeshwanth~Guru
+        and~Dev~Kunwar~Singh~Chauhan%
+\thanks{Y. Guru and D. K. S. Chauhan are with the Department of Mechanical Engineering, Amrita School of Engineering, Amrita Vishwa Vidyapeetham, Chennai 601103, India (e-mail: g\_yeshwanth@ch.students.amrita.edu; c\_devsingh@ch.amrita.edu). Corresponding author: Yeshwanth Guru. ORCID: Y. Guru 0009-0007-6353-4033; D. K. S. Chauhan 0000-0002-1466-4567.}%
+\thanks{Manuscript received \fillin{date}.}}
 
 \markboth{IEEE Transactions on Neural Networks and Learning Systems}%
-{Lastname \MakeLowercase{\textit{et al.}}: Adaptive Orchestration of Learning Modalities on Edge Hardware}
+{Guru and Chauhan: Meta-Learning Orchestration on Resource-Constrained Robots}
 
 \maketitle
 
 \begin{abstract}
-Low-cost robots are increasingly expected to perceive, learn from demonstration, improve through reinforcement, and recover from faults on the robot itself, without a cloud connection. Each of these learning modalities has matured separately, and large language models (LLMs) and vision--language--action (VLA) models now offer ways to plan over them. What is missing is a principled account of how an embodied agent should decide which modality to invoke, how much computation to spend, and how far to trust the result. This survey reviews 180 works that bear on this question, spanning LLM planners, VLA models, uncertainty quantification, reinforcement, imitation and meta-learning, fault recovery, uncertainty fusion, on-device continual learning, mixture-of-experts and adaptive computation, low-cost hardware, and safe learning. We organize the literature around four modalities, each paired with a confidence signal: epistemic uncertainty for perception, policy variance for reinforcement learning, behavioral fidelity for imitation, and recovery success for fault adaptation. Every work is graded on a six-level evidence scale. The components exist separately, but no published system composes heterogeneous learning modalities under a learned, uncertainty-aware, compute-budgeted orchestrator on edge hardware, and most capable models are too large for a 4-GB single-board computer. An illustrative simulation shows that routing on miscalibrated confidences lowers success from 0.85 to 0.81 at equal cost, and that recalibration restores it. We formalize orchestration as budget-constrained, confidence-driven routing and identify open challenges in cross-modality calibration, training while acting, and the safety of self-modifying learners.
+A low-cost robot that must perceive, learn from demonstration, improve through reinforcement and recover from faults on its own hardware cannot run every learned model at every step. It needs an orchestrator: a component that decides which learning modality to invoke, how much computation to spend and how far to trust the result, and that improves these decisions from experience. This systematic review asks whether the literature supports such a meta-learned orchestrator on resource-constrained hardware. Following PRISMA 2020, 180 works were included from a curated list, structured searches and a targeted search closed on 4 October 2026. Each work was graded on a six-level evidence scale, coded for the platform its inference needs and for the confidence signal it exposes, and the 161 primary studies were appraised against seven criteria. The components exist separately: calibrated or epistemic confidence signals, conformal help-seeking, budget-aware routers, adaptive computation inside policies, meta-learned adaptation and on-device fine-tuning. Their combination does not. No included work arbitrates between more than two heterogeneous learning modalities with a learned, calibrated and compute-budgeted gate; of the 65 real-robot studies, only five run inference on a Raspberry-Pi-class processor and only two of these expose a confidence signal. Most systems need a workstation GPU (68 works) or a datacenter (34). The review formalizes orchestration as confidence-driven routing in a constrained Markov decision process and treats the orchestrator as a meta-learner. An illustrative simulation shows that miscalibration lowers routing success from 0.85 to 0.81 and that a calibration prior meta-learned across tasks recovers most of the loss within the first 25 steps on a new task (0.82 against 0.77 when learning from scratch). The review closes with an evaluation protocol for real robots and five open problems.
 \end{abstract}
 
 \begin{IEEEkeywords}
-Adaptive computation, edge computing, embodied agents, large language models, meta-learning, mixture of experts, robot learning, uncertainty quantification.
+Adaptive computation, edge computing, embodied agents, meta-learning, mixture of experts, robot learning, systematic review, uncertainty quantification.
 \end{IEEEkeywords}
 
 
 \section{Introduction}\label{sec:intro}
 
-\subsection{Adaptive Embodied Agents on Edge Hardware}\label{sec:problem}
-\IEEEPARstart{A}{} household or laboratory robot faces a stream of situations that no single learned policy handles well. It must recognize objects it has not seen, refine a skill that almost works, copy a behavior a person has just demonstrated, and keep functioning when a wheel slips or a joint degrades. Robot learning has developed a separate family of methods for each of these needs. Uncertainty-aware perception~\cite{Gal2016,Kendall2017}, deep reinforcement learning (RL)~\cite{Haarnoja2018,Schulman2017}, imitation learning~\cite{Chi2023,Zhao2023} and fault adaptation~\cite{Cully2015,Kumar2021} have each produced impressive results. Two recent developments raise the question of how to combine them. LLMs can decompose tasks and call skills or tools~\cite{Ahn2022,Yao2023a,Schick2023}, and generalizt VLA models attempt to replace the separate modules with a single network~\cite{Brohan2023b,Kim2024,Black2024}.
+\subsection{Adaptive Embodied Agents on Resource-Constrained Hardware}\label{sec:problem}
+\IEEEPARstart{A}{} household or laboratory robot faces a stream of situations that no single learned policy handles well. It must recognize objects it has not seen, refine a skill that almost works, copy a behavior a person has just demonstrated, and keep functioning when a wheel slips or a joint degrades. Robot learning has developed a separate family of methods for each of these needs. Uncertainty-aware perception~\cite{Gal2016,Kendall2017}, deep reinforcement learning (RL)~\cite{Haarnoja2018,Schulman2017}, imitation learning~\cite{Chi2023,Zhao2023} and fault adaptation~\cite{Cully2015,Kumar2021} have each produced strong results. Two recent developments raise the question of how to combine them. Large language models (LLMs) can decompose tasks and call skills or tools~\cite{Ahn2022,Yao2023a,Schick2023}, and generalist vision--language--action (VLA) models attempt to replace the separate modules with a single network~\cite{Brohan2023b,Kim2024,Black2024}.
 
-Both routes are hard to realize on low-cost hardware. The LLM planners in the literature typically call cloud-hosted models, and the strongest VLAs have billions of parameters and require GPU inference (Section \ref{sec:vla}). Low-cost platforms such as the LeKiwi mobile manipulator from the open-source LeRobot ecosystem~\cite{Cadene2026,Cadene2024} carry a single-board computer, two cameras and a small arm. An agent on such a platform cannot run every model all the time. It must decide which learning modality to use, when to spend computation, when to trust a module's output, and how to improve those decisions from experience.
+Both routes are hard to realize on low-cost hardware. The LLM planners in the literature typically call cloud-hosted models, and the strongest VLAs have billions of parameters and need GPU inference (Section \ref{sec:vla}). Low-cost platforms such as the LeKiwi mobile manipulator from the open-source LeRobot ecosystem~\cite{Cadene2026,Cadene2024} carry a single-board computer, two cameras and a small arm. An agent on such a platform cannot run every model all the time. It must decide which learning modality to use, when to spend computation, when to trust a module's output, and how to improve those decisions from experience. This review calls the component that makes these decisions the \emph{orchestrator}, and asks what the literature offers for building it.
 
 
-\subsection{An Organizing Framework: Four Modalities and Their Confidence Signals}\label{sec:framework}
-This survey organizes the literature around a design question: can an embodied agent on edge hardware adapt better if a small, local, trainable orchestrator learns to allocate computation across several learning modalities, using calibrated confidence signals that each modality emits? We consider four modality--signal pairs: vision perception with epistemic uncertainty; reinforcement learning (RL) with policy variance; imitation learning with behavioral fidelity; and fault adaptation with recovery-success rate. The orchestrator is framed as a meta-learner that improves online through parameter-efficient fine-tuning, replay, and continual learning. Fig. \ref{fig:arch} sketches the architecture. The framework is used as a lens: for each component, we ask what the literature already provides, what is missing, and what would have to be shown for the composition to work.
+\subsection{Organizing Framework: Four Modalities, Their Confidence Signals and a Meta-Learned Gate}\label{sec:framework}
+The review is organized around a design question: can an embodied agent on resource-constrained hardware adapt better if a small, local, trainable orchestrator learns to allocate computation across several learning modalities, using calibrated confidence signals that each modality emits? Four modality--signal pairs are considered: vision perception with epistemic uncertainty; RL with policy variance; imitation learning with behavioral fidelity; and fault adaptation with recovery-success rate. The orchestrator is framed as a \emph{meta-learner}: it does not learn a task but learns, across a distribution of tasks, how to use the learners it has, and it adapts that knowledge to a new task or robot condition from a few outcomes. Fig. \ref{fig:arch} shows the architecture used as the lens of the review. For each component, the review asks what the literature already provides, what is missing and what would have to be shown for the composition to work.
 
 \begin{figure*}[!t]
 \centering
-\includegraphics[width=0.85\textwidth]{figures/Fig1_architecture.png}
-\caption{Architecture used to organize this survey. Four learning modalities each emit a confidence signal; signals are calibrated, normalized, and fused; a local LLM orchestrator or learned gate decides which modalities to invoke within a compute budget; and the orchestrator improves online through low-rank adaptation (LoRA) updates, replay, and meta-learning.}\label{fig:arch}
+\includegraphics[width=\textwidth]{figures/Fig1_architecture.png}
+\caption{Architecture used to organize the review. Each learning modality emits a confidence signal that a per-modality calibration map turns into an estimate of the probability of success. The orchestrator, a small meta-learned gate, chooses the modality to run within a compute budget, subject to a fixed safety fallback. Outcomes are stored and used between episodes to recalibrate the signals, update the gate's adapter and refine the meta-learned prior. The dashed input is the human-model signal developed in the companion paper~\cite{Guru2026c}.}\label{fig:arch}
 \end{figure*}
 
 
 \subsection{Scope}\label{sec:scope}
-We restrict attention to a single robot. We treat ``on-device'' as covering computation on the robot and on a local computer connected to it, but never a remote cloud service. This distinction matters in practice: the standard configuration of the LeKiwi mobile manipulator runs a Raspberry Pi 5 on the robot and streams observations over ZeroMQ to a laptop, where heavier policies run~\cite{Cadene2026}. Multi-robot federated learning is discussed only as a source of fusion ideas (Section \ref{sec:federated}), and quantum and neuromorphic hardware are out of scope.
+The review is restricted to a single robot. ``On-device'' covers computation on the robot and on a local computer connected to it, but never a remote cloud service. This distinction matters in practice: the standard configuration of the LeKiwi mobile manipulator runs a Raspberry Pi 5 on the robot and streams observations over ZeroMQ to a laptop, where heavier policies run~\cite{Cadene2026}. Multi-robot federated learning is discussed only as a source of fusion ideas (Section \ref{sec:federated}). Quantum and neuromorphic hardware are outside the scope; quantum technologies for robotics and quantum-like models of decision-making are reviewed in two companion surveys by the same authors~\cite{Guru2026a,Guru2026b}.
+
+
+\subsection{Research Questions}\label{sec:rqs}
+Five research questions structure the review:
+\begin{itemize}
+\item \textbf{RQ1.} Which learning modalities can a resource-constrained robot draw on, and which confidence signal can each modality emit? (Sections \ref{sec:background}, \ref{sec:vision}--\ref{sec:fault})
+\item \textbf{RQ2.} How is the choice among models, skills or modalities made in current systems, and is that choice learned, uncertainty-aware, compute-budgeted and deployable on edge hardware? (Sections \ref{sec:llm}, \ref{sec:vla}, \ref{sec:routing})
+\item \textbf{RQ3.} Which confidence signals are cheap and calibrated enough to be compared and fused on edge hardware? (Sections \ref{sec:vision}--\ref{sec:fault}, \ref{sec:fusion})
+\item \textbf{RQ4.} Can meta-learning and on-device adaptation train such an orchestrator on the robot within its memory and compute? (Sections \ref{sec:meta}, \ref{sec:ondevice})
+\item \textbf{RQ5.} How far does the published evidence go toward a physical, resource-constrained robot, and what evaluation would show that orchestration outperforms its strongest single component? (Sections \ref{sec:profile}, \ref{sec:platforms})
+\end{itemize}
+Section \ref{sec:synthesis} answers each question.
 
 
 \subsection{Related Surveys and Contributions}\label{sec:related}
-Existing surveys cover the components of this problem separately: uncertainty in deep networks~\cite{Gawlikowski2023}, meta-learning~\cite{Hospedales2022}, continual learning~\cite{DeLange2022}, multimodal learning~\cite{Baltrusaitis2019}, federated learning~\cite{Kairouz2021,Qi2021}, imitation learning~\cite{Osa2018}, safe learning in robotics~\cite{Brunke2022,Garcia2015}, fault detection in robots~\cite{Khalastchi2018}, anomaly detection~\cite{Pang2021}, and efficient VLA models~\cite{Yu2025}. None of them addresses how heterogeneous learners should be orchestrated on resource-constrained hardware. This survey makes six contributions.
+Existing surveys cover the components of the problem separately: uncertainty in deep networks~\cite{Gawlikowski2023}, meta-learning~\cite{Hospedales2022}, continual learning~\cite{DeLange2022}, multimodal learning~\cite{Baltrusaitis2019}, federated learning~\cite{Kairouz2021,Qi2021}, imitation learning~\cite{Osa2018}, safe learning in robotics~\cite{Brunke2022,Garcia2015}, fault detection in robots~\cite{Khalastchi2018}, anomaly detection~\cite{Pang2021} and efficient VLA models~\cite{Yu2025}. None of them addresses how heterogeneous learners should be orchestrated on resource-constrained hardware, and none grades its corpus by how close the evidence comes to such hardware. The review makes six contributions.
 
 \begin{itemize}
-\item A modality-by-signal taxonomy that pairs each learning modality with a confidence signal that it can emit cheaply (Table \ref{tab:signals}).
-\item A graded review of 180 works, each classified by evidence level and by compute footprint relative to a Raspberry-Pi-class robot (Table \ref{tab:levels}, Fig. \ref{fig:evidence}).
-\item A gap analysis showing that learned, uncertainty-aware, budget-constrained arbitration between heterogeneous learners on edge hardware has not been demonstrated (Sections \ref{sec:gap} and \ref{sec:position}, Fig. \ref{fig:position}).
-\item A formal problem statement as budget-constrained, confidence-driven routing (Section \ref{sec:formal}).
-\item An illustrative simulation of the effect of miscalibration on routing (Section \ref{sec:gate}).
-\item An evaluation protocol for real-robot studies and a set of open challenges (Sections \ref{sec:platforms}--\ref{sec:challenges}).
+\item A modality-by-signal taxonomy that pairs each learning modality with a confidence signal it can emit cheaply (Table \ref{tab:signals}).
+\item A systematic, reproducible review of 180 works, each graded on a six-level evidence scale, coded for the platform its inference needs and the confidence signal it exposes, and appraised against seven criteria; the data and coding rules are released (Section \ref{sec:method}).
+\item An evidence profile showing where the literature stops short of the target: real-robot studies rarely run on edge processors and rarely expose a confidence signal (Section \ref{sec:profile}, Fig. \ref{fig:edgesignal}).
+\item A gap analysis and a formal problem statement of orchestration as budget-constrained, confidence-driven routing, with the orchestrator cast as a meta-learner (Sections \ref{sec:meta} and \ref{sec:routing}).
+\item An illustrative simulation of the effect of miscalibration on routing and of a meta-learned calibration prior on adaptation to a new task (Section \ref{sec:gate}, Appendix \ref{app:sim}).
+\item An evaluation protocol for real-robot studies and five open problems (Sections \ref{sec:platforms} and \ref{sec:challenges}).
 \end{itemize}
 
 
 \subsection{Organization}\label{sec:organization}
-Section \ref{sec:method} describes the review methodology. Section \ref{sec:background} introduces the four learning modalities. Sections \ref{sec:llm} and \ref{sec:vla} review LLM orchestrators and VLA models. Sections \ref{sec:vision}--\ref{sec:fault} review the four modalities and their confidence signals. Sections \ref{sec:meta}--\ref{sec:ondevice} cover meta-learning, uncertainty fusion, and on-device adaptation, and Section \ref{sec:routing} covers adaptive computation, mixture of experts, and the formal problem statement. Section \ref{sec:platforms} discusses low-cost platforms and evaluation, Section \ref{sec:challenges} the open challenges, and Section \ref{sec:conclusion} concludes.
+Section \ref{sec:method} describes the review method and Section \ref{sec:profile} the evidence profile of the corpus. Section \ref{sec:background} introduces the four learning modalities. Sections \ref{sec:llm} and \ref{sec:vla} review LLM orchestrators and VLA models. Sections \ref{sec:vision}--\ref{sec:fault} review the four modalities and their confidence signals. Sections \ref{sec:meta}--\ref{sec:ondevice} cover meta-learning, uncertainty fusion and on-device adaptation, and Section \ref{sec:routing} covers adaptive computation, mixture of experts and the formal problem statement. Section \ref{sec:platforms} discusses low-cost platforms and evaluation, Section \ref{sec:synthesis} answers the research questions, Section \ref{sec:challenges} lists open challenges and Section \ref{sec:conclusion} concludes.
 
 
-\section{Review Methodology}\label{sec:method}
-The corpus combines a curated list of 108 works with 72 works found by structured searches of arXiv, conference proceedings (CoRL, RSS, ICRA, IROS, NeurIPS, ICML, ICLR) and publisher sites. The searches, conducted in September 2026, covered: uncertainty-aware LLM and VLA planning; efficient and edge VLAs; budget-aware model routing; RL fine-tuning of large policies; failure detection and recovery with foundation models; uncertainty fusion and calibration; continual and on-device learning; safe learning; and low-cost hardware and evaluation methodology. Every work was checked against its arXiv or publisher record, and about twenty entries of the original list needed corrections to year, venue, or authors. Each work was read from its abstract or full text and classified by evidence level (Table \ref{tab:levels}) and by compute footprint. \fillin{search strings and hit counts per source} Fig. \ref{fig:evidence} shows the distribution of evidence levels by section; 81 works are at E3, 56 at E4 and 9 at E5, and none reaches E6.
+\section{Review Method}\label{sec:method}
+The review follows the PRISMA 2020 statement~\cite{Page2021} and the guidelines of Kitchenham and Charters for systematic reviews in computing~\cite{Kitchenham2007}. It was registered retrospectively on the Open Science Framework \fillin{OSF registration DOI}; the protocol text, the search record and the retraction check are released with the data. Fig. \ref{fig:prisma} shows the flow of records.
+
+\subsection{Eligibility Criteria}\label{sec:criteria}
+A work was included if it (I1) proposed, evaluated or reviewed a method in one of twelve component areas of learned orchestration for embodied agents: LLM planners and orchestrators; VLA and robot foundation models; perception with epistemic uncertainty; RL and policy variance; imitation learning and behavioral fidelity; fault detection, adaptation and recovery; meta-learning; uncertainty fusion and calibration; on-device adaptation and continual learning; adaptive computation, mixture of experts and routing; low-cost platforms, benchmarks and evaluation; and safe learning; (I2) reported the method and its evaluation in enough detail to be graded, or was a review, benchmark or software release that defines a component; and (I3) was a journal article, conference paper or arXiv preprint in English published between 1991 and October 2026. A work was excluded if it (X1) concerned multi-robot or fleet learning without a single-robot component, (X2) concerned quantum or neuromorphic hardware, (X3) could not be located or verified on an arXiv or publisher page, (X4) was not a scholarly source (blog, product page, talk abstract or model card) or (X5) duplicated an included work, in which case the archival version was kept.
+
+\subsection{Information Sources and Search}\label{sec:search}
+The corpus was assembled in three stages. Stage 1 was a curated reading list of 108 works, assembled while the orchestration framework was designed. Every item was checked against its arXiv or publisher record, and 30 bibliographic details (year, venue, title or authors) were corrected. Stage 2, in September 2026, comprised structured searches of arXiv, the proceedings of CoRL, RSS, ICRA, IROS, NeurIPS, ICML and ICLR, and publisher sites in ten topic streams: uncertainty-aware LLM and VLA planning; efficient and edge VLAs; budget-aware model routing; RL fine-tuning of large policies; failure detection and recovery with foundation models; uncertainty fusion and calibration; continual and on-device learning; adaptive computation in robot policies; safe learning; and low-cost hardware and evaluation methodology. Backward citation chasing from the reviews in the corpus supplemented the streams, and 72 works were added. The exact strings and hit counts of stage 2 were not logged; the concept blocks that reproduce their scope are given in the supplementary material (Section S2). Stage 3 was a logged targeted search on the title topic, run on 4 October 2026. It returned seven new records: three were excluded (a talk page, a non-embodied agent and an LLM-only study) and four were recorded as candidates for full-text screening and are not counted in the corpus. The corpus was closed on 4 October 2026. All 180 references were matched against the Retraction Watch Database (72,870 records, current to 22 September 2026), and none has been retracted.
+
+\begin{figure}[!t]
+\centering
+\includegraphics[width=\columnwidth]{figures/Fig2_prisma.png}
+\caption{Flow of records through the review (PRISMA 2020). Search hit counts were not logged for stage 2. The four stage-3 candidates await full-text screening and are not counted in the corpus.}\label{fig:prisma}
+\end{figure}
+
+\subsection{Data Extraction and Coding}\label{sec:extraction}
+For every work, a structured write-up recorded the task, method, setup and data, key result, limitation, compute footprint relative to a Raspberry-Pi-class robot and role in the orchestration framework. Thirteen write-ups were made from the full text, 162 from the abstract and the publisher or arXiv page, and five from the standard description of well-known works; numbers not stated in the abstract are marked as such and were not inferred. Two attributes were then hand-coded for every work that is not a review. The \emph{edge class} records the platform that the system's inference needs as published: Raspberry-Pi-class or embedded CPU; embedded GPU (Jetson class); workstation GPU (a desktop, laptop or single consumer GPU); datacenter or cloud; or not stated. The \emph{confidence-signal class} records the signal the work provides or uses: conformal or explicitly calibrated; epistemic uncertainty (ensembles, dropout, evidential or Bayesian posteriors); failure, anomaly or novelty score; policy variance or entropy; routing score or predicted quality; or none. The extraction table, summaries and coding files are released (Data Availability).
+
+\subsection{Evidence Levels}\label{sec:levels}
+Every work was graded on the scale of Table \ref{tab:levels}. The levels follow the steps a component must pass before it can be relied on in an orchestrated robot: it is proposed (E1), specified as an algorithm or analysis (E2), evaluated in simulation or on a benchmark (E3), shown on a physical robot (E4), shown on several platforms or at scale (E5) and used with real users over time (E6). The scale is ordinal and was designed for this review. It grades how far the evidence goes toward a deployed robot, not the scientific quality of the work, and ambiguous cases received the lower level. A second rater re-graded a random sample \fillin{second rater; sample size; Cohen's kappa for evidence levels and edge class}.
 
 \begin{table*}[!t]
 \centering
@@ -100,18 +127,53 @@ E3 & Simulation or benchmark & Evaluated in simulation or on standard datasets &
 E4 & Real robot (laboratory) & Demonstrated on physical robots in the laboratory & Sentinel~\cite{Agia2024}; MoE-Loco~\cite{Huang2025} & 56 \\
 E5 & Real robot (extensive) & Extensive real-robot evaluation or multiple platforms & OpenVLA~\cite{Kim2024}; QT-Opt~\cite{Kalashnikov2018} & 9 \\
 E6 & Deployment & Sustained deployment with real users & None found & 0 \\
-R/S & Review or software & Surveys, tutorials, libraries, and benchmarks & LeRobot~\cite{Cadene2026} & 19 \\
+R & Review & Surveys and tutorials & Uncertainty survey~\cite{Gawlikowski2023} & 14 \\
+S & Software or dataset & Libraries, datasets and benchmark suites & LeRobot~\cite{Cadene2024} & 5 \\
 \bottomrule
 \end{tabular}
 \end{table*}
 
+\subsection{Quality Appraisal}\label{sec:appraisal}
+The 161 primary studies at levels E2--E5 were appraised against seven criteria chosen for the orchestration question: Q1 method specification; Q2 comparison with a named baseline; Q3 physical validation; Q4 reporting of compute, latency or memory; Q5 quantitative evaluation; Q6 release of code or models; and Q7 a confidence signal that an orchestrator could read. Each criterion was coded as met (M), partly met (P), not met (N) or not assessable without the full text (?), by explicit rules applied to the extraction fields; the rules are listed in the codebook of the data package, and ambiguous cases received the lower code. Because most codes rest on abstracts, the appraisal is a first pass, to be confirmed against the full texts. Table \ref{tab:appraisal} gives the results. Most studies specify their method (Q1 met in 104) and report a result with a number (Q5 met in 68), but only 36 report compute, latency or memory as a number (Q4), and only 36 expose a calibrated, epistemic, failure or policy-variance signal (Q7). Code release (Q6) could be confirmed for only six, because abstracts rarely state it.
+
+\begin{table}[!t]
+\centering
+\caption{Quality Appraisal of the 161 Primary Studies (E2--E5): Number of Studies per Code}\label{tab:appraisal}%
+\footnotesize
+\begin{tabular}{@{}lrrrr@{}}
+\toprule
+\textbf{Criterion} & \textbf{M} & \textbf{P} & \textbf{N} & \textbf{?} \\ \midrule
+Q1 Method specification & 104 & 57 & 0 & 0 \\
+Q2 Baseline comparison & 46 & 50 & 41 & 24 \\
+Q3 Physical validation & 63 & 2 & 96 & 0 \\
+Q4 Compute reporting & 36 & 19 & 106 & 0 \\
+Q5 Quantitative evaluation & 68 & 30 & 0 & 63 \\
+Q6 Code or model release & 6 & 0 & 0 & 155 \\
+Q7 Confidence signal & 36 & 24 & 101 & 0 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Synthesis and Threats to Validity}\label{sec:threats}
+Outcomes are too heterogeneous for meta-analysis, so the synthesis is narrative and organized by the framework of Fig. \ref{fig:arch}, supported by counts by evidence level, edge class and signal class. Several threats apply. The field moves quickly, and 25 of the included works were preprints at the time of the search. Most write-ups rest on abstracts, which can misstate the evidence level or omit compute figures; this biases Q4 and Q5 downward and is why the lower level or code was assigned in doubtful cases. Screening and extraction were done by one reviewer, with the evidence levels and coding of the core works checked by the second author. The stage-2 search strings were not logged, so that stage cannot be reproduced exactly; the concept blocks and the logged stage-3 search partly compensate. The edge class records what the published system used, not what a smaller variant might achieve, and compute figures were not measured on a common platform. Finally, the illustrative simulation uses synthetic data and makes no claim about robot performance.
+
+
+\section{Evidence Profile of the Corpus}\label{sec:profile}
+Fig. \ref{fig:evidence} shows the evidence levels by topic. The corpus is dominated by simulation and benchmark studies (81 works at E3) and laboratory robot studies (56 at E4); nine works reach E5 and none reaches E6. Real-robot evidence is concentrated in VLA models, fault detection and recovery, and LLM planning. In contrast, on-device adaptation and adaptive computation, the two areas that an edge orchestrator depends on most, are evaluated almost entirely in simulation or on benchmarks (19 of 23 and 14 of 20 works at E3).
+
 \begin{figure*}[!t]
 \centering
-\includegraphics[width=0.85\textwidth]{figures/Fig2_evidence.png}
-\caption{Evidence levels of the 180 works by survey section. E1 conceptual; E2 algorithmic or analytic; E3 simulation or benchmark; E4 real robot (laboratory); E5 real robot (extensive or multi-platform); E6 deployment. No work reaches E6.}\label{fig:evidence}
+\includegraphics[width=\textwidth]{figures/Fig3_evidence.png}
+\caption{Evidence levels of the 180 included works by topic. E2 algorithmic or analytic; E3 simulation or benchmark; E4 real robot (laboratory); E5 real robot (extensive or multi-platform). No work reaches E1 or E6.}\label{fig:evidence}
 \end{figure*}
 
-\textit{Threats to validity.} Several threats apply. The field moves quickly, and many relevant works are preprints that have not yet been peer-reviewed. Some works were classified from their abstracts rather than their full texts, which may have led to errors in the assigned evidence level; when in doubt, we assigned the lower level. The evidence levels grade how far a work goes toward a deployed robot, not its scientific quality. The compute-footprint assessment relies on figures reported in the papers, which are not measured on a common platform.
+Fig. \ref{fig:edgesignal} cross-tabulates the evidence level with the edge class and the confidence-signal class. Two patterns stand out. First, the works that run on a Raspberry-Pi-class processor are mostly algorithms and simulation studies (41 of 46 at E2 or E3); of the 65 real-robot studies (E4 and E5), 36 need a workstation GPU, 16 a datacenter or cloud service and only five run on a Pi-class processor: hindsight experience replay~\cite{Andrychowicz2017}, intelligent trial and error~\cite{Cully2015}, meta-learned dynamics for online adaptation~\cite{Nagabandi2019}, rapid motor adaptation~\cite{Kumar2021} and ThriftyDAgger~\cite{Hoque2021}. Second, 106 of the 166 non-review works expose no confidence signal at all. Among the real-robot studies, 14 expose a calibrated, epistemic, failure or policy-variance signal, and most of these are failure detectors and help-seeking planners that run on GPUs~\cite{Agia2024,Xu2025,Gu2025,Ren2023,Yuan2026}. Only two works are at once on a real robot, on a Pi-class processor and equipped with such a signal: intelligent trial and error, whose Gaussian-process posterior guides recovery after damage~\cite{Cully2015}, and ThriftyDAgger, whose novelty and risk estimates decide when to hand control to a human~\cite{Hoque2021}. Each arbitrates between two options. No included work arbitrates between more than two heterogeneous learning modalities with a learned, calibrated and compute-budgeted gate on any hardware.
+
+\begin{figure*}[!t]
+\centering
+\includegraphics[width=\textwidth]{figures/Fig4_edge_signal.png}
+\caption{Evidence level of the 166 non-review works against (a) the platform their inference needs as published and (b) the confidence signal they provide or use. Hand-coded from the structured write-ups; coding rules in the data package.}\label{fig:edgesignal}
+\end{figure*}
 
 
 \section{Learning Modalities in Robotics}\label{sec:background}
@@ -127,7 +189,7 @@ R/S & Review or software & Surveys, tutorials, libraries, and benchmarks & LeRob
 
 
 \subsection{Why Each Modality Alone Is Insufficient}\label{sec:insufficient}
-Each modality has a characteriztic failure. Perception is brittle out of distribution and often overconfident~\cite{Guo2017,Hendrycks2017}. RL is sample-hungry and unsafe to explore on hardware~\cite{Brunke2022}. Imitation cannot exceed its demonstrations and degrades under distribution shift~\cite{Ross2011}. Fault adaptation methods are specialized to a platform or a class of damage~\cite{Kumar2021}. Robustness baked in offline, for example by domain randomization~\cite{Tobin2017}, cannot anticipate every failure. No single modality covers the situations a long-lived robot will meet.
+Each modality has a characteristic failure. Perception is brittle out of distribution and often overconfident~\cite{Guo2017,Hendrycks2017}. RL is sample-hungry and unsafe to explore on hardware~\cite{Brunke2022}. Imitation cannot exceed its demonstrations and degrades under distribution shift~\cite{Ross2011}. Fault adaptation methods are specialized to a platform or a class of damage~\cite{Kumar2021}. Robustness baked in offline, for example by domain randomization~\cite{Tobin2017}, cannot anticipate every failure. No single modality covers the situations a long-lived robot will meet.
 
 
 \subsection{The Case for Composition}\label{sec:composition}
@@ -193,11 +255,11 @@ Target (unoccupied) & Yes, online on device & Yes, across four modalities & Yes 
 \section{VLA and Robot Foundation Models}\label{sec:vla}
 
 \subsection{Vision--Language--Action Models}\label{sec:vlamodels}
-VLA models map images and language directly to actions. RT-1 trained a transformer on large real-robot datasets~\cite{Brohan2023a}, and RT-2 co-fine-tuned a vision--language model to transfer web knowledge to control, evaluated over 6,000 trials~\cite{Brohan2023b}. OpenVLA, a 7B open model, outperformed the 55B RT-2-X by 16.5 percentage points in absolute success and can be fine-tuned with LoRA on consumer GPUs~\cite{Kim2024}. Octo~\cite{Octo2024}, \ensuremath{\pi}0~\cite{Black2024}, RoboCat~\cite{Bousmalis2023}, Gato~\cite{Reed2022}, VIMA~\cite{Jiang2023}, PerAct~\cite{Shridhar2022} and RoboFlamingo~\cite{Li2024a} extend the generalizt program, and cross-embodiment datasets support it~\cite{OXE2024}.
+VLA models map images and language directly to actions. RT-1 trained a transformer on large real-robot datasets~\cite{Brohan2023a}, and RT-2 co-fine-tuned a vision--language model to transfer web knowledge to control, evaluated over 6,000 trials~\cite{Brohan2023b}. OpenVLA, a 7B open model, outperformed the 55B RT-2-X by 16.5 percentage points in absolute success and can be fine-tuned with LoRA on consumer GPUs~\cite{Kim2024}. Octo~\cite{Octo2024}, \ensuremath{\pi}0~\cite{Black2024}, RoboCat~\cite{Bousmalis2023}, Gato~\cite{Reed2022}, VIMA~\cite{Jiang2023}, PerAct~\cite{Shridhar2022} and RoboFlamingo~\cite{Li2024a} extend the generalist program, and cross-embodiment datasets support it~\cite{OXE2024}.
 
 
-\subsection{Limitations of Generalizt Policies on Edge Hardware}\label{sec:generalizt}
-Generalizt policies are monolithic. They offer no handle for allocating computation across sub-skills, no native uncertainty estimate, and no mechanism for on-device improvement beyond offline fine-tuning. RL fine-tuning methods address the last point, for example raising OpenVLA's real-world success from 40\% to 70\% in 40 minutes~\cite{Mark2025}, reaching 96.3\% average success after 45--90 minutes of online training~\cite{Chen2025}, and scaling RL for VLAs~\cite{Lu2025,Li2026}. All of these need GPUs.
+\subsection{Limitations of Generalist Policies on Edge Hardware}\label{sec:generalist}
+Generalist policies are monolithic. They offer no handle for allocating computation across sub-skills, no native uncertainty estimate, and no mechanism for on-device improvement beyond offline fine-tuning. RL fine-tuning methods address the last point, for example raising OpenVLA's real-world success from 40\% to 70\% in 40 minutes~\cite{Mark2025}, reaching 96.3\% average success after 45--90 minutes of online training~\cite{Chen2025}, and scaling RL for VLAs~\cite{Lu2025,Li2026}. All of these need GPUs.
 
 
 \subsection{Memory, Latency, and Compute}\label{sec:memory}
@@ -205,7 +267,7 @@ Fig. \ref{fig:size} compares model sizes with the memory of a 4 GB Raspberry Pi 
 
 \begin{figure}[!t]
 \centering
-\includegraphics[width=\columnwidth]{figures/Fig3_model_size.png}
+\includegraphics[width=\columnwidth]{figures/Fig5_model_size.png}
 \caption{Parameter counts of representative planners and policies (log scale) compared with a 4 GB Raspberry Pi 5, whose memory holds the 16-bit weights of at most about 2 billion parameters before any activations or operating system. Sizes from the cited papers; ACT's size as reported in the LeRobot paper.}\label{fig:size}
 \end{figure}
 
@@ -217,7 +279,7 @@ The evidence favors a modular design: small specialized policies (ACT-scale imit
 \section{Vision Perception With Epistemic Uncertainty}\label{sec:vision}
 
 \subsection{Perception Pipeline}\label{sec:pipeline}
-The perception modality turns camera images into task-relevant state such as object classes, masks and poses. On a low-cost robot with two RGB cameras and no depth sensor, 2D detection and segmentation with language-conditioned encoders~\cite{Radford2021,Shridhar2021} are the realiztic options. Voxel-based methods such as PerAct assume depth input~\cite{Shridhar2022}. Domain randomization yields detectors robust enough for 1.5 cm localization in clutter~\cite{Tobin2017}.
+The perception modality turns camera images into task-relevant state such as object classes, masks and poses. On a low-cost robot with two RGB cameras and no depth sensor, 2D detection and segmentation with language-conditioned encoders~\cite{Radford2021,Shridhar2021} are the realistic options. Voxel-based methods such as PerAct assume depth input~\cite{Shridhar2022}. Domain randomization yields detectors robust enough for 1.5 cm localization in clutter~\cite{Tobin2017}.
 
 
 \subsection{Epistemic Uncertainty Quantification}\label{sec:uq}
@@ -272,7 +334,7 @@ An RL policy's confidence can be read in two ways: from the spread of its action
 
 
 \subsection{Sample Efficiency on Edge Hardware}\label{sec:rledge}
-Training RL on the robot is limited by sample efficiency and safety. Three strategies reduce the burden. The first is refining an imitation policy with a small residual RL policy~\cite{Yuan2025,Ankile2025}. The second is running RL in the latent noise space of a diffusion policy without changing its weights, which achieved sample-efficient real-world improvement~\cite{Wagenmaker2025}. The third is fine-tuning large policies with offline-to-online RL~\cite{Mark2025,Chen2025,Lu2025,Li2026}, which needs a GPU. On a Pi-class robot, only the first two are realiztic on board; heavier updates must run asynchronously on a local computer (Section \ref{sec:feasibility}).
+Training RL on the robot is limited by sample efficiency and safety. Three strategies reduce the burden. The first is refining an imitation policy with a small residual RL policy~\cite{Yuan2025,Ankile2025}. The second is running RL in the latent noise space of a diffusion policy without changing its weights, which achieved sample-efficient real-world improvement~\cite{Wagenmaker2025}. The third is fine-tuning large policies with offline-to-online RL~\cite{Mark2025,Chen2025,Lu2025,Li2026}, which needs a GPU. On a Pi-class robot, only the first two are realistic on board; heavier updates must run asynchronously on a local computer (Section \ref{sec:feasibility}).
 
 
 \section{Imitation Learning With Behavioral Fidelity}\label{sec:il}
@@ -313,26 +375,56 @@ Classical fault detection and diagnosis for robots is reviewed by Khalastchi and
 The fault modality's confidence is its empirical recovery-success rate for the current fault class, which can be maintained as a Beta posterior over successes and failures. Unlike the other signals, it is directly calibrated because it counts outcomes, but it is only available after enough attempts. Conformal thresholds give failure detectors false-alarm guarantees from successful data alone~\cite{Xu2025,Romer2025}.
 
 
-\section{Meta-Learning and Learning to Learn}\label{sec:meta}
+\section{Meta-Learning: Training the Orchestrator to Learn}\label{sec:meta}
+Meta-learning is the part of the framework that the title refers to. The orchestrator does not learn a task; it learns, across many tasks, how to use the learners it has, and it must adapt that knowledge quickly when the robot, the environment or a fault changes. This section reviews the meta-learning methods in the corpus (ten works, mostly at E3), states the orchestrator's meta-learning problem and asks which method fits the memory and compute of a Pi-class robot.
 
 \subsection{Foundations}\label{sec:metafound}
-MAML learns an initialization that adapts in a few gradient steps~\cite{Finn2017}, Reptile does so with first-order updates that are cheaper in memory~\cite{Nichol2018}, and prototypical networks adapt without gradients by comparing embeddings with class prototypes~\cite{Snell2017}. Learned optimizers meta-learn the update rule itself~\cite{Andrychowicz2016}. A survey organizes the field~\cite{Hospedales2022}.
+MAML learns an initialization that adapts in a few gradient steps~\cite{Finn2017}, Reptile does so with first-order updates that need no more memory than ordinary training~\cite{Nichol2018}, and prototypical networks adapt without gradients by comparing embeddings with class prototypes~\cite{Snell2017}. Learned optimizers meta-learn the update rule itself~\cite{Andrychowicz2016}. A survey organizes the field into what is meta-learned (initialization, optimizer, metric or model) and how~\cite{Hospedales2022}.
 
 
 \subsection{Meta-Reinforcement Learning}\label{sec:metarl}
-RL\ensuremath{^2} trains a recurrent policy whose hidden state implements a learning algorithm~\cite{Duan2016}. PEARL infers a probabilistic task context and was 20--100 times more sample-efficient than earlier meta-RL~\cite{Rakelly2019}, and VariBAD maintains a belief over tasks and acts under it~\cite{Zintgraf2020}. Meta-World showed that algorithms struggle with multiple tasks even with only ten training tasks~\cite{Yu2019}, a warning for orchestrators trained on narrow task distributions.
+RL$^2$ trains a recurrent policy whose hidden state implements a learning algorithm, so adaptation needs only forward passes~\cite{Duan2016}. PEARL infers a probabilistic task context and was 20--100 times more sample-efficient than earlier meta-RL~\cite{Rakelly2019}, and VariBAD maintains a belief over tasks and acts under it~\cite{Zintgraf2020}. Meta-learned dynamics models let a legged robot adapt online to a broken leg or new terrain within a few steps~\cite{Nagabandi2019}; this is the only real-robot meta-learning study in the corpus that runs at Pi-class cost, and it adapts a single learner. Meta-World showed that algorithms struggle even with ten training tasks~\cite{Yu2019}, a warning for orchestrators trained on narrow task distributions.
 
 
 \subsection{The Orchestrator as a Meta-Learner}\label{sec:orchmeta}
-The orchestrator does not learn a task; it learns how to use learners. This places it in the meta-learning family, with two roles.
+Let a task $\tau$ be a combination of robot, environment and fault condition, drawn from a distribution $p(\tau)$. In task $\tau$, the orchestrator with parameters $\theta$ routes among the modalities and collects outcomes; let $D_\tau^{\mathrm{tr}}$ be its first few routing decisions and outcomes, and $U_\tau(\theta, D_\tau^{\mathrm{tr}})$ its parameters after adapting to them. Meta-training seeks
+\begin{equation}
+\theta^\star=\arg\min_\theta\ \mathbb{E}_{\tau\sim p(\tau)}\Big[\mathcal{L}_\tau\big(U_\tau(\theta, D_\tau^{\mathrm{tr}})\big)\Big],\label{eq:meta}
+\end{equation}
+where $\mathcal{L}_\tau$ is the negative cost-penalized return of Section \ref{sec:formal} on the rest of the task. The inner update $U_\tau$ is what distinguishes the methods: a few gradient steps on the gate or its adapter (MAML, Reptile), a recurrent state update (RL$^2$), a posterior update over a latent task variable (PEARL, VariBAD) or a running estimate shrunk toward a meta-learned prior (Section \ref{sec:metacal}).
 
-\textit{Routing.} Given fused confidences and context, the orchestrator selects which modality to call. VariBAD's belief-conditioned action selection~\cite{Zintgraf2020} and PEARL's context inference~\cite{Rakelly2019} provide the formal template: treat the unknown reliability of each modality in the current situation as a latent task variable, and route under the posterior. Routing mechanisms are reviewed in Section \ref{sec:routing}.
+The orchestrator has two meta-learning roles. In \textit{routing}, given fused confidences and context, it selects the modality to call. Belief-conditioned action selection~\cite{Zintgraf2020} and context inference~\cite{Rakelly2019} provide the template: the unknown reliability of each modality in the current situation is a latent task variable, and routing proceeds under its posterior. In \textit{fast adaptation}, when a new task or robot condition appears, the orchestrator must adapt its routing within a few episodes. Meta-learned adapters for robot policies raised real-robot success from 60\% to 84\% with 20 demonstrations~\cite{Zhu2025}, and one-shot imitation shows the analogous result for policies~\cite{Duan2017}. No included work meta-learns a gate over heterogeneous learning modalities.
 
-\textit{Fast adaptation.} When a new task or robot condition appears, the orchestrator should adapt its routing within a few episodes. Online meta-learned adapters for robot policies show this is achievable with small parameter budgets~\cite{Zhu2025}, and one-shot imitation shows the analogous result for policies~\cite{Duan2017}.
+
+\subsection{Which Meta-Learner Fits an Edge Orchestrator}\label{sec:metafit}
+Table \ref{tab:metafit} compares the methods by what adaptation costs on the robot. The orchestrator itself can be small: its input is a context embedding, $K$ confidences and a budget, and its output is one of $K$ modalities, so a network of a few thousand parameters, or a LoRA adapter on a small language model, suffices. Meta-training can then run off-board in simulation, and only the inner update must run on the robot. On that criterion, methods whose inner update needs no gradients (RL$^2$, posterior inference, prototypes, prior shrinkage) are the cheapest, and Reptile is the cheapest gradient-based option; MAML's second-order meta-gradient matters only for meta-training.
+
+\begin{table*}[!t]
+\centering
+\caption{Meta-Learning Methods Judged by the Cost of Adapting an Orchestrator on a Pi-Class Robot}\label{tab:metafit}%
+\footnotesize
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{0.17\dimexpr\textwidth-8\tabcolsep\relax}>{\raggedright\arraybackslash}p{0.22\dimexpr\textwidth-8\tabcolsep\relax}>{\raggedright\arraybackslash}p{0.23\dimexpr\textwidth-8\tabcolsep\relax}>{\raggedright\arraybackslash}p{0.38\dimexpr\textwidth-8\tabcolsep\relax}@{}}
+\toprule
+\textbf{Method} & \textbf{Inner update on the robot} & \textbf{On-robot cost of adaptation} & \textbf{Fit for an orchestrator} \\ \midrule
+MAML~\cite{Finn2017} & Few gradient steps from a learned initialization & Ordinary backpropagation through the gate & Good for a small gate; second-order meta-training stays off-board \\
+Reptile, FOMAML~\cite{Nichol2018} & Few gradient steps & Ordinary backpropagation; no second-order terms & Cheapest gradient-based option; suits LoRA adapters \\
+Prototypical networks~\cite{Snell2017} & New prototypes from a few examples & One embedding pass; no gradients & Routing as nearest prototype over situation embeddings \\
+RL$^2$~\cite{Duan2016} & Recurrent state update & Forward pass only & No on-robot gradients; bounded by the training distribution \\
+PEARL, VariBAD~\cite{Rakelly2019,Zintgraf2020} & Posterior over a latent task variable & Encoder pass & Treats modality reliabilities as latent; gives uncertainty over the routing itself \\
+Learned optimizers~\cite{Andrychowicz2016} & Learned update rule & Small recurrent network per parameter & Memory overhead; feasible only for small adapters \\
+Meta-learned adapters~\cite{Zhu2025} & Adapter fine-tuning from a meta-learned start & Adapter-sized backpropagation & Closest robot evidence (E4), but for a single policy \\
+Meta-learned dynamics~\cite{Nagabandi2019} & Online update of a model prior & Small network; Pi-class & Only Pi-class real-robot example; single learner \\
+\bottomrule
+\end{tabular}
+\end{table*}
+
+
+\subsection{Meta-Learned Calibration}\label{sec:metacal}
+Calibration is the part of orchestration most exposed to change: a new robot, a worn gripper or a different room shifts how far each modality's confidence can be trusted (Section \ref{sec:comparable}). Learning the shift from scratch on each task costs routing errors while the estimates settle. Meta-learning offers a cheaper route. The systematic part of each modality's miscalibration, such as the overconfidence of policy entropy or of imitation action spread, can be estimated across training tasks and used as a prior, so that only the task-specific remainder has to be learned on the robot. The second part of the illustrative simulation tests this idea (Fig. \ref{fig:sim}(b), Appendix \ref{app:sim}). On each new task, the offsets of the four modalities' confidences are drawn around systematic values (0, 0.30, 0.25 and 0.05) with a task-to-task spread of 0.10. A gate that learns the offsets from scratch reached 0.77 success in its first 25 steps and 0.82 after 100 steps. A gate whose offsets started from a prior meta-learned on 50 training tasks reached 0.82 from the first steps, and a gate on raw confidences stayed at 0.79. The remaining gap to the oracle (0.85) is mostly the cost of the 5\% exploration that keeps rarely chosen modalities calibrated (Section \ref{sec:balance}). The inner update is a running mean, so the on-robot cost is negligible.
 
 
 \subsection{Training the Orchestrator on Task Distributions}\label{sec:taskdist}
-Meta-training requires a distribution of situations in which different modalities are best. Benchmarks such as Meta-World~\cite{Yu2019}, LIBERO~\cite{Liu2023b}, CALVIN~\cite{Mees2022} and RLBench~\cite{James2020} provide simulated task families, but none varies which learning modality is appropriate. A practical approach is to pretrain the routing policy in simulation with injected faults and perception noise, then adapt it on the robot.
+Meta-training requires a distribution of tasks in which different modalities are best. Benchmarks such as Meta-World~\cite{Yu2019}, LIBERO~\cite{Liu2023b}, CALVIN~\cite{Mees2022} and RLBench~\cite{James2020} provide simulated task families, but none varies which learning modality is appropriate or injects faults. A practical approach is to build the task distribution from simulation with injected faults, perception noise and miscalibrated confidences, meta-train the gate there, and adapt it on the robot with one of the inexpensive inner updates of Table \ref{tab:metafit}. Whether a distribution built this way covers the shifts met by a real robot is untested.
 
 
 \section{Uncertainty Fusion and Decentralized Confidence Signals}\label{sec:fusion}
@@ -350,11 +442,11 @@ The four signals differ in scale, semantics and cost (Table \ref{tab:signals}).
 
 
 \subsection{Making Confidences Comparable}\label{sec:comparable}
-To be compared, all signals must be expressed as calibrated estimates of the same quantity, the probability that invoking this modality now will succeed. Temperature scaling~\cite{Guo2017}, Platt scaling~\cite{Zollo2025} and conformal prediction~\cite{Ren2023,Lindemann2023,Xu2025} provide the tools, but none addresses cross-modality calibration, where signals of different origin must be placed on one scale. We know of no work that calibrates confidences from heterogeneous learners against a shared success variable on a robot; this is an open challenge (Section \ref{sec:ch-calib}). Our simulation (Section \ref{sec:gate}) illustrates the stakes: overconfident RL and imitation signals reduced routing success from 0.85 to 0.81, and a per-modality linear recalibration fitted on a separate set restored 0.85.
+To be compared, all signals must be expressed as calibrated estimates of the same quantity, the probability that invoking this modality now will succeed. Temperature scaling~\cite{Guo2017}, Platt scaling~\cite{Zollo2025} and conformal prediction~\cite{Ren2023,Lindemann2023,Xu2025} provide the tools, but none addresses cross-modality calibration, where signals of different origin must be placed on one scale. No included work calibrates confidences from heterogeneous learners against a shared success variable on a robot; this is an open challenge (Section \ref{sec:ch-calib}). The simulation of Section \ref{sec:gate} illustrates the stakes: overconfident RL and imitation signals reduced routing success from 0.85 to 0.81, and a per-modality linear recalibration fitted on a separate set restored 0.85.
 
 
 \subsection{Federated Learning and Decentralized Confidence Fusion}\label{sec:federated}
-\textit{Federated learning versus confidence fusion.} In classic federated learning, clients train locally and a server averages weights. FedAvg reduced communication rounds by 10--100 times over synchronous SGD~\cite{McMahan2017}, and FedProx handles heterogeneous clients~\cite{Li2020}. Surveys cover the field~\cite{Kairouz2021} and its extension to RL~\cite{Qi2021}. In the orchestration setting, ``federated'' is used differently: modalities stay separate and share only confidence signals, not weights or data, with the orchestrator. To avoid confusion with FL, we recommend a precise definition such as ``decentralized confidence fusion``: each modality computes and calibrates its own signal locally, and only the scalar signals are aggregated.
+\textit{Federated learning versus confidence fusion.} In classic federated learning, clients train locally and a server averages weights. FedAvg reduced communication rounds by 10--100 times over synchronous SGD~\cite{McMahan2017}, and FedProx handles heterogeneous clients~\cite{Li2020}. Surveys cover the field~\cite{Kairouz2021} and its extension to RL~\cite{Qi2021}. In the orchestration setting, ``federated'' is used differently: modalities stay separate and share only confidence signals, not weights or data, with the orchestrator. To avoid confusion with FL, the term ``decentralized confidence fusion'' is used here: each modality computes and calibrates its own signal locally, and only the scalar signals are aggregated.
 
 \textit{Fusion methods.} Three families are available. Uncertainty-weighted averaging learns weights from each head's uncertainty, as in multi-task loss weighting~\cite{Kendall2018}. Evidential fusion combines per-source Dirichlet evidence with Dempster--Shafer rules, giving calibrated multi-view uncertainty~\cite{Han2021,Han2022a}, and dynamic fusion weights modalities by their estimated informativeness per sample~\cite{Han2022b}. Learned gating and attention treat fusion as routing (Section \ref{sec:routing}). Multimodal learning surveys supply the vocabulary~\cite{Baltrusaitis2019}. Evidential fusion is attractive for edge use because its combination rule is closed-form and cheap.
 
@@ -390,7 +482,7 @@ This section develops the central idea of the framework: treating the orchestrat
 
 
 \subsection{Mixture of Experts as a Framework for Modality Routing}\label{sec:moe}
-The mixture of experts originates with Jacobs et al., in which a gating network assigns inputs to specializt networks trained jointly with it~\cite{Jacobs1991}. Sparsely gated MoE scaled this to more than a thousandfold capacity increases with little loss of efficiency~\cite{Shazeer2017}. Switch Transformers simplified routing to a single expert per token with load balancing~\cite{Fedus2022}, V-MoE matched state-of-the-art vision models with as little as half the inference compute~\cite{Riquelme2021}, and Soft MoE replaced hard routing with differentiable slot mixing~\cite{Puigcerver2024}. Routing networks trained the router with RL to select modules per input, reaching cross-stitch accuracy with 85\% less training time~\cite{Rosenbaum2018}. In robotics, MoE appears inside policies. Sparse Diffusion Policy activates task-specific experts and adds experts for new tasks~\cite{Wang2024b}. MoDE routes by diffusion noise level with 90\% lower inference cost~\cite{Reuss2025}. MoE-Loco runs mixture-of-experts locomotion onboard at 50 Hz on a Jetson Orin~\cite{Huang2025}, and SMP uses sticky routing to activate a small expert subset on a dual-arm robot~\cite{SMP2026}. Adaptive computation inside VLAs includes early exit under compute and memory budgets, which cut LLM computation by 5.2--6.5 times~\cite{Yue2024}, and layer skipping by a router, which cut compute by up to 5.6 times~\cite{Zhang2026b}.
+The mixture of experts originates with Jacobs et al., in which a gating network assigns inputs to specialist networks trained jointly with it~\cite{Jacobs1991}. Sparsely gated MoE scaled this to more than a thousandfold capacity increases with little loss of efficiency~\cite{Shazeer2017}. Switch Transformers simplified routing to a single expert per token with load balancing~\cite{Fedus2022}, V-MoE matched state-of-the-art vision models with as little as half the inference compute~\cite{Riquelme2021}, and Soft MoE replaced hard routing with differentiable slot mixing~\cite{Puigcerver2024}. Routing networks trained the router with RL to select modules per input, reaching cross-stitch accuracy with 85\% less training time~\cite{Rosenbaum2018}. In robotics, MoE appears inside policies. Sparse Diffusion Policy activates task-specific experts and adds experts for new tasks~\cite{Wang2024b}. MoDE routes by diffusion noise level with 90\% lower inference cost~\cite{Reuss2025}. MoE-Loco runs mixture-of-experts locomotion onboard at 50 Hz on a Jetson Orin~\cite{Huang2025}, and SMP uses sticky routing to activate a small expert subset on a dual-arm robot~\cite{SMP2026}. Adaptive computation inside VLAs includes early exit under compute and memory budgets, which cut LLM computation by 5.2--6.5 times~\cite{Yue2024}, and layer skipping by a router, which cut compute by up to 5.6 times~\cite{Zhang2026b}.
 
 These works share a limitation that defines the orchestration gap: the experts are sub-networks of one model, trained jointly and routed on internal features. In the framework considered here, the experts are separate learners of different kinds (perception, RL, imitation, fault adaptation) that expose calibrated confidences, have very different costs, and continue to learn.
 
@@ -400,13 +492,13 @@ These works share a limitation that defines the orchestration gap: the experts a
 
 \textit{Gate output: routing weights or hard selection.} On a robot, the gate usually makes a hard selection, because two policies cannot command the actuators at once. Soft weights remain useful for fusing perception outputs or deciding whether to run a second modality as a verifier. ThriftyDAgger's gating between robot and human, based on novelty and risk under an intervention budget, is a two-expert instance of hard selection~\cite{Hoque2021}.
 
-\textit{Compute budget and an illustrative simulation.} The budget can be imposed as a penalty \ensuremath{\lambda} on cost or as a hard constraint over a time window (Section \ref{sec:formal}). Fig. \ref{fig:sim} shows an illustrative simulation, run for this survey, of a four-modality router. Each of four situation types has one modality that succeeds 85\% of the time, against 35\% for the others, and the modalities cost 1, 3, 2 and 4 units per call. Routing on calibrated confidence minus \ensuremath{\lambda} times cost reached 0.85 success at a mean cost of 2.5, equal to an oracle that knows the true success probabilities. A fixed single modality and random routing reached about 0.48. Invoking all four modalities reached 0.96, but only as an idealized upper bound, because a robot cannot execute four policies at once, and it cost 10 units. When the RL and imitation confidences were overconfident by 0.35 and 0.30, success fell to 0.81. A per-modality linear recalibration fitted on 4,000 separate calibration steps restored 0.85. Sweeping \ensuremath{\lambda} traces the success--cost trade-off, and miscalibration shifts the whole curve down. The simulation is synthetic and makes no claim about robot performance; it shows that calibration errors translate directly into routing errors (full results in Appendix \ref{app:sim}; code in the supplementary material).
+\textit{Compute budget and an illustrative simulation.} The budget can be imposed as a penalty $\lambda$ on cost or as a hard constraint over a time window (Section \ref{sec:formal}). Fig. \ref{fig:sim}(a) shows an illustrative simulation, written for this review, of a four-modality router. Each of four situation types has one modality that succeeds 85\% of the time, against 35\% for the others, and the modalities cost 1, 3, 2 and 4 units per call. Routing on calibrated confidence minus $\lambda$ times cost reached 0.85 success at a mean cost of 2.5, equal to an oracle that knows the true success probabilities. A fixed single modality and random routing reached about 0.48. Invoking all four modalities reached 0.96, but only as an idealized upper bound, because a robot cannot execute four policies at once, and it cost 10 units. When the RL and imitation confidences were overconfident by 0.35 and 0.30, success fell to 0.81. A per-modality linear recalibration fitted on 4,000 separate calibration steps restored 0.85. Sweeping $\lambda$ traces the success--cost trade-off, and miscalibration shifts the whole curve down. Fig. \ref{fig:sim}(b) adds the meta-learning experiment of Section \ref{sec:metacal}. The simulation is synthetic and makes no claim about robot performance; it shows that calibration errors translate directly into routing errors and that a meta-learned calibration prior shortens the period in which they occur (full results in Appendix \ref{app:sim}; code in the supplementary material).
 
-\begin{figure}[!t]
+\begin{figure*}[!t]
 \centering
-\includegraphics[width=\columnwidth]{figures/Fig4_routing_sim.png}
-\caption{Illustrative simulation (not robot data): success rate against mean compute cost for confidence-gated routing among four modalities as the cost penalty \ensuremath{\lambda} varies, with calibrated (blue) and miscalibrated (orange) confidences, and baselines. Recalibration (green) coincides with the oracle. Ten seeds of 20,000 steps; standard deviations below 0.005. Code is provided as supplementary material.}\label{fig:sim}
-\end{figure}
+\includegraphics[width=\textwidth]{figures/Fig6_routing_sim.png}
+\caption{Illustrative simulation (synthetic data, not robot data). (a) Success rate against mean compute cost for confidence-gated routing among four modalities as the cost penalty $\lambda$ varies, with calibrated and miscalibrated confidences, recalibration and two baselines; ten seeds of 20,000 steps, standard deviations below 0.005. (b) Success on a new task when the gate uses raw confidences, learns each modality's calibration offset from scratch, or starts from a prior meta-learned on 50 training tasks; mean of 900 test tasks (three seeds of 300), 15-step moving average.}\label{fig:sim}
+\end{figure*}
 
 
 \subsection{Conditional Execution and Cascading}\label{sec:cascade}
@@ -414,26 +506,21 @@ Adaptive computation time learns how many steps to spend per input~\cite{Graves2
 
 
 \subsection{Load Balancing and Expert Utilization}\label{sec:balance}
-MoE training suffers from collapse onto a few experts, which auxiliary load-balancing losses counteract~\cite{Shazeer2017,Fedus2022}. In modality routing, balance is not a goal in itself, because some modalities should be rare. But collapse is still a risk: a modality that is never invoked never generates data, so its confidence is never updated. Exploration bonuses for rarely used modalities, or optimizm in the face of uncertainty, address this, following bootstrapped exploration~\cite{Osband2016}.
+MoE training suffers from collapse onto a few experts, which auxiliary load-balancing losses counteract~\cite{Shazeer2017,Fedus2022}. In modality routing, balance is not a goal in itself, because some modalities should be rare. But collapse is still a risk: a modality that is never invoked never generates data, so its confidence is never updated. Exploration bonuses for rarely used modalities, or optimism in the face of uncertainty, address this, following bootstrapped exploration~\cite{Osband2016}.
 
 
 \subsection{The Orchestration Gap}\label{sec:position}
-Fig. \ref{fig:position} positions representative works by how adaptive their orchestration is and how much they rely on calibrated uncertainty. Uncertainty-aware planners~\cite{Ren2023,Yuan2026} are calibrated but choose between acting and asking, not between learners. Routers~\cite{Ong2025,Ding2024} are learned and budget-aware but route between LLMs. Adaptive-compute VLAs~\cite{Yue2024,Zhang2026b} and adapter routers~\cite{Romer2026b,Zhu2025} route inside one model. The empty corner is a small orchestrator that is learned online on the device, uses calibrated confidences, respects a compute budget, and routes between heterogeneous learning modalities. The novelty lies in this composition, not in any single component, so any system that claims it must show that the composition performs better than its strongest parts used alone.
+Table \ref{tab:orch} and Fig. \ref{fig:edgesignal} locate the gap. Uncertainty-aware planners~\cite{Ren2023,Yuan2026} are calibrated but choose between acting and asking, not between learners. Routers~\cite{Ong2025,Ding2024} are learned and budget-aware but route between LLMs. Adaptive-compute VLAs~\cite{Yue2024,Zhang2026b} and adapter routers~\cite{Romer2026b,Zhu2025} route inside one model. The unoccupied position is a small orchestrator that is learned online on the device, uses calibrated confidences, respects a compute budget and routes between heterogeneous learning modalities. The novelty lies in this composition, not in any single component, so any system that claims it must show that the composition performs better than its strongest parts used alone.
 
-\begin{figure}[!t]
-\centering
-\includegraphics[width=\columnwidth]{figures/Fig5_positioning.png}
-\caption{Qualitative positioning of orchestration approaches by adaptivity of the orchestration policy (horizontal) and use of calibrated uncertainty (vertical). The orange box marks the unoccupied target region. Positions are approximate and based on the per-paper write-ups.}\label{fig:position}
-\end{figure}
+
 
 
 \subsection{Formal Problem Statement}\label{sec:formal}
-We propose the following formalization. At each decision step t, the agent observes context x\ensuremath{_t} (task, observation embedding, robot health) and calibrated confidences c\ensuremath{_t} = (c\ensuremath{_t}\ensuremath{^1}, \ldots{}, c\ensuremath{_t}\ensuremath{^K}) from K modalities, where c\ensuremath{_t}\ensuremath{^k} estimates the probability that invoking modality k now succeeds. The orchestrator \ensuremath{\ensuremath{\pi}\_{\ensuremath{\theta}}} selects a set S\ensuremath{_t} \ensuremath{\subseteq } {1, \ldots{}, K}, typically a single modality, incurring cost C(S\ensuremath{_t}) = \ensuremath{\Sigma}\_{k\ensuremath{\in }S\ensuremath{_t}} cost\_k and receiving task reward r\ensuremath{_t}. The objective is to maximize expected return subject to an average budget B:
-
+At each decision step $t$, the agent observes context $x_t$ (task, observation embedding, robot health) and calibrated confidences $c_t=(c_t^1,\ldots,c_t^K)$ from $K$ modalities, where $c_t^k$ estimates the probability that invoking modality $k$ now succeeds. The orchestrator $\pi_\theta$ selects a set $S_t\subseteq\{1,\ldots,K\}$, typically a single modality, incurring cost $C(S_t)=\sum_{k\in S_t}\kappa_k$ and receiving task reward $r_t$. The objective is to maximize expected return subject to an average budget $B$:
 \begin{equation}
-\max_{\theta}\ \mathbb{E}\Big[\sum_t \gamma^t r_t\Big] \quad \text{s.t.} \quad \mathbb{E}\Big[\frac{1}{T}\sum_t C(S_t)\Big] \le B.
+\max_{\theta}\ \mathbb{E}\Big[\sum_t \gamma^t r_t\Big] \quad \text{s.t.} \quad \mathbb{E}\Big[\frac{1}{T}\sum_t C(S_t)\Big] \le B.\label{eq:cmdp}
 \end{equation}
-This is a constrained Markov decision process. Its Lagrangian relaxation, maximizing E[\ensuremath{\Sigma}\ensuremath{_t} \ensuremath{\gamma}\ensuremath{^t} (r\ensuremath{_t} \ensuremath{-} \ensuremath{\lambda} C(S\ensuremath{_t}))] with \ensuremath{\lambda} \ensuremath{\geq } 0 updated by dual ascent, gives the cost-penalized gate used in Section \ref{sec:gate}. When the effect of a routing choice does not persist beyond the step, the problem reduces to a budgeted contextual bandit, where the confidences act as a learned prior over each arm's success. Three results frame what can be proved. First, if the confidences are calibrated, greedy selection of argmax\ensuremath{_k} (c\ensuremath{_t}\ensuremath{^k} \ensuremath{-} \ensuremath{\lambda} cost\ensuremath{_k}) is optimal for the one-step penalized objective. Second, miscalibration of magnitude \ensuremath{\varepsilon} in any confidence can cost at most 2\ensuremath{\varepsilon} per step in expected success relative to that optimum. Third, online calibration and exploration must be maintained for modalities that are rarely chosen (Section \ref{sec:balance}). The meta-learning view (Section \ref{sec:meta}) enters through \ensuremath{\theta}: the orchestrator is trained across a distribution of situations and adapted online by LoRA updates using replayed tuples (x\ensuremath{_t}, c\ensuremath{_t}, S\ensuremath{_t}, r\ensuremath{_t}).
+This is a constrained Markov decision process. Its Lagrangian relaxation, maximizing $\mathbb{E}[\sum_t\gamma^t(r_t-\lambda C(S_t))]$ with $\lambda\ge 0$ updated by dual ascent, gives the cost-penalized gate of Section \ref{sec:gate}. When a routing choice has no effect beyond its step, the problem reduces to a budgeted contextual bandit in which the confidences act as a learned prior over each arm's success. Three results frame what can be proved. First, if the confidences are calibrated, greedy selection of $\arg\max_k(c_t^k-\lambda\kappa_k)$ is optimal for the one-step penalized objective. Second, if every confidence is within $\varepsilon$ of the true success probability, the greedy choice loses at most $2\varepsilon$ of expected success per step relative to that optimum (Appendix \ref{app:opt}). Third, calibration and exploration must be maintained for modalities that are rarely chosen (Section \ref{sec:balance}). Meta-learning enters through $\theta$ and the calibration maps: both are trained across a task distribution by (\ref{eq:meta}) and adapted online from replayed tuples $(x_t,c_t,S_t,r_t)$.
 
 
 \section{Low-Cost Platforms, Benchmarks, and Evaluation}\label{sec:platforms}
@@ -487,6 +574,19 @@ Following recommended practice for real-robot evaluation~\cite{KressGazit2024,Sn
 Mobile ALOHA~\cite{Fu2024} and Hello Robot's Stretch~\cite{Kemp2022} are the closest low-cost mobile manipulators, both with laptop- or PC-class onboard compute. ACT~\cite{Zhao2023} and SmolVLA~\cite{Shukor2025} are the policies native to the LeRobot stack, and Open X-Embodiment supplies cross-embodiment pretraining data~\cite{OXE2024}. None of these systems orchestrates learning modalities.
 
 
+\section{Answers to the Research Questions}\label{sec:synthesis}
+
+\textit{RQ1: modalities and their signals.} Four modalities cover the situations a long-lived robot meets: perception, RL, imitation and fault adaptation (Section \ref{sec:background}). Each can emit a confidence signal at low cost: epistemic uncertainty from evidential outputs or small ensembles (Section \ref{sec:uq}); policy entropy or critic disagreement (Section \ref{sec:rlconf}); action spread or density scores for imitation (Section \ref{sec:fidelity}); and an empirical recovery rate for fault adaptation (Section \ref{sec:recovery}). The signals exist in the literature, but 106 of the 166 non-review works expose none, and policy variance is used as a confidence signal by only one (Fig. \ref{fig:edgesignal}).
+
+\textit{RQ2: how the choice is made today.} Choice among skills, models or experts is made by frozen LLM planners~\cite{Ahn2022,Huang2022b}, by conformal help-seeking that chooses between acting and asking~\cite{Ren2023,Yuan2026}, by learned routers between LLMs~\cite{Ong2025,Ding2024,Aggarwal2024} and by gates inside one network~\cite{Huang2025,Reuss2025,Zhang2026b}. Table \ref{tab:orch} shows that no approach satisfies all four requirements of learned, calibrated, budgeted and edge-deployable orchestration, and none arbitrates between more than two heterogeneous learning modalities.
+
+\textit{RQ3: signals cheap and calibrated enough to compare.} Temperature-scaled or evidential perception, entropy or small critic ensembles for RL, density or reconstruction scores for imitation and Beta-posterior recovery rates are all cheap enough for a Pi-class robot (Table \ref{tab:signals}). None is calibrated against a shared success variable across modalities, and the simulation shows that this gap costs routing success directly (0.85 against 0.81). Cross-modality calibration is therefore the first problem to solve (Section \ref{sec:ch-calib}).
+
+\textit{RQ4: meta-learning and on-device adaptation.} The pieces exist: inner updates that need no gradients (RL$^2$, posterior inference, prototypes) or only first-order gradients (Reptile), adapters and LoRA updates that fit in small memory~\cite{Hu2022,Zhu2025}, memory-light on-device training~\cite{Lin2022,Cai2020,Zhu2023} and replay with random eviction~\cite{Rolnick2019}. Real-robot evidence for meta-learned adaptation at Pi-class cost is limited to a single learner~\cite{Nagabandi2019}, and on-device adaptation is evaluated almost only in simulation (19 of 23 works). Meta-learning a calibration prior is a cheap first step (Section \ref{sec:metacal}).
+
+\textit{RQ5: distance from the target, and how to close it.} The evidence stops short of a resource-constrained robot: of 65 real-robot studies, five run on a Pi-class processor and two of these expose a confidence signal; no work reaches deployment (E6); and only 36 of 161 primary studies report compute as a number (Table \ref{tab:appraisal}). A claim of learned orchestration should be tested by the protocol of Section \ref{sec:protocol}, with ablations that remove calibration, meta-learning, the budget and each modality in turn, and should show that the orchestrated system outperforms its strongest single modality at equal compute.
+
+
 \section{Open Challenges}\label{sec:challenges}
 
 \subsection{Online Calibration Across Modalities}\label{sec:ch-calib}
@@ -505,18 +605,24 @@ An orchestrator that retrains itself can learn unsafe routing. Safe learning in 
 Meta-learned orchestrators generalize only within their training distribution~\cite{Yu2019}. Novelty detection~\cite{Burda2019,Hendrycks2017} and help-seeking~\cite{Ren2023,Yuan2026} are the safeguards when the robot leaves that distribution.
 
 
+\subsection{Human-Model Uncertainty as an Orchestration Signal}\label{sec:ch-human}
+Many of the orchestrator's decisions involve a person: whether to ask for help, which question to ask, whether to hand over control and how far the person's answer can be trusted~\cite{Ren2023,Hoque2021,Yuan2026}. The four signals of the framework describe the robot's learners, not the person. Human answers depend on the order and framing of questions, and trust changes with experience in ways that classical probability models capture poorly; quantum-like models of judgement represent these effects explicitly and are reviewed in the companion survey~\cite{Guru2026b}. The companion paper~\cite{Guru2026c} develops an order-aware human model with classical baselines and tests, in simulation, whether it predicts held-out answers and improves the robot's choice of questions; its predictive uncertainty is the fifth, dashed input of Fig. \ref{fig:arch}. Whether such a signal improves orchestration with real people is untested.
+
+
 \subsection{Integration With Higher-Level Planning}\label{sec:ch-plan}
 The orchestrator sits below task planning. Integrating it with LLM planners~\cite{Ahn2022,Huang2022b}, so that the planner's subgoals condition modality selection and routing failures inform replanning, is a natural extension. Resource-aware reasoning shows that the decision of when to plan can itself be learned~\cite{Liu2026}.
 
 
 \section{Conclusion}\label{sec:conclusion}
-%CONCL
-The literature supplies every ingredient of adaptive orchestration: calibrated uncertainty for perception and policies, budget-aware routing, adaptive computation, parameter-efficient continual learning, and runtime failure detection. What it lacks is their composition into a learned arbiter over heterogeneous learning modalities on edge hardware.
+This systematic review of 180 works asked whether the literature supports a meta-learned orchestrator that lets a resource-constrained robot choose among perception, reinforcement learning, imitation and fault adaptation on calibrated confidence and within a compute budget. It does so only in parts. Calibrated and epistemic confidence signals, conformal help-seeking, budget-aware routers, gates inside policies, meta-learned adaptation and memory-light on-device training all exist. Their combination does not: no included work arbitrates between more than two heterogeneous learning modalities with a learned, calibrated and budgeted gate, and the real-robot evidence rarely reaches edge processors (five of 65 studies) or exposes a confidence signal.
 
-Treating the orchestrator as a meta-learner that routes on calibrated confidences under a budget unifies MoE, cascades and meta-RL in one formulation (Section \ref{sec:formal}). The illustrative simulation shows that calibration is not optional: routing inherits every calibration error.
+The review frames orchestration as a constrained Markov decision process solved by a meta-learner (Sections \ref{sec:orchmeta} and \ref{sec:formal}). This framing unifies mixture of experts, cascades and meta-reinforcement learning, and it identifies the parts that must run on the robot: cheap confidence signals, calibration maps and an inner update that needs few or no gradients. The illustrative simulation shows that routing inherits every calibration error and that a calibration prior meta-learned across tasks shortens the period in which those errors occur.
 
-If the claims hold, low-cost robots could adapt continuously without cloud connectivity, which matters for privacy, latency, cost and robustness. The survey's evidence suggests that this is achievable with small models and careful calibration, and that the main risks lie in calibration drift and the safety of self-modifying learners.
+The final conclusion is therefore conditional. Meta-learning orchestration on a resource-constrained robot is supported in principle by the components reviewed and is plausible with small models and careful calibration, but it has not been demonstrated. The decisive test is a real-robot study, run under the protocol of Section \ref{sec:protocol}, showing that the orchestrated system outperforms its strongest single modality at equal compute. The main risks lie in cross-modality calibration drift and in the safety of a learner that modifies itself.
 
+
+\section*{Data Availability}
+The extraction table, quality appraisal, study summaries, codebook, hand-coding files and search strategy are available at \fillin{Zenodo DOI}. The simulation code is provided as supplementary material.
 
 \section*{Acknowledgment}
 \fillin{acknowledgments and funding, or delete this section}
@@ -535,7 +641,7 @@ If c\ensuremath{^k} = P(success | k, x) exactly, the expected penalized reward o
 
 
 \subsection{Calibration Maps}\label{app:calib}
-Temperature scaling divides logits by T fitted by maximum likelihood on held-out data~\cite{Guo2017}. Platt scaling fits \ensuremath{\sigma}(a\ensuremath{\cdot }s + b) to a raw score s~\cite{Zollo2025}. For the simulation we fitted a linear map from reported confidence to observed success per modality. Split conformal prediction chooses the threshold \ensuremath{\hat{q}} as the \ensuremath{\lceil }(n+1)(1\ensuremath{-}\ensuremath{\alpha})\ensuremath{\rceil }/n quantile of calibration scores, which gives coverage of at least 1\ensuremath{-}\ensuremath{\alpha} under exchangeability~\cite{Ren2023}.
+Temperature scaling divides logits by T fitted by maximum likelihood on held-out data~\cite{Guo2017}. Platt scaling fits \ensuremath{\sigma}(a\ensuremath{\cdot }s + b) to a raw score s~\cite{Zollo2025}. The simulation fits a linear map from reported confidence to observed success per modality. Split conformal prediction chooses the threshold \ensuremath{\hat{q}} as the \ensuremath{\lceil }(n+1)(1\ensuremath{-}\ensuremath{\alpha})\ensuremath{\rceil }/n quantile of calibration scores, which gives coverage of at least 1\ensuremath{-}\ensuremath{\alpha} under exchangeability~\cite{Ren2023}.
 
 
 \subsection{Recovery-Success Posterior}\label{app:beta}
@@ -552,7 +658,7 @@ With a Beta(\ensuremath{\alpha}\ensuremath{_0}, \ensuremath{\beta}\ensuremath{_0
 
 
 \section{Illustrative Routing Simulation: Full Results}\label{app:sim}
-Table \ref{tab:simres} reports the illustrative simulation of Section \ref{sec:gate}. The data are synthetic; no robot experiments were run for this survey. The simulation code is provided as supplementary material.
+Table \ref{tab:simres} reports the first part of the illustrative simulation of Section \ref{sec:gate} and Table \ref{tab:metares} the second part (Section \ref{sec:metacal}). The data are synthetic; no robot experiments were run for this review. The simulation code is provided as supplementary material.
 
 \begin{table}[!t]
 \centering
@@ -575,16 +681,33 @@ Gate on recalibrated confidence & 0.850 \ensuremath{\pm } 0.003 & 2.5 \\
 Sweep of the cost penalty \ensuremath{\lambda} (success rate, mean cost), calibrated gate: \ensuremath{\lambda} = 0: 0.851, 2.50; \ensuremath{\lambda} = 0.02: 0.851, 2.50; \ensuremath{\lambda} = 0.05: 0.851, 2.50; \ensuremath{\lambda} = 0.1: 0.846, 2.47; \ensuremath{\lambda} = 0.15: 0.804, 2.23; \ensuremath{\lambda} = 0.2: 0.723, 1.79; \ensuremath{\lambda} = 0.3: 0.619, 1.33. Miscalibrated gate: \ensuremath{\lambda} = 0: 0.822, 2.51; \ensuremath{\lambda} = 0.02: 0.821, 2.46; \ensuremath{\lambda} = 0.05: 0.811, 2.39; \ensuremath{\lambda} = 0.1: 0.776, 2.24; \ensuremath{\lambda} = 0.15: 0.741, 2.08; \ensuremath{\lambda} = 0.2: 0.722, 1.97; \ensuremath{\lambda} = 0.3: 0.660, 1.68.
 
 
+\textit{Meta-learned calibration.} In each task, the confidence of modality $k$ is the true success probability plus an offset $b_k\sim\mathcal{N}(\mu_k,0.10^2)$, with $\mu=(0,0.30,0.25,0.05)$, plus noise of standard deviation 0.08; situation frequencies vary by task. The gate selects $\arg\max_k(c^k-\hat b_k-0.05\,\kappa_k)$ with 5\% random exploration and updates $\hat b_k$ as the running mean of $c^k-y$ over its own choices, shrunk toward a prior mean with $n_0$ pseudo-observations. From scratch, the prior mean is zero and $n_0=1$; the meta-learned prior is estimated from 50 training tasks of 400 logged steps each, by empirical Bayes ($\hat\mu=(0.01,0.27,0.22,0.03)$, $n_0$ between 30 and 47). Table \ref{tab:metares} gives the mean success over 900 new tasks of 300 steps.
+
+\begin{table}[!t]
+\centering
+\caption{Meta-Learned Calibration: Mean Success Rate on New Tasks by Phase (Synthetic Data; 900 Tasks; Oracle 0.850)}\label{tab:metares}%
+\footnotesize
+\begin{tabular}{@{}lrrr@{}}
+\toprule
+\textbf{Gate} & \textbf{Steps 1--25} & \textbf{26--100} & \textbf{101--300} \\ \midrule
+Raw confidence & 0.793 & 0.791 & 0.793 \\
+Recalibration from scratch & 0.770 & 0.802 & 0.821 \\
+Meta-learned prior + update & 0.823 & 0.826 & 0.828 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+
 \bibliographystyle{IEEEtran}
 \bibliography{refs}
 
 %% Biographies (IEEE Transactions require them; photos optional at submission)
-\begin{IEEEbiographynophoto}{Firstname Lastname}
-\fillin{biography (education, current position, research interests)}
+\begin{IEEEbiographynophoto}{Yeshwanth Guru}
+\fillin{biography: education, current position at the Department of Mechanical Engineering, Amrita Vishwa Vidyapeetham, Chennai, and research interests}
 \end{IEEEbiographynophoto}
 
-\begin{IEEEbiographynophoto}{Second Author}
-\fillin{biography}
+\begin{IEEEbiographynophoto}{Dev Kunwar Singh Chauhan}
+\fillin{biography: education, current position and research interests}
 \end{IEEEbiographynophoto}
 
 \end{document}

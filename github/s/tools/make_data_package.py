@@ -47,8 +47,14 @@ def study_name(key):
 
 
 def plain(txt):
-    """Replace [CITE:key] tokens by author-year text."""
-    return re.sub(r'\[CITE:(\w+)\]', lambda m: study_name(m.group(1)), txt)
+    """Replace [CITE:key] tokens by author-year text, or by the year alone when the authors are named just before."""
+    def rep(m):
+        k = m.group(1); name = study_name(k); surname = name.split()[0].rstrip(',')
+        before = txt[max(0, m.start() - 80):m.start()]
+        ends = [x.end() for x in re.finditer(r'(?<!\bal)(?<!\be\.g)(?<!\bi\.e)\. ', before)]
+        before = before[ends[-1]:] if ends else before
+        return name[name.rfind('('):] if surname in before else name
+    return re.sub(r'\[CITE:(\w+)\]', rep, txt)
 
 
 def ident(key):
@@ -88,7 +94,7 @@ def load_codes(name):
             k, c = line.split(); out[k] = c
     return out
 EDGE = load_codes('edge_coding.txt'); SIG = load_codes('signal_coding.txt')
-EDGE_NAME = {'P': 'Pi-class or embedded CPU', 'J': 'Embedded GPU', 'W': 'Workstation GPU', 'D': 'Datacentre or cloud', 'U': 'Not stated'}
+EDGE_NAME = {'P': 'Pi-class or embedded CPU', 'J': 'Embedded GPU', 'W': 'Workstation GPU', 'D': 'Datacenter or cloud', 'U': 'Not stated'}
 SIG_NAME = {'C': 'Conformal or calibrated', 'E': 'Epistemic uncertainty', 'F': 'Failure, anomaly or novelty score',
             'V': 'Policy variance or entropy', 'Q': 'Routing score or predicted quality', 'N': 'None'}
 

@@ -113,7 +113,7 @@
   "No": 180
  },
  "edge": {
-  "Datacentre or cloud": 34,
+  "Datacenter or cloud": 34,
   "Embedded GPU": 2,
   "Not applicable": 14,
   "Not stated": 16,
@@ -122,26 +122,26 @@
  },
  "edge_by_level": {
   "E2": {
-   "Datacentre or cloud": 1,
+   "Datacenter or cloud": 1,
    "Not stated": 2,
    "Pi-class or embedded CPU": 11,
    "Workstation GPU": 1
   },
   "E3": {
-   "Datacentre or cloud": 17,
+   "Datacenter or cloud": 17,
    "Not stated": 7,
    "Pi-class or embedded CPU": 30,
    "Workstation GPU": 27
   },
   "E4": {
-   "Datacentre or cloud": 14,
+   "Datacenter or cloud": 14,
    "Embedded GPU": 1,
    "Not stated": 7,
    "Pi-class or embedded CPU": 5,
    "Workstation GPU": 29
   },
   "E5": {
-   "Datacentre or cloud": 2,
+   "Datacenter or cloud": 2,
    "Workstation GPU": 7
   }
  },
