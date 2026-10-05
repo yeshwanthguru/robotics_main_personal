@@ -1,0 +1,728 @@
+{
+ "object_clarification": {
+  "QL": {
+   "sd=0.0": {
+    "100": {
+     "selected": {
+      "QL": 23,
+      "Bayes": 7,
+      "Anchoring2": 0
+     },
+     "qq_reject": 0,
+     "reps": 30
+    },
+    "400": {
+     "selected": {
+      "QL": 29,
+      "Bayes": 1,
+      "Anchoring2": 0
+     },
+     "qq_reject": 0,
+     "reps": 30
+    },
+    "1600": {
+     "selected": {
+      "QL": 30,
+      "Bayes": 0,
+      "Anchoring2": 0
+     },
+     "qq_reject": 1,
+     "reps": 30
+    }
+   },
+   "sd=0.1": {
+    "100": {
+     "selected": {
+      "QL": 20,
+      "Bayes": 10,
+      "Anchoring2": 0
+     },
+     "qq_reject": 3,
+     "reps": 30
+    },
+    "400": {
+     "selected": {
+      "QL": 23,
+      "Bayes": 7,
+      "Anchoring2": 0
+     },
+     "qq_reject": 0,
+     "reps": 30
+    },
+    "1600": {
+     "selected": {
+      "QL": 26,
+      "Bayes": 4,
+      "Anchoring2": 0
+     },
+     "qq_reject": 1,
+     "reps": 30
+    }
+   }
+  },
+  "Bayes": {
+   "sd=0.0": {
+    "100": {
+     "selected": {
+      "QL": 22,
+      "Bayes": 8,
+      "Anchoring2": 0
+     },
+     "qq_reject": 3,
+     "reps": 30
+    },
+    "400": {
+     "selected": {
+      "QL": 9,
+      "Bayes": 21,
+      "Anchoring2": 0
+     },
+     "qq_reject": 1,
+     "reps": 30
+    },
+    "1600": {
+     "selected": {
+      "QL": 1,
+      "Bayes": 29,
+      "Anchoring2": 0
+     },
+     "qq_reject": 1,
+     "reps": 30
+    }
+   },
+   "sd=0.1": {
+    "100": {
+     "selected": {
+      "QL": 16,
+      "Bayes": 14,
+      "Anchoring2": 0
+     },
+     "qq_reject": 3,
+     "reps": 30
+    },
+    "400": {
+     "selected": {
+      "QL": 2,
+      "Bayes": 28,
+      "Anchoring2": 0
+     },
+     "qq_reject": 1,
+     "reps": 30
+    },
+    "1600": {
+     "selected": {
+      "QL": 0,
+      "Bayes": 30,
+      "Anchoring2": 0
+     },
+     "qq_reject": 0,
+     "reps": 30
+    }
+   }
+  },
+  "Anchoring": {
+   "sd=0.0": {
+    "100": {
+     "selected": {
+      "QL": 1,
+      "Bayes": 22,
+      "Anchoring2": 7
+     },
+     "qq_reject": 5,
+     "reps": 30
+    },
+    "400": {
+     "selected": {
+      "QL": 0,
+      "Bayes": 13,
+      "Anchoring2": 17
+     },
+     "qq_reject": 3,
+     "reps": 30
+    },
+    "1600": {
+     "selected": {
+      "QL": 0,
+      "Bayes": 0,
+      "Anchoring2": 30
+     },
+     "qq_reject": 12,
+     "reps": 30
+    }
+   },
+   "sd=0.1": {
+    "100": {
+     "selected": {
+      "QL": 1,
+      "Bayes": 24,
+      "Anchoring2": 5
+     },
+     "qq_reject": 2,
+     "reps": 30
+    },
+    "400": {
+     "selected": {
+      "QL": 0,
+      "Bayes": 12,
+      "Anchoring2": 18
+     },
+     "qq_reject": 6,
+     "reps": 30
+    },
+    "1600": {
+     "selected": {
+      "QL": 0,
+      "Bayes": 0,
+      "Anchoring2": 30
+     },
+     "qq_reject": 16,
+     "reps": 30
+    }
+   }
+  },
+  "Mixture": {
+   "sd=0.0": {
+    "100": {
+     "selected": {
+      "QL": 3,
+      "Bayes": 24,
+      "Anchoring2": 3
+     },
+     "qq_reject": 2,
+     "reps": 30
+    },
+    "400": {
+     "selected": {
+      "QL": 1,
+      "Bayes": 21,
+      "Anchoring2": 8
+     },
+     "qq_reject": 3,
+     "reps": 30
+    },
+    "1600": {
+     "selected": {
+      "QL": 0,
+      "Bayes": 19,
+      "Anchoring2": 11
+     },
+     "qq_reject": 3,
+     "reps": 30
+    }
+   },
+   "sd=0.1": {
+    "100": {
+     "selected": {
+      "QL": 4,
+      "Bayes": 24,
+      "Anchoring2": 2
+     },
+     "qq_reject": 3,
+     "reps": 30
+    },
+    "400": {
+     "selected": {
+      "QL": 0,
+      "Bayes": 20,
+      "Anchoring2": 10
+     },
+     "qq_reject": 1,
+     "reps": 30
+    },
+    "1600": {
+     "selected": {
+      "QL": 0,
+      "Bayes": 14,
+      "Anchoring2": 16
+     },
+     "qq_reject": 5,
+     "reps": 30
+    }
+   }
+  }
+ },
+ "trust_handover": {
+  "QL": {
+   "sd=0.0": {
+    "100": {
+     "selected": {
+      "QL": 26,
+      "Bayes": 4,
+      "Anchoring2": 0
+     },
+     "qq_reject": 0,
+     "reps": 30
+    },
+    "400": {
+     "selected": {
+      "QL": 27,
+      "Bayes": 3,
+      "Anchoring2": 0
+     },
+     "qq_reject": 3,
+     "reps": 30
+    },
+    "1600": {
+     "selected": {
+      "QL": 30,
+      "Bayes": 0,
+      "Anchoring2": 0
+     },
+     "qq_reject": 1,
+     "reps": 30
+    }
+   },
+   "sd=0.1": {
+    "100": {
+     "selected": {
+      "QL": 21,
+      "Bayes": 8,
+      "Anchoring2": 1
+     },
+     "qq_reject": 1,
+     "reps": 30
+    },
+    "400": {
+     "selected": {
+      "QL": 17,
+      "Bayes": 13,
+      "Anchoring2": 0
+     },
+     "qq_reject": 0,
+     "reps": 30
+    },
+    "1600": {
+     "selected": {
+      "QL": 23,
+      "Bayes": 7,
+      "Anchoring2": 0
+     },
+     "qq_reject": 0,
+     "reps": 30
+    }
+   }
+  },
+  "Bayes": {
+   "sd=0.0": {
+    "100": {
+     "selected": {
+      "QL": 24,
+      "Bayes": 6,
+      "Anchoring2": 0
+     },
+     "qq_reject": 2,
+     "reps": 30
+    },
+    "400": {
+     "selected": {
+      "QL": 10,
+      "Bayes": 20,
+      "Anchoring2": 0
+     },
+     "qq_reject": 2,
+     "reps": 30
+    },
+    "1600": {
+     "selected": {
+      "QL": 0,
+      "Bayes": 30,
+      "Anchoring2": 0
+     },
+     "qq_reject": 2,
+     "reps": 30
+    }
+   },
+   "sd=0.1": {
+    "100": {
+     "selected": {
+      "QL": 12,
+      "Bayes": 18,
+      "Anchoring2": 0
+     },
+     "qq_reject": 1,
+     "reps": 30
+    },
+    "400": {
+     "selected": {
+      "QL": 5,
+      "Bayes": 25,
+      "Anchoring2": 0
+     },
+     "qq_reject": 0,
+     "reps": 30
+    },
+    "1600": {
+     "selected": {
+      "QL": 0,
+      "Bayes": 30,
+      "Anchoring2": 0
+     },
+     "qq_reject": 0,
+     "reps": 30
+    }
+   }
+  },
+  "Anchoring": {
+   "sd=0.0": {
+    "100": {
+     "selected": {
+      "QL": 3,
+      "Bayes": 26,
+      "Anchoring2": 1
+     },
+     "qq_reject": 1,
+     "reps": 30
+    },
+    "400": {
+     "selected": {
+      "QL": 0,
+      "Bayes": 19,
+      "Anchoring2": 11
+     },
+     "qq_reject": 2,
+     "reps": 30
+    },
+    "1600": {
+     "selected": {
+      "QL": 0,
+      "Bayes": 3,
+      "Anchoring2": 27
+     },
+     "qq_reject": 14,
+     "reps": 30
+    }
+   },
+   "sd=0.1": {
+    "100": {
+     "selected": {
+      "QL": 3,
+      "Bayes": 23,
+      "Anchoring2": 4
+     },
+     "qq_reject": 2,
+     "reps": 30
+    },
+    "400": {
+     "selected": {
+      "QL": 0,
+      "Bayes": 18,
+      "Anchoring2": 12
+     },
+     "qq_reject": 3,
+     "reps": 30
+    },
+    "1600": {
+     "selected": {
+      "QL": 0,
+      "Bayes": 1,
+      "Anchoring2": 29
+     },
+     "qq_reject": 9,
+     "reps": 30
+    }
+   }
+  },
+  "Mixture": {
+   "sd=0.0": {
+    "100": {
+     "selected": {
+      "QL": 3,
+      "Bayes": 26,
+      "Anchoring2": 1
+     },
+     "qq_reject": 0,
+     "reps": 30
+    },
+    "400": {
+     "selected": {
+      "QL": 0,
+      "Bayes": 21,
+      "Anchoring2": 9
+     },
+     "qq_reject": 0,
+     "reps": 30
+    },
+    "1600": {
+     "selected": {
+      "QL": 0,
+      "Bayes": 26,
+      "Anchoring2": 4
+     },
+     "qq_reject": 2,
+     "reps": 30
+    }
+   },
+   "sd=0.1": {
+    "100": {
+     "selected": {
+      "QL": 4,
+      "Bayes": 26,
+      "Anchoring2": 0
+     },
+     "qq_reject": 0,
+     "reps": 30
+    },
+    "400": {
+     "selected": {
+      "QL": 0,
+      "Bayes": 28,
+      "Anchoring2": 2
+     },
+     "qq_reject": 4,
+     "reps": 30
+    },
+    "1600": {
+     "selected": {
+      "QL": 0,
+      "Bayes": 24,
+      "Anchoring2": 6
+     },
+     "qq_reject": 4,
+     "reps": 30
+    }
+   }
+  }
+ },
+ "preference_elicitation": {
+  "QL": {
+   "sd=0.0": {
+    "100": {
+     "selected": {
+      "QL": 28,
+      "Bayes": 2,
+      "Anchoring2": 0
+     },
+     "qq_reject": 1,
+     "reps": 30
+    },
+    "400": {
+     "selected": {
+      "QL": 28,
+      "Bayes": 2,
+      "Anchoring2": 0
+     },
+     "qq_reject": 0,
+     "reps": 30
+    },
+    "1600": {
+     "selected": {
+      "QL": 30,
+      "Bayes": 0,
+      "Anchoring2": 0
+     },
+     "qq_reject": 1,
+     "reps": 30
+    }
+   },
+   "sd=0.1": {
+    "100": {
+     "selected": {
+      "QL": 27,
+      "Bayes": 3,
+      "Anchoring2": 0
+     },
+     "qq_reject": 0,
+     "reps": 30
+    },
+    "400": {
+     "selected": {
+      "QL": 19,
+      "Bayes": 11,
+      "Anchoring2": 0
+     },
+     "qq_reject": 3,
+     "reps": 30
+    },
+    "1600": {
+     "selected": {
+      "QL": 22,
+      "Bayes": 8,
+      "Anchoring2": 0
+     },
+     "qq_reject": 1,
+     "reps": 30
+    }
+   }
+  },
+  "Bayes": {
+   "sd=0.0": {
+    "100": {
+     "selected": {
+      "QL": 17,
+      "Bayes": 13,
+      "Anchoring2": 0
+     },
+     "qq_reject": 0,
+     "reps": 30
+    },
+    "400": {
+     "selected": {
+      "QL": 7,
+      "Bayes": 23,
+      "Anchoring2": 0
+     },
+     "qq_reject": 1,
+     "reps": 30
+    },
+    "1600": {
+     "selected": {
+      "QL": 1,
+      "Bayes": 29,
+      "Anchoring2": 0
+     },
+     "qq_reject": 3,
+     "reps": 30
+    }
+   },
+   "sd=0.1": {
+    "100": {
+     "selected": {
+      "QL": 11,
+      "Bayes": 19,
+      "Anchoring2": 0
+     },
+     "qq_reject": 1,
+     "reps": 30
+    },
+    "400": {
+     "selected": {
+      "QL": 1,
+      "Bayes": 29,
+      "Anchoring2": 0
+     },
+     "qq_reject": 0,
+     "reps": 30
+    },
+    "1600": {
+     "selected": {
+      "QL": 0,
+      "Bayes": 30,
+      "Anchoring2": 0
+     },
+     "qq_reject": 1,
+     "reps": 30
+    }
+   }
+  },
+  "Anchoring": {
+   "sd=0.0": {
+    "100": {
+     "selected": {
+      "QL": 0,
+      "Bayes": 14,
+      "Anchoring2": 16
+     },
+     "qq_reject": 22,
+     "reps": 30
+    },
+    "400": {
+     "selected": {
+      "QL": 0,
+      "Bayes": 0,
+      "Anchoring2": 30
+     },
+     "qq_reject": 30,
+     "reps": 30
+    },
+    "1600": {
+     "selected": {
+      "QL": 0,
+      "Bayes": 0,
+      "Anchoring2": 30
+     },
+     "qq_reject": 30,
+     "reps": 30
+    }
+   },
+   "sd=0.1": {
+    "100": {
+     "selected": {
+      "QL": 0,
+      "Bayes": 18,
+      "Anchoring2": 12
+     },
+     "qq_reject": 16,
+     "reps": 30
+    },
+    "400": {
+     "selected": {
+      "QL": 0,
+      "Bayes": 0,
+      "Anchoring2": 30
+     },
+     "qq_reject": 30,
+     "reps": 30
+    },
+    "1600": {
+     "selected": {
+      "QL": 0,
+      "Bayes": 0,
+      "Anchoring2": 30
+     },
+     "qq_reject": 30,
+     "reps": 30
+    }
+   }
+  },
+  "Mixture": {
+   "sd=0.0": {
+    "100": {
+     "selected": {
+      "QL": 2,
+      "Bayes": 26,
+      "Anchoring2": 2
+     },
+     "qq_reject": 5,
+     "reps": 30
+    },
+    "400": {
+     "selected": {
+      "QL": 0,
+      "Bayes": 28,
+      "Anchoring2": 2
+     },
+     "qq_reject": 21,
+     "reps": 30
+    },
+    "1600": {
+     "selected": {
+      "QL": 0,
+      "Bayes": 28,
+      "Anchoring2": 2
+     },
+     "qq_reject": 30,
+     "reps": 30
+    }
+   },
+   "sd=0.1": {
+    "100": {
+     "selected": {
+      "QL": 1,
+      "Bayes": 25,
+      "Anchoring2": 4
+     },
+     "qq_reject": 9,
+     "reps": 30
+    },
+    "400": {
+     "selected": {
+      "QL": 0,
+      "Bayes": 28,
+      "Anchoring2": 2
+     },
+     "qq_reject": 18,
+     "reps": 30
+    },
+    "1600": {
+     "selected": {
+      "QL": 0,
+      "Bayes": 30,
+      "Anchoring2": 0
+     },
+     "qq_reject": 30,
+     "reps": 30
+    }
+   }
+  }
+ }
+}
