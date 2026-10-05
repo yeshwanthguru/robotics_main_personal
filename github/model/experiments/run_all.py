@@ -1,5 +1,5 @@
 """Runs every experiment in order and then draws the figures.
-Run from github/s/model:  python3 experiments/run_all.py
+Run from github/model:  python3 experiments/run_all.py
 Environment variables: QLMODEL_REPS (repetitions per condition, default 50; the paper uses 30),
 QLMODEL_WORKERS (parallel processes, default all cores)."""
 import os, subprocess, sys, time

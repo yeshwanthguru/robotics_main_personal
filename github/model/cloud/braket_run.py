@@ -5,7 +5,7 @@ Prerequisites
   An AWS account with Amazon Braket enabled, credentials configured (aws configure), and an S3
   bucket in the device's region for results (Braket creates amazon-braket-<region>-<account> by default).
 
-Usage (from github/s/model)
+Usage (from github/model)
   python3 cloud/braket_run.py --dry-run                                   # local simulator only, no cost
   python3 cloud/braket_run.py --device arn:aws:braket:::device/quantum-simulator/amazon/dm1 --shots 2000
   python3 cloud/braket_run.py --device arn:aws:braket:us-east-1::device/qpu/ionq/Forte-1 --shots 1000

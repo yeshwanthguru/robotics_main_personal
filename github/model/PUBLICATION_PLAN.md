@@ -13,7 +13,7 @@ Classical Baselines, Simulation Studies and Quantum-Circuit Execution
 | Survey 1 (ACM Computing Surveys) | What can quantum technologies do for autonomous robots? | Manuscript in `github/k` |
 | Survey 2 (Artificial Intelligence Review) | What can quantum-like (quantum-probability) models of decision-making do for autonomous agents? | Manuscript in `github/m` |
 | Survey 3 (IEEE TNNLS) | Can a meta-learned orchestrator route between learning modalities on a resource-constrained robot? | Manuscript in `github/s` |
-| **This paper** | Does an order-aware (quantum-like) human model help a robot that asks people questions, and what does it add over classical models? | Code, simulations and manuscript in `github/s/model` |
+| **This paper** | Does an order-aware (quantum-like) human model help a robot that asks people questions, and what does it add over classical models? | Code, simulations and manuscript in `github/model` |
 
 The paper turns the main open question of Survey 2 (quantum-like models have human evidence but almost
 no tests in robots) into a testable model, and supplies Survey 3 with its fifth confidence signal: the

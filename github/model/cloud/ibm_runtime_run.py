@@ -5,7 +5,7 @@ Prerequisites
   An IBM Quantum Platform account and API key. Save it once:
     python3 -c "from qiskit_ibm_runtime import QiskitRuntimeService as S; S.save_account(channel='ibm_quantum_platform', token='<API key>', instance='<CRN or instance name>')"
 
-Usage (from github/s/model)
+Usage (from github/model)
   python3 cloud/ibm_runtime_run.py --dry-run                 # build and transpile only; no job is sent
   python3 cloud/ibm_runtime_run.py --backend ibm_torino --shots 4000
   python3 cloud/ibm_runtime_run.py --least-busy --shots 4000 --domains object_clarification

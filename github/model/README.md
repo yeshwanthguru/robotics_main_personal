@@ -1,7 +1,7 @@
 # Order-aware human models for robot questioning and trust
 
 Code, simulation studies, quantum-circuit versions and manuscript of the model paper that accompanies
-Survey 3 (`../`). Authors: Yeshwanth Guru and Dev Kunwar Singh Chauhan, Department of Mechanical
+Survey 3 (`../s/`). Authors: Yeshwanth Guru and Dev Kunwar Singh Chauhan, Department of Mechanical
 Engineering, Amrita Vishwa Vidyapeetham, Chennai, India.
 
 ## 1. What the model is, in plain terms
@@ -46,7 +46,7 @@ what does the robot gain by using them, and what does it lose if the model is wr
 ## 3. Installation
 
 ```
-cd github/s/model
+cd github/model
 pip install -r requirements.txt
 python3 -m pytest -q tests          # 11 tests, about 5 s
 ```

@@ -32,9 +32,9 @@ FILES
                                        make_reference_list.py, make_writeups_doc.py, retraction_check.py,
                                        build_word.sh (+ prep_tex_for_word.py, Lua filters, ieee.csl);
                                        data/ holds the write-ups, the hand-coding files and the counts
-  model/                               Companion model paper: order-aware human models for robot questioning and
+  ../model/                            Companion model paper: order-aware human models for robot questioning and
                                        trust (code, simulations, quantum circuits, cloud scripts, manuscript).
-                                       See model/README.md and model/PUBLICATION_PLAN.md
+                                       See ../model/README.md and ../model/PUBLICATION_PLAN.md
 
 HOW TO PRODUCE THE SUBMISSION PDF
   Overleaf > New Project > Upload Project > Survey3_TNNLS_LaTeX_Overleaf.zip; compile main.tex and supplement.tex
@@ -58,7 +58,7 @@ WHAT CHANGED (October 2026)
     a calibration prior meta-learned on 50 tasks gives 0.82 success in the first 25 steps of a new task,
     against 0.77 when learning from scratch (oracle 0.85).
   - Answers to the five research questions (Section XVI); new open problem on human-model uncertainty as an
-    orchestration signal, linked to the model paper in model/ (Section XVII-E).
+    orchestration signal, linked to the model paper in ../model/ (Section XVII-E).
   - Conclusion states the final verdict: supported in principle, not demonstrated; the decisive test is a
     real-robot study showing the orchestrated system beats its strongest single modality at equal compute.
   - Authors, affiliation, ORCIDs and biographies placeholders filled; Data Availability added.

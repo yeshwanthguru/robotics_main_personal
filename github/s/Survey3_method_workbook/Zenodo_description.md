@@ -30,7 +30,7 @@ computing; systematic review
 
 **Related identifiers:** "is supplement to" → the article DOI, once published; "is related to" → the
 Survey 1 record (https://doi.org/10.5281/zenodo.23116224), the Survey 2 record, and the model
-repository of the companion paper (`../model/`).
+repository of the companion paper (`github/model/`).
 
 **Files to upload (from Survey3_data_package/ and the article folder):**
 extraction_table.csv, quality_appraisal.csv, study_summaries.csv, codebook.md, search_strings.md,

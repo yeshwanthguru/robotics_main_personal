@@ -1,5 +1,5 @@
 """Finds the population parameters of the domain generators (qlmodel/domains.py) from target
-first- and second-position 'yes' rates. Run from github/s/model: python3 tools/calibrate_domains.py
+first- and second-position 'yes' rates. Run from github/model: python3 tools/calibrate_domains.py
 Targets are illustrative: object clarification copies the size of the Clinton-Gore order effect
 (Moore, 2002); trust and hand-over has a smaller assimilation effect; preference elicitation has a
 contrast effect (the first-asked option makes the second look better)."""

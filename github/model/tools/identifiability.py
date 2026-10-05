@@ -1,6 +1,6 @@
 """Shows that, with the question order fixed (A then B), the first-position rate of B is not
 identifiable under the quantum-like model: several parameter sets reproduce the same A-first answers
-exactly but imply different B-first rates. Run from github/s/model: python3 tools/identifiability.py"""
+exactly but imply different B-first rates. Run from github/model: python3 tools/identifiability.py"""
 import sys, os, json
 import numpy as np
 from scipy.optimize import least_squares

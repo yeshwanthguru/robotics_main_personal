@@ -1,5 +1,5 @@
 """Builds paper/Model_Paper_Manuscript.docx (review copy, IEEE numbered citations) from paper/main.tex.
-Run from github/s/model (needs pandoc >= 3)."""
+Run from github/model (needs pandoc >= 3)."""
 import os, re, shutil, subprocess, tempfile
 P = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'paper')
 s = open(os.path.join(P, 'main.tex')).read()
@@ -14,7 +14,7 @@ s = re.sub(r'\\begin\{IEEEbiographynophoto\}.*?\\end\{IEEEbiographynophoto\}', '
 s = re.sub(r'\\begin\{IEEEkeywords\}(.*?)\\end\{IEEEkeywords\}', r'\\paragraph{Index Terms} \1', s, flags=re.S)
 d = tempfile.mkdtemp(); open(os.path.join(d, 'body.tex'), 'w').write(s)
 shutil.copytree(os.path.join(P, 'figures'), os.path.join(d, 'figures'))
-csl = os.path.join(os.path.dirname(os.path.dirname(P)), 'tools', 'ieee.csl')
+csl = os.path.join(os.path.dirname(P), 'tools', 'ieee.csl')
 subprocess.run(['pandoc', 'body.tex', '-f', 'latex', '-t', 'docx', '--number-sections', '--bibliography', os.path.join(P, 'refs.bib'),
                 '--citeproc', '--csl', csl, '-o', os.path.join(P, 'Model_Paper_Manuscript.docx')], cwd=d, check=True,
                stderr=subprocess.DEVNULL)

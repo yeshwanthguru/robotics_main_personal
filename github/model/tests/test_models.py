@@ -1,4 +1,4 @@
-"""Unit tests: run from github/s/model with  python3 -m pytest -q tests"""
+"""Unit tests: run from github/model with  python3 -m pytest -q tests"""
 import os, sys
 import numpy as np
 import pytest

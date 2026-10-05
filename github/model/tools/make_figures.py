@@ -1,5 +1,5 @@
 """Draws the figures of the model paper from results/*.json (IEEEtran sizes: one column 3.5 in,
-two columns 7.16 in). Run from github/s/model after experiments/run_all.py:
+two columns 7.16 in). Run from github/model after experiments/run_all.py:
     python3 tools/make_figures.py"""
 import json, os, sys
 import numpy as np
