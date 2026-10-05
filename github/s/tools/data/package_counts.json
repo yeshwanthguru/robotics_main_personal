@@ -1,0 +1,198 @@
+{
+ "appraisal": {
+  "Q1": {
+   "M": 104,
+   "P": 57
+  },
+  "Q2": {
+   "?": 24,
+   "M": 46,
+   "N": 41,
+   "P": 50
+  },
+  "Q3": {
+   "M": 63,
+   "N": 96,
+   "P": 2
+  },
+  "Q4": {
+   "M": 36,
+   "N": 106,
+   "P": 19
+  },
+  "Q5": {
+   "?": 63,
+   "M": 68,
+   "P": 30
+  },
+  "Q6": {
+   "?": 155,
+   "M": 6
+  },
+  "Q7": {
+   "M": 36,
+   "N": 101,
+   "P": 24
+  }
+ },
+ "basis": {
+  "Abstract": 162,
+  "Full text": 13,
+  "Standard reference": 5
+ },
+ "by_topic_level": {
+  "Adaptive computation, mixture of experts and routing": {
+   "E2": 1,
+   "E3": 14,
+   "E4": 5
+  },
+  "Fault detection, adaptation and recovery": {
+   "E3": 1,
+   "E4": 13,
+   "R": 2
+  },
+  "Imitation learning and behavioral fidelity": {
+   "E2": 1,
+   "E3": 4,
+   "E4": 3,
+   "E5": 1,
+   "R": 1
+  },
+  "LLM planners and orchestrators": {
+   "E2": 1,
+   "E3": 13,
+   "E4": 9
+  },
+  "Meta-learning": {
+   "E2": 2,
+   "E3": 6,
+   "E4": 1,
+   "R": 1
+  },
+  "On-device adaptation and continual learning": {
+   "E3": 19,
+   "E4": 2,
+   "R": 1,
+   "S": 1
+  },
+  "Perception and epistemic uncertainty": {
+   "E2": 7,
+   "E4": 1,
+   "R": 1
+  },
+  "Platforms, benchmarks and evaluation": {
+   "E4": 5,
+   "E5": 2,
+   "S": 4
+  },
+  "Reinforcement learning and policy variance": {
+   "E3": 11,
+   "E4": 5,
+   "E5": 1
+  },
+  "Safe learning": {
+   "E2": 1,
+   "E3": 1,
+   "R": 4
+  },
+  "Uncertainty fusion and calibration": {
+   "E2": 1,
+   "E3": 8,
+   "E4": 1,
+   "R": 3
+  },
+  "VLA and robot foundation models": {
+   "E2": 1,
+   "E3": 4,
+   "E4": 11,
+   "E5": 5,
+   "R": 1
+  }
+ },
+ "companion": {
+  "No": 180
+ },
+ "edge": {
+  "Datacentre or cloud": 34,
+  "Embedded GPU": 2,
+  "Not applicable": 14,
+  "Not stated": 16,
+  "Pi-class or embedded CPU": 46,
+  "Workstation GPU": 68
+ },
+ "edge_by_level": {
+  "E2": {
+   "Datacentre or cloud": 1,
+   "Not stated": 2,
+   "Pi-class or embedded CPU": 11,
+   "Workstation GPU": 1
+  },
+  "E3": {
+   "Datacentre or cloud": 17,
+   "Not stated": 7,
+   "Pi-class or embedded CPU": 30,
+   "Workstation GPU": 27
+  },
+  "E4": {
+   "Datacentre or cloud": 14,
+   "Embedded GPU": 1,
+   "Not stated": 7,
+   "Pi-class or embedded CPU": 5,
+   "Workstation GPU": 29
+  },
+  "E5": {
+   "Datacentre or cloud": 2,
+   "Workstation GPU": 7
+  }
+ },
+ "levels": {
+  "E2": 15,
+  "E3": 81,
+  "E4": 56,
+  "E5": 9,
+  "R": 14,
+  "S": 5
+ },
+ "n": 180,
+ "n_appraised": 161,
+ "role": {
+  "CORE": 89,
+  "REVIEW": 11,
+  "STANDARD": 80
+ },
+ "signal": {
+  "Conformal or calibrated": 9,
+  "Epistemic uncertainty": 14,
+  "Failure, anomaly or novelty score": 12,
+  "None": 106,
+  "Not applicable": 14,
+  "Policy variance or entropy": 1,
+  "Routing score or predicted quality": 24
+ },
+ "source": {
+  "Initial list": 108,
+  "Structured search": 72
+ },
+ "status": {
+  "Conference paper": 125,
+  "Journal article": 30,
+  "Preprint": 25
+ },
+ "years": {
+  "1991": 1,
+  "2006": 1,
+  "2011": 1,
+  "2015": 4,
+  "2016": 8,
+  "2017": 15,
+  "2018": 10,
+  "2019": 8,
+  "2020": 8,
+  "2021": 13,
+  "2022": 17,
+  "2023": 26,
+  "2024": 31,
+  "2025": 28,
+  "2026": 9
+ }
+}
